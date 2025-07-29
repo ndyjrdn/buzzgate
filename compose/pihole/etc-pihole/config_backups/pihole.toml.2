@@ -9,7 +9,10 @@
   #
   # Possible values are:
   #     array of IP addresses and/or hostnames, optionally with a port (#...)
-  upstreams = []
+  upstreams = [
+    "8.8.8.8",
+    "8.8.4.4"
+  ] ### CHANGED, default = []
 
   # Use this option to control deep CNAME inspection. Disabling it might be beneficial
   # for very low-end devices
@@ -809,7 +812,7 @@
     #
     # Possible values are:
     #     <valid Pi-hole password hash>
-    pwhash = ""
+    pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$qHpFePCm7BdHcDGTIO6CKw==$EPOFkf3G8v8kWH96+uSxQYySt+EvmkkvigFVufE7df8=" ### CHANGED, default = ""
 
     # Pi-hole 2FA TOTP secret. When set to something different than "", 2FA authentication
     # will be enforced for the API and the web interface. This setting is write-only, you
@@ -1193,6 +1196,6 @@
   all = false
 
 # Configuration statistics:
-# 155 total entries out of which 154 entries are default
-# --> 1 entry is modified
+# 155 total entries out of which 152 entries are default
+# --> 3 entries are modified
 
