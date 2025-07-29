@@ -3,7 +3,7 @@ version: '3.8'
 services:
   nginx:
     image: nginx:latest
-    container_name: buzz-nginx
+    container_name: cy-nginx
     ports:
       - "80:80"
     volumes:
@@ -12,7 +12,7 @@ services:
 
   pi-hole:
     image: pihole/pihole:latest
-    container_name: buzz-pihole
+    container_name: cy-pihole
     environment:
       - TZ=America/Chicago
       - WEBPASSWORD=changeme
@@ -27,26 +27,50 @@ services:
 
   watchtower:
     image: containrrr/watchtower
-    container_name: buzz-watchtower
+    container_name: cy-watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
-
-  portainer:
-    image: portainer/portainer-ce:latest
-    container_name: portainer
-    restart: unless-stopped
-    ports:
-      - "9000:9000"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
-    networks:
-      - buzznet
-
-volumes:
-  portainer_data:
 
 networks:
   buzznet:
     driver: bridge
+
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    container_name: cy-ha
+    ports:
+      - "8123:8123"
+    volumes:
+      - ./homeassistant:/config
+    restart: unless-stopped
+    networks:
+      - buzznet
+    privileged: true
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: cy-mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    restart: unless-stopped
+    networks:
+      - buzznet
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt
+    container_name: cy-z2m
+    depends_on:
+      - mosquitto
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./zigbee2mqtt:/app/data
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    restart: unless-stopped
+    networks:
+      - buzznet
+
