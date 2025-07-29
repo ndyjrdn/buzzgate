@@ -1,0 +1,31 @@
+homeassistant: true
+
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://cy-mosquitto'
+
+serial:
+  type: ezsp
+  port: 'tcp://192.168.1.177:6138'
+
+frontend:
+  enabled: true
+  port: 8080
+
+advanced:
+  log_level: info
+  network_key: GENERATE
+  pan_id: GENERATE
+  availability_blocklist: []
+  availability_passlist: []
+
+experimental:
+  new_api: true
+
+device_options:
+  retain: false
+
+onboarding: false
+permit_join: true
+
+devices: {}

@@ -417,3 +417,4 @@ FodyWeavers.xsd
 *.msm
 *.msp
 compose/pihole/etc-pihole/logrotate
+compose/homeassistant/.storage/
