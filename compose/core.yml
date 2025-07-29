@@ -32,10 +32,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
 
-networks:
-  buzznet:
-    driver: bridge
-
   homeassistant:
     image: ghcr.io/home-assistant/home-assistant:stable
     container_name: cy-ha
@@ -45,7 +41,7 @@ networks:
       - ./homeassistant:/config
     restart: unless-stopped
     networks:
-      - buzznet
+      - cynet
     privileged: true
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -58,7 +54,7 @@ networks:
       - ./mosquitto/log:/mosquitto/log
     restart: unless-stopped
     networks:
-      - buzznet
+      - cynet
   zigbee2mqtt:
     image: koenkk/zigbee2mqtt
     container_name: cy-z2m
@@ -72,5 +68,7 @@ networks:
       - /dev/ttyUSB0:/dev/ttyUSB0
     restart: unless-stopped
     networks:
-      - buzznet
-
+      - cynet
+networks:
+  cynet:
+    driver: bridge
