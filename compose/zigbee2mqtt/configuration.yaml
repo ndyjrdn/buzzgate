@@ -1,3 +1,4 @@
+version: 1
 homeassistant: true
 mqtt:
   base_topic: zigbee2mqtt
