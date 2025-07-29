@@ -15,7 +15,7 @@ services:
     container_name: cy-pihole
     environment:
       - TZ=America/Chicago
-      - WEBPASSWORD=changeme
+      - WEBPASSWORD=
     volumes:
       - ./pihole/etc-pihole:/etc/pihole
       - ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
