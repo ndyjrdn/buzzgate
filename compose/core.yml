@@ -64,7 +64,7 @@ services:
       - "8081:8080"
     volumes:
       - ./zigbee2mqtt:/app/data
-    restart: "no"
+    restart: unless-stopped
     networks:
       - cynet
 networks:
