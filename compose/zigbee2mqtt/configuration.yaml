@@ -3,7 +3,7 @@ mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://cy-mosquitto'
 serial:
-  type: ezsp
+  type: zstack
   port: 'tcp://192.168.1.177:6638'
 frontend:
   enabled: true
