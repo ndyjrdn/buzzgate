@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: buzz-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    restart: unless-stopped
+
+  pi-hole:
+    image: pihole/pihole:latest
+    container_name: buzz-pihole
+    environment:
+      - TZ=America/Chicago
+      - WEBPASSWORD=changeme
+    volumes:
+      - ./pihole/etc-pihole:/etc/pihole
+      - ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80"
+    restart: unless-stopped
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: buzz-watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
