@@ -57,9 +57,9 @@ services:
       - cynet
   zigbee2mqtt:
     image: koenkk/zigbee2mqtt
-    container_name: cy-z2m
+    container_name: cy-z2m-new
     depends_on:
-      - mosquitto
+      - cy-mosquitto
     ports:
       - "8081:8080"
     volumes:
