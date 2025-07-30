@@ -4,8 +4,8 @@ mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://cy-mosquitto'
 serial:
-  adapter: deconz
-  port: 'tcp://192.168.1.171:6638'
+  adapter: zstack
+  port: '/dev/null' # 'tcp://192.168.1.171:6638'
 frontend:
   enabled: true
   port: 8080
