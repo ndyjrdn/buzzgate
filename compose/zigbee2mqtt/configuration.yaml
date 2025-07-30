@@ -5,7 +5,7 @@ mqtt:
   server: 'mqtt://cy-mosquitto'
 serial:
   adapter: zstack
-  port: '/dev/null' # 'tcp://192.168.1.171:6638'
+  port: 'tcp://192.168.1.171:6638'
 frontend:
   enabled: true
   port: 8080
@@ -18,5 +18,5 @@ experimental:
 device_options:
   retain: false
 onboarding: false
-permit_join: true
+permit_join: false
 devices: {}
