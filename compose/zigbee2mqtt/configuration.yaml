@@ -4,7 +4,7 @@ mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://cy-mosquitto'
 serial:
-  adapter: zstack
+  adapter: ember
   port: 'tcp://192.168.1.171:6638'
 frontend:
   enabled: true
