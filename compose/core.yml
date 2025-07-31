@@ -43,24 +43,26 @@ services:
     networks:
       - cynet
     privileged: true
-  #mosquitto:
-  # image: eclipse-mosquitto:latest
-  #  container_name: cy-mosquitto
-  #  ports:
-  #    - "1883:1883"
-  #  volumes:
-  #    - ./mosquitto/config/default.conf:/mosquitto/config/mosquitto.conf
-  #    - ./mosquitto/config:/mosquitto/config
-  #    - ./mosquitto/data:/mosquitto/data
-  #   - ./mosquitto/log:/mosquitto/log
-  # restart: unless-stopped
-  # networks:
-  #   - cynet
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: cy-mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config/default.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    restart: unless-stopped
+    networks:
+      - cynet
+
   zigbee2mqtt:
     image: koenkk/zigbee2mqtt
-    container_name: cy-z2m-new
-    #depends_on:
-    # - mosquitto
+    container_name: cy-z2m
+    depends_on:
+      - mosquitto
     ports:
       - "8081:8080"
     volumes:
@@ -68,6 +70,7 @@ services:
     restart: unless-stopped
     networks:
       - cynet
+
 networks:
   cynet:
     driver: bridge
