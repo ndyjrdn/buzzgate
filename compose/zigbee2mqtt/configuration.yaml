@@ -1,22 +1,30 @@
-version: 1
 homeassistant: true
+
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://cy-mosquitto'
+
 serial:
   adapter: zstack
   port: 'tcp://192.168.1.171:6638'
+
 frontend:
   enabled: true
   port: 8080
+
 advanced:
   log_level: info
   network_key: GENERATE
   pan_id: GENERATE
+
 experimental:
   new_api: true
+
 device_options:
   retain: false
+
 onboarding: false
 permit_join: false
+
 devices: {}
+
