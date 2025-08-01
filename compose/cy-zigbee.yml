@@ -6,8 +6,8 @@ services:
     ports:
       - "1883:1883"
     volumes:
-      - ./buzzgate/config/mosquitto/config:/mosquitto/config
-      - ./buzzgate/config/mosquitto/data:/mosquitto/data
+      - ./compose/mosquitto/config:/mosquitto/config
+      - ./compose/mosquitto/data:/mosquitto/data
       - ./log:/mosquitto/log
     restart: unless-stopped
     networks:
