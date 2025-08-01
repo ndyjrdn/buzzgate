@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: cy-mosquitto-z2m
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./buzzgate/config/mosquitto/config:/mosquitto/config
+      - ./buzzgate/config/mosquitto/data:/mosquitto/data
+      - ./log:/mosquitto/log
+    restart: unless-stopped
+    networks:
+      - compose_cynet
+
+  z2m-lite:
+    image: koenkk/zigbee2mqtt
+    container_name: z2m-lite
+    restart: unless-stopped
+    depends_on:
+      - mosquitto
+    ports:
+      - "4242:8080"
+    volumes:
+      - /buzzgate/config/zigbee2mqtt:/app/data
+    networks:
+      - compose_cynet
+
+networks:
+  compose_cynet:
+    external: true
