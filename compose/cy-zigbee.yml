@@ -6,10 +6,10 @@ services:
     ports:
       - "1883:1883"
     volumes:
-      - ./compose/mosquitto/config/default.conf:/mosquitto-config.conf
+      - ./compose/mosquitto/config/default.conf:/mosquitto/config/config.conf
       - ./compose/mosquitto/data:/mosquitto/data
       - ./compose/log:/mosquitto/log
-    command: mosquitto -c /mosquitto-config.conf
+    command: mosquitto -c /mosquitto/config/config.conf
     restart: unless-stopped
     networks:
       - compose_cynet
