@@ -22,7 +22,7 @@ services:
     ports:
       - "4242:8080"
     volumes:
-      - /buzzgate/config/zigbee2mqtt:/app/data
+      - ./compose/zigbee2mqtt:/app/data
     networks:
       - compose_cynet
 
