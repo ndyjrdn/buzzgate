@@ -9,7 +9,6 @@ services:
       - ./compose/mosquitto/config:/mosquitto/config
       - ./compose/mosquitto/data:/mosquitto/data
       - ./compose/log:/mosquitto/log
-    command: mosquitto -c /mosquitto/config/mosquitto.conf
     restart: unless-stopped
     networks:
       - compose_cynet
