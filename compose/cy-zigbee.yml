@@ -5,11 +5,11 @@ services:
     container_name: cy-mosquitto-z2m
     ports:
       - "1883:1883"
-    volumes:
-     - ./compose/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
-     - ./compose/mosquitto/data:/mosquitto/data
-     - ./compose/log:/mosquitto/log
-    command: mosquitto -c /mosquitto/config/mosquitto.conf
+     volumes:
+      - ./compose/mosquitto/config/mosquitto.conf:/mosquitto.conf
+      - ./compose/mosquitto/data:/mosquitto/data
+      - ./compose/log:/mosquitto/log
+    command: mosquitto -c /mosquitto.conf
     restart: unless-stopped
     networks:
       - compose_cynet
