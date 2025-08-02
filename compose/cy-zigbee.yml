@@ -6,7 +6,7 @@ services:
     ports:
       - "1883:1883"
     volumes:
-      - ./compose/mosquitto/config:/cy-config
+      - /home/andy/buzzgate/compose/mosquitto/config:/cy-config
       - ./compose/mosquitto/data:/mosquitto/data
       - ./compose/log:/mosquitto/log
     command: mosquitto -c /cy-config/default.conf
