@@ -6,7 +6,7 @@ services:
     ports:
       - "1883:1883"
     volumes:
-      - ./compose/mosquitto/config/default.conf:/buzzgate-config/default.con
+      - ./compose/mosquitto/config/default.conf:/buzzgate-config/default.conf
       - ./compose/mosquitto/data:/mosquitto/data
       - ./compose/log:/mosquitto/log
     command: mosquitto -c /buzzgate-config/default.conf
