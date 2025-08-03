@@ -7,7 +7,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - /home/andy/buzzgate/compose/nginx:/etc/nginx/conf.d
     restart: unless-stopped
 
   pi-hole:
@@ -17,8 +17,8 @@ services:
       - TZ=America/Chicago
       - WEBPASSWORD=
     volumes:
-      - ./pihole/etc-pihole:/etc/pihole
-      - ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+      - /home/andy/buzzgate/compose/pihole/etc-pihole:/etc/pihole
+      - /home/andy/buzzgate/compose/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
     networks:
       - compose_cynet
     ports:
