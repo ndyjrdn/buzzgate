@@ -24,10 +24,10 @@ services:
     volumes:
       - /home/andy/buzzgate/compose/pihole/etc-pihole:/etc/pihole
       - /home/andy/buzzgate/compose/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
-    network_mode:
-      "host"
-     #networks:
-     #  - compose_cynet
+    #network_mode:
+    #  "host"
+    networks:
+      - compose_cynet
     ports:
       - "53:53/tcp"
       - "53:53/udp"
