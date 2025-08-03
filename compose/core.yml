@@ -25,12 +25,12 @@ services:
       - "8080:80"
     restart: unless-stopped
 
-  watchtower:
-    image: containrrr/watchtower
-    container_name: cy-watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
+  # watchtower:
+  #   image: containrrr/watchtower
+  #   container_name: cy-watchtower
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   restart: unless-stopped
 
   homeassistant:
     image: ghcr.io/home-assistant/home-assistant:stable
