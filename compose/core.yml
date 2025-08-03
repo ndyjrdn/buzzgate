@@ -22,8 +22,8 @@ services:
       - /home/andy/buzzgate/compose/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
     network_mode:
       "host"
-    networks:
-      - compose_cynet
+    #networks:
+    #  - compose_cynet
     ports:
       - "53:53/tcp"
       - "53:53/udp"
