@@ -7,8 +7,8 @@ services:
       - "1883:1883"
     volumes:
       - /home/andy/buzzgate/compose/mosquitto/config:/cy-config
-      - ./compose/mosquitto/data:/mosquitto/data
-      - ./compose/log:/mosquitto/log
+      - /home/andy/buzzgate/compose/mosquitto/data:/mosquitto/data
+      - /home/andy/buzzgate/compose/log:/mosquitto/log
     command: mosquitto -c /cy-config/default.conf
     restart: unless-stopped
     networks:
