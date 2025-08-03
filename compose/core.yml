@@ -7,7 +7,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - /home/andy/buzzgate/compose/nginx:/etc/nginx/conf.d
+      - /home/andy/buzzgate/compose/nginx/conf.d:/etc/nginx/conf.d
+      - /home/andy/buzzgate/compose/nginx/html:/usr/share/nginx/html
+      - /home/andy/buzzgate/compose/nginx/logs:/var/log/nginx
     restart: unless-stopped
 
   pi-hole:
