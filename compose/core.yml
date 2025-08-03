@@ -22,7 +22,7 @@ services:
       - WEBPASSWORD=
       - WEB_PORT=80
     volumes:
-      - /home/andy/buzzgate/compose/pihole/etc-pihole:/etc/pihole
+      #- /home/andy/buzzgate/compose/pihole/etc-pihole:/etc/pihole
       - /home/andy/buzzgate/compose/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
     #network_mode:
     #  "host"
