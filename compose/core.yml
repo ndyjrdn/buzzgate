@@ -6,6 +6,8 @@ services:
     container_name: cy-nginx
     ports:
       - "80:80"
+    networks:
+      - compose_cynet
     volumes:
       - /home/andy/buzzgate/compose/nginx/conf.d:/etc/nginx/conf.d
       - /home/andy/buzzgate/compose/nginx/html:/usr/share/nginx/html
@@ -45,7 +47,7 @@ services:
     ports:
       - "8123:8123"
     volumes:
-      - ./homeassistant:/config
+      - /home/andy/buzzgate/compose/homeassistant:/config
     restart: unless-stopped
     networks:
       - compose_cynet
