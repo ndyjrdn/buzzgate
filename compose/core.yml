@@ -16,7 +16,7 @@ services:
     environment:
       - TZ=America/Chicago
       - WEBPASSWORD=
-      - WEB_PORT=80
+      - WEB_PORT=8080
     volumes:
       - /home/andy/buzzgate/compose/pihole/etc-pihole:/etc/pihole
       - /home/andy/buzzgate/compose/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
