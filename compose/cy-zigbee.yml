@@ -2,7 +2,7 @@ version: "3.9"
 services:
   mosquitto:
     dns:
-      - 192.168.1.10
+      - 192.168.1.177
       - 1.1.1.1
     image: eclipse-mosquitto:latest
     container_name: cy-mosquitto-z2m
@@ -26,7 +26,7 @@ services:
     ports:
       - "4242:4242"
     dns:
-      - 192.168.1.10
+      - 192.168.1.177
       - 1.1.1.1
     volumes:
       - /home/andy/buzzgate/compose/zigbee2mqtt:/app/data
