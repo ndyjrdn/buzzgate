@@ -14,25 +14,25 @@ services:
       - /home/andy/buzzgate/compose/nginx/logs:/var/log/nginx
     restart: unless-stopped
 
-  # pi-hole:
-  #   image: pihole/pihole:latest
-  #   container_name: cy-pihole
-  #   environment:
-  #     - TZ=America/Chicago
-  #     - WEBPASSWORD=
-  #     - WEB_PORT=8080
-  #   volumes:
-  #     - /home/andy/buzzgate/compose/pihole/etc-pihole:/etc/pihole
-  #     - /home/andy/buzzgate/compose/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
-  #   network_mode:
-  #     "host"
-  #   #networks:
-  #   #  - compose_cynet
-  #   ports:
-  #     - "53:53/tcp"
-  #     - "53:53/udp"
-  #     - "8080:8080"
-  #   restart: unless-stopped
+   pi-hole:
+     image: pihole/pihole:latest
+     container_name: cy-pihole
+     environment:
+       - TZ=America/Chicago
+       - WEBPASSWORD=
+       - WEB_PORT=8080
+     volumes:
+       - /home/andy/buzzgate/compose/pihole/etc-pihole:/etc/pihole
+       - /home/andy/buzzgate/compose/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+     network_mode:
+       "host"
+     #networks:
+     #  - compose_cynet
+     ports:
+       - "53:53/tcp"
+       - "53:53/udp"
+       - "8080:8080"
+     restart: unless-stopped
 
   # watchtower:
   #   image: containrrr/watchtower
