@@ -418,3 +418,4 @@ FodyWeavers.xsd
 *.msp
 compose/pihole/etc-pihole/logrotate
 compose/homeassistant/.storage/
+compose/pihole/etc-pihole/pihole-FTL.db
