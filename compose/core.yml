@@ -21,12 +21,9 @@ services:
       - ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
     networks:
       - compose_cynet
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
+      - "192.168.1.177:53:53/tcp"
+      - "192.168.1.177:53:53/udp"
       - "8080:80"
     restart: unless-stopped
 
