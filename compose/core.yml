@@ -43,5 +43,7 @@ services:
     networks:
       - compose_cynet
     privileged: true
-
+networks:
+  compose_cynet:
+    external: true
   
