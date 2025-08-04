@@ -18,5 +18,5 @@ services:
       - "8080:80"
     restart: unless-stopped
 networks:
-  compose_cynet
+  compose_cynet:
     external: true 
