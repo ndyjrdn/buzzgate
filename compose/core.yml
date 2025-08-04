@@ -16,7 +16,7 @@ services:
 
   pi-hole:
     image: pihole/pihole:2023.11.0
-    container_name: cy-pihole
+    container_name: cyhole
     environment:
       - TZ=America/Chicago
       - WEBPASSWORD=
