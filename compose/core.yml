@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
   cyhole:
-    image: pihole/pihole:2023.11.0
+    image: pihole/pihole:2023.10.0
     container_name: cyhole
     environment:
       - TZ=America/Chicago
