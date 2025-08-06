@@ -1,0 +1,22 @@
+services:
+  wireguard:
+    image: linuxserver/wireguard
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - SERVERURL=208.126.129.241
+      - SERVERPORT=51820
+      - PEERS=andyphone,andytablet
+      - PEERDNS=192.168.1.177  # Pi-hole
+      - INTERNAL_SUBNET=10.13.13.0
+    volumes:
+      - /home/andy/buzzgate/wireguard/config:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 51820:51820/udp
+    restart: unless-stopped
