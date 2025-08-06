@@ -9,9 +9,9 @@ services:
     volumes:
       - /home/andy/buzzgate/compose/nextcloud/html:/var/www/html
       - /home/andy/buzzgate/compose/nextcloud/data:/var/www/html/data
-      - /mnt/skippy-homes:/var/www/html/data/homes
-      - /mnt/skippy-vault:/var/www/html/data/money
-      - /mnt/skippy-google:/var/www/html/data/google
+      - /mnt/homes:/var/www/html/data/homes
+      - /mnt/Money-Shared:/var/www/html/data/money
+      - /mnt/'from google drive':/var/www/html/data/google
     environment:
       - MYSQL_PASSWORD=ldj81771
       - MYSQL_DATABASE=nextcloud
