@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  nextcloud:
+    image: nextcloud:stable
+    container_name: cycloud
+    ports:
+      - "8081:80"
+    volumes:
+      - /home/andy/buzzgate/compose/nextcloud/html:/var/www/html
+      - /home/andy/buzzgate/compose/nextcloud/data:/var/www/html/data
+    environment:
+      - MYSQL_PASSWORD=ldj81771
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=andy
+      - MYSQL_HOST=mariadb
+    networks:
+      - compose_cynet
+    restart: unless-stopped
+
+  mariadb:
+    image: mariadb:latest
+    container_name: cycloud-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=ldj81771
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=andy
+      - MYSQL_PASSWORD=ldj81771
+    volumes:
+      - /home/andy/buzzgate/compose/nextcloud/db:/var/lib/mysql
+    networks:
+      - compose_cynet
+    restart: unless-stopped
+
+networks:
+  compose_cynet:
+    external: true
