@@ -1,7 +1,7 @@
 services:
   wireguard:
     image: linuxserver/wireguard
-    container_name: wireguard
+    container_name: cy-vpn
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
