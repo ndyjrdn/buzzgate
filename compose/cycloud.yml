@@ -10,7 +10,6 @@ services:
       - /home/andy/buzzgate/compose/nextcloud/html:/var/www/html
       - /home/andy/buzzgate/compose/nextcloud/data:/var/www/html/data
       - /mnt/skippy-homes:/var/www/html/data/andy/files/homes
-      - /mnt/skippy-vault:/var/www/html/data/andy/files/money
       - /mnt/skippy-google:/var/www/html/data/andy/files/google
     environment:
       - MYSQL_PASSWORD=ldj81771
