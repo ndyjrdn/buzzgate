@@ -8,7 +8,6 @@ services:
       - "8081:80"
     volumes:
       - /home/andy/buzzgate/compose/nextcloud/html:/var/www/html
-      - /home/andy/buzzgate/compose/nextcloud/data:/var/www/html/data
       - /mnt/skippy-homes:/var/www/html/data/andy/files/homes
       - /mnt/skippy-nextcloud:/var/www/html/data
     environment:
