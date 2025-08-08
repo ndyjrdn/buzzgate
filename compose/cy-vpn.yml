@@ -14,10 +14,6 @@ services:
       - PEERS=andyphone,andytablet
       - PEERDNS=192.168.1.177  # Pi-hole
       - INTERNAL_SUBNET=10.13.13.0
-      peer:
-        PublicKey = lzQDiQgtjk6Xza0uuRtrEBW53l3jzwp6Jr4XNMES/BI=
-        AllowedIPs = 10.13.13.2/32
-        PersistentKeepalive = 25
     volumes:
       - /home/andy/buzzgate/wireguard/config:/config
       - /lib/modules:/lib/modules
