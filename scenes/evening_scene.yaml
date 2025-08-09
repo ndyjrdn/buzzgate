@@ -1,0 +1,22 @@
+alias: Buzzgate Evening Scene
+trigger:
+  - platform: time
+    at: "19:30:00"
+action:
+  - service: light.turn_on
+    data:
+      brightness: 255
+      color_temp: 250
+    target:
+      entity_id:
+        - group.hallway
+        - group.entryway
+  - delay: "02:00:00"
+  - service: light.turn_off
+    data:
+      transition: 13800
+    target:
+      entity_id:
+        - group.hallway
+        - group.entryway
+        - light.master_bedroom
