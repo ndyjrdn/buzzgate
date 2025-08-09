@@ -1,0 +1,27 @@
+alias: Buzzgate Morning Scene
+trigger:
+  - platform: time
+    at: "05:00:00"
+action:
+  - service: light.turn_on
+    data:
+      brightness: 255
+      color_temp: 250  # warm white
+    target:
+      entity_id: light.diningroom
+  - delay: "03:00:00"
+  - service: light.turn_on
+    data:
+      brightness: 255
+      color_temp: 250
+    target:
+      entity_id: group.kitchen
+  - delay: "02:00:00"
+  - service: light.turn_off
+    data:
+      transition: 600
+    target:
+      entity_id:
+        - light.diningroom
+        - group.kitchen
+        - light.master_bedroom
