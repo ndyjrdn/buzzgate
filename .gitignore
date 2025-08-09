@@ -418,3 +418,8 @@ FodyWeavers.xsd
 *.msp
 compose/pihole/etc-pihole/logrotate
 compose/homeassistant/.storage/
+
+# Ignore Nextcloud data and DB folders
+compose/nextcloud/data/
+compose/nextcloud/db/
+compose/nextcloud/html/

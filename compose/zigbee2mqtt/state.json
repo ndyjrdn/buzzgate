@@ -1,245 +1,257 @@
 {
     "1": {
         "state": "ON",
-        "brightness": 92,
+        "brightness": 254,
         "color_mode": "color_temp",
-        "color_temp": 200,
+        "color_temp": 154,
         "color": {
-            "x": 0.3451,
-            "y": 0.3516
+            "x": 0.3137,
+            "y": 0.3238
         }
     },
     "2": {
-        "state": "OFF"
+        "state": "ON"
     },
     "3": {
-        "state": "OFF",
-        "brightness": 100,
-        "color_temp": 500,
-        "color_mode": "xy",
+        "state": "ON",
+        "brightness": 254,
+        "color_temp": 154,
+        "color_mode": "color_temp",
         "color": {
-            "x": 0.1355,
-            "y": 0.0399
+            "x": 0.3137,
+            "y": 0.3238
         }
     },
     "4": {
-        "state": "OFF"
+        "state": "ON",
+        "brightness": 229,
+        "color_mode": "color_temp",
+        "color_temp": 154
     },
     "0xb0ce1814001afd37": {
-        "power": 2.8,
-        "energy": 0.13,
+        "power": 5.9,
+        "energy": 0.22,
         "update": {
             "state": "idle",
             "installed_version": 38,
             "latest_version": 38
         },
         "state": "ON",
-        "linkquality": 196
+        "linkquality": 200,
+        "color_mode": "color_temp",
+        "color_temp": 154,
+        "brightness": 236
     },
     "0xb0ce181400214aaa": {
-        "power": 5.7,
-        "energy": 0.17,
+        "power": 0.2,
+        "energy": 0.3,
         "update": {
             "state": "idle",
             "installed_version": 10,
             "latest_version": 10
         },
         "state": "ON",
-        "linkquality": 123,
-        "brightness": 92,
+        "linkquality": 142,
+        "brightness": 254,
         "color_mode": "color_temp",
         "color": {
-            "x": 0.3451,
-            "y": 0.3516
+            "x": 0.3137,
+            "y": 0.3238
         },
-        "color_temp": 200
+        "color_temp": 154
     },
     "0xb0ce181400214c18": {
-        "power": 5.4,
-        "energy": 0.16,
+        "power": 0.2,
+        "energy": 0.28,
         "update": {
             "state": "idle",
             "installed_version": 10,
             "latest_version": 10
         },
         "state": "ON",
-        "linkquality": 98,
-        "brightness": 92,
+        "linkquality": 58,
+        "brightness": 254,
         "color_mode": "color_temp",
         "color": {
-            "x": 0.3451,
-            "y": 0.3516
+            "x": 0.3137,
+            "y": 0.3238
         },
-        "color_temp": 200
+        "color_temp": 154
     },
     "0xb0ce181400214913": {
-        "power": 5.4,
-        "energy": 0.16,
+        "power": 4.4,
+        "energy": 0.28,
         "update": {
             "state": "idle",
             "installed_version": 10,
             "latest_version": 10
         },
         "state": "ON",
-        "linkquality": 134,
-        "brightness": 92,
+        "linkquality": 131,
+        "brightness": 254,
         "color_mode": "color_temp",
-        "color_temp": 200,
+        "color_temp": 154,
         "color": {
-            "x": 0.3451,
-            "y": 0.3516
+            "x": 0.3137,
+            "y": 0.3238
         }
     },
     "0xb0ce181400214ac5": {
-        "power": 5.5,
-        "energy": 0.16,
+        "power": 0.2,
+        "energy": 0.28,
         "update": {
             "state": "idle",
             "installed_version": 10,
             "latest_version": 10
         },
         "state": "ON",
-        "linkquality": 98,
-        "brightness": 92,
+        "linkquality": 51,
+        "brightness": 254,
         "color_mode": "color_temp",
         "color": {
-            "x": 0.3451,
-            "y": 0.3516
+            "x": 0.3137,
+            "y": 0.3238
         },
-        "color_temp": 200
+        "color_temp": 154
     },
     "0xb0ce1814002148f6": {
-        "power": 5.7,
-        "energy": 0.16,
+        "power": 0.2,
+        "energy": 0.28,
         "update": {
             "state": "idle",
             "installed_version": 10,
             "latest_version": 10
         },
         "state": "ON",
-        "linkquality": 105,
-        "brightness": 92,
+        "linkquality": 142,
+        "brightness": 254,
         "color_mode": "color_temp",
         "color": {
-            "x": 0.3451,
-            "y": 0.3516
+            "x": 0.3137,
+            "y": 0.3238
         },
-        "color_temp": 200
+        "color_temp": 154
     },
     "0xb0ce181400214c05": {
-        "power": 5.4,
-        "energy": 0.07,
-        "state": "OFF",
+        "power": 0.2,
+        "energy": 0.19,
+        "state": "ON",
         "update": {
             "state": "idle",
             "installed_version": 10,
             "latest_version": 10
         },
-        "linkquality": 76
+        "linkquality": 76,
+        "brightness": 229,
+        "color_mode": "color_temp",
+        "color_temp": 154
     },
     "0xb0ce1814001afa2d": {
-        "power": 0.2,
-        "energy": 0.25,
-        "state": "OFF",
+        "power": 8.6,
+        "energy": 0.41,
+        "state": "ON",
         "update": {
             "state": "idle",
             "installed_version": 38,
             "latest_version": 38
         },
-        "linkquality": 131
+        "linkquality": 123
     },
     "0xb0ce1814001af7a6": {
-        "power": 0.2,
-        "energy": 0.16,
-        "state": "OFF",
+        "power": 9.1,
+        "energy": 0.36,
+        "state": "ON",
         "update": {
             "state": "idle",
             "installed_version": 38,
             "latest_version": 38
         },
-        "linkquality": 116
+        "linkquality": 102
     },
     "0xb0ce1814001d4cb7": {
-        "power": 0.2,
-        "energy": 0.01,
+        "power": 3.7,
+        "energy": 0.1,
         "update": {
             "state": "idle",
             "installed_version": 22,
             "latest_version": 22
         },
         "linkquality": 72,
-        "state": "OFF",
-        "brightness": 100,
+        "state": "ON",
+        "brightness": 254,
         "color_temp": 154,
-        "color_mode": "xy",
+        "color_mode": "color_temp",
         "color": {
-            "x": 0.208,
-            "y": 0.217
+            "x": 0.3137,
+            "y": 0.3238
         }
     },
     "0xb0ce1814001d488c": {
-        "power": 0.2,
-        "energy": 0.01,
-        "update": {
-            "state": "idle",
-            "installed_version": 22,
-            "latest_version": 22
-        },
-        "linkquality": 29,
-        "state": "OFF",
-        "brightness": 100,
-        "color_temp": 154,
-        "color_mode": "xy",
-        "color": {
-            "x": 0.208,
-            "y": 0.217
-        }
-    },
-    "0xb0ce1814001d58ee": {
-        "power": 0.2,
-        "energy": 0.01,
-        "update": {
-            "state": "idle",
-            "installed_version": 22,
-            "latest_version": 22
-        },
-        "linkquality": 58,
-        "state": "OFF",
-        "brightness": 17,
-        "color_temp": 154,
-        "color_mode": "xy",
-        "color": {
-            "x": 0.208,
-            "y": 0.217
-        }
-    },
-    "0xb0ce1814001d44a0": {
-        "power": 0.2,
-        "energy": 0.01,
+        "power": 3.9,
+        "energy": 0.1,
         "update": {
             "state": "idle",
             "installed_version": 22,
             "latest_version": 22
         },
         "linkquality": 51,
-        "state": "OFF",
-        "brightness": 100,
-        "color_temp": 500,
-        "color_mode": "xy",
+        "state": "ON",
+        "brightness": 254,
+        "color_temp": 154,
+        "color_mode": "color_temp",
         "color": {
-            "x": 0.1355,
-            "y": 0.0399
+            "x": 0.3137,
+            "y": 0.3238
+        }
+    },
+    "0xb0ce1814001d58ee": {
+        "power": 3.7,
+        "energy": 0.1,
+        "update": {
+            "state": "idle",
+            "installed_version": 22,
+            "latest_version": 22
+        },
+        "linkquality": 43,
+        "state": "ON",
+        "brightness": 254,
+        "color_temp": 154,
+        "color_mode": "color_temp",
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
+        }
+    },
+    "0xb0ce1814001d44a0": {
+        "power": 3.7,
+        "energy": 0.1,
+        "update": {
+            "state": "idle",
+            "installed_version": 22,
+            "latest_version": 22
+        },
+        "linkquality": 65,
+        "state": "ON",
+        "brightness": 254,
+        "color_temp": 154,
+        "color_mode": "color_temp",
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
         }
     },
     "0xb0ce181400189493": {
-        "power": 9.4,
-        "energy": 0.18,
-        "state": "OFF",
+        "power": 7.9,
+        "energy": 0.41,
+        "state": "ON",
         "update": {
             "state": "idle",
             "installed_version": 38,
             "latest_version": 38
         },
-        "linkquality": 94
+        "linkquality": 94,
+        "brightness": 229,
+        "color_mode": "color_temp",
+        "color_temp": 154
     }
 }
