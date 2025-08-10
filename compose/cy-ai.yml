@@ -25,6 +25,8 @@ services:
     environment:
       - OLLAMA_BASE_URL=http://cy-ai-ollama:11434
       - WEBUI_SECRET_KEY=supersecurekey
+    volumes:
+      - /mnt/llm-memory:/app/memory  # NAS-mounted memory volume
     depends_on:
       - ollama
     restart: unless-stopped
