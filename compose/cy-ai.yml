@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: cy-ai-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_LLM_MAX_MEMORY=6000MB
+      - OLLAMA_NUM_THREADS=8
+    restart: unless-stopped
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: cy-ai-webui
+    ports:
+      - "6996:8080"  # remapped to avoid Pi-hole & Nextcloud
+    environment:
+      - OLLAMA_BASE_URL=http://cy-ai-ollama:11434
+      - WEBUI_SECRET_KEY=supersecurekey
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  whisper:
+    image: rhasspy/wyoming-whisper
+    container_name: cy-ai-whisper
+    ports:
+      - "10300:10300"
+    restart: unless-stopped
+
+  piper:
+    image: rhasspy/wyoming-piper
+    container_name: cy-ai-piper
+    ports:
+      - "10200:10200"
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+    driver: local
