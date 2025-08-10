@@ -26,3 +26,4 @@ action:
         - light.diningroom
         - group.kitchen
         - light.master_bedroom
+mode: single
