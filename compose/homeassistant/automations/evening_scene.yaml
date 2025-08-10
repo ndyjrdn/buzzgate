@@ -13,7 +13,7 @@
         entity_id:
           - group.hallway 
           - group.entryway
-    - delay: 02:00:00
+    - delay: "02:00:00"
     - service: light.turn_off
       data:
         transition: 13800
