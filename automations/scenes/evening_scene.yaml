@@ -21,3 +21,4 @@ action:
         - group.hallway
         - group.entryway
         - light.master_bedroom
+mode: single
