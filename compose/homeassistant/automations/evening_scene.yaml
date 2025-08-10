@@ -1,4 +1,4 @@
-id: buzzgate_evening_scene
+-id: buzzgate_evening_scene
 alias: Buzzgate Evening Scene
 trigger:
   - platform: time
