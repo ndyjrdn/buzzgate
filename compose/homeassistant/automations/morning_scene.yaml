@@ -1,4 +1,4 @@
--id: buzzgate_morning_scene
+- id: buzzgate_morning_scene
 alias: Buzzgate Morning Scene
 trigger:
   - platform: time
