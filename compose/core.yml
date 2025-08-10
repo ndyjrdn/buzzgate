@@ -48,6 +48,7 @@ services:
       - "8123:8123"
     volumes:
       - /home/andy/buzzgate/compose/homeassistant:/config
+      - /home/andy/buzzgate/automations/scenes:/config/automations/scenes:ro
     restart: unless-stopped
     networks:
       - compose_cynet
