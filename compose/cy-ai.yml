@@ -1,3 +1,7 @@
+# Cy-AI Stack: Local LLM + Voice Assistant
+# Includes Ollama, Open WebUI, Whisper, Piper
+# Port mappings: 11434, 6996, 10300, 10200
+
 version: '3.9'
 
 services:
