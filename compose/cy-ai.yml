@@ -27,6 +27,7 @@ services:
       - WEBUI_SECRET_KEY=supersecurekey
     volumes:
       - /mnt/llm-memory:/app/memory  # NAS-mounted memory volume
+      - /mnt/skippy-webui-data:/app/backend/data  # ← persist user data
     depends_on:
       - ollama
     restart: unless-stopped
