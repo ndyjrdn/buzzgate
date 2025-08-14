@@ -1,0 +1,8 @@
+- name: Buzzgate Morning Off
+  entities:
+    light.diningroom:
+      state: "off"
+    group.kitchen:
+      state: "off"
+    light.master_bedroom:
+      state: "off"
