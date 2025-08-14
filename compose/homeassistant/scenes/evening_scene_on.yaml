@@ -1,0 +1,10 @@
+- name: Buzzgate Evening On
+  entities:
+    group.hallway:
+      state: "on"
+      brightness: 255
+      color_temp: 250
+    group.entryway:
+      state: "on"
+      brightness: 255
+      color_temp: 250
