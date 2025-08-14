@@ -1,0 +1,12 @@
+- id: master_bedroom_night_off
+  alias: Master Bedroom Night Off
+  trigger:
+    - platform: time
+      at: "22:00:00"
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.master_bedroom
+      data:
+        transition: 10
+  mode: single
