@@ -9,3 +9,9 @@ frontend:
 automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+calendar:
+  - platform: caldav
+    url: http://192.168.1.177:8081/remote.php/dav/calendars/andy/personal/
+    username: andy
+    password: kRofd-9GaEj-8Cgqj-Sfk2L-xD3SG
