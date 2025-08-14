@@ -423,3 +423,12 @@ compose/homeassistant/.storage/
 compose/nextcloud/data/
 compose/nextcloud/db/
 compose/nextcloud/html/
+
+# Ignore Home Assistant database files
+compose/homeassistant/home-assistant_v2.db
+compose/homeassistant/home-assistant_v2.db-shm
+compose/homeassistant/home-assistant_v2.db-wal
+
+# Ignore Pi-hole database file
+compose/pihole/etc-pihole/pihole-FTL.db
+
