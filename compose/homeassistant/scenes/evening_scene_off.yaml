@@ -1,8 +1,10 @@
 - name: Buzzgate Evening Off
   entities:
-    group.hallway:
+    light.hallway:
       state: "off"
-    group.entryway:
+    light.entryway:
       state: "off"
     light.master_bedroom:
+      state: "off"
+    light.dining_room:
       state: "off"
