@@ -8,3 +8,7 @@
       state: "on"
       brightness: 255
       color_temp: 250
+    group.kitchen:
+      state: "on"
+      brightness: 255
+      color_temp: 250
