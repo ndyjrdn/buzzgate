@@ -1,0 +1,10 @@
+- id: buzzgate_evening_scene_off
+  alias: Buzzgate Evening Scene Off
+  trigger:
+    - platform: time
+      at: "21:30:00"  # Two hours after the On scene
+  action:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.buzzgate_evening_off
+  mode: single
