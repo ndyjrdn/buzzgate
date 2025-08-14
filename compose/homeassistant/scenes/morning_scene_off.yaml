@@ -2,7 +2,7 @@
   entities:
     light.diningroom:
       state: "off"
-    group.kitchen:
+    light.kitchen:
       state: "off"
     light.master_bedroom:
       state: "off"
