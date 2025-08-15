@@ -7,7 +7,7 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - /home/andy/buzzgate/compose/nextcloud/html:/var/www/html
+     #- /home/andy/buzzgate/compose/nextcloud/html:/var/www/html
      #- /mnt/skippy-share:/var/www/html/data
       - /home/andy/nextcloud-data:/var/www/html/data
     environment:
