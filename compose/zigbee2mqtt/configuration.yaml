@@ -4,7 +4,7 @@ homeassistant:
   status_topic: homeassistant/status
 mqtt:
   base_topic: zigbee2mqtt
-  server: mqtt://172.20.0.2:1883
+  server: 'mqtt://cy-mosquitto-z2m:1883'
 serial:
   adapter: zstack
   port: tcp://192.168.1.171:6638
