@@ -2,11 +2,11 @@
   entities:
     light.dining_room:
       state: "on"
-      brightness: 255
-      color_temp: 250
+      brightness: 100
+      color_temp: 150
     light.kitchen:
       state: "on"
-      brightness: 255
-      color_temp: 250
+      brightness: 100
+      color_temp: 150
     light.master_bedroom:
       state: "off"
