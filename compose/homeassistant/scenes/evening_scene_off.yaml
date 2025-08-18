@@ -4,7 +4,7 @@
       state: "off"
     light.entryway:
       state: "off"
-    light.master_bedroom:
+    light.kitchen:
       state: "off"
     light.dining_room:
       state: "off"
