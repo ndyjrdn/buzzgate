@@ -4,6 +4,9 @@ services:
   nextcloud:
     image: nextcloud:stable
     container_name: cycloud
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     ports:
       - "8081:80"
     volumes:
