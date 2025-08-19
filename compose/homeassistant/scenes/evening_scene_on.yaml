@@ -3,7 +3,6 @@
     light.hallway:
       state: "on"
       brightness: 200
-      color_temp: 150
       rgb_color: [215, 151, 255] #purple
     light.entryway:
       state: "on"
