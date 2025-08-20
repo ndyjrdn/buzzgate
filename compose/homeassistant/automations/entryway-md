@@ -1,6 +1,6 @@
 trigger:
   - platform: state
-    entity_id: 0xb40e060fffe07222
+    entity_id: binary_sensor.entryway_closet_motion
     to: "on"
 condition: []
 action:
