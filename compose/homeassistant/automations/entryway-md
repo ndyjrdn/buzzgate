@@ -1,7 +1,7 @@
 - alias: Entryway Closet Motion Trigger
   trigger:
     - platform: state
-      entity_id: binary_sensor.0xb40e060fffe07222_occupancy
+      entity_id: binary_sensor.entryway_closet_motion
       to: "on"
   condition: []
   action:
