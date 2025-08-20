@@ -28,13 +28,13 @@ sensor:
       - docker_cpu_percent
       - docker_memory_percent
   lovelace:
-  dashboards:
-    buzzgate-monitor:
-      mode: yaml
-      title: Buzzgate Monitor
-      icon: mdi:server
-      filename: dashboards/buzzgate-monitor.yaml
-      show_in_sidebar: true
+    dashboards:
+      buzzgate-monitor:
+        mode: yaml
+        title: Buzzgate Monitor
+        icon: mdi:server
+        filename: dashboards/buzzgate-monitor.yaml
+        show_in_sidebar: true
 
 
 
