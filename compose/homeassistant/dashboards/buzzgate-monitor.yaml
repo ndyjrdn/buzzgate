@@ -1,1 +1,27 @@
 
+title: Buzzgate Monitor
+views:
+  - title: System Health
+    path: system-health
+    cards:
+      - type: gauge
+        entity: sensor.cpu_percent
+        name: CPU Usage
+        unit: "%"
+        max: 100
+      - type: gauge
+        entity: sensor.memory_used
+        name: RAM Used
+        unit: "MB"
+        max: 32000
+      - type: gauge
+        entity: sensor.disk_use_percent
+        name: Disk Usage
+        unit: "%"
+        max: 100
+      - type: entities
+        title: Docker Containers
+        entities:
+          - sensor.docker_active
+          - sensor.docker_cpu_percent
+          - sensor.docker_memory_percent
