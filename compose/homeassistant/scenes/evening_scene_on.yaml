@@ -4,10 +4,6 @@
       state: "on"
       brightness: 200
       rgb_color: [215, 151, 255] #purple
-    light.entryway:
-      state: "on"
-      brightness: 255
-      color_temp: 250
     light.kitchen:
       state: "on"
       brightness: 225
