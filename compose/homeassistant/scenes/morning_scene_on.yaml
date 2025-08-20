@@ -10,3 +10,4 @@
       color_temp: 150
     light.master_bedroom:
       state: "off"
+    
