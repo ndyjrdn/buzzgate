@@ -15,19 +15,37 @@ calendar:
     url: http://192.168.1.177:8081/remote.php/dav/calendars/andy/personal/
     username: andy
     password: kRofd-9GaEj-8Cgqj-Sfk2L-xD3SG
+# sensor:
+#   - platform: glances
+#     host: brain
+#     port: 61208
+#     name: brain_stats
+#     resources:
+#       - cpu_percent
+#       - memory_used
+#       - memory_free
+#       - disk_use_percent
+#       - docker_active
+#       - docker_cpu_percent
+#       - docker_memory_percent
 sensor:
-  - platform: glances
-    host: brain
-    port: 61208
-    name: brain_stats
-    resources:
-      - cpu_percent
-      - memory_used
-      - memory_free
-      - disk_use_percent
-      - docker_active
-      - docker_cpu_percent
-      - docker_memory_percent
+  - platform: rest
+    name: Brain CPU Usage
+    resource: http://cy:61208/glances/api/3/cpu
+    value_template: "{{ value_json.percent }}"
+    scan_interval: 30
+
+  - platform: rest
+    name: Brain RAM Usage
+    resource: http://cy:61208/glances/api/3/mem
+    value_template: "{{ value_json.percent }}"
+    scan_interval: 30
+
+  - platform: rest
+    name: Brain Disk Usage
+    resource: http://cy:61208/glances/api/3/fs
+    value_template: "{{ value_json[0].percent }}"
+    scan_interval: 60
 lovelace:
   dashboards:
     buzzgate-monitor:
