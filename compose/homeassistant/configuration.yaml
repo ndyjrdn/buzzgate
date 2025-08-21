@@ -19,6 +19,7 @@ sensor:
   - platform: glances
     host: brain
     port: 61208
+    name: brain_stats
     resources:
       - cpu_percent
       - memory_used
