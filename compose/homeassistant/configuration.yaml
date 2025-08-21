@@ -33,7 +33,7 @@ lovelace:
       mode: yaml
       title: Buzzgate Monitor
       icon: mdi:server
-      filename: compose/homeassistant/dashboards/buzzgate-monitor.yaml
+      filename: dashboards/buzzgate-monitor.yaml
       show_in_sidebar: true
 
 
