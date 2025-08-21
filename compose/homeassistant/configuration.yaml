@@ -27,14 +27,14 @@ sensor:
       - docker_active
       - docker_cpu_percent
       - docker_memory_percent
-  lovelace:
-    dashboards:
-      buzzgate-monitor:
-        mode: yaml
-        title: Buzzgate Monitor
-        icon: mdi:server
-        filename: compose/homeassistant/dashboards/buzzgate-monitor.yaml
-        show_in_sidebar: true
+lovelace:
+  dashboards:
+    buzzgate-monitor:
+      mode: yaml
+      title: Buzzgate Monitor
+      icon: mdi:server
+      filename: compose/homeassistant/dashboards/buzzgate-monitor.yaml
+      show_in_sidebar: true
 
 
 
