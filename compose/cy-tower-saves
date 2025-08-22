@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  simtower-saves:
+    image: alpine:latest
+    container_name: simtower-saves
+    volumes:
+      - /home/andy/buzzgate/simtower/saves:/saves
+    command: sh -c "while true; do sleep 3600; done"
+    restart: unless-stopped
