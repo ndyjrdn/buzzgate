@@ -2,7 +2,7 @@
   alias: Buzzgate Evening Scene On
   trigger:
     - platform: time
-      at: "19:30:00"
+      at: "17:30:00"
   action:
     - service: scene.turn_on
       target:
