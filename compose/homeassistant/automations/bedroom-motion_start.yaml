@@ -9,7 +9,9 @@
       after: '09:00:00'
     - condition: template
       value_template: >
-        {{ now().time() < states('input_datetime.evening_scene_time') | as_datetime().time() }}
+        {% set evening = states('input_datetime.evening_scene_time') | as_datetime(default=none) %}
+        {{ evening is not none and now().time() < evening.time() }}
+
   action:
     - service: light.turn_on
       target:
