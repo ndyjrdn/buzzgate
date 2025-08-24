@@ -22,3 +22,4 @@
         entity_id: timer.bedroom_motion_hold
       data:
         duration: "00:02:00"
+
