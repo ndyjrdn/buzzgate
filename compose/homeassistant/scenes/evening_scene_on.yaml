@@ -9,5 +9,6 @@
       brightness: 225
       color_temp: 75
     light.livingroom_ceiling:
+      state: "on"
       brightness: 225
       color_temp: 75
