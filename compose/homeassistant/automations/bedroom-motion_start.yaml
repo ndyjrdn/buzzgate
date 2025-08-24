@@ -1,20 +1,14 @@
-alias: Bedroom Motion Daytime Trigger
-description: >
-  Turns on bedroom lamp when motion is detected between 9 AM and evening scene time.
-mode: single
-
+alias: Bedroom Motion Start
 trigger:
   - platform: state
     entity_id: binary_sensor.bedroom_motion
     to: 'on'
-
 condition:
   - condition: time
     after: '09:00:00'
   - condition: template
     value_template: >
       {{ now().time() < states('input_datetime.evening_scene_time') | as_datetime().time() }}
-
 action:
   - service: light.turn_on
     target:
@@ -22,3 +16,8 @@ action:
     data:
       brightness: 200
       color_name: warm_white
+  - service: timer.start
+    target:
+      entity_id: timer.bedroom_motion_hold
+    data:
+      duration: "00:02:00"
