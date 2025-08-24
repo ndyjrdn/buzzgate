@@ -1,18 +1,18 @@
 - id: entryway_motion 
   alias: Entryway Closet Motion Trigger
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.entryway_closet_motion
-        to: "on"
-    condition: []
-    action:
-      - service: light.turn_on
-        target:
-          entity_id: light.entryway
-      - delay: "00:02:00"  # 2 minutes
-      - condition: state
-        entity_id: binary_sensor.entryway_closet_motion
-        state: "off"
-      - service: light.turn_off
-        target:
-          entity_id: light.entryway
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.entryway_closet_motion
+      to: "on"
+  condition: []
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.entryway
+    - delay: "00:02:00"  # 2 minutes
+    - condition: state
+      entity_id: binary_sensor.entryway_closet_motion
+      state: "off"
+    - service: light.turn_off
+      target:
+        entity_id: light.entryway
