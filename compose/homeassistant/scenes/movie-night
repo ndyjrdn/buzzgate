@@ -1,0 +1,9 @@
+alias: Movie Night
+icon: mdi:movie-open
+entities:
+  light.kitchen:
+    state: 'off'
+  light.livingroom_ceiling:
+    state: 'on'
+    brightness: 30
+    color_temp: 400
