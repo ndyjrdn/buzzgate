@@ -1,0 +1,11 @@
+alias: Game Night
+icon: mdi:stadium
+entities:
+  light.kitchen:
+    state: 'on'
+    brightness: 150
+    color_temp: 300
+  light.livingroom_ceiling:
+    state: 'on'
+    brightness: 255
+    color_temp: 250
