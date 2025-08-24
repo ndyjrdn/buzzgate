@@ -1,15 +1,15 @@
 -id: bedroom_motion_timeout
-alias: Bedroom Motion Timeout
-trigger:
-  - platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.bedroom_motion_hold
-condition:
-  - condition: state
-    entity_id: binary_sensor.bedroom_motion
-    state: 'off'
-action:
-  - service: light.turn_off
-    target:
-      entity_id: light.bedroom_lamp
+  alias: Bedroom Motion Timeout
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.bedroom_motion_hold
+  condition:
+    - condition: state
+      entity_id: binary_sensor.bedroom_motion
+      state: 'off'
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.bedroom_lamp
