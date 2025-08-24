@@ -48,7 +48,7 @@ sensor:
     scan_interval: 60
   - platform: teamtracker
     team_id: 66  # Iowa State Cyclones (ESPN ID)
-    league: NCAAF
+    #league: NCAAF
     name: iowa_state_score
     
 lovelace:
