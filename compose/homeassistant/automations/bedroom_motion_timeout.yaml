@@ -1,3 +1,4 @@
+-id: bedroom_motion_timeout
 alias: Bedroom Motion Timeout
 trigger:
   - platform: event
