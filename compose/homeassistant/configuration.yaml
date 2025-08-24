@@ -67,7 +67,8 @@ input_datetime:
 timer:
   bedroom_motion_hold:
     name: Bedroom Motion Hold
-    duration: "00:02:00"  
+    duration: "00:00:00"
+  
 
 
 
