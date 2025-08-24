@@ -1,0 +1,21 @@
+alias: Cyclone Score Celebration
+description: >
+  Triggers red/yellow light flash when Iowa State scores in football.
+  Uses TeamTracker sensor from ESPN feed.
+mode: single
+
+trigger:
+  - platform: state
+    entity_id: sensor.iowa_state_score
+    attribute: score
+
+condition:
+  - condition: template
+    value_template: >
+      {{ trigger.to_state.attributes.score | int > trigger.from_state.attributes.score | int }}
+
+action:
+  - service: script.turn_on
+    target:
+      entity_id: script.cyclone_score_flash
+
