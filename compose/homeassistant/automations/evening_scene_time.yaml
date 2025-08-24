@@ -1,0 +1,11 @@
+alias: Set Evening Scene Time
+trigger:
+  - platform: state
+    entity_id: scene.master_bedroom_nightly_on
+    to: 'scening'  # or use a script trigger if needed
+action:
+  - service: input_datetime.set_datetime
+    target:
+      entity_id: input_datetime.evening_scene_time
+    data:
+      time: "{{ now().time() }}"
