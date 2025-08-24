@@ -46,6 +46,10 @@ sensor:
     resource: http://cy:61208/glances/api/3/fs
     value_template: "{{ value_json[0].percent }}"
     scan_interval: 60
+  - platform: teamtracker
+    team_id: 66  # Iowa State Cyclones (ESPN ID)
+    league: NCAAF
+    name: iowa_state_score
 lovelace:
   dashboards:
     buzzgate-monitor:
