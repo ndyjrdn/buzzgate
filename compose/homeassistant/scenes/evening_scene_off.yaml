@@ -7,6 +7,6 @@
     light.kitchen:
       state: "off"
     light.dining_room:
-      state: "off
+      state: "off"
     light.livingroom_ceiling:
-      state: 'off'
+      state: "off"
