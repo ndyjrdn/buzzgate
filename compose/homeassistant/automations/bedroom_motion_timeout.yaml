@@ -12,4 +12,4 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.master-bedroom
+        entity_id: light.master_bedroom
