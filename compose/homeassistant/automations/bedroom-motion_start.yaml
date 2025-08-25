@@ -9,7 +9,7 @@
       after: '09:00:00'
     - condition: template
       value_template: >
-        {{ now().time() < strptime('19:30:00', '%H:%M:%S').time() }} #set to not trigger before the time the master bedroom lights come on.  will need updated if the master time changes.
+        {{ now().time() < strptime('19:30:00', '%H:%M:%S').time() }} #set to not trigger before the time the master bedroom lights come on/will need updated if the master time changes.
         {{ evening is not none and now().time() < evening.time() }}
 
   action:
