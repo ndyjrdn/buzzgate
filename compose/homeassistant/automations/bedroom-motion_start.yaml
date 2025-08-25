@@ -2,7 +2,7 @@
   alias: Bedroom Motion Start
   trigger:
     - platform: state
-      entity_id: binary_sensor.0xb40e060fffe07255_occupancy
+      entity_id: binary_sensor.bedroom_motion
       to: 'on'
   condition:
     - condition: time
@@ -21,7 +21,7 @@
         color_name: warm_white
     - service: timer.start
       target:
-        entity_id: timer.binary_sensor.0xb40e060fffe07255_occupancy_hold
+        entity_id: timer.binary_sensor.bedroom_motion_hold
       data:
         duration: 00:02:00
 
