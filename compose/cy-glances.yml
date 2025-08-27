@@ -8,14 +8,14 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     pid: host
-    environment:
-      - GLANCES_OPT=-w
+    command: glances -w
     networks:
       - compose_cynet
 
 networks:
   compose_cynet:
     external: true
+
 
 
 
