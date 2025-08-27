@@ -1,9 +1,53 @@
-- platform: glances
-  host: 192.168.1.177
-  name: Brain Stats
-  version: 3
-  resources:
-    - 'uptime'
-    - 'cpu_percent'
-    - 'memory_percent'
-    - 'process_zombie'
+- platform: rest
+  name: Brain CPU Load
+  resource: http://brain:61208/api/3/load
+  value_template: "{{ value_json['cpu']['load'] }}"
+  scan_interval: 30
+
+- platform: rest
+  name: Brain Memory Usage
+  resource: http://brain:61208/api/3/mem
+  value_template: "{{ value_json['mem']['percent'] }}"
+  unit_of_measurement: "%"
+  scan_interval: 30
+
+- platform: rest
+  name: Brain Swap Usage
+  resource: http://brain:61208/api/3/memswap
+  value_template: "{{ value_json['memswap']['percent'] }}"
+  unit_of_measurement: "%"
+  scan_interval: 30
+
+- platform: rest
+  name: Brain Disk Usage
+  resource: http://brain:61208/api/3/fs
+  value_template: "{{ value_json[0]['percent'] }}"
+  unit_of_measurement: "%"
+  scan_interval: 60
+
+- platform: rest
+  name: Brain Network RX
+  resource: http://brain:61208/api/3/network
+  value_template: "{{ value_json['eth0']['rx'] }}"
+  unit_of_measurement: "Kb"
+  scan_interval: 30
+
+- platform: rest
+  name: Brain Network TX
+  resource: http://brain:61208/api/3/network
+  value_template: "{{ value_json['eth0']['tx'] }}"
+  unit_of_measurement: "Kb"
+  scan_interval: 30
+
+- platform: rest
+  name: Brain Zombie Processes
+  resource: http://brain:61208/api/3/processcount
+  value_template: "{{ value_json['zombie'] }}"
+  scan_interval: 60
+
+- platform: rest
+  name: Brain Uptime
+  resource: http://brain:61208/api/3/uptime
+  value_template: "{{ value_json['uptime'] }}"
+  scan_interval: 300
+
