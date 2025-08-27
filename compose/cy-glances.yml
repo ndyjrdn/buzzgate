@@ -1,5 +1,5 @@
 services:
-  glances:
+  entrypoint: ["glances"]:
     image: nicolargo/glances:latest-full
     container_name: glances
     restart: unless-stopped
@@ -8,7 +8,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     pid: host
-    command: glances -w --api
+    command: ["-w", "--api"]
     networks:
       - compose_cynet
 
