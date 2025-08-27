@@ -8,7 +8,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     pid: host
-    command: glances -w
+    environment:
+       - GLANCES_OPT=--webserver --api
     networks:
       - compose_cynet
 
