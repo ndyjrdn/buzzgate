@@ -13,4 +13,9 @@ services:
     networks:
       - compose_cynet
 
+networks:
+  compose_cynet:
+    external: true
+
+
 
