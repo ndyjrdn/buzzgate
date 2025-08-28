@@ -1,6 +1,6 @@
 services:
   glances:
-    image: nicolargo/glances:latest-full
+    image: image: nicolargo/glances:3.4.0.3-full
     container_name: glances
     restart: unless-stopped
     ports:
