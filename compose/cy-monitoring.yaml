@@ -24,11 +24,12 @@ services:
       - prometheus_data:/prometheus
     networks:
       - compose_cynet
+      
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
     ports:
-      - "8081:8080"
+      - "8180:8080"
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
