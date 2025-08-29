@@ -13,7 +13,6 @@ services:
     networks:
       - compose_cynet
 
-
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -36,6 +35,19 @@ services:
       - grafana_data:/var/lib/grafana
     networks:
       - compose_cynet
+
+  glances:
+    image: nicolargo/glances:latest-full
+    container_name: glances
+    restart: unless-stopped
+    ports:
+      - "61208:61208"
+    command: glances -w
+    pid: host
+    volumes:
+      - /:/host:ro
+    networks:
+      - compose_cynet    
 
 
 volumes:
