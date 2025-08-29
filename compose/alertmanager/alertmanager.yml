@@ -6,6 +6,6 @@ route:
 
 receivers:
   - name: 'default'
-    email_configs:
-      - to: 'alerts@buzzgate.local'
-        send_resolved: true
+    # email_configs:
+    #   - to: 'alerts@buzzgate.local'
+    #     send_resolved: true
