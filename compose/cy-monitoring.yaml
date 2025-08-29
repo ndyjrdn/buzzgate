@@ -24,6 +24,17 @@ services:
       - prometheus_data:/prometheus
     networks:
       - compose_cynet
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - "8081:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    restart: unless-stopped
 
   grafana:
     image: grafana/grafana-oss:latest
