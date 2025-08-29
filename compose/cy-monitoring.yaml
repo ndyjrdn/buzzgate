@@ -47,7 +47,18 @@ services:
     volumes:
       - /:/host:ro
     networks:
-      - compose_cynet    
+      - compose_cynet
+      
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: alertmanager
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./alertmanager:/etc/alertmanager
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+    restart: unless-stopped
 
 
 volumes:
