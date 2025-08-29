@@ -26,7 +26,7 @@ services:
     networks:
       - compose_cynet
 
-    grafana:
+  grafana:
     image: grafana/grafana-oss:latest
     container_name: grafana
     restart: unless-stopped
