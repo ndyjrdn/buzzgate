@@ -26,8 +26,21 @@ services:
     networks:
       - compose_cynet
 
+    grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - compose_cynet
+
+
 volumes:
   prometheus_data:
+  grafana_data:
 networks:
   compose_cynet:
     external: true
