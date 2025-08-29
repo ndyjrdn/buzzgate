@@ -36,6 +36,8 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
     restart: unless-stopped
+    networks:
+      - compose_cynet
 
   grafana:
     image: grafana/grafana-oss:latest
@@ -69,6 +71,8 @@ services:
     volumes:
       - /home/andy/buzzgate/compose/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
     restart: unless-stopped
+    networks:
+      - compose_cynet
 
 
 volumes:
