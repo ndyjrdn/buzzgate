@@ -13,9 +13,7 @@ services:
     networks:
       - compose_cynet
 
-networks:
-  compose_cynet:
-    external: true
+
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -30,3 +28,6 @@ networks:
 
 volumes:
   prometheus_data:
+networks:
+  compose_cynet:
+    external: true
