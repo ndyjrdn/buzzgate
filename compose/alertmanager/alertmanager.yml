@@ -2,19 +2,18 @@ global:
   resolve_timeout: 5m
 
 route:
-  receiver: 'sms-uscellular'
+  receiver: 'email-alerts'
   group_by: ['alertname']
   group_wait: 10s
   group_interval: 30s
   repeat_interval: 1h
 
 receivers:
-  - name: 'default'
-  - name: sms-uscellular
+  - name: 'email-alerts'
     email_configs:
-      - to: '5152099351@email.uscc.net'
+      - to: 'ndyjrdn@gmail.com'
         from: 'ndyjrdn@gmail.com'
         smarthost: 'smtp.gmail.com:587'
-        auth_username: 'ndyjrdn'
-        auth_password: 'rqsr slnv mamg jiia'
+        auth_username: 'ndyjrdn@gmail.com'
+        auth_password: 'Yrqsr slnv mamg jiia'
         require_tls: true
