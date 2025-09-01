@@ -6,6 +6,11 @@ route:
 
 receivers:
   - name: 'default'
-    # email_configs:
-    #   - to: 'alerts@buzzgate.local'
-    #     send_resolved: true
+  - name: sms-uscellular
+    email_configs:
+      - to: '5152099351@email.uscc.net'
+        from: 'alerts@buzzgate.local'
+        smarthost: 'smtp.gmail.com:587'
+        auth_username: 'alerts@buzzgate.local'
+        auth_password: 'AnotherFuckingPwrd72!'
+        require_tls: true
