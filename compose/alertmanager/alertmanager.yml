@@ -16,5 +16,5 @@ receivers:
         from: 'alerts@buzzgate.local'
         smarthost: 'smtp.gmail.com:587'
         auth_username: 'ndyjrdn@gmail.com'
-        auth_password: 'AnotherFuckingPwrd72!'
+        auth_password: 'rqsr slnv mamg jiia'
         require_tls: true
