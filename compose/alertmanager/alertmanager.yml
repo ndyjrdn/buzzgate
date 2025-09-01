@@ -2,18 +2,25 @@ global:
   resolve_timeout: 5m
 
 route:
-  receiver: 'email-alerts'
-  group_by: ['alertname']
-  group_wait: 10s
-  group_interval: 30s
-  repeat_interval: 1h
+  receiver: 'pushover-notifications'
+  # receiver: 'email-alerts'
+  # group_by: ['alertname']
+  # group_wait: 10s
+  # group_interval: 30s
+  # repeat_interval: 1h
 
 receivers:
-  - name: 'email-alerts'
-    email_configs:
-      - to: 'ndyjrdn@gmail.com'
-        from: 'ndyjrdn@gmail.com'
-        smarthost: 'smtp.gmail.com:587'
-        auth_username: 'ndyjrdn@gmail.com'
-        auth_password: 'Yrqsr slnv mamg jiia'
-        require_tls: true
+  # - name: 'email-alerts'
+  #   email_configs:
+  #     - to: 'ndyjrdn@gmail.com'
+  #       from: 'ndyjrdn@gmail.com'
+  #       smarthost: 'smtp.gmail.com:587'
+  #       auth_username: 'ndyjrdn@gmail.com'
+  #       auth_password: 'Yrqsr slnv mamg jiia'
+  #       require_tls: true
+  - name: 'pushover-notifications'
+    pushover_configs:
+      - user_key: 'ui3rikic9q4o2vitiqxham5tgrhy9a'
+        token: 'aonpn182a142ad3q475hhtvoj8edn8'
+        title: '{{ .CommonLabels.alertname }}'
+        message: '{{ .CommonAnnotations.summary }}'
