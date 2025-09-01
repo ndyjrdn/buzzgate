@@ -432,3 +432,6 @@ compose/homeassistant/home-assistant_v2.db-wal
 # Ignore Pi-hole database file
 compose/pihole/etc-pihole/pihole-FTL.db
 
+# ignore simtower for now
+simtower/saves/
+
