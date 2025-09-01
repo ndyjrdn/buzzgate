@@ -13,8 +13,8 @@ receivers:
   - name: sms-uscellular
     email_configs:
       - to: '5152099351@email.uscc.net'
-        from: 'alerts@buzzgate.local'
+        from: 'ndyjrdn@gmail.com'
         smarthost: 'smtp.gmail.com:587'
-        auth_username: 'ndyjrdn@gmail.com'
+        auth_username: 'ndyjrdn'
         auth_password: 'rqsr slnv mamg jiia'
         require_tls: true
