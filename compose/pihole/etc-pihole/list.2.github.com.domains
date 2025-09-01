@@ -81,7 +81,6 @@ defer="defer"></script>
 defer="defer"></script>
 defer="defer"></script>
 defer="defer"></script>
-defer="defer"></script>
 />
 />
 defer="defer"></script>
@@ -92,7 +91,7 @@ categories.</title>
 data-turbo-transient>
 data-turbo-transient>
 data-turbo-transient>
-content="v2:7e06d14e-6611-692d-8f12-d301a41269aa">
+content="v2:8b072c14-90b9-ab4f-29c6-a7d92fd0c4fc">
 content="f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb">
 data-pjax-transient="true"/>
 data-turbo-transient>
@@ -125,7 +124,7 @@ data-turbo-transient>
 page-responsive">
 content="https://api.github.com/_private/browser/stats">
 content="https://api.github.com/_private/browser/errors">
-content="8cdab91f3d162c5291a6e5caaa7a905a87a35ecf">
+content="346c461c6e798c1e50b5a026061e49698df05b70">
 content="full">
 color="
 href="https://github.githubassets.com/favicons/favicon.png">
@@ -213,7 +212,7 @@ aria-label="global">
 list-style-none">
 js-header-menu-item">
 aria-expanded="false">
-product
+platform
 ml-1">
 0z"></path>
 </svg>
@@ -359,8 +358,8 @@ less
 </div>
 pr-lg-7">
 border-bottom-0">
-id="product-explore-heading">explore</span>
-aria-labelledby="product-explore-heading">
+id="platform-explore-heading">explore</span>
+aria-labelledby="platform-explore-heading">
 <li>
 href="https://github.com/why-github">
 github
@@ -530,11 +529,8 @@ color-fg-subtle">
 </svg>
 </a></li>
 <li>
-href="https://resources.github.com">
+href="https://github.com/resources/events">
 webinars
-color-fg-subtle">
-1z"></path>
-</svg>
 </a></li>
 <li>
 href="https://github.com/resources/whitepapers">
@@ -1210,7 +1206,7 @@ mr-2">
 2.694z"></path>
 class="d-inline">
 star
-js-social-count">28.7k</span>
+js-social-count">28.8k</span>
 </a></div>
 </li>
 </ul>
@@ -1238,7 +1234,7 @@ href="/stevenblack/hosts/stargazers">
 mr-1">
 2.694z"></path>
 </svg>
-class="text-bold">28.7k</span>
+class="text-bold">28.8k</span>
 stars
 href="/stevenblack/hosts/forks">
 mr-1">
@@ -1299,7 +1295,7 @@ d-sm-inline">
 0z"></path>
 </svg>
 data-content="issues">issues</span>
-class="counter">113</span>
+class="counter">115</span>
 </a></li>
 class="d-inline-flex">
 data-pjax="
@@ -1307,7 +1303,7 @@ d-sm-inline">
 0z"></path>
 </svg>
 requests</span>
-class="counter">7</span>
+class="counter">6</span>
 </a></li>
 class="d-inline-flex">
 data-pjax="
@@ -1499,7 +1495,7 @@ data-ssr="true"
 data-attempted-ssr="true"
 data-react-profiling="false"
 >
-data-target="react-partial.embeddeddata">{"props":{"initialpayload":{"allshortcutsenabled":false,"path":"/","repo":{"id":4008931,"defaultbranch":"master","name":"hosts","ownerlogin":"stevenblack","currentusercanpush":false,"isfork":false,"isempty":false,"createdat":"2012-04-12t20:22:50.000z","owneravatar":"https://avatars.githubusercontent.com/u/80144?v=4","public":true,"private":false,"isorgowned":false},"currentuser":null,"refinfo":{"name":"master","listcachekey":"v0:1755197932.0","canedit":false,"reftype":"branch","currentoid":"496b69f840fa2a1f4940a077916a41c6db21f955"},"tree":{"items":
+data-target="react-partial.embeddeddata">{"props":{"initialpayload":{"allshortcutsenabled":false,"path":"/","repo":{"id":4008931,"defaultbranch":"master","name":"hosts","ownerlogin":"stevenblack","currentusercanpush":false,"isfork":false,"isempty":false,"createdat":"2012-04-12t20:22:50.000z","owneravatar":"https://avatars.githubusercontent.com/u/80144?v=4","public":true,"private":false,"isorgowned":false},"currentuser":null,"refinfo":{"name":"master","listcachekey":"v0:1756517608.0","canedit":false,"reftype":"branch","currentoid":"7df1533fb045b419b78ccdf7e88f1eb8dc7feffb"},"tree":{"items":
 data-styled-version="5.3.11">.hucrak{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*
 data-styled.g1
 .hwlppn{position:relative;display:inline-block;}/*
@@ -1576,14 +1572,14 @@ mirror</th>
 malware)</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">230,046</td>
+align="center">232,645</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
 fakenews</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/fakenews/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">232,234</td>
+align="center">237,939</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1597,7 +1593,7 @@ rel="nofollow">link</a></td>
 gambling</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/gambling/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">236,656</td>
+align="center">242,361</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1611,7 +1607,7 @@ rel="nofollow">link</a></td>
 porn</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/porn/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">304,794</td>
+align="center">310,499</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1625,7 +1621,7 @@ rel="nofollow">link</a></td>
 social</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/social/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">233,259</td>
+align="center">238,964</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1639,7 +1635,7 @@ rel="nofollow">link</a></td>
 gambling</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/fakenews-gambling/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">238,844</td>
+align="center">244,549</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1653,7 +1649,7 @@ rel="nofollow">link</a></td>
 porn</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/fakenews-porn/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">306,982</td>
+align="center">312,687</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1667,7 +1663,7 @@ rel="nofollow">link</a></td>
 social</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/fakenews-social/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">235,447</td>
+align="center">241,152</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1681,7 +1677,7 @@ rel="nofollow">link</a></td>
 porn</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/gambling-porn/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">311,404</td>
+align="center">317,109</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1695,7 +1691,7 @@ rel="nofollow">link</a></td>
 social</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/gambling-social/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">239,869</td>
+align="center">245,574</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1709,7 +1705,7 @@ rel="nofollow">link</a></td>
 social</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/porn-social/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">308,006</td>
+align="center">313,711</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1723,7 +1719,7 @@ rel="nofollow">link</a></td>
 porn</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/fakenews-gambling-porn/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">313,592</td>
+align="center">319,297</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1737,7 +1733,7 @@ rel="nofollow">link</a></td>
 social</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/fakenews-gambling-social/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">242,057</td>
+align="center">247,762</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1751,7 +1747,7 @@ rel="nofollow">link</a></td>
 social</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/fakenews-porn-social/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">310,194</td>
+align="center">315,899</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1765,7 +1761,7 @@ rel="nofollow">link</a></td>
 social</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/gambling-porn-social/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">314,616</td>
+align="center">320,321</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -1779,7 +1775,7 @@ rel="nofollow">link</a></td>
 social</strong></td>
 href="https://github.com/stevenblack/hosts/blob/master/alternates/fakenews-gambling-porn-social/readme.md">readme</a></td>
 rel="nofollow">link</a></td>
-align="center">316,804</td>
+align="center">322,509</td>
 rel="nofollow">link</a></td>
 </tr>
 <tr>
@@ -2580,14 +2576,14 @@ class="mt-2">
 mr-2">
 2.694z"></path>
 </svg>
-<strong>28.7k</strong>
+<strong>28.8k</strong>
 </div>
 class="sr-only">watchers</h3>
 class="mt-2">
 mr-2">
 10z"></path>
 </svg>
-<strong>583</strong>
+<strong>582</strong>
 </div>
 class="sr-only">forks</h3>
 class="mt-2">
@@ -2607,14 +2603,14 @@ class="bordergrid-row">
 class="bordergrid-cell">
 data-pjax="
 link">releases
-class="counter">779</span></a></h2>
+class="counter">782</span></a></h2>
 data-pjax="
 color-fg-success">
 0-2z"></path>
 </svg>
 min-width-0">
 class="d-flex">
-3.16.12</span>
+3.16.15</span>
 flex-shrink-0">
 latest
 </div>

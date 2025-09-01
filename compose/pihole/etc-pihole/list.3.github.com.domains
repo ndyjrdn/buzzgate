@@ -81,7 +81,6 @@ defer="defer"></script>
 defer="defer"></script>
 defer="defer"></script>
 defer="defer"></script>
-defer="defer"></script>
 />
 />
 defer="defer"></script>
@@ -92,7 +91,7 @@ windows</title>
 data-turbo-transient>
 data-turbo-transient>
 data-turbo-transient>
-content="v2:3caf2861-da90-5878-5961-d7b9f18579d4">
+content="v2:75150a7f-0e8a-3968-2afa-00f2f555368d">
 content="f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb">
 data-pjax-transient="true"/>
 data-turbo-transient>
@@ -125,7 +124,7 @@ data-turbo-transient>
 page-responsive">
 content="https://api.github.com/_private/browser/stats">
 content="https://api.github.com/_private/browser/errors">
-content="8cdab91f3d162c5291a6e5caaa7a905a87a35ecf">
+content="346c461c6e798c1e50b5a026061e49698df05b70">
 content="full">
 color="
 href="https://github.githubassets.com/favicons/favicon.png">
@@ -213,7 +212,7 @@ aria-label="global">
 list-style-none">
 js-header-menu-item">
 aria-expanded="false">
-product
+platform
 ml-1">
 0z"></path>
 </svg>
@@ -359,8 +358,8 @@ less
 </div>
 pr-lg-7">
 border-bottom-0">
-id="product-explore-heading">explore</span>
-aria-labelledby="product-explore-heading">
+id="platform-explore-heading">explore</span>
+aria-labelledby="platform-explore-heading">
 <li>
 href="https://github.com/why-github">
 github
@@ -530,11 +529,8 @@ color-fg-subtle">
 </svg>
 </a></li>
 <li>
-href="https://resources.github.com">
+href="https://github.com/resources/events">
 webinars
-color-fg-subtle">
-1z"></path>
-</svg>
 </a></li>
 <li>
 href="https://github.com/resources/whitepapers">
@@ -1201,7 +1197,7 @@ settings</tool-tip>
 mr-2">
 0z"></path>
 </svg>fork
-class="counter">373</span>
+class="counter">374</span>
 </a>
 </li>
 <li>
@@ -1252,7 +1248,7 @@ href="/crazy-max/windowsspyblocker/forks">
 mr-1">
 0z"></path>
 </svg>
-class="text-bold">373</span>
+class="text-bold">374</span>
 forks
 href="/crazy-max/windowsspyblocker/branches">
 mr-1">
@@ -1627,14 +1623,14 @@ class="mt-2">
 mr-2">
 10z"></path>
 </svg>
-<strong>145</strong>
+<strong>147</strong>
 </div>
 class="sr-only">forks</h3>
 class="mt-2">
 mr-2">
 0z"></path>
 </svg>
-<strong>373</strong>
+<strong>374</strong>
 </div>
 class="mt-2">
 href="/contact/report-content?content_url=https%3a%2f%2fgithub.com%2fcrazy-max%2fwindowsspyblocker&amp;report=crazy-max+%28user%29">
