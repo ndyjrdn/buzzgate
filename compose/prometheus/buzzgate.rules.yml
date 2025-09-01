@@ -1,0 +1,80 @@
+groups:
+  - name: container-alerts
+    rules:
+      - alert: ContainerDown
+        expr: time() - container_last_seen > 60
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Container '{{ $labels.name }}' may be down"
+          description: "No recent activity from container '{{ $labels.name }}'."
+
+  - name: system-health
+    rules:
+      - alert: HighCPUUsage
+        expr: glances_cpu_percent > 85
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage on Brain"
+          description: "CPU usage has exceeded 85% for over 2 minutes."
+
+      - alert: LowDiskSpace
+        expr: glances_disk_free_percent < 10
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Low disk space on Brain"
+          description: "Less than 10% disk space remaining."
+
+      - alert: ZombieProcessesDetected
+        expr: glances_zombie > 0
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Zombie processes detected"
+          description: "Zombie processes are present on Brain."
+
+  - name: smart-home-services
+    rules:
+      - alert: HomeAssistantDown
+        expr: up{job="home-assistant"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Home Assistant is offline"
+          description: "Prometheus cannot reach the Home Assistant container."
+
+      - alert: MosquittoDown
+        expr: up{job="mosquitto"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Mosquitto broker is offline"
+          description: "MQTT broker is not responding to Prometheus."
+
+      - alert: Zigbee2MQTTDown
+        expr: up{job="zigbee2mqtt"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Zigbee2MQTT is offline"
+          description: "Zigbee2MQTT container is unreachable."
+
+      - alert: PiHoleDown
+        expr: up{job="pihole"} == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Pi-hole is offline"
+          description: "DNS filtering service is not responding."
+
+
