@@ -10,6 +10,9 @@ docker ps --format "  • {{.Names}} - {{.Status}}"
 echo "→ Pi-hole health:"
 curl -s http://localhost:8080/admin/api.php?status | grep -q '"status":"enabled"' && \
   echo "  ✅ Pi-hole is enabled" || echo "  ❌ Pi-hole is disabled"
+  
+echo "→ WAN Speed:"
+jq -r '" • Download: \(.download.bandwidth * 8 / 1000000 | round) Mbps\n • Upload: \(.upload.bandwidth * 8 / 1000000 | round) Mbps\n • Ping: \(.ping.latency) ms"' /home/andy/buzzgate/monitor/speedtest/speedtest.json
 
 # Port checks
 echo "→ Port listening:"
