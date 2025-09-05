@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 
 with open("/home/andy/buzzgate/monitor/speedtest/speedtest.json") as f:
     data = json.load(f)
@@ -13,7 +13,7 @@ jitter_ms = round(data["ping"]["jitter"], 2)
 server = data["server"]["name"]
 isp = data["isp"]
 external_ip = data["interface"]["externalIp"]
-timestamp = datetime.utcnow().isoformat()
+timestamp = datetime.now(timezone.utc).isoformat()
 
 print(f"📡 Speedtest @ {timestamp}")
 print(f" • ISP: {isp}")
