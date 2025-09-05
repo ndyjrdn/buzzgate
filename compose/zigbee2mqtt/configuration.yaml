@@ -65,6 +65,10 @@ devices:
     friendly_name: bedroom_motion
   '0xb0ce18140005d14f':
     friendly_name: front-stoop
+  '0xb0ce1814001879ef':
+    friendly_name: she-shed
+  '0x385cfbfffed0bc28':
+    friendly_name: she-said-presence
 groups:
   '1':
     friendly_name: kitchen
