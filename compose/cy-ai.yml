@@ -23,13 +23,11 @@ services:
     ports:
       - "6996:8080"  # remapped to avoid Pi-hole & Nextcloud
     environment:
-      - OLLAMA_BASE_URL=http://cy-ai-ollama:11434
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
       - WEBUI_SECRET_KEY=supersecurekey
     volumes:
       - /mnt/llm-memory:/app/memory  # NAS-mounted memory volume
       - /mnt/skippy-webui-data:/app/backend/data  # ← persist user data
-    depends_on:
-      - ollama
     restart: unless-stopped
 
   whisper:
