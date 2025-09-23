@@ -1,9 +1,9 @@
 - id: call_mom
   alias: Call Mom
-  description: "Triggered by Kiasbutton to alert Mom with lights, sound, and phone vibration"
+  description: "Triggered by kiasButtons (top left) to alert Mom with lights, sound, and phone vibration"
   trigger:
     - platform: state
-      entity_id: sensor.kiasbutton_action
+      entity_id: sensor.kiasButtons_action
       to: button_4_single  # Adjust this based on actual button action
 
   condition: []
