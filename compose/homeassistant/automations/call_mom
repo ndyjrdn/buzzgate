@@ -2,9 +2,10 @@
   alias: Call Mom
   description: "Triggered by kiasButtons (top left) to alert Mom with lights, sound, and phone vibration"
   trigger:
-    - platform: state
-      entity_id: sensor.kiasButtons_action
-      to: button_4_single  # Adjust this based on actual button action
+    - platform: mqtt
+    topic: zigbee2mqtt/Kiasbutton
+    payload: button_1_single
+    value_template: "{{ value_json.action }}"
 
   condition: []
 
