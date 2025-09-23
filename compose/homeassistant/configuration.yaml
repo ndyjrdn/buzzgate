@@ -79,7 +79,9 @@ light:
       - light.hallway
       - light.dining-room
       - light.entryway
-  
+
+shell_command:
+  play_alert: 'aplay /home/pi/alert.wav'  
 
 
 
