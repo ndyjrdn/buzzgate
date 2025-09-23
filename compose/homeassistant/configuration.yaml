@@ -69,6 +69,16 @@ timer:
   bedroom_motion_hold:
     name: Bedroom Motion Hold
     duration: "00:00:00"
+
+light:
+  - platform: group
+    name: alert_lights
+    entities:
+      - light.kitchen
+      - light.livingroom_ceiling
+      - light.hallway
+      - light.dining-room
+      - light.entryway
   
 
 
