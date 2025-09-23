@@ -1,0 +1,27 @@
+- id: call_mom
+  alias: Call Mom
+  description: "Triggered by Kiasbutton to alert Mom with lights, sound, and phone vibration"
+  trigger:
+    - platform: state
+      entity_id: sensor.kiasbutton_action
+      to: button_4_single  # Adjust this based on actual button action
+
+  condition: []
+
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.alert_lights
+      data:
+        flash: short
+
+    - service: shell_command.play_alert
+
+    - service: mqtt.publish
+        data:
+        topic: buzzgate/alert
+        payload: "bathroom_call"
+        qos: 0
+        retain: false
+
+  mode: single
