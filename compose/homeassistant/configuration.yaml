@@ -9,7 +9,6 @@ frontend:
 automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 scene: !include_dir_merge_list scenes/
-sensor: !include sensors/glances.yaml
 
 calendar:
   - platform: caldav
@@ -30,16 +29,18 @@ calendar:
 #       - docker_cpu_percent
 #       - docker_memory_percent
 sensor:
+  !include sensors/glances.yaml
+  
   - platform: rest
     name: Brain CPU Usage
     resource: http://cy:61208/glances/api/3/cpu
     value_template: "{{ value_json.percent }}"
     scan_interval: 30
     
-  - platform: mqtt
-    name: "Kiasbutton Action"
-    state_topic: "zigbee2mqtt/0xcc86ecfffec3c653"
-    value_template: "{{ value_json.action }}"
+  # - platform: mqtt
+  #   name: "Kiasbutton Action"
+  #   state_topic: "zigbee2mqtt/0xcc86ecfffec3c653"
+  #   value_template: "{{ value_json.action }}"
     
   - platform: rest
     name: Brain RAM Usage
@@ -76,15 +77,15 @@ timer:
     name: Bedroom Motion Hold
     duration: "00:00:00"
 
-light:
-  - platform: group
-    name: alert_lights
-    entities:
-      - light.kitchen
-      - light.livingroom_ceiling
-      - light.hallway
-      - light.dining-room
-      - light.entryway
+# light:
+#   - platform: group
+#     name: alert_lights
+#     entities:
+#       - light.kitchen
+#       - light.livingroom_ceiling
+#       - light.hallway
+#       - light.dining-room
+#       - light.entryway
 
 shell_command:
   play_alert: 'aplay /home/pi/alert.wav'  
