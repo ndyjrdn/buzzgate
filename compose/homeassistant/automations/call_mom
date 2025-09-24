@@ -24,4 +24,9 @@ action:
       qos: 0
       retain: false
 
+  - service: system_log.write
+    data:
+      message: "Kiasbutton triggered with action: {{ value_json.action }}"
+      level: info
+
 mode: single
