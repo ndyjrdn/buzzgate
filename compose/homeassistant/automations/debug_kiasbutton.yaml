@@ -6,5 +6,6 @@
   action:
     - service: system_log.write
       data:
-        message: "Kiasbutton state changed to {{ states('sensor.kiasbutton_action') }}"
+        message: "Kiasbutton changed to {{ states('sensor.kiasbutton_action') }}"
         level: info
+  mode: restart
