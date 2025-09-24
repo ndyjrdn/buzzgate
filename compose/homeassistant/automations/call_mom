@@ -29,6 +29,11 @@
 
   - service: shell_command.play_alert
 
+  - service: system_log.write
+    data:
+      message: "Kiasbutton triggered with action: {{ value_json.action }}"
+      level: info
+
   - service: mqtt.publish
     data:
       topic: buzzgate/alert
