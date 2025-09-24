@@ -3,10 +3,13 @@
   description: "Triggered by Kiasbutton MQTT action"
 
   trigger:
-    - platform: mqtt
-      topic: zigbee2mqtt/kiasButtons
-      value_template: "{{ value_json.action }}"
-      value: "1_single"
+    #- platform: mqtt
+    #  topic: zigbee2mqtt/kiasButtons
+    #  value_template: "{{ value_json.action }}"
+    #  value: "1_single"
+    - platform: state
+     entity_id: sensor.kiasbutton_action
+     to: "1_single  
 
   condition: []
 
@@ -31,7 +34,7 @@
 
   - service: system_log.write
     data:
-      message: "Kiasbutton triggered with action: {{ value_json.action }}"
+      message: "message: "Call Mom automation triggered by button press""
       level: info
 
   - service: mqtt.publish
