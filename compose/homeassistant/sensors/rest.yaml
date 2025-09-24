@@ -20,4 +20,4 @@
   resource: http://192.168.1.177:61208/glances/api/3/fs
   value_template: "{{ value_json[0].percent }}"
   scan_interval: 60
-
+  
