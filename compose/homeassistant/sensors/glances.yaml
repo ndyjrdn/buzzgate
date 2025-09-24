@@ -52,6 +52,6 @@
   value_template: "{{ value_json['uptime'] }}"
   scan_interval: 300
 
-networks:
-  compose_cynet:
-    external: true  
+  networks:
+    compose_cynet:
+      external: true  
