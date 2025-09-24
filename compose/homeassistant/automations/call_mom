@@ -4,7 +4,7 @@ trigger:
   - platform: mqtt
     topic: zigbee2mqtt/kiasButtons
     value_template: "{{ value_json.action }}"
-    payload: "1_single"
+    payload: '{"action":"1_single","battery":100,"linkquality":120,"voltage":3000}'
 
 condition: []
 
