@@ -11,19 +11,29 @@
   condition: []
 
   action:
-    - service: light.turn_on
-      target:
-        entity_id: light.alert_lights
-      data:
-        flash: short
-
-    - service: shell_command.play_alert
-
     - service: mqtt.publish
       data:
         topic: zigbee2mqtt/alert_lights/set
-        payload: '{"alert":"select"}'
+        payload: '{"state":"ON","brightness":200}'
         qos: 0
         retain: false
+
+  - delay: "00:00:01.5"
+
+  - service: mqtt.publish
+    data:
+      topic: zigbee2mqtt/alert_lights/set
+      payload: '{"state":"OFF"}'
+      qos: 0
+      retain: false
+
+  - service: shell_command.play_alert
+
+  - service: mqtt.publish
+    data:
+      topic: buzzgate/alert
+      payload: "bathroom_call"
+      qos: 0
+      retain: false
 
   mode: single
