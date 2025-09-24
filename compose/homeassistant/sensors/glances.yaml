@@ -51,3 +51,7 @@
   resource: http://cy:61208/api/4/uptime
   value_template: "{{ value_json['uptime'] }}"
   scan_interval: 300
+
+networks:
+  compose_cynet:
+    external: true  
