@@ -37,8 +37,8 @@ sensor:
     scan_interval: 30
     
   - platform: mqtt
-      name: "Kiasbutton Action"
-      state_topic: "zigbee2mqtt/Kiasbutton"
+      name: Kiasbutton Action
+      state_topic: zigbee2mqtt/Kiasbutton
       value_template: "{{ value_json.action }}"
     
   - platform: rest
