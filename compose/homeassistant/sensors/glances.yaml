@@ -51,4 +51,3 @@
   resource: http://192.168.1.177:61208/api/4/uptime
   value_template: "{{ value_json['uptime'] }}"
   scan_interval: 300
-
