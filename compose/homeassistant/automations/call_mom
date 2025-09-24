@@ -19,8 +19,8 @@ action:
 
   - service: mqtt.publish
     data:
-      topic: buzzgate/alert
-      payload: "bathroom_call"
+      topic: zigbee2mqtt/alert_lights/set
+      payload: '{"alert":"select"}'
       qos: 0
       retain: false
 
