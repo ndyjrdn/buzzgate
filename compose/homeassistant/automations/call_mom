@@ -1,28 +1,27 @@
 - id: call_mom
-  alias: Call Mom
-  description: "Triggered by kiasButtons (top left) to alert Mom with lights, sound, and phone vibration"
-  trigger:
-    - platform: mqtt
-    topic: zigbee2mqtt/Kiasbutton
-    payload: button_1_single
+  description: "Triggered by Kiasbutton MQTT action"
+trigger:
+  - platform: mqtt
+    topic: zigbee2mqtt/kiasButtons
     value_template: "{{ value_json.action }}"
+    payload: "1_single"
 
-  condition: []
+condition: []
 
-  action:
-    - service: light.turn_on
-      target:
-        entity_id: light.alert_lights
-      data:
-        flash: short
+action:
+  - service: light.turn_on
+    target:
+      entity_id: light.alert_lights
+    data:
+      flash: short
 
-    - service: shell_command.play_alert
+  - service: shell_command.play_alert
 
-    - service: mqtt.publish
-        data:
-        topic: buzzgate/alert
-        payload: "bathroom_call"
-        qos: 0
-        retain: false
+  - service: mqtt.publish
+    data:
+      topic: buzzgate/alert
+      payload: "bathroom_call"
+      qos: 0
+      retain: false
 
-  mode: single
+mode: single
