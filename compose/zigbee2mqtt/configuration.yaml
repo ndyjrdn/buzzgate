@@ -69,6 +69,10 @@ devices:
     friendly_name: she-shed
   '0x385cfbfffed0bc28':
     friendly_name: she-said-presence
+  '0x4c97a1fffe280a1b':
+    friendly_name: she_shed_switch
+  '0xcc86ecfffec3c653':
+    friendly_name: kiasButtons
 groups:
   '1':
     friendly_name: kitchen
@@ -80,3 +84,5 @@ groups:
     friendly_name: entryway
   '5':
     friendly_name: livingroom-ceiling
+  '6':
+    friendly_name: alert_lights
