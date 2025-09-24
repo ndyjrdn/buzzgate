@@ -8,21 +8,21 @@
 - platform: rest
   name: Brain Memory Usage
   resource: http://192.168.1.177:61208/api/4/mem
-  value_template: "{{ value_json['percent'] }}"
+  value_template: "{{ value_json.percent | default(0) }}"
   unit_of_measurement: "%"
   scan_interval: 30
 
 - platform: rest
   name: Brain Swap Usage
   resource: http://192.168.1.177:61208/api/4/memswap
-  value_template: "{{ value_json['percent'] }}"
+  value_template: "{{ value_json.percent | default(0) }}"
   unit_of_measurement: "%"
   scan_interval: 30
 
 - platform: rest
   name: Brain Disk Usage
   resource: http://192.168.1.177:61208/api/4/fs
-  value_template: "{{ value_json[0]['percent'] }}"
+  value_template: "{{ value_json[0].percent if value_json and value_json[0] is defined else 0 }}"
   unit_of_measurement: "%"
   scan_interval: 60
 
