@@ -38,7 +38,7 @@ sensor:
     
   - platform: mqtt
     name: "Kiasbutton Action"
-    state_topic: "zigbee2mqtt/Kiasbutton"
+    state_topic: "zigbee2mqtt/0xcc86ecfffec3c653"
     value_template: "{{ value_json.action }}"
     
   - platform: rest
