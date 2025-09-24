@@ -1,1 +1,4 @@
-
+- platform: teamtracker
+    team_id: 66  # Iowa State Cyclones (ESPN ID)
+    #league: NCAAF
+    name: iowa_state_score
