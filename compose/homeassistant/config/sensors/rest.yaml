@@ -1,7 +1,7 @@
 - platform: rest
   name: Brain CPU Usage
   resource: http://192.168.1.177:61208/glances/api/3/cpu
-  value_template: "{{ value_json.percent }}"
+  value_template: "{{ value_json.percent | default(0) }}"
   scan_interval: 30
     
   # - platform: mqtt
@@ -12,12 +12,12 @@
 - platform: rest
   name: Brain RAM Usage
   resource: http://192.168.1.177:61208/glances/api/3/mem
-  value_template: "{{ value_json.percent }}"
+  value_template: "{{ value_json.percent | default(0) }}"
   scan_interval: 30
 
 - platform: rest
   name: Brain Disk Usage
   resource: http://192.168.1.177:61208/glances/api/3/fs
-  value_template: "{{ value_json[0].percent }}"
+  value_template: "{{ value_json[0].percent if value_json and value_json[0] is defined else 0 }}"
   scan_interval: 60
   
