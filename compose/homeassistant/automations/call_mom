@@ -14,34 +14,26 @@
   condition: []
 
   action:
-    - service: mqtt.publish
-      data:
-        topic: zigbee2mqtt/alert_lights/set
-        payload: '{"state":"ON","brightness":200}'
-        qos: 0
-        retain: false
+  - service: mqtt.publish
+    data:
+      topic: zigbee2mqtt/alert_lights/set
+      payload: >
+        {"state":"ON","brightness":200}
 
-  - delay: "00:00:01.5"
+  - delay: "00:00:02"
 
   - service: mqtt.publish
     data:
       topic: zigbee2mqtt/alert_lights/set
-      payload: '{"state":"OFF"}'
-      qos: 0
-      retain: false
+      payload: >
+        {"state":"OFF"}
 
   - service: shell_command.play_alert
-
-  - service: system_log.write
-    data:
-      message: "message: "Call Mom automation triggered by button press""
-      level: info
 
   - service: mqtt.publish
     data:
       topic: buzzgate/alert
       payload: "bathroom_call"
-      qos: 0
-      retain: false
 
-  mode: single
+
+  mode: restart
