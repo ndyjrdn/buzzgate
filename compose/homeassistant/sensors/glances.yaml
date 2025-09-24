@@ -1,54 +1,54 @@
 - platform: rest
   name: Brain CPU Usage
-  resource: http://cy:61208/api/4/cpu
+  resource: http://192.168.1.177:61208/api/4/cpu
   value_template: "{{ value_json['user'] }}"
   unit_of_measurement: "%"
   scan_interval: 30
 
 - platform: rest
   name: Brain Memory Usage
-  resource: http://cy:61208/api/4/mem
+  resource: http://192.168.1.177:61208/api/4/mem
   value_template: "{{ value_json['percent'] }}"
   unit_of_measurement: "%"
   scan_interval: 30
 
 - platform: rest
   name: Brain Swap Usage
-  resource: http://cy:61208/api/4/memswap
+  resource: http://192.168.1.177:61208/api/4/memswap
   value_template: "{{ value_json['percent'] }}"
   unit_of_measurement: "%"
   scan_interval: 30
 
 - platform: rest
   name: Brain Disk Usage
-  resource: http://cy:61208/api/4/fs
+  resource: http://192.168.1.177:61208/api/4/fs
   value_template: "{{ value_json[0]['percent'] }}"
   unit_of_measurement: "%"
   scan_interval: 60
 
 - platform: rest
   name: Brain Network RX
-  resource: http://cy:61208/api/4/network
+  resource: http://192.168.1.177:61208/api/4/network
   value_template: "{{ value_json['eth0']['rx'] }}"
   unit_of_measurement: "Kb"
   scan_interval: 30
 
 - platform: rest
   name: Brain Network TX
-  resource: http://cy:61208/api/4/network
+  resource: http://192.168.1.177:61208/api/4/network
   value_template: "{{ value_json['eth0']['tx'] }}"
   unit_of_measurement: "Kb"
   scan_interval: 30
 
 - platform: rest
   name: Brain Zombie Processes
-  resource: http://cy:61208/api/4/processcount
+  resource: http://192.168.1.177:61208/api/4/processcount
   value_template: "{{ value_json['zombie'] }}"
   scan_interval: 60
 
 - platform: rest
   name: Brain Uptime
-  resource: http://cy:61208/api/4/uptime
+  resource: http://192.168.1.177:61208/api/4/uptime
   value_template: "{{ value_json['uptime'] }}"
   scan_interval: 300
 
