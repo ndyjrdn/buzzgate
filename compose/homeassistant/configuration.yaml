@@ -6,17 +6,16 @@ default_config:
 frontend:
   themes: !include_dir_merge_named themes
 
-automation: !include_dir_merge_list automations
-script: !include scripts.yaml
-scene: !include_dir_merge_list scenes/
+automation: !include_dir_merge_list config/automations
+script: !include config/scripts.yaml
+scene: !include_dir_merge_list config/scenes
+sensor: !include_dir_merge_list config/sensors
 
 calendar:
   - platform: caldav
     url: http://192.168.1.177:8081/remote.php/dav/calendars/andy/personal/
     username: andy
     password: REDACTED_NC_CALDAV_PW
-
-sensor: !include_dir_merge_list sensors
 
 lovelace:
   dashboards:
