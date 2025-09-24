@@ -20,3 +20,7 @@
   resource: http://cy:61208/glances/api/3/fs
   value_template: "{{ value_json[0].percent }}"
   scan_interval: 60
+
+networks:
+  compose_cynet:
+    external: true
