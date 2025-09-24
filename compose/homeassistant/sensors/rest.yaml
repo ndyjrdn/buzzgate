@@ -21,6 +21,6 @@
   value_template: "{{ value_json[0].percent }}"
   scan_interval: 60
 
-networks:
-  compose_cynet:
-    external: true
+  networks:
+    compose_cynet:
+      external: true
