@@ -40,14 +40,14 @@
   unit_of_measurement: "Kb"
   scan_interval: 30
 
-- platform: rest
-  name: Brain Zombie Processes
-  resource: http://192.168.1.177:61208/api/4/processcount
-  value_template: "{{ value_json['zombie'] }}"
-  scan_interval: 60
+# - platform: rest
+#   name: Brain Zombie Processes
+#   resource: http://192.168.1.177:61208/api/4/processcount
+#   value_template: "{{ value_json['zombie'] }}"
+#   scan_interval: 60
 
-- platform: rest
-  name: Brain Uptime
-  resource: http://192.168.1.177:61208/api/4/uptime
-  value_template: "{{ value_json['uptime'] }}"
-  scan_interval: 300
+# - platform: rest
+#   name: Brain Uptime
+#   resource: http://192.168.1.177:61208/api/4/uptime
+#   value_template: "{{ value_json['uptime'] }}"
+#   scan_interval: 300
