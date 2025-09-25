@@ -8,8 +8,8 @@
     #  value_template: "{{ value_json.action }}"
     #  value: "1_single"
     - platform: state
-     entity_id: sensor.kiasbutton_action
-     to: "1_single"  
+      entity_id: sensor.kiasbutton_action
+      to: "1_single"  
 
   condition: []
 
