@@ -25,23 +25,23 @@
             {"state":"OFF"}
       - delay: "00:00:02"
 
-    - delay: "00:00:01"
+      - delay: "00:00:01"
 
-    - service: mqtt.publish
-      data:
-        topic: zigbee2mqtt/alert_lights/set
-        payload: >
-          {"state":"ON","color_temp":370,"brightness":200,"color_mode":"color_temp"}
-    - service: system_log.write
-      data:
-        message: "Call Mom automation completed — lights set to white"
-        level: info
+      - service: mqtt.publish
+        data:
+          topic: zigbee2mqtt/alert_lights/set
+          payload: >
+            {"state":"ON","color_temp":370,"brightness":200,"color_mode":"color_temp"}
+      - service: system_log.write
+        data:
+          message: "Call Mom automation completed — lights set to white"
+          level: info
 
-    - service: shell_command.play_alert
+      - service: shell_command.play_alert
 
-    - service: mqtt.publish
-      data:
-        topic: buzzgate/alert
-        payload: "bathroom_call"
+      - service: mqtt.publish
+        data:
+          topic: buzzgate/alert
+          payload: "bathroom_call"
 
   mode: restart
