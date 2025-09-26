@@ -35,12 +35,12 @@
         payload: >
           {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}  # Or restore previous state if tracked
 
-  - service: shell_command.play_alert
+    - service: shell_command.play_alert
 
-  - service: mqtt.publish
-    data:
-      topic: buzzgate/alert
-      payload: "bathroom_call"
+    - service: mqtt.publish
+       data:
+        topic: buzzgate/alert
+        payload: "bathroom_call"
 
 
   mode: restart
