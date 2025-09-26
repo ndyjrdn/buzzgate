@@ -33,7 +33,7 @@
       data:
         topic: zigbee2mqtt/alert_lights/set
         payload: >
-          {"state":"ON","color":{"r":255,"g":255,"b":255},"brightness":200}  # Or restore previous state if tracked
+          {"state":"ON","color_temp":370,"brightness":200}  # Or restore previous state if tracked
 
     - service: shell_command.play_alert
 
