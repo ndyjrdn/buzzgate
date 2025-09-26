@@ -26,14 +26,14 @@
             data:
               topic: zigbee2mqtt/alert_lights/set
               payload: >
-                {"state":"ON"}
+                {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}
           - delay: "00:00:01"
 
     - service: mqtt.publish
       data:
         topic: zigbee2mqtt/alert_lights/set
         payload: >
-          {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}  # Or restore previous state if tracked
+          {"state":"ON","color":{"r":255,"g":255,"b":255},"brightness":200}  # Or restore previous state if tracked
 
     - service: shell_command.play_alert
 
