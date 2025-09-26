@@ -1,32 +1,39 @@
 - id: call_mom
   alias: Call Mom
   description: "Triggered by Kiasbutton MQTT action"
-
   trigger:
-    #- platform: mqtt
-    #  topic: zigbee2mqtt/kiasButtons
-    #  value_template: "{{ value_json.action }}"
-    #  value: "1_single"
     - platform: state
       entity_id: sensor.kiasbutton_action
-      to: "1_single"  
-
-  condition: []
+      to: "1_single"
 
   action:
-  - service: mqtt.publish
-    data:
-      topic: zigbee2mqtt/alert_lights/set
-      payload: >
-        {"state":"ON","brightness":200}
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/alert_lights/set
+        payload: >
+          {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}
 
-  - delay: "00:00:02"
+    - repeat:
+        count: 5
+        sequence:
+          - service: mqtt.publish
+            data:
+              topic: zigbee2mqtt/alert_lights/set
+              payload: >
+                {"state":"OFF"}
+          - delay: "00:00:01"
+          - service: mqtt.publish
+            data:
+              topic: zigbee2mqtt/alert_lights/set
+              payload: >
+                {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}
+          - delay: "00:00:01"
 
-  - service: mqtt.publish
-    data:
-      topic: zigbee2mqtt/alert_lights/set
-      payload: >
-        {"state":"OFF"}
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/alert_lights/set
+        payload: >
+          {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}  # Or restore previous state if tracked
 
   - service: shell_command.play_alert
 
