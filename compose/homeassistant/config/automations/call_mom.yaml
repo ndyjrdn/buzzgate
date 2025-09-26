@@ -38,9 +38,9 @@
     - service: shell_command.play_alert
 
     - service: mqtt.publish
-       data:
-        topic: buzzgate/alert
-        payload: "bathroom_call"
+      data:
+       topic: buzzgate/alert
+       payload: "bathroom_call"
 
 
   mode: restart
