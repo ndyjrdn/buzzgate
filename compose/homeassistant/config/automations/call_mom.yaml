@@ -7,27 +7,35 @@
       to: "1_single"
 
   action:
-    - repeat:
-        count: 5
-        sequence:
-          - service: mqtt.publish
-            data:
-              topic: zigbee2mqtt/alert_lights/set
-              payload: >
-                {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}
-          - delay: "00:00:01"
-          - service: mqtt.publish
-            data:
-              topic: zigbee2mqtt/alert_lights/set
-              payload: >
-                {"state":"OFF"}
-          - delay: "00:00:01"
+    - delay: "00:00:01"  # Give the light a moment to settle before flashing
+
+- repeat:
+    count: 5
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: zigbee2mqtt/alert_lights/set
+          payload: >
+            {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}
+      - delay: "00:00:02"
+      - service: mqtt.publish
+        data:
+          topic: zigbee2mqtt/alert_lights/set
+          payload: >
+            {"state":"OFF"}
+      - delay: "00:00:02"
+
+    - delay: "00:00:01"
 
     - service: mqtt.publish
       data:
         topic: zigbee2mqtt/alert_lights/set
         payload: >
-          {"state":"ON","color_temp":370,"brightness":200}
+          {"state":"ON","color_temp":370,"brightness":200,"color_mode":"color_temp"}
+    - service: system_log.write
+      data:
+        message: "Call Mom automation completed — lights set to white"
+        level: info
 
     - service: shell_command.play_alert
 
