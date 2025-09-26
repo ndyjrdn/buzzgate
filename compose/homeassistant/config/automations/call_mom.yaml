@@ -1,47 +1,44 @@
 - id: call_mom
   alias: Call Mom
   description: "Triggered by Kiasbutton MQTT action"
+
   trigger:
     - platform: state
       entity_id: sensor.kiasbutton_action
       to: "1_single"
 
   action:
-    - delay: "00:00:01"  # Give the light a moment to settle before flashing
+    - delay: "00:00:01"  # Let the system settle before flashing
 
-- repeat:
-    count: 5
-    sequence:
-      - service: mqtt.publish
-        data:
-          topic: zigbee2mqtt/alert_lights/set
-          payload: >
-            {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}
-      - delay: "00:00:02"
-      - service: mqtt.publish
-        data:
-          topic: zigbee2mqtt/alert_lights/set
-          payload: >
-            {"state":"OFF"}
-      - delay: "00:00:02"
+    - repeat:
+        count: 5
+        sequence:
+          - service: mqtt.publish
+            data:
+              topic: zigbee2mqtt/alert_lights/set
+              payload: >
+                {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}
+          - delay: "00:00:02"
+          - service: mqtt.publish
+            data:
+              topic: zigbee2mqtt/alert_lights/set
+              payload: >
+                {"state":"OFF"}
+          - delay: "00:00:02"
 
-      - delay: "00:00:01"
+    - delay: "00:00:01"  # Give lights a moment before final state
 
-      - service: mqtt.publish
-        data:
-          topic: zigbee2mqtt/alert_lights/set
-          payload: >
-            {"state":"ON","color_temp":370,"brightness":200,"color_mode":"color_temp"}
-      - service: system_log.write
-        data:
-          message: "Call Mom automation completed — lights set to white"
-          level: info
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/alert_lights/set
+        payload: >
+          {"state":"ON","color_temp":370,"brightness":200,"color_mode":"color_temp"}
 
-      - service: shell_command.play_alert
+    - service: shell_command.play_alert
 
-      - service: mqtt.publish
-        data:
-          topic: buzzgate/alert
-          payload: "bathroom_call"
+    - service: mqtt.publish
+      data:
+        topic: buzzgate/alert
+        payload: "bathroom_call"
 
   mode: restart
