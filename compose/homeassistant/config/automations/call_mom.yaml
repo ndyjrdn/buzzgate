@@ -26,7 +26,7 @@
             data:
               topic: zigbee2mqtt/alert_lights/set
               payload: >
-                {"state":"ON","color":{"r":255,"g":0,"b":0},"brightness":200}
+                {"state":"ON"}
           - delay: "00:00:01"
 
     - service: mqtt.publish
