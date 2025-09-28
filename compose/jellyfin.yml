@@ -14,6 +14,6 @@ services:
       - /volume1/JellyfinVault/extras:/media/extras
     environment:
       - TZ=America/Chicago
-      - admin1  # Replace with your admin UID
-      - ^95#0TD1cjzN4qcy  # Replace with your media group GID
+      - 1026  # Replace with your admin UID
+      - 100  # Replace with your media group GID
     restart: unless-stopped
