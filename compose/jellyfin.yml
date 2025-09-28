@@ -10,8 +10,8 @@ services:
     volumes:
       - /volume1/JellyfinConfig:/config
       - /volume1/JellyfinCache:/cache
-      - /home/admin1/testmovies:/media/movies
-      # - /volume1/JellyfinVault/movies:/media/movies
+      #- /home/admin1/testmovies:/media/movies
+      - /volume1/JellyfinVault/movies:/media/movies
       - /volume1/JellyfinVault/extras:/media/extras
     environment:
       - TZ=America/Chicago
