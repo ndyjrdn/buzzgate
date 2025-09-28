@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    ports:
+      - "8096:8096"  # HTTP access
+      # - "8920:8920"  # Uncomment for HTTPS if using reverse proxy
+    volumes:
+      - /volume1/JellyfinConfig:/config
+      - /volume1/JellyfinCache:/cache
+      - /volume1/JellyfinVault/movies:/media/movies
+      - /volume1/JellyfinVault/extras:/media/extras
+    environment:
+      - TZ=America/Chicago
+      - PUID=1000  # Replace with your admin UID
+      - PGID=1000  # Replace with your media group GID
+    restart: unless-stopped
