@@ -11,11 +11,11 @@ script: !include_dir_merge_list config/scripts
 scene: !include_dir_merge_list config/scenes
 sensor: !include_dir_merge_list config/sensors
 
-calendar:
-  - platform: caldav
-    url: http://192.168.1.177:8081/remote.php/dav/calendars/andy/personal/
-    username: andy
-    password: REDACTED_NC_CALDAV_PW
+#calendar:
+ # - platform: caldav
+  #  url: http://192.168.1.177:8081/remote.php/dav/calendars/andy/personal/
+   # username: andy
+    #password: REDACTED_NC_CALDAV_PW
 
 lovelace:
   dashboards:
