@@ -8,11 +8,6 @@
       to: "2_single"
 
   action:
-    - service: mqtt.publish
-      data:
-        topic: zigbee2mqtt/kia_button_2/set
-        payload: '{"state":"ON"}'
-
     - service: scene.turn_on
       target:
         entity_id: scene.evening_scene_on
