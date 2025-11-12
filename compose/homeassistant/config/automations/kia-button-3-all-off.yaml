@@ -18,7 +18,7 @@
         entity_id:
           - light.living_room
           - light.entryway
-          - light.dining-room
+          - light.dining_room
           - light.hallway
           - light.kitchen
           - light.banister_light
