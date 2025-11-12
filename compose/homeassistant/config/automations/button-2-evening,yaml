@@ -1,0 +1,21 @@
+- id: kia_button_2_evening
+  alias: Kia Button 2 - Evening Scene ON
+  description: "Triggered by Kia's button 2 press to activate evening scene"
+
+  trigger:
+    - platform: state
+      entity_id: sensor.kiasbutton_action
+      to: "2_single"
+
+  action:
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/kia_button_2/set
+        payload: '{"state":"ON"}'
+
+    - service: scene.turn_on
+      target:
+        entity_id: scene.evening_scene_on
+
+  mode: restart
+
