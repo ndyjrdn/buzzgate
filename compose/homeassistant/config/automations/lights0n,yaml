@@ -1,0 +1,53 @@
+- id: lightson
+  alias: Lights ON
+  description: "Triggered by Kias button MQTT action"
+
+  trigger:
+    - platform: state
+      entity_id: sensor.kiasbutton_action
+      to: "2_single"
+
+  action:
+   # - delay: "00:00:01"  # Let the system settle before flashing
+
+   
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/alert_lights/set
+        payload: >
+             {"state":"ON","color": {
+        "h": 211,
+        "hue": 211,
+        "s": 9,
+        "saturation": 9,
+        "x": 0.3137,
+        "y": 0.3238
+    },
+    "color_mode": "color_temp",
+    "color_temp": 154,
+    "energy": 2.55,
+    "level_config": {
+        "on_level": "previous"
+    }
+
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/lightson/set
+        payload: >
+          {"state":"ON","color": {
+        "h": 211,
+        "hue": 211,
+        "s": 9,
+        "saturation": 9,
+        "x": 0.3137,
+        "y": 0.3238
+    },
+    "color_mode": "color_temp",
+    "color_temp": 154,
+    "energy": 2.55,
+    "level_config": {
+        "on_level": "previous"
+    }
+
+   
+  mode: restart
