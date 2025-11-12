@@ -16,7 +16,7 @@
     - service: light.turn_off
       target:
         entity_id:
-          - light.living_room
+          - light.livingroom_ceiling
           - light.entryway
           - light.dining_room
           - light.hallway
