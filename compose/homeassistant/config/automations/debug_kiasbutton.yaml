@@ -1,11 +1,11 @@
-- id: debug_kiasbutton
-  alias: Debug Kiasbutton
-  trigger:
-    - platform: state
-      entity_id: sensor.kiasbutton_action
-  action:
-    - service: system_log.write
-      data:
-        message: "Kiasbutton changed to {{ states('sensor.kiasbutton_action') }}"
-        level: info
-  mode: restart
+# - id: debug_kiasbutton
+#   alias: Debug Kiasbutton
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.kiasbutton_action
+#   action:
+#     - service: system_log.write
+#       data:
+#         message: "Kiasbutton changed to {{ states('sensor.kiasbutton_action') }}"
+#         level: info
+#   mode: restart
