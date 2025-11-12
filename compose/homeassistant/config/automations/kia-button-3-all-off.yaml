@@ -8,11 +8,6 @@
       to: "3_single"
 
   action:
-    - service: mqtt.publish
-      data:
-        topic: zigbee2mqtt/kia_button_3/set
-        payload: '{"state":"OFF"}'
-
     - service: light.turn_off
       target:
         entity_id:
@@ -23,6 +18,5 @@
           - light.kitchen
           - light.banister_light
           - light.se_le_corner
-          # Add more entities or groups as needed
 
   mode: restart
