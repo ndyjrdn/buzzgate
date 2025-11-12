@@ -1,0 +1,28 @@
+- id: kia_button_3_all_off
+  alias: Kia Button 3 - All Off
+  description: "Triggered by Kia's button 3 press to turn off all lights"
+
+  trigger:
+    - platform: state
+      entity_id: sensor.kiasbutton_action
+      to: "3_single"
+
+  action:
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/kia_button_3/set
+        payload: '{"state":"OFF"}'
+
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.living_room
+          - light.entryway
+          - light.dining-room
+          - light.hallway
+          - light.kitchen
+          - light.banister_light
+          - light.se_le_corner
+          # Add more entities or groups as needed
+
+  mode: restart
