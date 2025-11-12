@@ -1,4 +1,4 @@
-- id: kia_button_2_evening
+- id: kia_button_2_evening_scene
   alias: Kia Button 2 - Evening Scene ON
   description: "Triggered by Kia's button 2 press to activate evening scene"
 
