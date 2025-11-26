@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  mealie:
+    image: hkotel/mealie:latest
+    container_name: mealie
+    restart: always
+    environment:
+      - ALLOW_SIGNUP=true
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - BASE_URL=http://your-server:8085
+    volumes:
+      - mealie-data:/app/data
+    ports:
+      - "8085:9000"   # host port 8085 mapped to container port 9000
+
+volumes:
+  mealie-data:
