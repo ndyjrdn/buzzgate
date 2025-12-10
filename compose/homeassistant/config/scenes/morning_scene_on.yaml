@@ -12,4 +12,6 @@
       state: "off"
     light.hallway:
       state: "off"
+    cover.living_room_curtains:
+      state: "open"
     
