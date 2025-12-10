@@ -1,1 +1,18 @@
-
+- platform: template
+  covers:
+    living_room_curtain_south_fixed:
+      friendly_name: "Living Room Curtain South (Fixed)"
+      device_class: curtain
+      open_cover:
+        service: cover.close_cover
+        target:
+          entity_id: cover.living_room_curtain_south
+      close_cover:
+        service: cover.open_cover
+        target:
+          entity_id: cover.living_room_curtain_south
+      stop_cover:
+        service: cover.stop_cover
+        target:
+          entity_id: cover.living_room_curtain_south
+      value_template: "{{ states('cover.living_room_curtain_south') }}"
