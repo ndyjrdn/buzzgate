@@ -10,6 +10,7 @@ automation: !include_dir_merge_list config/automations
 script: !include_dir_merge_list config/scripts
 scene: !include_dir_merge_list config/scenes
 sensor: !include_dir_merge_list config/sensors
+group: !include_dir_merge_list config/groups
 
 cover:
   - platform: template
