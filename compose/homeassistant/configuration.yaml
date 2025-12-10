@@ -10,27 +10,8 @@ automation: !include_dir_merge_list config/automations
 script: !include_dir_merge_list config/scripts
 scene: !include_dir_merge_list config/scenes
 sensor: !include_dir_merge_list config/sensors
-group: !include_dir_merge_list config/groups
+cover: !include_dir_merge_list config/covers
 
-cover:
-  - platform: template
-    covers:
-      living_room_curtain_south_fixed:
-        friendly_name: "Living Room Curtain South (Fixed)"
-        device_class: curtain
-        open_cover:
-          service: cover.close_cover
-          target:
-            entity_id: cover.living_room_curtain_south
-        close_cover:
-          service: cover.open_cover
-          target:
-            entity_id: cover.living_room_curtain_south
-        stop_cover:
-          service: cover.stop_cover
-          target:
-            entity_id: cover.living_room_curtain_south
-        value_template: "{{ states('cover.living_room_curtain_south') }}"
 
 
 #calendar:
