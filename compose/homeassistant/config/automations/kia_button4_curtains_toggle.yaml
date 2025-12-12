@@ -29,4 +29,11 @@
       #   - service: cover.toggle
       #     target:
       #       entity_id: cover.living_room_curtains
+    - service: logbook.log
+      data:
+        name: "Curtain Toggle"
+        message: "Button4 pressed"
+    - service: cover.close_cover
+      target:
+        entity_id: cover.living_room_curtains  
   mode: restart
