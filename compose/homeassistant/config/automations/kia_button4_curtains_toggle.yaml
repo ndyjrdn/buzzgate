@@ -15,3 +15,4 @@
     - service: cover.close_cover
       target:
         entity_id: cover.living_room_curtains
+mode: restart
