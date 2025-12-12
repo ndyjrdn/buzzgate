@@ -1,11 +1,9 @@
 - id: kia_button4_curtains_toggle
   alias: Kia Button4 Curtains Toggle
   trigger:
-    - platform: device
-      domain: mqtt
-      device_id: kia_button4_device_id   # replace with actual device_id
-      type: button_short_press           # or whatever event Kia’s button4 sends
-      subtype: button_4
+    - platform: state
+      entity_id: sensor.kiasbutton_action
+      to: "4_single"
   action:
     - choose:
         - conditions:
