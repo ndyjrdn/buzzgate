@@ -12,5 +12,3 @@
       state: "on"
       brightness: 225
       color_temp: 75
-    cover.living_room_curtains:
-      state: "close"
