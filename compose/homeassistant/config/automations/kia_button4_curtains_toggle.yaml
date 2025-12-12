@@ -1,25 +1,17 @@
-- id: kia_button4_curtains_toggle
-  alias: Kia Button4 Curtains Toggle
+- id: kia_button4_curtains_test
+  alias: Kia Button4 Curtains Test
   trigger:
     - platform: state
       entity_id: sensor.kiasbutton_action
       to: "4_single"
   action:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: cover.living_room_curtains
-              state: "open"
-          sequence:
-            - service: cover.close_cover
-              target:
-                entity_id: cover.living_room_curtains
-        - conditions:
-            - condition: state
-              entity_id: cover.living_room_curtains
-              state: "closed"
-          sequence:
-            - service: cover.open_cover
-              target:
-                entity_id: cover.living_room_curtains
-  mode: single
+    - service: cover.close_cover
+      target:
+        entity_id: cover.living_room_curtains
+    - service: logbook.log
+    data:
+      name: "Curtain Toggle"
+      message: "Button4 pressed"
+    - service: cover.close_cover
+      target:
+        entity_id: cover.living_room_curtains
