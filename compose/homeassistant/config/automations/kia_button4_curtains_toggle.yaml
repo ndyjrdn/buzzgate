@@ -26,7 +26,6 @@
       data:
         name: "Curtain Toggle"
         message: "Button4 pressed"
-    - service: logbook.log
       data:
         name: "Curtain Toggle"
         message: "Button4 state changed
