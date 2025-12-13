@@ -3,7 +3,7 @@
   trigger:
     - platform: state
       entity_id: sensor.kiasbutton_action
-      to: "4_single"
+      #to: "4_single"
   action:
     - choose:
         - conditions:
@@ -26,4 +26,8 @@
       data:
         name: "Curtain Toggle"
         message: "Button4 pressed"
+    - service: logbook.log
+      data:
+        name: "Curtain Toggle"
+        message: "Button4 state changed
   mode: single
