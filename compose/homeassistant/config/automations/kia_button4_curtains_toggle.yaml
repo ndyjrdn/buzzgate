@@ -28,5 +28,5 @@
         message: "Button4 pressed"
       data:
         name: "Curtain Toggle"
-        message: "Button4 state changed
+        message: "Button4 state changed"
   mode: single
