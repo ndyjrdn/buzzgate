@@ -1,5 +1,5 @@
-- id: kia_button4_curtains_toggle
-  alias: Kia Button4 Curtains Toggle
+- id: kia_button4_curtains_test
+  alias: Kia Button4 Curtains Test
   trigger:
     - platform: state
       entity_id: sensor.kiasbutton_action
