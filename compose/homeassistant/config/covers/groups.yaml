@@ -4,3 +4,9 @@ cover:
     entities:
       - cover.living_room_curtain_north
       - cover.living_room_curtain_south_fixed
+  - platform: group
+    name: All Curtains
+    entities:
+      - cover.living_room_curtain_north
+      - cover.living_room_curtain_south_fixed
+      - cover.deck_door_curtains
