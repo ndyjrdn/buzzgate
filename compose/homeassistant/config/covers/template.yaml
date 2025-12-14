@@ -16,3 +16,24 @@
         target:
           entity_id: cover.living_room_curtain_south
       value_template: "{{ states('cover.living_room_curtain_south') }}"
+      open_duration: 30
+      close_duration: 30
+
+    deck_door_curtains_fixed:
+      friendly_name: "Deck Door Curtains (Fixed)"
+      device_class: curtain
+      open_cover:
+        service: cover.close_cover
+        target:
+          entity_id: cover.deck_door_curtains
+      close_cover:
+        service: cover.open_cover
+        target:
+          entity_id: cover.deck_door_curtains
+      stop_cover:
+        service: cover.stop_cover
+        target:
+          entity_id: cover.deck_door_curtains
+      value_template: "{{ states('cover.deck_door_curtains') }}"
+      open_duration: 30
+      close_duration: 30
