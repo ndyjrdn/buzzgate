@@ -16,5 +16,3 @@
         target:
           entity_id: cover.deck_door_curtains
       value_template: "{{ states('cover.deck_door_curtains') }}"
-      open_duration: 30
-      close_duration: 30
