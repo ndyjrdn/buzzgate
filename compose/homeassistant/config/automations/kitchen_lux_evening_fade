@@ -1,0 +1,20 @@
+- id: kitchen_evening_fade
+  alias: Kitchen Evening Fade
+  trigger:
+    - platform: time_pattern
+      minutes: "/30"
+  condition:
+    - condition: time
+      after: "16:45:00"
+      before: "23:59:59"
+    - condition: state
+      entity_id: light.kitchen
+      state: "on"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.kitchen
+      data:
+        brightness_pct: >
+          {{ (state_attr('light.kitchen', 'brightness') | int / 2.55 * 0.8) | int }}
+  mode: single
