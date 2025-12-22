@@ -1,0 +1,32 @@
+- id: kitchen_lux_control
+  alias: Kitchen Lux Control (Daytime)
+  trigger:
+    - platform: state
+      entity_id: sensor.luminance_kitchen
+  condition:
+    - condition: time
+      after: "09:00:00"
+      before: "16:45:00"
+  action:
+    - variables:
+        lux: "{{ states('sensor.luminance_kitchen') | float }}"
+        low: 150
+        high: 210
+    - choose:
+        - conditions: "{{ lux < low }}"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.kitchen
+              data:
+                brightness_pct: >
+                  {{ [((low - lux) * 0.8) | int, 100] | min }}
+        - conditions: "{{ lux > high }}"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.kitchen
+              data:
+                brightness_pct: >
+                  {{ [((high / lux) * 100) | int, 10] | max }}
+  mode: restart
