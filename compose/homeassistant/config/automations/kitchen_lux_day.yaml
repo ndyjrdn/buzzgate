@@ -13,6 +13,7 @@
         low: 150
         high: 210
     - choose:
+        # Too dark → turn ON and set brightness
         - conditions: "{{ lux < low }}"
           sequence:
             - service: light.turn_on
@@ -21,12 +22,13 @@
               data:
                 brightness_pct: >
                   {{ [((low - lux) * 0.8) | int, 100] | min }}
+
+        # Too bright → turn OFF
         - conditions: "{{ lux > high }}"
           sequence:
-            - service: light.turn_on
+            - service: light.turn_off
               target:
                 entity_id: light.kitchen
-              data:
-                brightness_pct: >
-                  {{ [((high / lux) * 100) | int, 10] | max }}
+
+        # Between low and high → maintain current state (no action)
   mode: restart
