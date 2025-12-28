@@ -12,3 +12,12 @@
       state: "off"
     light.hallway:
       state: "off"
+    light.hall_n:
+      state: "off"
+    light.hall_n:
+      state: "off"
+    light.entryway_flood:
+      state: "off"
+    light.entryway_small:
+      state: "off"
+          
