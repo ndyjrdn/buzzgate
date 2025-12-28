@@ -1,0 +1,13 @@
+alias: Kia Room - Auto Off After Motion Clears
+trigger:
+  - platform: state
+    entity_id: binary_sensor.kia_s_room_motion_occupancy
+    to: "off"
+    for: "00:03:00"
+action:
+  - service: light.turn_off
+    target:
+      entity_id:
+        - light.kias_bedroom_white
+        - light.kias_bedroom_rgb
+mode: restart
