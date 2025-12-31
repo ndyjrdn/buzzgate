@@ -12,4 +12,5 @@
         entity_id: 
           - cover.living_room_curtains
           - cover.deck_door_curtains
+          - cover.kia_s_curtain
   mode: single
