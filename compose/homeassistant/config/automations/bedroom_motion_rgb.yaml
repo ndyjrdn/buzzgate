@@ -1,0 +1,37 @@
+- id: bedroom_motion_start_night
+  alias: Bedroom Motion Start (Night)
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.bedroom_motion
+      to: 'on'
+
+  # Opposite of the daytime window:
+  # Runs BEFORE 09:00 OR AFTER 20:30
+  condition:
+    - condition: or
+      conditions:
+        - condition: time
+          before: '09:00:00'
+        - condition: time
+          after: '20:30:00'
+
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.0x54ef441000d7b0d1_rgb
+      data:
+        brightness_pct: 40
+        rgb_color: [180, 0, 255]   # soft purple
+
+    - service: persistent_notification.create
+      data:
+        title: "Motion Triggered (Night)"
+        message: "Bedroom motion sensor fired during night mode"
+
+    - service: timer.start
+      target:
+        entity_id: timer.bedroom_motion_hold
+      data:
+        duration: "00:02:00"
+
+  mode: restart
