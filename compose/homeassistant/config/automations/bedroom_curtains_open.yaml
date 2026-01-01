@@ -1,5 +1,5 @@
-- id: buzzgate_morning_curtains
-  alias: Buzzgate Morning Curtains
+- id: buzzgate_morning_bedroom_curtains
+  alias: Buzzgate Morning Beedroom Curtains
   trigger:
     - platform: time
       at: "08:30:00"
