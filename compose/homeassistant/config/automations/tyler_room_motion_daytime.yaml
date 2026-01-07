@@ -21,6 +21,6 @@
       target:
         entity_id: light.tylers_bedroom_white
       data:
-        brightness_pct: 100
+        brightness_pct: 45
 
   mode: restart
