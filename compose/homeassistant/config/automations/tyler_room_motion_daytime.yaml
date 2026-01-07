@@ -1,40 +1,21 @@
-- id: tyler_daytime_motion
-  alias: Tyler Room - Daytime Motion
+- id: tyler_motion_start
+  alias: Tyler Room - Motion Start
   trigger:
     - platform: state
       entity_id: binary_sensor.tylers_room_motion_occupancy
       to: "on"
 
-    - platform: state
-      entity_id: binary_sensor.tylers_room_motion_occupancy
-      to: "off"
-      for: "00:02:00"
-
-  condition:
-    - condition: time
-      after: "08:30:00"
-      before: "21:00:00"
-
   action:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.tylers_room_motion_occupancy
-              state: "on"
-          sequence:
-            - service: light.turn_on
-              target:
-                entity_id: light.0x54ef441000d7a808_white #tylers light
-              data:
-                brightness_pct: 100
+    - service: timer.start
+      target:
+        entity_id: timer.tyler_motion_hold
+      data:
+        duration: "00:02:00"
 
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.tylers_room_motion_occupancy
-              state: "off"
-          sequence:
-            - service: light.turn_off
-              target:
-                entity_id: light.0x54ef441000d7a808_white #tylers light
+    - service: light.turn_on
+      target:
+        entity_id: light.0x54ef441000d7a808_white #tylers light
+      data:
+        brightness_pct: 100
 
   mode: restart
