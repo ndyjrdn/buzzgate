@@ -1,0 +1,18 @@
+- id: tyler_motion_timeout
+  alias: Tyler Room - Motion Timeout
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.tyler_motion_hold
+
+  condition:
+    - condition: state
+      entity_id: binary_sensor.tylers_room_motion_occupancy
+      state: "off"
+
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:light.0x54ef441000d7a808_white #tylers light
+
