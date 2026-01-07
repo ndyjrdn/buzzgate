@@ -5,6 +5,11 @@
       entity_id: binary_sensor.tylers_room_motion_occupancy
       to: "on"
 
+  condition:
+    - condition: time
+      after: "09:00:00"
+      before: "23:00:00"
+
   action:
     - service: timer.start
       target:
@@ -14,7 +19,7 @@
 
     - service: light.turn_on
       target:
-        entity_id: light.0x54ef441000d7a808_white #tylers light
+        entity_id: light.tylers_bedroom_white
       data:
         brightness_pct: 100
 
