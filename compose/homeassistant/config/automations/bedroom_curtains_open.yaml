@@ -8,4 +8,5 @@
       target:
         entity_id: 
           - cover.kia_s_curtain
+          - cover.0x583bc2fffe034cc0
   mode: single
