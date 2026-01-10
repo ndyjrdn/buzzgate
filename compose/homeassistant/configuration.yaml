@@ -37,8 +37,8 @@ timer:
   bedroom_motion_hold:
     name: Bedroom Motion Hold
     duration: "00:00:00"
-timer: 
-    name: tyler_motion_hold: 
+  tyler_motion_hold:
+    name:  Tyler Motion Hold
     duration: "00:02:00"
 
 
