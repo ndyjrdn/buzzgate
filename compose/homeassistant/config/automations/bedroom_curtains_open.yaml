@@ -9,4 +9,5 @@
         entity_id: 
           - cover.kia_s_curtain
           - cover.0x583bc2fffe034cc0 # Tyler's curtain
+          - cover.0x6cfd22fffe5a7905 #mom's curtain
   mode: single
