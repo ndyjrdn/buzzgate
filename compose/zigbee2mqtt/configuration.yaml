@@ -35,10 +35,6 @@ devices:
     friendly_name: kitchen-center
   '0xb0ce181400214c05':
     friendly_name: Entryway-flood
-  '0xb0ce1814001afa2d':
-    friendly_name: hall-n
-  '0xb0ce1814001af7a6':
-    friendly_name: hall-s
   '0xb0ce1814001d44a0':
     friendly_name: master2
   '0xb0ce1814001d4cb7':
@@ -69,10 +65,46 @@ devices:
     friendly_name: she-shed
   '0x385cfbfffed0bc28':
     friendly_name: she-said-presence
-  '0x4c97a1fffe280a1b':
-    friendly_name: she_shed_switch
   '0xcc86ecfffec3c653':
     friendly_name: kiasButtons
+  '0xe406bffffe2bc96e':
+    friendly_name: Living Room Curtain - North
+  '0xe406bffffe2ba7e8':
+    friendly_name: Living Room Curtain - South
+    invert_cover: true
+  '0xe406bffffe4c871e':
+    friendly_name: Deck Door Curtains
+  '0x54ef441000ca7f4b':
+    friendly_name: Kia's Bedroom
+  '0x54ef441000d7a808':
+    friendly_name: Tyler's Bedroom
+  '0xa4c138e2b39568ba':
+    friendly_name: luminance_kitchen
+  '0xb40e060fffe07254':
+    friendly_name: Kia's Room Motion
+    homeassistant:
+      name: Kias Room Motion
+    optimistic: true
+  '0x403059fffe6349c4':
+    friendly_name: Kia's Curtain
+    invert_cover: false
+  '0x54ef441000d7b0d1':
+    friendly_name: Mom's light
+  '0xb0ce1814001afa2d':
+    friendly_name: hall-n
+  '0xb0ce1814001af7a6':
+    friendly_name: hall-s
+  '0x4c97a1fffe280a1b':
+    friendly_name: she-shed switch
+  '0x00124b0031dd14d2':
+    friendly_name: master_closet_repeater
+  '0xb40e060fffe071e3':
+    friendly_name: Tylers Room Motion
+  '0x583bc2fffe034cc0':
+    friendly_name: Tyler's Curtain
+    invert_cover: false
+  '0x6cfd22fffe5a7905':
+    friendly_name: moms_curtain
 groups:
   '1':
     friendly_name: kitchen
