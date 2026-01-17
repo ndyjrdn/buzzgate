@@ -18,7 +18,7 @@ advanced:
 device_options:
   retain: false
 onboarding: false
-channel: 11
+channel: 15
 version: 4
 devices:
   '0xb0ce1814001afd37':
