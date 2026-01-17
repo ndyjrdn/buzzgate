@@ -30,6 +30,9 @@ services:
       - 1.1.1.1
     volumes:
       - /home/andy/buzzgate/compose/zigbee2mqtt:/app/data
+    devices: 
+      - /dev/serial/by-id/usb-SMLIGHT_SMLIGHT_SLZB-07_eccaf5a21f72ef11b8da3b848fcc3fa0-if00-port0:/dev/ttyUSB0 
+    privileged: true
     networks:
       - compose_cynet
 
