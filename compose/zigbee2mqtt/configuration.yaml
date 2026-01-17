@@ -6,6 +6,7 @@ mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://cy-mosquitto-z2m:1883
 serial:
+  adapter: ezsp
   port: /dev/serial/by-id/usb-SMLIGHT_SMLIGHT_SLZB-07_eccaf5a21f72ef11b8da3b848fcc3fa0-if00-port0
 # serial:
 #   adapter: zstack
