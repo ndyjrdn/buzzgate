@@ -9,6 +9,6 @@
     - service: light.turn_off
       target:
         entity_id:
-          - light.kias_bedroom_white
-          - light.kias_bedroom_rgb
+          - light.kia_s_bedroom_white
+          - light.kia_s_bedroom_rgb
   mode: restart
