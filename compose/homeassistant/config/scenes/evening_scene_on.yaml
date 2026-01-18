@@ -1,6 +1,6 @@
 - name: Buzzgate Evening On
   entities:
-    light.hallway:
+    light.hallway_lights:
       state: "on"
       brightness: 200
       rgb_color: [215, 151, 255] #purple
@@ -8,7 +8,7 @@
       state: "on"
       brightness: 225
       color_temp: 75
-    light.livingroom_ceiling:
+    light.living_room_ceiling:
       state: "on"
       brightness: 225
       color_temp: 75
