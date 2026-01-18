@@ -8,16 +8,12 @@
       state: "on"
       brightness: 100
       color_temp: 150
-    light.master_bedroom:
+    light.0x54ef441000d7b0d1_rgb:
+      state: "off":
+    light.0x54ef441000d7b0d1_white:
       state: "off"
-    light.hallway:
+    light.hallway_lights:
       state: "off"
-    light.hall_n:
-      state: "off"
-    light.hall_n:
-      state: "off"
-    light.entryway_flood:
-      state: "off"
-    light.entryway_small:
+    light.entryway_2:
       state: "off"
           
