@@ -1,8 +1,9 @@
 - id: buzzgate_evening_scene_on
   alias: Buzzgate Evening Scene On
   trigger:
-    - platform: time
-      at: "16:45:00"
+    - platform: sun
+      at: sunset
+      offset: "0:00:00" # optional: adjust earlier/later if needed -00:20:00 for 20 minutes before sunset.  Positive for after
   action:
     - service: scene.turn_on
       target:
