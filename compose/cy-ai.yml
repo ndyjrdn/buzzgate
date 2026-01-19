@@ -22,7 +22,7 @@ services:
     image: rhasspy/wyoming-whisper
     container_name: cy-ai-whisper
     # --- ADDED COMMAND FOR STT ---
-    command: --model tiny-int8 --language en --uri 'tcp://0.0.0.0:10300' --data-dir /data
+    command: --model small-int8 --language en --uri 'tcp://0.0.0.0:10300' --data-dir /data
     ports:
       - "10300:10300"
     # --- ADDED PERSISTENCE ---
