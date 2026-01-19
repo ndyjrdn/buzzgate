@@ -5,33 +5,46 @@
 version: '3.9'
 
 services:
-   open-webui:
+  open-webui:
     image: ghcr.io/open-webui/open-webui:main
     container_name: cy-ai-webui
     ports:
-      - "6996:8080"  # remapped to avoid Pi-hole & Nextcloud
+      - "6996:8080"
     environment:
       - OLLAMA_BASE_URL=http://192.168.1.177:11434
       - WEBUI_SECRET_KEY=REDACTED_WEBUI_KEY
     volumes:
-      - /mnt/llm-memory:/app/memory  # NAS-mounted memory volume
-      - /mnt/skippy-webui-data:/app/backend/data  # ← persist user data
+      - /mnt/llm-memory:/app/memory
+      - /mnt/skippy-webui-data:/app/backend/data
     restart: unless-stopped
 
   whisper:
     image: rhasspy/wyoming-whisper
     container_name: cy-ai-whisper
+    # --- ADDED COMMAND FOR STT ---
+    command: --model tiny-int8 --language en --uri 'tcp://0.0.0.0:10300' --data-dir /data
     ports:
       - "10300:10300"
+    # --- ADDED PERSISTENCE ---
+    volumes:
+      - whisper_data:/data
     restart: unless-stopped
 
   piper:
     image: rhasspy/wyoming-piper
     container_name: cy-ai-piper
+    # --- ADDED COMMAND FOR TTS ---
+    command: --voice en_US-lessac-medium --uri 'tcp://0.0.0.0:10200' --data-dir /data
     ports:
       - "10200:10200"
+    # --- ADDED PERSISTENCE ---
+    volumes:
+      - piper_data:/data
     restart: unless-stopped
 
 volumes:
   ollama_data:
     driver: local
+  # --- NEW VOLUMES ---
+  whisper_data:
+  piper_data:
