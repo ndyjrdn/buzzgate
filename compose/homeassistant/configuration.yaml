@@ -12,6 +12,7 @@ scene: !include_dir_merge_list config/scenes
 sensor: !include_dir_merge_list config/sensors
 cover: !include_dir_merge_list config/covers
 
+assist:
 assist_pipeline: 
   pipelines: 
     - name: "Default Pipeline" 
