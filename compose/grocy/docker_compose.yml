@@ -9,7 +9,7 @@ services:
       - PGID=1000
       - TZ=America/Chicago
     volumes:
-      - ./config:/config/data
+      - ./config:/config
     ports:
       - "9283:80"
     restart: unless-stopped
