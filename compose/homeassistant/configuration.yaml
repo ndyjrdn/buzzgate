@@ -30,6 +30,15 @@ conversation:
    # username: andy
     #password: REDACTED_NC_CALDAV_PW
 
+rest_command:
+  mealie_get_recipe:
+    url: "http://cy:9000/api/recipes/{{ recipe_id }}"
+    method: GET
+    headers:
+      Authorization: "Bearer YOURTOKEN"
+    verify_ssl: false
+
+
 lovelace:
   dashboards:
     buzzgate-monitor:
