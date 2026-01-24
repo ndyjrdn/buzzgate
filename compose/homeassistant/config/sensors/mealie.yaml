@@ -1,0 +1,9 @@
+- platform: rest
+  name: Mealie Recipe
+  resource: "http://192.168.1.177:9000/api/recipes/1"
+  headers:
+    Authorization: "Bearer REDACTED_MEALIE_JWT"
+  scan_interval: 3600
+  value_template: "{{ value_json.name }}"
+  json_attributes:
+    - ingredients
