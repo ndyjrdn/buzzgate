@@ -5,6 +5,6 @@ return [
 
     // Set your credentials here
     'HTTP_BASIC_AUTH_USER' => 'andy',
-    'HTTP_BASIC_AUTH_PASSWORD' => 'ldj81771',
+    'HTTP_BASIC_AUTH_PASSWORD' => 'ldj',
 ];
 
