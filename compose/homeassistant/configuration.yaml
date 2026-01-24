@@ -20,8 +20,10 @@ conversation:
 #       conversation_engine: conversation.default 
 #       language: "en"
 
-todo: 
-  - name: Groceries
+todo:
+  - platform: local
+    name: Groceries
+
 #calendar:
  # - platform: caldav
   #  url: http://192.168.1.177:8081/remote.php/dav/calendars/andy/personal/
