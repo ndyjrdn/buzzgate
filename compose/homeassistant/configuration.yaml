@@ -20,9 +20,9 @@ conversation:
 #       conversation_engine: conversation.default 
 #       language: "en"
 
-todo:
-  - platform: local
-    name: Groceries
+# todo:
+#   - platform: local
+#     name: Groceries
 
 #calendar:
  # - platform: caldav
