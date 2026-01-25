@@ -1,9 +1,9 @@
 - platform: rest
   name: Mealie Recipe
-  resource: "http://192.168.1.177:9000/api/recipes/1"
+  resource_template: "http://192.168.1.177:8085/api/recipes/{{ states('input_text.mealie_recipe_id') }}"
   headers:
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb25nX3Rva2VuIjp0cnVlLCJpZCI6IjUxZGVlZTQyLTM0ZTUtNDMyNC05MjRjLWQ0YTc2OTBjYTliOCIsIm5hbWUiOiJIQSBJbnRlZ3JhdGlvbiIsImludGVncmF0aW9uX2lkIjoiZ2VuZXJpYyIsImV4cCI6MTkyNjk3ODkzN30.WxC_yOj0M9MF0f6wGP7hGF3KG2d5Jp4BFQWPk2OhNQU"
-  scan_interval: 3600
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb25nX3Rva2VuIjp0cnVlLCJpZCI6Ijk5NzI1ZGQxLWQxNDMtNDBmMy1hYmRhLTYxMTllNWJlODBhZCIsIm5hbWUiOiJIb21lIEFzc2lzdGFudCIsImludGVncmF0aW9uX2lkIjoiZ2VuZXJpYyIsImV4cCI6MTkyNjk4MzQ3Mn0.jYCbN2BXN3KsQRnQVVOlkzXYmKzpJsvnpUgpCVBo7jM"
   value_template: "{{ value_json.name }}"
   json_attributes:
     - ingredients
+
