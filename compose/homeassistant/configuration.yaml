@@ -23,6 +23,9 @@ conversation:
 # todo:
 #   - platform: local
 #     name: Groceries
+input_text:
+  mealie_recipe_id:
+    name: Mealie Recipe ID
 
 #calendar:
  # - platform: caldav
