@@ -12,6 +12,7 @@ services:
       - /volume1/JellyfinCache:/cache
       #- /home/admin1/testmovies:/media/movies
       - /mnt/jellyfin/movies:/media/movies
+      - /mnt/media2:/media2
       - /volume1/JellyfinVault/extras:/media/extras
     environment:
       - TZ=America/Chicago
