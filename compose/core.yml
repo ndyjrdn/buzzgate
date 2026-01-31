@@ -47,7 +47,8 @@ services:
     ports:
       - "8123:8123"
     volumes:
-      - /home/andy/buzzgate/compose/homeassistant:/config
+      - /home/andy/buzzgate/compose/homeassistant/config:/config
+      #- /home/andy/buzzgate/compose/homeassistant:/config
       #- /home/andy/buzzgate/compose/homeassistant/automations:/config/automations
     restart: unless-stopped
     networks:
