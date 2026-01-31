@@ -13,7 +13,7 @@ condition:
          trigger.from_state.attributes.items | length }}
 
 action:
-  - service: notify.mobile_app_andys_phone
+  - service: notify.mobile_app_sm_f766u
     data:
       message: >
         {% set new = trigger.to_state.attributes.items
