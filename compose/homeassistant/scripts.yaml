@@ -1,0 +1,28 @@
+add_mealie_ingredients_to_groceries:
+  alias: Add Mealie Ingredients to Groceries
+  mode: parallel
+  fields:
+    recipe_id:
+      description: The Mealie recipe ID
+      example: '123'
+  sequence:
+  - variables:
+      mealie_url: http://<YOUR-MEALIE-HOST>:9000/api/recipes/{{ recipe_id }}
+      mealie_token: <YOUR-MEALIE-API-TOKEN>
+  - alias: Fetch recipe data
+    data:
+      recipe_id: '{{ recipe_id }}'
+    action: rest_command.mealie_get_recipe
+  - alias: Extract ingredients
+    variables:
+      ingredients: '{{ state_attr(''sensor.mealie_recipe'', ''ingredients'') }}'
+  - alias: Add each ingredient to groceries
+    repeat:
+      for_each: '{{ ingredients }}'
+      sequence:
+      - data:
+          item: '{{ repeat.item.note or repeat.item.name }}'
+        target:
+          entity_id: todo.groceries
+        action: todo.add_item
+  description: ''
