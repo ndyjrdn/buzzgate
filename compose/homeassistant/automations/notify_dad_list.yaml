@@ -3,13 +3,18 @@
   mode: single
 
   trigger:
-    - platform: event
-      event_type: todo.item_added
-      event_data:
-        entity_id: todo.dad
+    - platform: state
+      entity_id: todo.dad
+
+  condition:
+    - condition: template
+      value_template: >
+        {{ trigger.to_state.state | int >
+           trigger.from_state.state | int }}
 
   action:
     - service: notify.mobile_app_sm_f766u_2
       data:
         message: >
-          New task added: {{ trigger.event.data.item.summary }}
+          A new task was added to the Dad list.
+
