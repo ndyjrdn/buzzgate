@@ -1,0 +1,22 @@
+- id: kia_button_3_all_off
+  alias: Kia Button 3 - All Off
+  description: "Triggered by Kia's button 3 press to turn off all lights"
+
+  trigger:
+    - platform: state
+      entity_id: sensor.kiasbutton_action
+      to: "3_single"
+
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.livingroom_ceiling
+          - light.entryway
+          - light.dining_room
+          - light.hallway
+          - light.kitchen
+          - light.banister_light
+          - light.se_le_corner
+
+  mode: restart

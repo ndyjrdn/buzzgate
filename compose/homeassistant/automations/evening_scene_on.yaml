@@ -1,0 +1,19 @@
+- id: buzzgate_evening_scene_on
+  alias: Buzzgate Evening Scene On
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "0:00:00" # optional: adjust earlier/later if needed -00:20:00 for 20 minutes before sunset.  Positive for after
+  action:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.buzzgate_evening_on
+    - service: cover.close_cover
+      target:
+        entity_id: 
+          - cover.living_room_curtains
+          - cover.deck_door_curtains
+          - cover.kia_s_curtain
+          - cover.0x583bc2fffe034cc0 #tyler's curtain
+          - cover.0x6cfd22fffe5a7905 #mom's curtain
+  mode: single

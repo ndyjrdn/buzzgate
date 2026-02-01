@@ -1,0 +1,16 @@
+- id: kia_button_2_evening_scene
+  alias: Kia Button 2 - Evening Scene ON
+  description: "Triggered by Kia's button 2 press to activate evening scene"
+
+  trigger:
+    - platform: state
+      entity_id: sensor.kiasbutton_action
+      to: "2_single"
+
+  action:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.buzzgate_evening_on
+
+  mode: restart
+
