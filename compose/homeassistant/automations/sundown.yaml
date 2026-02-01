@@ -1,0 +1,12 @@
+automation:
+  - id: buzzgate_sundown
+    alias: Buzzgate Sundown
+    description: "Close living room curtains at sunset"
+    trigger:
+      - platform: sun
+        event: sunset
+    action:
+      - service: scene.turn_on
+        target:
+          entity_id: scene.buzzgate_sundown
+    mode: single
