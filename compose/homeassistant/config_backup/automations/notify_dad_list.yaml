@@ -1,21 +1,21 @@
-alias: Notify Andy when Dad list gets a new item
-id: notify_dad_list_new_item
-mode: single
-
-trigger:
-  - platform: state
-    entity_id: todo.dad
-
-condition:
-  - condition: template
-    value_template: >
-      {{ trigger.to_state.attributes.items | length >
-         trigger.from_state.attributes.items | length }}
-
-action:
-  - service: notify.mobile_app_sm_f766u
-    data:
-      message: >
-        {% set new = trigger.to_state.attributes.items
-             | difference(trigger.from_state.attributes.items) %}
-        New task added: {{ new[0].summary if new else 'Unknown item' }}
+- alias: Notify Andy when Dad list gets a new item
+  id: notify_dad_list_new_item
+  mode: single
+  
+  trigger:
+    - platform: state
+      entity_id: todo.dad
+  
+  condition:
+    - condition: template
+      value_template: >
+        {{ trigger.to_state.attributes.items | length >
+           trigger.from_state.attributes.items | length }}
+  
+  action:
+    - service: notify.mobile_app_sm_f766u
+      data:
+        message: >
+          {% set new = trigger.to_state.attributes.items
+               | difference(trigger.from_state.attributes.items) %}
+          New task added: {{ new[0].summary if new else 'Unknown item' }}
