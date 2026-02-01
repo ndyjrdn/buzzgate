@@ -6,7 +6,7 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.0x54ef441000d7b0d1_white
+        entity_id: light.moms_light_white
       data:
         transition: 10
   mode: single
