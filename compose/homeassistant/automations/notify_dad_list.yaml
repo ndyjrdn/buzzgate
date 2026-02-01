@@ -14,7 +14,7 @@
            trigger.from_state.attributes.items | length }}
   
   action:
-    - service: notify.mobile_app_sm_f766u
+    - service: notify.mobile_app_sm_f766u_2
       data:
         message: >
           {% set new = trigger.to_state.attributes.items
