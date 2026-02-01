@@ -1,17 +1,17 @@
 - id: notify_dad_list_new_item
-  alias: Notify Andy when Dad list gets a new item  
+  alias: Notify Andy when Dad list gets a new item
   mode: single
-  
+
   trigger:
     - platform: state
       entity_id: todo.dad
-  
+
   condition:
     - condition: template
       value_template: >
         {{ trigger.to_state.attributes.items | length >
            trigger.from_state.attributes.items | length }}
-  
+
   action:
     - service: notify.mobile_app_sm_f766u
       data:
