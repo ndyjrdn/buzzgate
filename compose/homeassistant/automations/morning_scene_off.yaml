@@ -10,5 +10,5 @@
     - service: cover.open_cover
       target:
         entity_id: cover.living_room_curtains
-        entity_id: cover.deck_door_curtains
+        entity_id: cover.deck_door_curtain
   mode: single
