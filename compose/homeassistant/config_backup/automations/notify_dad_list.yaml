@@ -19,3 +19,4 @@
           {% set new = trigger.to_state.attributes.items
                | difference(trigger.from_state.attributes.items) %}
           New task added: {{ new[0].summary if new else 'Unknown item' }}
+          
