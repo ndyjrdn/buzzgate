@@ -2,7 +2,7 @@
   alias: Bedroom Motion Start
   trigger:
     - platform: state
-      entity_id: binary_sensor.bedroom_motion
+      entity_id: binary_sensor.bedroom_motion_occupancy
       to: 'on'
   condition:
     - condition: time
