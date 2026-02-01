@@ -14,5 +14,5 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.0x54ef441000d7a808_white #tylers light
+        entity_id: light.tylers_light_white #tylers light
 
