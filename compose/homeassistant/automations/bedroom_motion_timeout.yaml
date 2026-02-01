@@ -7,7 +7,7 @@
         entity_id: timer.bedroom_motion_hold
   condition:
     - condition: state
-      entity_id: binary_sensor.bedroom_motion
+      entity_id: binary_sensor.bedroom_motion_occupancy
       state: 'off'
   action:
     - service: light.turn_off
