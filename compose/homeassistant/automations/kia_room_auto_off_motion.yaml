@@ -2,7 +2,7 @@
   alias: Kia Room - Auto Off After Motion Clears
   trigger:
     - platform: state
-      entity_id: binary_sensor.kia_sroom_motion_occupancy
+      entity_id: binary_sensor.kias_motion_occupancy
       to: "off"
       for: "00:03:00"
   action:
