@@ -1,7 +1,6 @@
 - id: notify_dad_list_new_item
   alias: Notify Andy when Dad list gets a new item
   mode: single
-
   trigger:
     - platform: state
       entity_id: todo.dad
