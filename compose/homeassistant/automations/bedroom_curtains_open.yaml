@@ -9,5 +9,5 @@
         entity_id: 
           - cover.kia_s_curtain
           - cover.tylers_curtain # Tyler's curtain
-          - cover.mos_curtain #mom's curtain
+          - cover.moms_curtain #mom's curtain
   mode: single
