@@ -1,1 +1,16 @@
-[]
+- id: '1769817903728'
+  alias: notification_dad_todo
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - todo.dad
+    from:
+    - '[]'
+  conditions: []
+  actions:
+  - action: notify.mobile_app_sm_f766u
+    data:
+      message: '{% set new = trigger.to_state.attributes.items | difference(trigger.from_state.attributes.items)
+        %} New task added: {{ new[0].summary if new else ''Unknown item'' }}'
+  mode: single
