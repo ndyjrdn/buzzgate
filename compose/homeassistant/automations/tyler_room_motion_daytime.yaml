@@ -2,7 +2,7 @@
   alias: Tyler Room - Motion Start
   trigger:
     - platform: state
-      entity_id: binary_sensor.tylers_room_motion_occupancy
+      entity_id: binary_sensor.tyler_motion_occupancy
       to: "on"
 
   condition:
