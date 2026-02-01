@@ -14,6 +14,6 @@
           - cover.living_room_curtains
           - cover.deck_door_curtains
           - cover.kia_s_curtain
-          - cover.0x583bc2fffe034cc0 #tyler's curtain
-          - cover.0x6cfd22fffe5a7905 #mom's curtain
+          - cover.tylers_curtain #tyler's curtain
+          - cover.moms_curtain #mom's curtain
   mode: single
