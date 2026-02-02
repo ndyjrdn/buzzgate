@@ -1,0 +1,6 @@
+- name: Master Bedroom Night Blue
+  entities:
+    light.0x54ef441000d7b0d1_rgb:
+      state: "on"
+      brightness: 180
+      rgb_color: [135, 206, 250]  # Light blue

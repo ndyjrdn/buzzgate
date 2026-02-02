@@ -1,0 +1,5 @@
+scene:
+  - name: Buzzgate Sundown
+    entities:
+      cover.living_room_curtains:
+        state: "closed"

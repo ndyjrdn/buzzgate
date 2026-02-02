@@ -1,0 +1,12 @@
+- name: Buzzgate Evening Off
+  entities:
+    light.hallway_lights:
+      state: "off"
+    light.entryway_2:
+      state: "off"
+    light.kitchen_2:
+      state: "off"
+    light.0xb0ce18140005f7e5:
+      state: "off"
+    light.living_room_ceiling:
+      state: "off"

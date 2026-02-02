@@ -1,0 +1,28 @@
+alias: Cyclone Score Flash
+icon: mdi:flag-checkered
+sequence:
+  - service: light.turn_on
+    data:
+      entity_id:
+        - light.kitchen
+        - light.livingroom_ceiling
+      color_name: red
+      brightness: 255
+  - delay: "00:00:01"
+  - service: light.turn_on
+    data:
+      entity_id:
+        - light.kitchen
+        - light.livingroom_ceiling
+      color_name: yellow
+      brightness: 255
+  - delay: "00:00:01"
+  - repeat:
+      count: 3
+      sequence:
+        - service: light.toggle
+          data:
+            entity_id:
+              - light.kitchen
+              - light.livingroom_ceiling
+        - delay: "00:00:01"
