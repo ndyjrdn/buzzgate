@@ -4,9 +4,9 @@
       state: "off"
     light.entryway_2:
       state: "off"
-    light.kitchen_2:
+    light.kitchen:
       state: "off"
-    light.0xb0ce18140005f7e5:
+    light.dining_room:
       state: "off"
     light.living_room_ceiling:
       state: "off"
