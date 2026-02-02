@@ -13,7 +13,7 @@
            trigger.from_state.state | int }}
 
   action:
-    - service: notify.mobile_app_sm_f766u_2
+    - service: notify.mobile_app_sm_f766u
       data:
         message: >
           A new task was added to the Dad list.
