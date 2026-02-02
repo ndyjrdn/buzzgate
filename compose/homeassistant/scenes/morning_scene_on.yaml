@@ -1,0 +1,19 @@
+- name: Buzzgate Morning
+  entities:
+    light.dining_room:
+      state: "on"
+      brightness: 100
+      color_temp: 150
+    light.kitchen:
+      state: "on"
+      brightness: 100
+      color_temp: 150
+    light.0x54ef441000d7b0d1_rgb:
+      state: "off"
+    light.0x54ef441000d7b0d1_white:
+      state: "off"
+    light.hallway_lights:
+      state: "off"
+    light.entryway_2:
+      state: "off"
+          

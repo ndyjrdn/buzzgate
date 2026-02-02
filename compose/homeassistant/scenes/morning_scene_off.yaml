@@ -1,0 +1,8 @@
+- name: Buzzgate Morning Off
+  entities:
+    light.0x54ef441000d7b0d1_rgb:
+      state: "off"
+    light.0x54ef441000d7b0d1_white:
+      state: "off"
+    light.hallway:
+      state: "off"
