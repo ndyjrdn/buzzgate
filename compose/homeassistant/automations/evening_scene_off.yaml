@@ -2,11 +2,31 @@
   alias: Buzzgate Evening Scene Off
   trigger:
     - platform: time
-      at: "21:30:00"  # Two hours after the On scene
+      at: "21:30:00"
+
   action:
+    # Step 1: Living room ceiling begins dimming
+    - service: light.turn_off
+      target:
+        entity_id: light.living_room_ceiling
+      data:
+        transition: 3
+
+    # Step 2: Small delay for the effect
+    - delay: "00:00:02"
+
+    # Step 3: Kitchen ceiling begins dimming
+    - service: light.turn_off
+      target:
+        entity_id: light.kitchen
+      data:
+        transition: 3
+
+    # Step 4: Apply the full evening-off scene with long fade
     - service: scene.turn_on
       data:
-        transition: 900  # 15 minutes in seconds
+        transition: 900   # 15 minutes
       target:
         entity_id: scene.buzzgate_evening_off
+
   mode: single
