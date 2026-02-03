@@ -3,17 +3,41 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: "0:00:00" # optional: adjust earlier/later if needed -00:20:00 for 20 minutes before sunset.  Positive for after
+      offset: "0:00:00"
+
   action:
+    # Step 1: Kitchen ceiling on
+    - service: light.turn_on
+      target:
+        entity_id: light.kitchen
+      data:
+        brightness: 225
+        color_temp: 75
+
+    # Step 2: Small delay for the effect
+    - delay: "00:00:01"
+
+    # Step 3: Living room ceiling on
+    - service: light.turn_on
+      target:
+        entity_id: light.living_room_ceiling
+      data:
+        brightness: 225
+        color_temp: 75
+
+    # Step 4: Apply the scene to finalize all lights + hallway + colors
     - service: scene.turn_on
       target:
         entity_id: scene.buzzgate_evening_on
+
+    # Curtains close as before
     - service: cover.close_cover
       target:
-        entity_id: 
+        entity_id:
           - cover.living_room_curtains
           - cover.deck_door_curtain
           - cover.kia_s_curtain
-          - cover.tylers_curtain #tyler's curtain
-          - cover.moms_curtain #mom's curtain
+          - cover.tylers_curtain
+          - cover.moms_curtain
+
   mode: single
