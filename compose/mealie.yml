@@ -18,3 +18,4 @@ services:
 
 volumes:
   mealie-data:
+restart: unless-stopped
