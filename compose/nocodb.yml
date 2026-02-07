@@ -11,7 +11,7 @@ services:
       #NC_PUBLIC_URL: "https://tasks.yourdomain.com"
       NC_AUTH_JWT_SECRET: "HpBM5oG9RsMSdVeS"
     volumes:
-      - ./nc_data:/usr/app/data
+      - /home/andy/buzzgate/compose/nocodb/nc_data:/usr/app/data
     restart: unless-stopped
     networks:
       - compose_cynet
