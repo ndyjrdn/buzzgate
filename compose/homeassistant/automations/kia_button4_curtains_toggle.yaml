@@ -4,6 +4,7 @@
     - platform: state
       entity_id: sensor.kiasbutton_action
       to: "4_single"
+
   action:
     - choose:
         - conditions:
@@ -14,6 +15,7 @@
             - service: cover.close_cover
               target:
                 entity_id: cover.living_room_curtains
+
         - conditions:
             - condition: state
               entity_id: cover.living_room_curtains
@@ -22,11 +24,20 @@
             - service: cover.open_cover
               target:
                 entity_id: cover.living_room_curtains
+
     - service: logbook.log
       data:
         name: "Curtain Toggle"
+        message: "Button4 action triggered"
+
+    - service: notify.mobile_app_andy_phone
+      data:
+        name: "Curtain Toggle"
         message: "Button4 pressed"
+
+    - service: notify.mobile_app_andy_phone
       data:
         name: "Curtain Toggle"
         message: "Button4 state changed"
+
   mode: single
