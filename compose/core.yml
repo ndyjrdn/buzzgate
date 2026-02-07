@@ -48,11 +48,21 @@ services:
       - "8123:8123"
     volumes:
       - /home/andy/buzzgate/compose/homeassistant:/config
-      #- /home/andy/buzzgate/compose/homeassistant:/config
-      #- /home/andy/buzzgate/compose/homeassistant/automations:/config/automations
-    
+    restart: unless-stopped
     networks:
       - compose_cynet
     privileged: true
-    restart: unless-stopped
+  
+    depends_on:
+      cy-mosquitto-z2m:
+        condition: service_healthy
+      z2m-lite:
+        condition: service_started
+  
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8123"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
   
