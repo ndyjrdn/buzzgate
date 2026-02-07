@@ -17,10 +17,6 @@
     data:
       brightness: 255
       color_temp: 250  # ~4000K neutral white; tweak as needed
-  - service: persistent_notification.create
-    data:
-      title: "Motion Triggered"
-      message: "Bedroom motion sensor fired and passed conditions"
   - service: timer.start
     target:
       entity_id: timer.bedroom_motion_hold
