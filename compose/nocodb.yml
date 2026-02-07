@@ -9,7 +9,7 @@ services:
     environment:
       NC_DB: "sqlite"
       NC_PUBLIC_URL: "https://tasks.yourdomain.com"
-      NC_AUTH_JWT_SECRET: "change_this_to_something_long_and_random"
+      NC_AUTH_JWT_SECRET: "HpBM5oG9RsMSdVeS"
     volumes:
       - ./nc_data:/usr/app/data
     restart: unless-stopped
