@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   mosquitto:
     dns:
@@ -17,12 +18,21 @@ services:
     networks:
       - compose_cynet
 
+    healthcheck:
+      test: ["CMD", "mosquitto_sub", "-h", "localhost", "-t", "$SYS/broker/version", "-C", "1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   z2m-lite:
     image: koenkk/zigbee2mqtt
     container_name: z2m-lite
     restart: unless-stopped
+
     depends_on:
-      - mosquitto
+      mosquitto:
+        condition: service_healthy
+
     ports:
       - "4242:4242"
     dns:
@@ -30,11 +40,17 @@ services:
       - 1.1.1.1
     volumes:
       - /home/andy/buzzgate/compose/zigbee2mqtt:/app/data
-    devices: 
-      - /dev/serial/by-id/usb-SMLIGHT_SMLIGHT_SLZB-07_eccaf5a21f72ef11b8da3b848fcc3fa0-if00-port0:/dev/ttyUSB0 
+    devices:
+      - /dev/serial/by-id/usb-SMLIGHT_SMLIGHT_SLZB-07_eccaf5a21f72ef11b8da3b848fcc3fa0-if00-port0:/dev/ttyUSB0
     privileged: true
     networks:
       - compose_cynet
+
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
 
 networks:
   compose_cynet:
