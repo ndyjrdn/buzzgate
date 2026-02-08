@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  directus:
+    image: directus/directus:latest
+    container_name: directus
+    ports:
+      - "8055:8055"
+    environment:
+      KEY: "REDACTED_DIRECTUS_KEY"
+      SECRET: "REDACTED_DIRECTUS_SECRET"
+      ADMIN_EMAIL: "ndyjrdn@gmail.com"
+      ADMIN_PASSWORD: "REDACTED_DIRECTUS_ADMIN_PW"
+      DB_CLIENT: "pg"
+      DB_HOST: "postgres"
+      DB_PORT: "5432"
+      DB_DATABASE: "directus"
+      DB_USER: "directus"
+      DB_PASSWORD: "REDACTED_POSTGRES_PW"
+      PUBLIC_URL: "http://cy.local:8055"
+    volumes:
+      - directus_uploads:/directus/uploads
+      - directus_extensions:/directus/extensions
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - directus_net
+
+  postgres:
+    image: postgres:15
+    container_name: directus_postgres
+    environment:
+      POSTGRES_DB: "directus"
+      POSTGRES_USER: "directus"
+      POSTGRES_PASSWORD: "replace-with-db-password"
+    volumes:
+      - directus_db:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - directus_net
+
+volumes:
+  directus_uploads:
+  directus_extensions:
+  directus_db:
+
+networks:
+  directus_net:
+    driver: bridge
+healthcheck: 
+  test: ["CMD-SHELL", "pg_isready -U directus"] 
+  interval: 10s 
+  timeout: 5s 
+  retries: 5
