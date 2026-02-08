@@ -13,9 +13,9 @@ services:
     volumes:
       - /home/andy/buzzgate/compose/nocodb/nc_data:/usr/app/data
     restart: unless-stopped
-    networks:
-      - compose_cynet
+#     networks:
+#       - compose_cynet
 
-networks:
-  compose_cynet:
-    external: true
+# networks:
+#   compose_cynet:
+#     external: true
