@@ -8,7 +8,7 @@ services:
       - "8090:8080"
     environment:
       NC_DB: "sqlite"
-      NC_PUBLIC_URL: "http://cy:8090"
+      NC_PUBLIC_URL: "http://localhost:8090"
       NC_AUTH_JWT_SECRET: "HpBM5oG9RsMSdVeS"
     volumes:
       - /home/andy/buzzgate/compose/nocodb/nc_data:/usr/app/data
