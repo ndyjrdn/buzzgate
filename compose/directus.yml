@@ -33,7 +33,7 @@ services:
     environment:
       POSTGRES_DB: "directus"
       POSTGRES_USER: "directus"
-      POSTGRES_PASSWORD: "replace-with-db-password"
+      POSTGRES_PASSWORD: "REDACTED_POSTGRES_PW"
     volumes:
       - directus_db:/var/lib/postgresql/data
     restart: unless-stopped
@@ -48,8 +48,3 @@ volumes:
 networks:
   directus_net:
     driver: bridge
-healthcheck: 
-  test: ["CMD-SHELL", "pg_isready -U directus"] 
-  interval: 10s 
-  timeout: 5s 
-  retries: 5
