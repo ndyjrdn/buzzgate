@@ -29,7 +29,7 @@ services:
 
   postgres:
     image: postgres:15
-    container_name: directus_postgres
+    container_name: postgres
     environment:
       POSTGRES_DB: "directus"
       POSTGRES_USER: "directus"
