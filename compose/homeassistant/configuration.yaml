@@ -42,7 +42,7 @@ rest_command:
     verify_ssl: false
 
   directus_task:
-    url: "http://cy.local:8055/webhooks/edacb2c7-005e-4a32-ba26-fe084d41bd39"
+    url: "http://cy.local:8055/webhooks/trigger/edacb2c7-005e-4a32-ba26-fe084d41bd39"
     method: POST
     headers:
       content-type: application/json
