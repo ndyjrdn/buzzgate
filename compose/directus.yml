@@ -17,7 +17,7 @@ services:
       DB_DATABASE: "directus"
       DB_USER: "directus"
       DB_PASSWORD: "REDACTED_POSTGRES_PW"
-      PUBLIC_URL: "http://cy.local:8055"
+      PUBLIC_URL: "http://directus:8055"
     volumes:
       - directus_uploads:/directus/uploads
       - directus_extensions:/directus/extensions
