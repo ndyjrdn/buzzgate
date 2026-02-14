@@ -1,0 +1,10 @@
+- alias: "Send Dad List Item to Directus"
+  trigger:
+    - platform: event
+      event_type: todo_item_added
+      event_data:
+        entity_id: todo.dad
+  action:
+    - service: rest_command.directus_task
+      data:
+        title: "{{ trigger.event.data.item }}"
