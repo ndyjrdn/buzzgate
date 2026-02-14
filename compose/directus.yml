@@ -26,6 +26,7 @@ services:
     restart: unless-stopped
     networks:
       - directus_net
+      - compose_cynet
 
   postgres:
     image: postgres:15
@@ -48,3 +49,5 @@ volumes:
 networks:
   directus_net:
     driver: bridge
+  compose_cynet: 
+    external: true
