@@ -1,20 +1,20 @@
-- id: notify_dad_list_new_item
-  alias: Notify Andy when Dad list gets a new item
-  mode: single
+# - id: notify_dad_list_new_item
+#   alias: Notify Andy when Dad list gets a new item
+#   mode: single
 
-  trigger:
-    - platform: state
-      entity_id: todo.dad
+#   trigger:
+#     - platform: state
+#       entity_id: todo.dad
 
-  condition:
-    - condition: template
-      value_template: >
-        {{ trigger.to_state.state | int >
-           trigger.from_state.state | int }}
+#   condition:
+#     - condition: template
+#       value_template: >
+#         {{ trigger.to_state.state | int >
+#            trigger.from_state.state | int }}
 
-  action:
-    - service: notify.mobile_app_sm_f766u
-      data:
-        message: >
-          A new task was added to the Dad list.
+#   action:
+#     - service: notify.mobile_app_sm_f766u
+#       data:
+#         message: >
+#           A new task was added to the Dad list.
 
