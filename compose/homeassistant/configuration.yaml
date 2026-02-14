@@ -40,9 +40,9 @@ rest_command:
     headers:
       Authorization: "Bearer YOURTOKEN"
     verify_ssl: false
-
+    
   directus_task:
-    url: "http://cy.local:8055/webhooks/trigger/edacb2c7-005e-4a32-ba26-fe084d41bd39"
+    url: "http://directus:8055/flows/trigger/edacb2c7-005e-4a32-ba26-fe8044d1bd39"
     method: POST
     headers:
       content-type: application/json
@@ -50,6 +50,7 @@ rest_command:
       {
         "title": "{{ title }}"
       }
+
 
 
 
