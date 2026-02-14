@@ -40,7 +40,6 @@ services:
   #   volumes:
   #     - /var/run/docker.sock:/var/run/docker.sock
   #   restart: unless-stopped
-
   homeassistant:
     image: ghcr.io/home-assistant/home-assistant:stable
     container_name: cy-ha
@@ -53,17 +52,12 @@ services:
       - compose_cynet
     privileged: true
   
-    depends_on:
-      cy-mosquitto-z2m:
-        condition: service_healthy
-      z2m-lite:
-        condition: service_started
-  
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8123"]
       interval: 30s
       timeout: 10s
       retries: 5
+
 networks: 
   compose_cynet: 
     external: true
