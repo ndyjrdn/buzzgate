@@ -1,20 +1,20 @@
-id: send_dad_list_to_directus
-alias: "Sync Dad List to Directus"
-mode: queued
-
-trigger:
-  - platform: event
-    event_type: todo_item_added
-    event_data:
-      entity_id: todo.dad
-
-action:
-  - variables:
-      item_title: "{{ trigger.event.data.item }}"
-      item_id: "{{ trigger.event.data.item_id }}"
-
-  - service: rest_command.directus_create_task
-    data:
-      title: "{{ item_title }}"
-      external_id: "{{ item_id }}"
-      list_id: "1"
+- id: send_dad_list_to_directus
+  alias: "Sync Dad List to Directus"
+  mode: queued
+  
+  trigger:
+    - platform: event
+      event_type: todo_item_added
+      event_data:
+        entity_id: todo.dad
+  
+  action:
+    - variables:
+        item_title: "{{ trigger.event.data.item }}"
+        item_id: "{{ trigger.event.data.item_id }}"
+  
+    - service: rest_command.directus_create_task
+      data:
+        title: "{{ item_title }}"
+        external_id: "{{ item_id }}"
+        list_id: "1"
