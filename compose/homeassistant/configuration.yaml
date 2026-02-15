@@ -40,20 +40,26 @@ rest_command:
     headers:
       Authorization: "Bearer YOURTOKEN"
     verify_ssl: false
-    
-  directus_task:
-    url: "http://directus:8055/flows/trigger/edacb2c7-005e-4a32-ba26-fe8044d1bd39"
+
+
+  directus_create_task:
+    url: "http://directus:8055/items/tasks"
     method: POST
     headers:
-      content-type: application/json
+      Authorization: "Bearer v6j7JPGHHFmKUyYGQgUViYCXwb4ItAXH"
+      Content-Type: "application/json"
     payload: >
       {
-        "title": "{{ title }}"
+        "title": "{{ title }}",
+        "status": "pending",
+        "priority": "",
+        "list": "{{ list_id }}",
+        "assigned_to": "",
+        "source": "ha",
+        "external_id": "{{ external_id }}"
       }
-
-
-
-
+  
+    
 lovelace:
   dashboards:
     buzzgate-monitor:
