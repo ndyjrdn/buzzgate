@@ -5,15 +5,18 @@
   trigger:
     - platform: state
       entity_id: todo.dad
+      attribute: items
 
   action:
     - variables:
-        item_title: "{{ trigger.to_state.attributes.items[-1].summary }}"
-        item_id: "{{ trigger.to_state.attributes.items[-1].uid }}"
+        last_item: "{{ trigger.to_state.attributes.items[-1] }}"
+        item_title: "{{ last_item.summary }}"
+        item_id: "{{ last_item.uid }}"
 
     - service: rest_command.directus_create_task
       data:
         title: "{{ item_title }}"
         external_id: "{{ item_id }}"
         list_id: "1"
+
 
