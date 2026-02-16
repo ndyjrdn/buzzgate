@@ -5,11 +5,15 @@
   trigger:
     - platform: state
       entity_id: todo.dad
-      attribute: items
 
   action:
+    - service: todo.get_items
+      data:
+        entity_id: todo.dad
+      response_variable: dad_items
+
     - variables:
-        last_item: "{{ trigger.to_state.attributes.items[-1] }}"
+        last_item: "{{ dad_items.items[-1] }}"
         item_title: "{{ last_item.summary }}"
         item_id: "{{ last_item.uid }}"
 
@@ -18,5 +22,6 @@
         title: "{{ item_title }}"
         external_id: "{{ item_id }}"
         list_id: "1"
+
 
 
