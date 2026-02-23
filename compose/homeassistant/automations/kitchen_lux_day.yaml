@@ -12,8 +12,9 @@
         lux: "{{ states('sensor.luminance_kitchen') | float }}"
         low: 150
         high: 210
+        medium: 180
     - choose:
-        # Too dark → turn ON and set brightness
+        # Too dark → turn ON and set brightness to a lower level
         - conditions: "{{ lux < low }}"
           sequence:
             - service: light.turn_on
@@ -21,14 +22,23 @@
                 entity_id: light.kitchen
               data:
                 brightness_pct: >
-                  {{ [((low - lux) * 0.8) | int, 100] | min }}
-
+                  {{ [((low - lux) * 0.6) | int, 100] | min }}
+        # Between low and medium → adjust brightness to be between low and high
+        - conditions: "{{ lux >= low and lux <= medium }}"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.kitchen
+              data:
+                brightness_pct: >
+                  {{ [((lux - low) / (medium - low)) * 100, 100] | min }}
+        # Between medium and high → maintain current state (no action)
+        - conditions: "{{ lux >= medium and lux < high }}"
+          sequence: []
         # Too bright → turn OFF
         - conditions: "{{ lux > high }}"
           sequence:
             - service: light.turn_off
               target:
                 entity_id: light.kitchen
-
-        # Between low and high → maintain current state (no action)
   mode: restart
