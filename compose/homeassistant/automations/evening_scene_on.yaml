@@ -2,8 +2,8 @@
   alias: Buzzgate Evening Scene On
   trigger:
     - platform: sun
-      event: sunset - 20
-      offset: "0:00:00"
+      event: sunset
+      offset: "0:20:00"
 
   action:
     # Step 1: Kitchen ceiling on
