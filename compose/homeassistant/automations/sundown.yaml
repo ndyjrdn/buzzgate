@@ -4,7 +4,7 @@ automation:
     description: "Close living room curtains at sunset"
     trigger:
       - platform: sun
-        event: sunset - 20 #20 minutes before sunset.
+        event: sunset + 20 #20 minutes before sunset.
     action:
       - service: scene.turn_on
         target:
