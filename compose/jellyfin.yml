@@ -10,12 +10,17 @@ services:
     volumes:
       - /volume1/JellyfinConfig:/config
       - /volume1/JellyfinCache:/cache
-      #- /home/admin1/testmovies:/media/movies
-      - /mnt/jellyfin/movies:/media/movies
+
+      # Canonical media mounts
+      - /volume1/media1/movies:/media/movies
+      - /volume1/media1/extras:/media/extras
+
+      # SSD or secondary media mount (unchanged)
       - /mnt/jellyfin/media2:/media/media2
-      - /volume1/JellyfinVault/extras:/media/extras
+
     environment:
       - TZ=America/Chicago
-      - PUID=1026  # Replace with your admin UID
-      - PGID=100  # Replace with your media group GID
+      - PUID=1026
+      - PGID=100
     restart: unless-stopped
+
