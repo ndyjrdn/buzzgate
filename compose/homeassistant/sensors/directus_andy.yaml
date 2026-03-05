@@ -1,6 +1,6 @@
   - platform: rest
     name: directus_tasks_andy
-    resource: !secret directus_url/items/Tasks?filter[assigned_to][_eq]=Admin
+    resource: !secret directus_url/items/Tasks?filter[assigned_to][_eq]=Andy
     method: GET
     headers:
       Authorization: !secret directus_token
