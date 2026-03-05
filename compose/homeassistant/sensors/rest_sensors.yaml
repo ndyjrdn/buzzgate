@@ -1,4 +1,3 @@
-sensor:
   - platform: rest
     name: directus_tasks_andy
     resource: !secret directus_url/items/Tasks?filter[assigned_to][_eq]=Admin
