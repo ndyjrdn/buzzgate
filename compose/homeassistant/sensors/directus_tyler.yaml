@@ -1,15 +1,15 @@
 - platform: rest
-    name: directus_tasks_tyler
-    resource: !secret directus_url_tyler
-    method: GET
-    headers:
-      Authorization: !secret directus_token
-    value_template: "{{ value_json.data | length }}"
-    json_attributes_path: "$.data"
-    json_attributes:
-      - id
-      - title
-      - description
-      - assigned_to
-      - Frequency
-      - done
+  name: directus_tasks_tyler
+  resource: !secret directus_url_tyler
+  method: GET
+  headers:
+    Authorization: !secret directus_token
+  value_template: "{{ value_json.data | length }}"
+  json_attributes_path: "$.data"
+  json_attributes:
+    - id
+    - title
+    - description
+    - assigned_to
+    - Frequency
+    - done
