@@ -1,0 +1,64 @@
+sensor:
+  - platform: rest
+    name: directus_tasks_andy
+    resource: http://cy.local:8055/items/Tasks?filter[assigned_to][_eq]=Andy
+    method: GET
+    headers:
+      Authorization: "Bearer YOUR_DIRECTUS_STATIC_TOKEN"
+    value_template: "{{ value_json.data | length }}"
+    json_attributes_path: "$.data"
+    json_attributes:
+      - id
+      - title
+      - description
+      - assigned_to
+      - Frequency
+      - done
+
+  - platform: rest
+    name: directus_tasks_lisa
+    resource: http://cy.local:8055/items/Tasks?filter[assigned_to][_eq]=Lisa
+    method: GET
+    headers:
+      Authorization: "Bearer YOUR_DIRECTUS_STATIC_TOKEN"
+    value_template: "{{ value_json.data | length }}"
+    json_attributes_path: "$.data"
+    json_attributes:
+      - id
+      - title
+      - description
+      - assigned_to
+      - Frequency
+      - done
+
+  - platform: rest
+    name: directus_tasks_tyler
+    resource: http://cy.local:8055/items/Tasks?filter[assigned_to][_eq]=Tyler
+    method: GET
+    headers:
+      Authorization: "Bearer YOUR_DIRECTUS_STATIC_TOKEN"
+    value_template: "{{ value_json.data | length }}"
+    json_attributes_path: "$.data"
+    json_attributes:
+      - id
+      - title
+      - description
+      - assigned_to
+      - Frequency
+      - done
+
+  - platform: rest
+    name: directus_tasks_kia
+    resource: http://cy.local:8055/items/Tasks?filter[assigned_to][_eq]=Kia
+    method: GET
+    headers:
+      Authorization: "Bearer YOUR_DIRECTUS_STATIC_TOKEN"
+    value_template: "{{ value_json.data | length }}"
+    json_attributes_path: "$.data"
+    json_attributes:
+      - id
+      - title
+      - description
+      - assigned_to
+      - Frequency
+      - done
