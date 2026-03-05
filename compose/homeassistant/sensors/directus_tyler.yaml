@@ -1,6 +1,6 @@
 - platform: rest
     name: directus_tasks_tyler
-    resource: !secret directus_url/items/Tasks?filter[assigned_to][_eq]=Tyler
+    resource: !secret directus_url_tyler
     method: GET
     headers:
       Authorization: !secret directus_token
