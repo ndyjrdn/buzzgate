@@ -78,6 +78,26 @@ input_select:
      - Quarterly
    initial: All
  
+template:
+  - sensor:
+      - name: "Andy Task List Processed"
+        unique_id: andy_task_list_processed
+        state: "{{ now() }}"
+        attributes:
+          tasks: >
+            {% set freq = states('input_select.task_frequency_filter_andy') %}
+            {% set tasks = state_attr('sensor.directus_tasks_andy', 'data') or [] %}
+
+            {# Filter #}
+            {% if freq != 'All' %}
+              {% set tasks = tasks | selectattr('Frequency', 'equalto', freq) | list %}
+            {% endif %}
+
+            {# Sort: incomplete first, then by id #}
+            {% set tasks = tasks | sort(attribute='id') %}
+            {% set tasks = tasks | sort(attribute='done') %}
+
+            {{ tasks }}
   
     
 lovelace:
