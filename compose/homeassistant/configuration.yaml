@@ -41,23 +41,33 @@ rest_command:
       Authorization: "Bearer YOURTOKEN"
     verify_ssl: false
 
+  directus_update_task:
+    url: "http://cy.local:8055/items/Tasks/{{ id }}"
+    method: PATCH
+    headers:
+      Authorization: !secret directus_token
+      Content-Type: "application/json"
+    payload: >
+      {
+        "done": {{ done }}
+      }
 
   directus_create_task:
-    url: "http://directus:8055/items/tasks"
+    url: "http://cy.local:8055/items/Tasks"
     method: POST
     headers:
-      Authorization: "Bearer v6j7JPGHHFmKUyYGQgUViYCXwb4ItAXH"
+      Authorization: !secret directus_token
       Content-Type: "application/json"
     payload: >
       {
         "title": "{{ title }}",
-        "status": "pending",
-        "priority": "",
-        "list": "{{ list_id }}",
-        "assigned_to": "",
-        "source": "ha",
-        "external_id": "{{ external_id }}"
+        "description": "{{ description }}",
+        "assigned_to": "{{ assigned_to }}",
+        "Frequency": "{{ frequency }}",
+        "done": false
       }
+
+  
   
     
 lovelace:
