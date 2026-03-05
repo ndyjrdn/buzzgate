@@ -67,7 +67,17 @@ rest_command:
         "done": false
       }
 
-  
+ input_select:
+  task_frequency_filter_andy:
+    name: Andy Task Frequency Filter
+    options:
+      - All
+      - Daily
+      - Weekly
+      - Monthly
+      - Quarterly
+    initial: All
+ 
   
     
 lovelace:
