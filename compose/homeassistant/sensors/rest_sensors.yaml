@@ -1,10 +1,10 @@
 sensor:
   - platform: rest
     name: directus_tasks_andy
-    resource: http://cy.local:8055/items/Tasks?filter[assigned_to][_eq]=Andy
+    resource: !secret directus_url/items/Tasks?filter[assigned_to][_eq]=Andy
     method: GET
     headers:
-      Authorization: "Bearer YOUR_DIRECTUS_STATIC_TOKEN"
+      Authorization: !secret directus_token
     value_template: "{{ value_json.data | length }}"
     json_attributes_path: "$.data"
     json_attributes:
@@ -17,10 +17,10 @@ sensor:
 
   - platform: rest
     name: directus_tasks_lisa
-    resource: http://cy.local:8055/items/Tasks?filter[assigned_to][_eq]=Lisa
+    resource: !secret directus_url/items/Tasks?filter[assigned_to][_eq]=Lisa
     method: GET
     headers:
-      Authorization: "Bearer YOUR_DIRECTUS_STATIC_TOKEN"
+      Authorization: !secret directus_token
     value_template: "{{ value_json.data | length }}"
     json_attributes_path: "$.data"
     json_attributes:
@@ -33,10 +33,10 @@ sensor:
 
   - platform: rest
     name: directus_tasks_tyler
-    resource: http://cy.local:8055/items/Tasks?filter[assigned_to][_eq]=Tyler
+    resource: !secret directus_url/items/Tasks?filter[assigned_to][_eq]=Tyler
     method: GET
     headers:
-      Authorization: "Bearer YOUR_DIRECTUS_STATIC_TOKEN"
+      Authorization: !secret directus_token
     value_template: "{{ value_json.data | length }}"
     json_attributes_path: "$.data"
     json_attributes:
@@ -49,10 +49,10 @@ sensor:
 
   - platform: rest
     name: directus_tasks_kia
-    resource: http://cy.local:8055/items/Tasks?filter[assigned_to][_eq]=Kia
+    resource: !secret directus_url/items/Tasks?filter[assigned_to][_eq]=Kia
     method: GET
     headers:
-      Authorization: "Bearer YOUR_DIRECTUS_STATIC_TOKEN"
+      Authorization: !secret directus_token
     value_template: "{{ value_json.data | length }}"
     json_attributes_path: "$.data"
     json_attributes:
