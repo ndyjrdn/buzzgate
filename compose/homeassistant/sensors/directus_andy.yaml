@@ -1,15 +1,10 @@
-  - platform: rest
-    name: directus_tasks_andy
-    resource: !secret directus_url_andy
-    method: GET
-    headers:
-      Authorization: !secret directus_token
-    value_template: "{{ value_json.data | length }}"
-    json_attributes_path: "$.data"
-    json_attributes:
-      - id
-      - title
-      - description
-      - assigned_to
-      - Frequency
-      - done
+- platform: rest
+  name: directus_tasks_andy
+  resource: !secret directus_url_andy
+  method: GET
+  headers:
+    Authorization: !secret directus_token
+  value_template: "{{ value_json.data | length }}"
+  json_attributes:
+    - data
+
