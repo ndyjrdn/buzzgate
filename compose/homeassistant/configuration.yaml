@@ -51,7 +51,7 @@ rest_command:
     verify_ssl: false
 
   directus_update_task:
-    url: "http://cy.local:8055/items/Tasks/{{ id }}"
+    url: "http://cy.local:8055/items/tasks/{{ id }}"
     method: PATCH
     headers:
       Authorization: !secret directus_token
@@ -62,7 +62,7 @@ rest_command:
       }
 
   directus_create_task:
-    url: "http://cy.local:8055/items/Tasks"
+    url: "http://cy.local:8055/items/tasks"
     method: POST
     headers:
       Authorization: !secret directus_token
