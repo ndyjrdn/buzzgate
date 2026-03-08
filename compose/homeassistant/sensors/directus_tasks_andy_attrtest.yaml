@@ -5,13 +5,6 @@
   headers:
     Authorization: !secret directus_token
     Accept: application/json
-  content_type: application/json- platform: rest
-  name: directus_tasks_andy_attrtest
-  resource: !secret directus_url_andy
-  method: GET
-  headers:
-    Authorization: !secret directus_token
-    Accept: application/json
   content_type: application/json
   value_template: "{{ value_json.data | length }}"
   json_attributes_path: "$"
@@ -19,8 +12,3 @@
     - data
   scan_interval: 30
 
-  value_template: "{{ value_json.data | length }}"
-  json_attributes_path: "$"
-  json_attributes:
-    - data
-  scan_interval: 30
