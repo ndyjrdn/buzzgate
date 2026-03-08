@@ -26,7 +26,7 @@ template:
             } %}
             {% set out = {} %}
             {% for person, sensor_id in sensors.items() %}
-              {% set data = state_attr(sensor_id, 'data') or [] %}  
+              {% set data = state_attr(sensor_id, 'data') or [] %}
               {% set out = out | combine({ person: data }) %}
             {% endfor %}
             {{ out }}
