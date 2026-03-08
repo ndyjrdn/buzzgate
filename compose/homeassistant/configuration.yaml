@@ -102,11 +102,11 @@ lovelace:
       icon: mdi:server
       filename: dashboards/buzzgate-monitor.yaml
       show_in_sidebar: true
-    household_tasks:
+    household-tasks:
       mode: yaml
       title: Household Tasks
       icon: mdi:clipboard-text
-      filename: dashboards/household_tasks.yaml
+      filename: dashboards/household-tasks.yaml
       show_in_sidebar: true
 input_datetime:
   evening_scene_time:
