@@ -25,8 +25,8 @@ template:
               'kia': 'sensor.directus_tasks_kia'
             } %}
             {% set out = {} %}
-            {% for person, sensor in sensors.items() %}
-              {% set data = state_attr(sensor, 'data') or [] %}
+            {% for person, sensor_id in sensors.items() %}
+              {% set data = state_attr(sensor_id, 'data') or [] %}  
               {% set out = out | combine({ person: data }) %}
             {% endfor %}
             {{ out }}
