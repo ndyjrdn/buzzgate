@@ -1,9 +1,12 @@
 
 # Loads default set of integrations. Do not remove.
 #default_config:
-template:
-  - sensor: []
-  - include: !include_dir_merge_list templates
+# template:
+#   - sensor:
+#       - name: template_integration_activator
+#         state: "ok"
+#   - sensor: !include_dir_merge_list templates
+
 
 
 # Load frontend themes from the themes folder
@@ -15,6 +18,8 @@ script: !include_dir_merge_list scripts
 scene: !include_dir_merge_list scenes
 sensor: !include_dir_merge_list sensors
 cover: !include_dir_merge_list covers
+template: !include_dir_merge_list templates
+
 
 conversation:
 # assist:
