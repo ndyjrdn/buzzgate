@@ -3,7 +3,8 @@
 #default_config:
 template:
   - sensor: []
-  - !include_dir_merge_list templates
+  - include: !include_dir_merge_list templates
+
 
 # Load frontend themes from the themes folder
 frontend:
