@@ -1,0 +1,10 @@
+- platform: rest
+  name: directus_tasks_andy_debug
+  resource: !secret directus_url_andy
+  method: GET
+  headers:
+    Authorization: !secret directus_token
+    Accept: application/json
+  content_type: application/json
+  value_template: "{{ value }}"
+  scan_interval: 30
