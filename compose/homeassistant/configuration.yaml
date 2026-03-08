@@ -1,14 +1,4 @@
 
-# Loads default set of integrations. Do not remove.
-#default_config:
-# template:
-#   - sensor:
-#       - name: template_integration_activator
-#         state: "ok"
-#   - sensor: !include_dir_merge_list templates
-
-
-
 # Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes
@@ -21,26 +11,12 @@ cover: !include_dir_merge_list covers
 template: !include_dir_merge_list templates
 
 
-conversation:
-# assist:
-# assist_pipeline: 
-#   pipelines: 
-#     - name: "Default Pipeline" 
-#       conversation_engine: conversation.default 
-#       language: "en"
 
-# todo:
-#   - platform: local
-#     name: Groceries
 input_text:
   mealie_recipe_id:
     name: Mealie Recipe ID
 
-#calendar:
- # - platform: caldav
-  #  url: http://192.168.1.177:8081/remote.php/dav/calendars/andy/personal/
-   # username: andy
-    #password: REDACTED_NC_CALDAV_PW
+
 
 rest_command:
   mealie_get_recipe:
@@ -86,7 +62,7 @@ input_select:
      - Monthly
      - Quarterly
    initial: All
-task_frequency_filter_lisa:
+ task_frequency_filter_lisa:
    name: Lisa Task Frequency Filter
    options:
      - All
@@ -95,7 +71,7 @@ task_frequency_filter_lisa:
      - Monthly
      - Quarterly
    initial: All
-task_frequency_filter_tyler:
+ task_frequency_filter_tyler:
    name: Tyler Task Frequency Filter
    options:
      - All
@@ -104,7 +80,7 @@ task_frequency_filter_tyler:
      - Monthly
      - Quarterly
    initial: All
-task_frequency_filter_kia:
+ task_frequency_filter_kia:
    name: Kia Task Frequency Filter
    options:
      - All
