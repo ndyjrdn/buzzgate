@@ -80,7 +80,7 @@ input_select:
  
 template:
   - sensor:
-      - name: directus_tasks_processed
+      - name: directus_tasks_master
         state: "{{ now() }}"
         attributes:
           tasks_by_person: >
@@ -96,6 +96,7 @@ template:
               {% set out = out | combine({ person: data }) %}
             {% endfor %}
             {{ out }}
+
 
   
     
