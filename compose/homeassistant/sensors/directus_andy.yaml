@@ -5,11 +5,10 @@
   headers:
     Authorization: !secret directus_token
     Accept: application/json
-  content_type: application/json
   value_template: "{{ value_json.data | length }}"
-  json_attributes_path: "$"
   json_attributes:
     - data
   scan_interval: 30
+
 
 
