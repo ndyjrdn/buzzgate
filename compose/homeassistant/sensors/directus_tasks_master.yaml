@@ -1,0 +1,19 @@
+- platform: template
+  sensors:
+    directus_tasks_master:
+      friendly_name: "Directus Tasks Master"
+      value_template: "{{ now() }}"
+      attribute_templates:
+        tasks_by_person: >
+          {% set sensors = {
+            'andy': 'sensor.directus_tasks_andy',
+            'lisa': 'sensor.directus_tasks_lisa',
+            'tyler': 'sensor.directus_tasks_tyler',
+            'kia': 'sensor.directus_tasks_kia'
+          } %}
+          {% set out = {} %}
+          {% for person, sensor in sensors.items() %}
+            {% set data = state_attr(sensor, 'data') or [] %}
+            {% set out = out | combine({ person: data }) %}
+          {% endfor %}
+          {{ out }}
