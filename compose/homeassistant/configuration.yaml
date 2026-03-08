@@ -78,27 +78,6 @@ input_select:
      - Quarterly
    initial: All
  
-template:
-  - sensor:
-      - name: directus_tasks_master
-        state: "{{ now() }}"
-        attributes:
-          tasks_by_person: >
-            {% set sensors = {
-              'andy': 'sensor.directus_tasks_andy',
-              'lisa': 'sensor.directus_tasks_lisa',
-              'tyler': 'sensor.directus_tasks_tyler',
-              'kia': 'sensor.directus_tasks_kia'
-            } %}
-            {% set out = {} %}
-            {% for person, sensor in sensors.items() %}
-              {% set data = state_attr(sensor, 'data') or [] %}
-              {% set out = out | combine({ person: data }) %}
-            {% endfor %}
-            {{ out }}
-
-
-  
     
 lovelace:
   dashboards:
