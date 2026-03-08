@@ -1,7 +1,7 @@
 - sensor:
     - name: directus_tasks_master
       state: "{{ now() }}"
-      attribute_templates:
+      attribute:
         tasks_by_person: >
           {% set sensors = {
             'andy': 'sensor.directus_tasks_andy',
