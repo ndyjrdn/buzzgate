@@ -58,7 +58,7 @@ rest_command:
       Content-Type: "application/json"
     payload: >
       {
-        "done": {{ done }}
+        "done": {{ done | lower }}
       }
 
   directus_create_task:
