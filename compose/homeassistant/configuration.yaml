@@ -53,42 +53,45 @@ rest_command:
       }
 
 input_select:
- task_frequency_filter_andy:
-   name: Andy Task Frequency Filter
-   options:
-     - All
-     - Daily
-     - Weekly
-     - Monthly
-     - Quarterly
-   initial: All
- task_frequency_filter_lisa:
-   name: Lisa Task Frequency Filter
-   options:
-     - All
-     - Daily
-     - Weekly
-     - Monthly
-     - Quarterly
-   initial: All
- task_frequency_filter_tyler:
-   name: Tyler Task Frequency Filter
-   options:
-     - All
-     - Daily
-     - Weekly
-     - Monthly
-     - Quarterly
-   initial: All
- task_frequency_filter_kia:
-   name: Kia Task Frequency Filter
-   options:
-     - All
-     - Daily
-     - Weekly
-     - Monthly
-     - Quarterly
-   initial: All
+  task_frequency_filter_andy:
+    name: Andy Task Frequency Filter
+    options:
+      - All
+      - Daily
+      - Weekly
+      - Monthly
+      - Quarterly
+    initial: All
+
+  task_frequency_filter_lisa:
+    name: Lisa Task Frequency Filter
+    options:
+      - All
+      - Daily
+      - Weekly
+      - Monthly
+      - Quarterly
+    initial: All
+
+  task_frequency_filter_tyler:
+    name: Tyler Task Frequency Filter
+    options:
+      - All
+      - Daily
+      - Weekly
+      - Monthly
+      - Quarterly
+    initial: All
+
+  task_frequency_filter_kia:
+    name: Kia Task Frequency Filter
+    options:
+      - All
+      - Daily
+      - Weekly
+      - Monthly
+      - Quarterly
+    initial: All
  
     
 lovelace:
