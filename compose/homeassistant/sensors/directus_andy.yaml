@@ -5,12 +5,7 @@
   headers:
     Authorization: !secret directus_token
   value_template: "{{ value_json.data | length }}"
-  json_attributes_path: "$.data"
+  json_attributes_path: "$"
   json_attributes:
-    - id
-    - title
-    - description
-    - Frequency
-    - done
-    - assigned_to
+    - data
   scan_interval: 30
