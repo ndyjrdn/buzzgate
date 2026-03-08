@@ -80,24 +80,23 @@ input_select:
  
 template:
   - sensor:
-      - name: "Andy Task List Processed"
-        unique_id: andy_task_list_processed
+      - name: directus_tasks_processed
         state: "{{ now() }}"
         attributes:
-          tasks: >
-            {% set freq = states('input_select.task_frequency_filter_andy') %}
-            {% set tasks = state_attr('sensor.directus_tasks_andy', 'data') or [] %}
+          tasks_by_person: >
+            {% set sensors = {
+              'andy': 'sensor.directus_tasks_andy',
+              'lisa': 'sensor.directus_tasks_lisa',
+              'tyler': 'sensor.directus_tasks_tyler',
+              'kia': 'sensor.directus_tasks_kia'
+            } %}
+            {% set out = {} %}
+            {% for person, sensor in sensors.items() %}
+              {% set data = state_attr(sensor, 'data') or [] %}
+              {% set out = out | combine({ person: data }) %}
+            {% endfor %}
+            {{ out }}
 
-            {# Filter #}
-            {% if freq != 'All' %}
-              {% set tasks = tasks | selectattr('Frequency', 'equalto', freq) | list %}
-            {% endif %}
-
-            {# Sort: incomplete first, then by id #}
-            {% set tasks = tasks | sort(attribute='id') %}
-            {% set tasks = tasks | sort(attribute='done') %}
-
-            {{ tasks }}
   
     
 lovelace:
