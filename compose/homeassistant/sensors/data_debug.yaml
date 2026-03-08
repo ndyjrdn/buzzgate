@@ -1,0 +1,5 @@
+- platform: template
+  sensors:
+    directus_andy_data_debug:
+      value_template: >
+        {{ state_attr('sensor.directus_tasks_andy', 'data') | tojson }}
