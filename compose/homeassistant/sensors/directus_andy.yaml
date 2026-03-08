@@ -4,8 +4,8 @@
   method: GET
   headers:
     Authorization: !secret directus_token
-  value_template: "{{ value_json.data.items | length }}"
-  json_attributes_path: "$.data.items"
+  value_template: "{{ value_json.data | length }}"
+  json_attributes_path: "$.data"
   json_attributes:
     - id
     - title
@@ -13,3 +13,4 @@
     - Frequency
     - done
     - assigned_to
+  scan_interval: 30
