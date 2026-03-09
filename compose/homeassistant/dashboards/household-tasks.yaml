@@ -22,7 +22,8 @@ button_card_templates:
           const person = variables.person;
           const filterEntity = variables.filter;
           const filter = states[filterEntity]?.state || "All";
-          const tasks = entity?.attributes?.[person] || [];
+          const tasks = entity?.attributes?.tasks_by_person?.[person] || [];
+
 
           const filtered = tasks.filter(t => {
             if (filter === "All") return true;
