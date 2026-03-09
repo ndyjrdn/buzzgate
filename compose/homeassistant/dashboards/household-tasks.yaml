@@ -22,7 +22,7 @@ button_card_templates:
           const person = variables.person;
           const filterEntity = variables.filter;
           const filter = states[filterEntity]?.state || "All";
-          const tasks = entity?.attributes?.tasks_by_person?.[person] || [];
+          const tasks = entity?.attributes?.[person] || [];
 
 
           const filtered = tasks.filter(t => {
