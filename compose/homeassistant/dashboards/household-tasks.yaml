@@ -80,7 +80,7 @@ views:
 
           - type: button
             name: Andy
-            icon: mdi:account
+            icon: mdi:human-cane
             tap_action:
               action: navigate
               navigation_path: /household-tasks/andy
