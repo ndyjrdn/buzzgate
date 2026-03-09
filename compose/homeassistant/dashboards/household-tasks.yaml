@@ -42,7 +42,9 @@ button_card_templates:
                 onclick="window.hass.callService('rest_command','directus_update_task',{id:'${t.id}', done:${!t.done}})">
                   
                   <ha-icon icon="${t.done ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline'}"
-                    style="color:${t.done ? 'var(--primary-color)' : 'var(--secondary-text-color)'};margin-right:14px;">
+                    style="color:${t.done ? 'var(--primary-color)' : 'var(--secondary-text-color)'};margin-right:14px;font-size:18px;
+                                       width:18px;
+                                       height:18px;">
                   </ha-icon>
 
                   <div style="flex:1;">
