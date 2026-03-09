@@ -81,7 +81,7 @@ views:
             icon: mdi:account
             tap_action:
               action: navigate
-              navigation_path: /lovelace-household-tasks/andy
+              navigation_path: /household-tasks/andy
             styles:
               card:
                 - height: 140px
@@ -93,7 +93,7 @@ views:
             icon: mdi:account-female
             tap_action:
               action: navigate
-              navigation_path: /lovelace-household-tasks/lisa
+              navigation_path: /household-tasks/lisa
             styles:
               card:
                 - height: 140px
@@ -105,7 +105,7 @@ views:
             icon: mdi:account-child
             tap_action:
               action: navigate
-              navigation_path: /lovelace-household-tasks/tyler
+              navigation_path: /household-tasks/tyler
             styles:
               card:
                 - height: 140px
@@ -117,7 +117,7 @@ views:
             icon: mdi:account-child-outline
             tap_action:
               action: navigate
-              navigation_path: /lovelace-household-tasks/kia
+              navigation_path: /household-tasks/kia
             styles:
               card:
                 - height: 140px
