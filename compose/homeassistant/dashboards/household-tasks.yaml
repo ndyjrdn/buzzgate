@@ -92,7 +92,7 @@ views:
 
           - type: button
             name: Lisa
-            icon: mdi:account-female
+            icon: mdi:karate
             tap_action:
               action: navigate
               navigation_path: /household-tasks/lisa
@@ -104,7 +104,7 @@ views:
 
           - type: button
             name: Tyler
-            icon: mdi:account-child
+            icon: mdi:controller
             tap_action:
               action: navigate
               navigation_path: /household-tasks/tyler
@@ -116,7 +116,7 @@ views:
 
           - type: button
             name: Kia
-            icon: mdi:account-child-outline
+            icon: mdi:account-cowboy-hat-outline
             tap_action:
               action: navigate
               navigation_path: /household-tasks/kia
