@@ -1,1 +1,359 @@
 
+button_card_templates:
+
+  task_list:
+    show_name: false
+    show_icon: false
+    show_state: false
+    styles:
+      card:
+        - padding: 0
+        - margin: 0
+        - box-shadow: none
+        - border-radius: 0
+      custom_fields:
+        list:
+          - width: 100%
+    custom_fields:
+      list: |
+        [[[
+          const person = variables.person;
+          const filterEntity = variables.filter;
+          const filter = states[filterEntity]?.state || "All";
+          const tasks = entity?.attributes?.[person] || [];
+
+          const filtered = tasks.filter(t => {
+            if (filter === "All") return true;
+            return (t.Frequency || "").toLowerCase() === filter.toLowerCase();
+          });
+
+          return `
+            <div style="display:flex;flex-direction:column;width:100%;max-width:700px;margin:0 auto;">
+              ${filtered.map(t => `
+                <div style="
+                  display:flex;
+                  align-items:center;
+                  padding:14px 10px;
+                  border-bottom:1px solid var(--divider-color);
+                  cursor:pointer;
+                "
+                onclick="window.hass.callService('rest_command','directus_update_task',{id:'${t.id}', done:${!t.done}})">
+                  
+                  <ha-icon icon="${t.done ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline'}"
+                    style="color:${t.done ? 'var(--primary-color)' : 'var(--secondary-text-color)'};margin-right:14px;">
+                  </ha-icon>
+
+                  <div style="flex:1;">
+                    <div style="font-size:16px;${t.done ? 'text-decoration:line-through;opacity:0.6;' : ''}">
+                      ${t.title}
+                    </div>
+                    <div style="font-size:12px;color:var(--secondary-text-color);">
+                      ${t.Frequency || ''}
+                    </div>
+                  </div>
+
+                </div>
+              `).join('')}
+            </div>
+          `;
+        ]]]
+
+
+views:
+
+  # ---------------------------------------------------------
+  # HOME VIEW
+  # ---------------------------------------------------------
+  - title: Home
+    path: home
+    icon: mdi:home
+    cards:
+
+      - type: grid
+        square: false
+        columns: 2
+        cards:
+
+          - type: button
+            name: Andy
+            icon: mdi:account
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-household-tasks/andy
+            styles:
+              card:
+                - height: 140px
+                - border-radius: 18px
+                - font-size: 20px
+
+          - type: button
+            name: Lisa
+            icon: mdi:account-female
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-household-tasks/lisa
+            styles:
+              card:
+                - height: 140px
+                - border-radius: 18px
+                - font-size: 20px
+
+          - type: button
+            name: Tyler
+            icon: mdi:account-child
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-household-tasks/tyler
+            styles:
+              card:
+                - height: 140px
+                - border-radius: 18px
+                - font-size: 20px
+
+          - type: button
+            name: Kia
+            icon: mdi:account-child-outline
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-household-tasks/kia
+            styles:
+              card:
+                - height: 140px
+                - border-radius: 18px
+                - font-size: 20px
+
+
+  # ---------------------------------------------------------
+  # ANDY VIEW
+  # ---------------------------------------------------------
+  - title: Andy
+    path: andy
+    icon: mdi:account
+    cards:
+
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+          - type: template
+            content: All
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: All }
+              target: { entity_id: input_select.task_frequency_filter_andy }
+
+          - type: template
+            content: Daily
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Daily }
+              target: { entity_id: input_select.task_frequency_filter_andy }
+
+          - type: template
+            content: Weekly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Weekly }
+              target: { entity_id: input_select.task_frequency_filter_andy }
+
+          - type: template
+            content: Monthly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Monthly }
+              target: { entity_id: input_select.task_frequency_filter_andy }
+
+          - type: template
+            content: Quarterly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Quarterly }
+              target: { entity_id: input_select.task_frequency_filter_andy }
+
+      - type: custom:button-card
+        template: task_list
+        entity: sensor.directus_tasks_master
+        variables:
+          person: "andy"
+          filter: "input_select.task_frequency_filter_andy"
+
+
+  # ---------------------------------------------------------
+  # LISA VIEW
+  # ---------------------------------------------------------
+  - title: Lisa
+    path: lisa
+    icon: mdi:account-female
+    cards:
+
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+          - type: template
+            content: All
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: All }
+              target: { entity_id: input_select.task_frequency_filter_lisa }
+
+          - type: template
+            content: Daily
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Daily }
+              target: { entity_id: input_select.task_frequency_filter_lisa }
+
+          - type: template
+            content: Weekly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Weekly }
+              target: { entity_id: input_select.task_frequency_filter_lisa }
+
+          - type: template
+            content: Monthly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Monthly }
+              target: { entity_id: input_select.task_frequency_filter_lisa }
+
+          - type: template
+            content: Quarterly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Quarterly }
+              target: { entity_id: input_select.task_frequency_filter_lisa }
+
+      - type: custom:button-card
+        template: task_list
+        entity: sensor.directus_tasks_master
+        variables:
+          person: "lisa"
+          filter: "input_select.task_frequency_filter_lisa"
+
+
+  # ---------------------------------------------------------
+  # TYLER VIEW
+  # ---------------------------------------------------------
+  - title: Tyler
+    path: tyler
+    icon: mdi:account-child
+    cards:
+
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+          - type: template
+            content: All
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: All }
+              target: { entity_id: input_select.task_frequency_filter_tyler }
+
+          - type: template
+            content: Daily
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Daily }
+              target: { entity_id: input_select.task_frequency_filter_tyler }
+
+          - type: template
+            content: Weekly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Weekly }
+              target: { entity_id: input_select.task_frequency_filter_tyler }
+
+          - type: template
+            content: Monthly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Monthly }
+              target: { entity_id: input_select.task_frequency_filter_tyler }
+
+          - type: template
+            content: Quarterly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Quarterly }
+              target: { entity_id: input_select.task_frequency_filter_tyler }
+
+      - type: custom:button-card
+        template: task_list
+        entity: sensor.directus_tasks_master
+        variables:
+          person: "tyler"
+          filter: "input_select.task_frequency_filter_tyler"
+
+
+  # ---------------------------------------------------------
+  # KIA VIEW
+  # ---------------------------------------------------------
+  - title: Kia
+    path: kia
+    icon: mdi:account-child-outline
+    cards:
+
+      - type: custom:mushroom-chips-card
+        alignment: center
+        chips:
+          - type: template
+            content: All
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: All }
+              target: { entity_id: input_select.task_frequency_filter_kia }
+
+          - type: template
+            content: Daily
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Daily }
+              target: { entity_id: input_select.task_frequency_filter_kia }
+
+          - type: template
+            content: Weekly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Weekly }
+              target: { entity_id: input_select.task_frequency_filter_kia }
+
+          - type: template
+            content: Monthly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Monthly }
+              target: { entity_id: input_select.task_frequency_filter_kia }
+
+          - type: template
+            content: Quarterly
+            tap_action:
+              action: call-service
+              service: input_select.select_option
+              data: { option: Quarterly }
+              target: { entity_id: input_select.task_frequency_filter_kia }
+
+      - type: custom:button-card
+        template: task_list
+        entity: sensor.directus_tasks_master
+        variables:
+          person: "kia"
+          filter: "input_select.task_frequency_filter_kia"
