@@ -2,9 +2,7 @@
     name: directus_tasks_master
     state: "{{ now() }}"
     attributes:
-      andy: "{{ state_attr('sensor.directus_tasks_andy', 'data') }}"
-      lisa: "{{ state_attr('sensor.directus_tasks_lisa', 'data') }}"
-      tyler: "{{ state_attr('sensor.directus_tasks_tyler', 'data') }}"
-      kia: "{{ state_attr('sensor.directus_tasks_kia', 'data') }}"
-
-
+      andy: "{{ state_attr('sensor.directus_tasks_andy', 'data') | tojson | fromjson }}"
+      lisa: "{{ state_attr('sensor.directus_tasks_lisa', 'data') | tojson | fromjson }}"
+      tyler: "{{ state_attr('sensor.directus_tasks_tyler', 'data') | tojson | fromjson }}"
+      kia: "{{ state_attr('sensor.directus_tasks_kia', 'data') | tojson | fromjson }}"
