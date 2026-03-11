@@ -1,6 +1,7 @@
 template:
   - sensor:
       - name: directus_tasks_master
+        unique_id: directus_tasks_master
         state: "{{ now() }}"
         attributes:
           andy: "{{ state_attr('sensor.directus_tasks_andy', 'data') | tojson | fromjson }}"
