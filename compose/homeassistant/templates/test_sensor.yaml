@@ -1,0 +1,5 @@
+template:
+  - sensor:
+      - name: test_sensor
+        unique_id: test_sensor
+        state: "hello"
