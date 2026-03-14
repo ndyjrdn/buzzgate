@@ -8,15 +8,16 @@ services:
       - "8096:8096"  # HTTP access
       # - "8920:8920"  # Uncomment for HTTPS if using reverse proxy
     volumes:
-      - /volume1/JellyfinConfig:/config
-      - /volume1/JellyfinCache:/cache
-
-      # Canonical media mounts
+      # Primary media (Synology)
       - /volume1/media1/movies:/media/movies
       - /volume1/media1/extras:/media/extras
 
-      # SSD or secondary media mount (unchanged)
+      # Secondary SSD media
       - /mnt/jellyfin/media2:/media/media2
+
+      # Jellyfin config + cache (Synology)
+      - /volume1/JellyfinConfig:/config
+      - /volume1/JellyfinCache:/cache
 
     environment:
       - TZ=America/Chicago
