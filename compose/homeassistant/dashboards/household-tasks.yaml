@@ -44,7 +44,7 @@ button_card_templates:
                     style="color:${t.done ? 'var(--primary-color)' : 'var(--secondary-text-color)'};margin-right:14px;font-size:18px;width:18px;height:18px;">
                   </ha-icon>
     
-                  <div style="flex:1;">
+                  <div style="flex:1; text-align:left;">
                     <div style="font-size:16px;${t.done ? 'text-decoration:line-through;opacity:0.6;' : ''}">
                       ${t.title}
                     </div>
