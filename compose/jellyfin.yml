@@ -11,6 +11,8 @@ services:
       # Primary media (Synology)
       - /volume1/media1/movies:/media/movies
       - /volume1/media1/extras:/media/extras
+      - /mnt/nas_media/movies:/media/nas_movies
+
 
       # Secondary SSD media
       - /mnt/jellyfin/media2:/media/media2
