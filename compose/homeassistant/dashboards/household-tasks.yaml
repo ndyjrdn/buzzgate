@@ -182,7 +182,8 @@ views:
         entity: sensor.directus_tasks_master
         variables:
           person: "andy"
-          frequency: "{{ states('input_select.task_frequency_filter_andy') }}"
+          frequency: "[[[ return states['input_select.task_frequency_filter_andy'].state; ]]]"
+
 
 
 
@@ -242,7 +243,7 @@ views:
         entity: sensor.directus_tasks_master
         variables:
           person: "lisa"
-          frequency: "{{ states('input_select.task_frequency_filter_lisa') }}"
+          frequency: "[[[ return states['input_select.task_frequency_filter_lisa'].state; ]]]"
 
 
   # ---------------------------------------------------------
@@ -301,7 +302,7 @@ views:
         entity: sensor.directus_tasks_master
         variables:
           person: "tyler"
-          frequency: "{{ states('input_select.task_frequency_filter_tyler') }}"
+          frequency: "[[[ return states['input_select.task_frequency_filter_tyler'].state; ]]]"
 
 
   # ---------------------------------------------------------
@@ -360,4 +361,4 @@ views:
         entity: sensor.directus_tasks_master
         variables:
           person: "kia"
-          frequency: "{{ states('input_select.task_frequency_filter_kia') }}"
+          frequency: "[[[ return states['input_select.task_frequency_filter_kia'].state; ]]]"
