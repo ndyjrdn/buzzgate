@@ -181,7 +181,7 @@ views:
         entity: sensor.directus_tasks_master
         variables:
           person: "andy"
-          frequency: "{{ states('input_select.task_frequency_filter_andy') }}"
+        frequency: "{{ states('input_select.task_frequency_filter_andy') }}"
 
 
 
