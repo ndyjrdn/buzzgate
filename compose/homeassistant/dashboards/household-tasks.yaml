@@ -16,44 +16,49 @@ button_card_templates:
         list:
           - width: 100%
     custom_fields:
-      list: |
-        [[[
-          const person = variables.person;
-          const filter = variables.frequency || "All";
-          const tasks = entity?.attributes?.[person] || [];
-    
-          const filtered = tasks.filter(t => {
-            if (filter === "All") return true;
-            return (t.Frequency || "").toLowerCase() === filter.toLowerCase();
-          });
-    
-          return `
-            <div style="display:flex;flex-direction:column;width:100%;max-width:700px;margin:0 auto;">
-              ${filtered.map(t => `
-                <div style="
-                  display:flex;
-                  align-items:center;
-                  padding:14px 10px;
-                  border-bottom:1px solid var(--divider-color);
-                  cursor:pointer;
-                "
-                onclick="window.hass.callService('rest_command','directus_update_task',{id:'${t.id}', done:${!t.done}})">
-                  
-                  <ha-icon icon="${t.done ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline'}"
-                    style="color:${t.done ? 'var(--primary-color)' : 'var(--secondary-text-color)'};margin-right:14px;font-size:18px;width:18px;height:18px;">
-                  </ha-icon>
-    
-                  <div style="flex:1; text-align:left;">
-                    <div style="font-size:16px;${t.done ? 'text-decoration:line-through;opacity:0.6;' : ''}">
-                      ${t.title}
-                    </div>
-                  </div>
-    
+  list: |
+    [[[
+      if (!entity || !entity.attributes) {
+        return `<div style="padding:16px;text-align:center;color:var(--secondary-text-color);">Loading...</div>`;
+      }
+
+      const person = variables.person;
+      const filter = variables.frequency || "All";
+      const tasks = entity.attributes[person] || [];
+
+      const filtered = tasks.filter(t => {
+        if (filter === "All") return true;
+        return (t.Frequency || "").toLowerCase() === filter.toLowerCase();
+      });
+
+      return `
+        <div style="display:flex;flex-direction:column;width:100%;max-width:700px;margin:0 auto;">
+          ${filtered.map(t => `
+            <div style="
+              display:flex;
+              align-items:center;
+              padding:14px 10px;
+              border-bottom:1px solid var(--divider-color);
+              cursor:pointer;
+            "
+            onclick="window.hass.callService('rest_command','directus_update_task',{id:'${t.id}', done:${!t.done}})">
+              
+              <ha-icon icon="${t.done ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline'}"
+                style="color:${t.done ? 'var(--primary-color)' : 'var(--secondary-text-color)'};margin-right:14px;font-size:18px;width:18px;height:18px;">
+              </ha-icon>
+
+              <div style="flex:1; text-align:left;">
+                <div style="font-size:16px;${t.done ? 'text-decoration:line-through;opacity:0.6;' : ''}">
+                  ${t.title}
                 </div>
-              `).join('')}
+              </div>
+
             </div>
-          `;
-        ]]]
+          `).join('')}
+        </div>
+      `;
+    ]]]
+
 
 
 
