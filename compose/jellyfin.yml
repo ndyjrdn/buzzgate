@@ -8,14 +8,11 @@ services:
       - "8096:8096"  # HTTP access
       # - "8920:8920"  # Uncomment for HTTPS if using reverse proxy
     volumes:
-      # Primary media (Synology)
-      - /volume1/media1/movies:/media/movies
-      - /volume1/media1/extras:/media/extras
+      # NAS movie library
       - /mnt/nas_media/movies:/media/nas_movies
 
-
-      # Secondary SSD media
-      - /mnt/jellyfin/media2:/media/media2
+      # PHIXERO SSD movie library
+      - /mnt/phixero/Movies:/media/ssd_movies
 
       # Jellyfin config + cache (Synology)
       - /volume1/JellyfinConfig:/config
