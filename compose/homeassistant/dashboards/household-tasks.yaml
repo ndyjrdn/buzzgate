@@ -50,7 +50,7 @@ button_card_templates:
                 ">
                   
                   <ha-icon
-                    icon="${t.done ? 'mdi:checkbox-marked' : 'mdi:checkbox-blank-outline'}"
+                    icon="${t.done ? \"mdi:checkbox-marked\" : \"mdi:checkbox-blank-outline\"}"
                     style="color:${t.done ? 'var(--primary-color)' : 'var(--secondary-text-color)'};margin-right:14px;font-size:18px;width:18px;height:18px;cursor:pointer;"
                     onclick="event.stopPropagation(); window.hass.callService('rest_command','directus_update_task',{id:'${t.id}', done:${!t.done}})"
                   ></ha-icon>
