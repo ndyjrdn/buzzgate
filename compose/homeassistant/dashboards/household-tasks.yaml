@@ -2,7 +2,6 @@ title: Household Tasks
 path: household-tasks
 
 button_card_templates:
-
   task_list:
     show_name: false
     show_icon: false
