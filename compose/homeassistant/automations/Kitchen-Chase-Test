@@ -1,4 +1,4 @@
-alias: Kitchen Chase Test
+alias: Kitchen-Chase-Test
 mode: single
 trigger:
   - platform: time
