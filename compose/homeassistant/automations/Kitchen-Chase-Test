@@ -1,4 +1,4 @@
-- id: Kitchen-Chase-Test
+- id: "kitchen_chase_test_01"
   alias: Kitchen-Chase-Test
   mode: single
   trigger:
