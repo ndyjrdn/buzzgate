@@ -7,21 +7,21 @@
   action:
     - service: light.turn_on
       target:
-        entity_id: light.under_cabinet_south
+        entity_id: light.0xa4c1380d5a3cd3c1
       data:
         brightness_pct: 60
         rgb_color: [255, 0, 0]
     - delay: '00:00:0.3'
     - service: light.turn_on
       target:
-        entity_id: light.under_cabinet_3fer
+        entity_id: light.0xa4c138cda4d24a98
       data:
         brightness_pct: 60
         rgb_color: [255, 0, 0]
     - delay: '00:00:0.3'
     - service: light.turn_on
       target:
-        entity_id: light.under_cabinet_by_the_fridge
+        entity_id: light.0xa4c138d8c12b1f53
       data:
         brightness_pct: 60
         rgb_color: [255, 0, 0]
