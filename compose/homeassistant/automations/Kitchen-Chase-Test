@@ -1,0 +1,26 @@
+alias: Kitchen Chase Test
+mode: single
+trigger:
+  - platform: time
+    at: '20:00:00'   # or use a button trigger
+action:
+  - service: light.turn_on
+    target:
+      entity_id: light.under_cabinet_south
+    data:
+      brightness_pct: 60
+      rgb_color: [255, 0, 0]
+  - delay: '00:00:0.3'
+  - service: light.turn_on
+    target:
+      entity_id: light.under_cabinet_3fer
+    data:
+      brightness_pct: 60
+      rgb_color: [255, 0, 0]
+  - delay: '00:00:0.3'
+  - service: light.turn_on
+    target:
+      entity_id: light.under_cabinet_by_the_fridge
+    data:
+      brightness_pct: 60
+      rgb_color: [255, 0, 0]
