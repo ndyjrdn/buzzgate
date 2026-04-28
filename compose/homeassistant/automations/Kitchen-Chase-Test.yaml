@@ -17,7 +17,7 @@
         entity_id: light.0xa4c138cda4d24a98
       data:
         brightness_pct: 60
-        rgb_color: [100, 150, 255]
+        rgb_color: [255,0,0]
     - delay: '00:00:0.3'
     - service: light.turn_on
       target:
