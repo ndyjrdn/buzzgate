@@ -24,10 +24,6 @@
       state: "on"
       brightness_pct: 60
       rgb_color: [100, 150, 255]
-    light.0xa4c1381f17fb1e4d:
-      state: "on"
-      brightness_pct: 60
-      rgb_color: [100, 150, 255]
     light.moms_light_rgb:
       state: "off"
     light.moms_light_white:
