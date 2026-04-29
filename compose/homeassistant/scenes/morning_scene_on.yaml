@@ -8,6 +8,12 @@
       state: "on"
       brightness: 100
       color_temp: 150
+    light.light.0xa4c1380d5a3cd3c1:
+      state: "on"
+      brightness: 100
+      color_temp: 150
+
+      
     light.moms_light_rgb:
       state: "off"
     light.moms_light_white:
