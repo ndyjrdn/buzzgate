@@ -12,7 +12,7 @@
       state: "on"
       brightness: 225
       color_temp: 75
-     light.0xa4c1380d5a3cd3c1:
+    light.0xa4c1380d5a3cd3c1:
       state: "on"
       brightness_pct: 50
       color_temp: 325
