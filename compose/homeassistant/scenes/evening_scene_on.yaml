@@ -16,19 +16,24 @@
       state: "on"
       brightness_pct: 50
       color_temp: 325
+      rgb_color: [218, 233, 248]
     light.0xa4c1380c83af2d32:
       state: "on"
       brightness_pct: 50
       color_temp: 325
+      rgb_color: [218, 233, 248]
     light.0xa4c138cda4d24a98:
       state: "on"
       brightness_pct: 50
       color_temp: 325
+      rgb_color: [218, 233, 248]
     light.0xa4c138d8c12b1f53:
       state: "on"
       brightness_pct: 50
       color_temp: 325
+      rgb_color: [218, 233, 248]
     light.0xa4c1381f17fb1e4d:
       state: "on"
       brightness_pct: 50
       color_temp: 325
+      rgb_color: [218, 233, 248]
