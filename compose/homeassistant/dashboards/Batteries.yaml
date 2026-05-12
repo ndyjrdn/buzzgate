@@ -1,0 +1,103 @@
+title: Curtain Robot Batteries
+path: curtain-batteries
+icon: mdi:battery
+
+cards:
+
+  # --- MAIN ENTITY LIST ---
+  - type: entities
+    title: All Curtain Batteries
+    show_header_toggle: false
+    entities:
+      - sensor.deck_door_curtain_battery
+      - sensor.kia_s_curtain_battery
+      - sensor.lr_curtain_north_battery
+      - sensor.lr_curtain_s_battery
+      - sensor.moms_curtain_battery
+      - sensor.tylers_curtain_battery
+
+  # --- LOW BATTERY FILTER ---
+  - type: entity-filter
+    title: Low Curtain Batteries (<30%)
+    show_empty: false
+    entities:
+      - sensor.deck_door_curtain_battery
+      - sensor.kia_s_curtain_battery
+      - sensor.lr_curtain_north_battery
+      - sensor.lr_curtain_s_battery
+      - sensor.moms_curtain_battery
+      - sensor.tylers_curtain_battery
+    state_filter:
+      - operator: '<'
+        value: 30
+    card:
+      type: entities
+
+  # --- GAUGES ROW 1 ---
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        name: Deck Door
+        entity: sensor.deck_door_curtain_battery
+        min: 0
+        max: 100
+        severity:
+          green: 50
+          yellow: 30
+          red: 15
+
+      - type: gauge
+        name: Kia's Curtain
+        entity: sensor.kia_s_curtain_battery
+        min: 0
+        max: 100
+        severity:
+          green: 50
+          yellow: 30
+          red: 15
+
+  # --- GAUGES ROW 2 ---
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        name: LR North
+        entity: sensor.lr_curtain_north_battery
+        min: 0
+        max: 100
+        severity:
+          green: 50
+          yellow: 30
+          red: 15
+
+      - type: gauge
+        name: LR South
+        entity: sensor.lr_curtain_s_battery
+        min: 0
+        max: 100
+        severity:
+          green: 50
+          yellow: 30
+          red: 15
+
+  # --- GAUGES ROW 3 ---
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        name: Mom's Curtain
+        entity: sensor.moms_curtain_battery
+        min: 0
+        max: 100
+        severity:
+          green: 50
+          yellow: 30
+          red: 15
+
+      - type: gauge
+        name: Tyler's Curtain
+        entity: sensor.tylers_curtain_battery
+        min: 0
+        max: 100
+        severity:
+          green: 50
+          yellow: 30
+          red: 15
