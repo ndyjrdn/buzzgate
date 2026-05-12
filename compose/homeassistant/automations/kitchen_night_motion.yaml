@@ -29,7 +29,7 @@
     # Wait until motion stops for 5 minutes
     - wait_for_trigger:
         - platform: state
-          entity_id: binary_sensor.kitchen_motion_occupancy
+          entity_id: binary_sensor.0xb40e060fffe23b52_occupancy
           to: "off"
           for: "00:05:00"
 
