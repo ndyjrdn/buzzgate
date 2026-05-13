@@ -113,7 +113,7 @@ lovelace:
       title: Curtain Robot Batteries
       icon: mdi:battery
       show_in_sidebar: true
-      filename: dashboards/Batteries.yaml
+      filename: dashboards/curtain-batteries.yaml
 input_datetime:
   evening_scene_time:
     name: Evening Scene Time
