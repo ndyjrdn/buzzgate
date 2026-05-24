@@ -18,7 +18,7 @@
       target:
         entity_id:
           - light.0xa4c1380d5a3cd3c1
-          - light0xa4c1380c83af2d32
+          - light.0xa4c1380c83af2d32
           - light.0xa4c138cda4d24a98
           - light.0xa4c138d8c12b1f53
           - light.0xa4c1381f17fb1e4d
@@ -38,7 +38,7 @@
       target:
         entity_id:
           - light.0xa4c1380d5a3cd3c1
-          - light0xa4c1380c83af2d32
+          - light.0xa4c1380c83af2d32
           - light.0xa4c138cda4d24a98
           - light.0xa4c138d8c12b1f53
           - light.0xa4c1381f17fb1e4d
