@@ -4,10 +4,10 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.moms_closet_motion
+      entity_id: binary_sensor.0xb40e060fffe23a9d_occupancy
       to: "on"
     - platform: state
-      entity_id: binary_sensor.moms_closet_motion
+      entity_id: binary_sensor.0xb40e060fffe23a9d_occupancy
       to: "off"
       for: "00:00:10"
 
@@ -16,7 +16,7 @@
         # Motion ON
         - conditions:
             - condition: state
-              entity_id: binary_sensor.moms_closet_motion
+              entity_id: binary_sensor.0xb40e060fffe23a9d_occupancy
               state: "on"
           sequence:
             - choose:
@@ -35,17 +35,17 @@
                 # Daytime full brightness
                 - service: light.turn_on
                   target:
-                    entity_id: light.moms_closet
+                    entity_id: light.0xb0ce1814000394e7
                   data:
                     brightness_pct: 100
 
         # Motion OFF for 10 seconds → turn light off
         - conditions:
             - condition: state
-              entity_id: binary_sensor.moms_closet_motion
+              entity_id: binary_sensor.0xb40e060fffe23a9d_occupancy
               state: "off"
               for: "00:00:10"
           sequence:
             - service: light.turn_off
               target:
-                entity_id: light.moms_closet
+                entity_id: light.0xb0ce1814000394e7
