@@ -1,101 +1,66 @@
-"""Simple persistent storage for learned Govee device info."""
-from __future__ import annotations
+"""The Govee learned storage yaml file manager."""
 
-import json
-import os
-from pathlib import Path
-from typing import Dict
+from dataclasses import asdict
+import logging
 
-from .models import GoveeLearnedInfo
+import dacite
+from govee_api_laggat import GoveeAbstractLearningStorage, GoveeLearnedInfo
+import yaml
 
-LEARNING_SCHEMA_VERSION = 1
+from homeassistant.util.yaml import load_yaml, save_yaml
+
+_LOGGER = logging.getLogger(__name__)
+LEARNING_STORAGE_YAML = "/govee_learning.yaml"
 
 
-class GoveeLearningStorage:
-    def __init__(self, config_dir: str, hass=None, *, integration_version: str | None = None) -> None:
-        self._hass = hass
+class GoveeLearningStorage(GoveeAbstractLearningStorage):
+    """The govee_api_laggat library uses this to store learned information about lights."""
+
+    def __init__(self, config_dir, *args, **kwargs):
+        """Get the config directory."""
+        super().__init__(*args, **kwargs)
         self._config_dir = config_dir
-        if integration_version is not None:
-            self._integration_version = integration_version
-        else:
-            self._integration_version = self._load_manifest_version()
 
-    @staticmethod
-    def _load_manifest_version() -> str | None:
+    async def read(self):
+        """Restore from yaml file."""
+        learned_info = {}
         try:
-            manifest_path = Path(__file__).with_name("manifest.json")
-            with manifest_path.open("r", encoding="utf-8") as handle:
-                manifest = json.load(handle)
-            version = manifest.get("version")
-            if isinstance(version, str) and version:
-                return version
-        except Exception:
-            pass
-        return None
-
-    def _path(self) -> str:
-        # Prefer hass.config.path if hass is provided
-        if self._hass is not None:
-            return self._hass.config.path(".storage/govee_learning.json")
-        # Fallback to provided config_dir
-        storage_dir = os.path.join(self._config_dir, ".storage")
-        os.makedirs(storage_dir, exist_ok=True)
-        return os.path.join(storage_dir, "govee_learning.json")
-
-    async def read(self) -> Dict[str, GoveeLearnedInfo]:
-        def _read() -> Dict[str, GoveeLearnedInfo]:
-            path = self._path()
-            try:
-                with open(path, "r", encoding="utf-8") as f_handle:
-                    raw = json.load(f_handle)
-            except Exception:
-                return {}
-
-            if not isinstance(raw, dict):
-                return {}
-
-            schema = raw.get("__schema_version")
-            stored_version = raw.get("__integration_version")
-            payload = raw.get("devices") if "devices" in raw else raw
-
-            if schema != LEARNING_SCHEMA_VERSION:
-                return {}
-            if self._integration_version is not None and stored_version != self._integration_version:
-                return {}
-
-            out: Dict[str, GoveeLearnedInfo] = {}
-            if isinstance(payload, dict):
-                for key, value in payload.items():
-                    if not isinstance(value, dict):
-                        continue
-                    try:
-                        out[key] = GoveeLearnedInfo(**value)
-                    except Exception:
-                        # ignore malformed entries
-                        pass
-            return out
-
-        if self._hass is not None:
-            return await self._hass.async_add_executor_job(_read)
-        return _read()
-
-    async def write(self, infos: Dict[str, GoveeLearnedInfo]) -> None:
-        def _write() -> None:
-            path = self._path()
-            payload = {
-                "__schema_version": LEARNING_SCHEMA_VERSION,
-                "__integration_version": self._integration_version,
-                "devices": {key: vars(value) for key, value in infos.items()},
+            learned_dict = load_yaml(self._config_dir + LEARNING_STORAGE_YAML)
+            learned_info = {
+                device: dacite.from_dict(
+                    data_class=GoveeLearnedInfo, data=learned_dict[device]
+                )
+                for device in learned_dict
             }
-            try:
-                os.makedirs(os.path.dirname(path), exist_ok=True)
-                with open(path, "w", encoding="utf-8") as f_handle:
-                    json.dump(payload, f_handle, ensure_ascii=False)
-            except Exception:
-                # best-effort persistence; ignore failures
-                pass
+            _LOGGER.info(
+                "Loaded learning information from %s.",
+                self._config_dir + LEARNING_STORAGE_YAML,
+            )
+        except FileNotFoundError:
+            _LOGGER.warning(
+                "There is no %s file containing learned information about your devices. "
+                + "This is normal for first start of Govee integration.",
+                self._config_dir + LEARNING_STORAGE_YAML,
+            )
+        except (
+            dacite.DaciteError,
+            TypeError,
+            UnicodeDecodeError,
+            yaml.YAMLError,
+        ) as ex:
+            _LOGGER.warning(
+                "The %s file containing learned information about your devices is invalid: %s. "
+                + "Learning starts from scratch.",
+                self._config_dir + LEARNING_STORAGE_YAML,
+                ex,
+            )
+        return learned_info
 
-        if self._hass is not None:
-            await self._hass.async_add_executor_job(_write)
-        else:
-            _write()
+    async def write(self, learned_info):
+        """Save to yaml file."""
+        leaned_dict = {device: asdict(learned_info[device]) for device in learned_info}
+        save_yaml(self._config_dir + LEARNING_STORAGE_YAML, leaned_dict)
+        _LOGGER.info(
+            "Stored learning information to %s.",
+            self._config_dir + LEARNING_STORAGE_YAML,
+        )

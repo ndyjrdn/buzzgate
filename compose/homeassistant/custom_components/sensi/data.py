@@ -215,12 +215,17 @@ class State:
         self.temp_offset = to_int(data.get("temp_offset"), 0)
         self.wifi_connection_quality = to_int(data.get("wifi_connection_quality"), None)
 
-        # Custom fields
+        # Calculated fields
         self.temperature_unit = (
             UnitOfTemperature.CELSIUS
-            if self.display_scale == "c"
+            if self.display_scale.lower() == "c"
             else UnitOfTemperature.FAHRENHEIT
         )
+
+    @property
+    def is_online(self) -> bool | None:
+        """Return true if the device is online."""
+        return self.status.lower() == "online"
 
     def __str__(self):
         """Return string representation of State."""

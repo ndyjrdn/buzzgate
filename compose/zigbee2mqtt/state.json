@@ -80,62 +80,68 @@
         "color_temp": 285
     },
     "0xb0ce18140005f7e5": {
-        "power": 6.7,
-        "energy": 8.33,
+        "power": 3.7,
+        "energy": 15.69,
         "color_mode": "color_temp",
         "color": {
-            "x": 0.4053,
-            "y": 0.3907
+            "x": 0.3137,
+            "y": 0.3238
         },
+        "linkquality": 136,
+        "state": "OFF",
+        "color_temp": 154,
+        "brightness": 100,
         "update": {
             "state": "idle",
             "installed_version": 71,
-            "latest_version": 71
-        },
-        "linkquality": 160,
-        "state": "ON",
-        "color_temp": 285,
-        "brightness": 254
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
+        }
     },
     "0x00124b0029191965": {
         "state": "ON",
-        "linkquality": 96
+        "linkquality": 124
     },
     "0xb0ce18140005faaf": {
         "power": 0.2,
-        "energy": 7.87,
+        "energy": 11.06,
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
             "y": 0.3238
         },
+        "linkquality": 124,
+        "state": "OFF",
+        "brightness": 224,
+        "color_temp": 154,
         "update": {
             "state": "idle",
             "installed_version": 71,
-            "latest_version": 71
-        },
-        "linkquality": 188,
-        "state": "OFF",
-        "brightness": 224,
-        "color_temp": 154
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
+        }
     },
     "0xb0ce18140005e9d8": {
         "power": 0.2,
-        "energy": 7.89,
+        "energy": 11.05,
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
             "y": 0.3238
         },
         "state": "OFF",
+        "linkquality": 148,
+        "brightness": 224,
+        "color_temp": 154,
         "update": {
             "state": "idle",
             "installed_version": 71,
-            "latest_version": 71
-        },
-        "linkquality": 188,
-        "brightness": 224,
-        "color_temp": 154
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
+        }
     },
     "0xb0ce1814001b04ee": {
         "power": 0.2,
@@ -145,38 +151,42 @@
             "x": 0.3137,
             "y": 0.3238
         },
-        "update": {
-            "state": "idle",
-            "installed_version": 38,
-            "latest_version": 38
-        },
-        "linkquality": 148,
+        "linkquality": 128,
         "state": "OFF",
         "brightness": 224,
         "color_temp": 154,
         "level_config": {
             "on_level": "previous"
+        },
+        "update": {
+            "state": "idle",
+            "installed_version": 38,
+            "latest_version": 38,
+            "latest_source": null,
+            "latest_release_notes": null
         }
     },
     "0xb0ce1814001af4d4": {
         "power": 0.2,
-        "energy": 0.47,
-        "update": {
-            "state": "idle",
-            "installed_version": 38,
-            "latest_version": 38
-        },
+        "energy": 0.48,
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
             "y": 0.3238
         },
         "state": "OFF",
-        "linkquality": 188,
+        "linkquality": 144,
         "brightness": 224,
         "color_temp": 154,
         "level_config": {
             "on_level": "previous"
+        },
+        "update": {
+            "state": "idle",
+            "installed_version": 38,
+            "latest_version": 38,
+            "latest_source": null,
+            "latest_release_notes": null
         }
     },
     "0xb0ce1814001af7a6": {
@@ -187,18 +197,20 @@
             "x": 0.3137,
             "y": 0.3238
         },
-        "update": {
-            "state": "idle",
-            "installed_version": 38,
-            "latest_version": 38
-        },
         "color_temp_startup": 250,
-        "linkquality": 184,
+        "linkquality": 128,
         "state": "OFF",
         "brightness": 224,
         "color_temp": 154,
         "level_config": {
             "on_level": "previous"
+        },
+        "update": {
+            "state": "idle",
+            "installed_version": 38,
+            "latest_version": 38,
+            "latest_source": null,
+            "latest_release_notes": null
         }
     },
     "0xb40e060fffe071e3": {
@@ -206,242 +218,289 @@
         "tamper": false,
         "battery_low": false,
         "battery": 100,
-        "linkquality": 188,
-        "voltage": 3100
+        "linkquality": 124,
+        "voltage": 3100,
+        "update": {
+            "state": "idle",
+            "installed_version": 79,
+            "latest_version": 79,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/Motion_Sensor_PROD_OTA_V79_v1.00.79.ota",
+            "latest_release_notes": null
+        }
     },
     "0xb0ce1814002148f6": {
         "power": 0.2,
-        "energy": 0.54,
+        "energy": 4.27,
+        "color_mode": "color_temp",
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
+        },
+        "linkquality": 124,
+        "brightness": 100,
+        "state": "OFF",
+        "color_temp": 154,
         "update": {
             "state": "idle",
             "installed_version": 10,
-            "latest_version": 10
+            "latest_version": 10,
+            "latest_source": null,
+            "latest_release_notes": null
         },
-        "color_mode": "color_temp",
-        "color": {
-            "x": 0.4053,
-            "y": 0.3907
-        },
-        "linkquality": 188,
-        "brightness": 254,
-        "state": "ON",
-        "color_temp": 285
+        "level_config": {
+            "on_level": "previous"
+        }
     },
     "0xb40e060fffe07254": {
         "occupancy": false,
         "tamper": false,
         "battery_low": false,
-        "battery": 100,
-        "linkquality": 76,
-        "voltage": 3100,
+        "battery": 96,
+        "linkquality": 120,
+        "voltage": 3000,
         "update": {
             "state": "idle",
             "installed_version": 79,
-            "latest_version": 79
+            "latest_version": 79,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/Motion_Sensor_PROD_OTA_V79_v1.00.79.ota",
+            "latest_release_notes": null
         }
     },
     "0xb0ce181400214913": {
-        "power": 5.7,
-        "energy": 0.52,
-        "linkquality": 188,
-        "state": "ON",
+        "power": 0.2,
+        "energy": 0.12,
+        "linkquality": 148,
+        "state": "OFF",
+        "brightness": 100,
+        "color_mode": "color_temp",
+        "color_temp": 154,
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
+        },
         "update": {
             "state": "idle",
             "installed_version": 10,
-            "latest_version": 10
+            "latest_version": 10,
+            "latest_source": null,
+            "latest_release_notes": null
         },
-        "brightness": 254,
-        "color_mode": "color_temp",
-        "color_temp": 285,
-        "color": {
-            "x": 0.4053,
-            "y": 0.3907
+        "level_config": {
+            "on_level": "previous"
         }
     },
     "0xb0ce181400214aaa": {
         "power": 0.2,
-        "energy": 0.54,
-        "linkquality": 188,
+        "energy": 0.12,
+        "linkquality": 144,
+        "state": "OFF",
+        "brightness": 100,
+        "color_mode": "color_temp",
+        "color_temp": 154,
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
+        },
         "update": {
             "state": "idle",
             "installed_version": 10,
-            "latest_version": 10
+            "latest_version": 10,
+            "latest_source": null,
+            "latest_release_notes": null
         },
-        "state": "ON",
-        "brightness": 254,
-        "color_mode": "color_temp",
-        "color_temp": 285,
-        "color": {
-            "x": 0.4053,
-            "y": 0.3907
+        "level_config": {
+            "on_level": "previous"
         }
     },
     "0xb0ce181400214ac5": {
         "power": 0.2,
-        "energy": 0.52,
-        "state": "ON",
-        "linkquality": 88,
+        "energy": 0.12,
+        "state": "OFF",
+        "linkquality": 144,
+        "brightness": 100,
+        "color_mode": "color_temp",
+        "color_temp": 154,
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
+        },
         "update": {
             "state": "idle",
             "installed_version": 10,
-            "latest_version": 10
+            "latest_version": 10,
+            "latest_source": null,
+            "latest_release_notes": null
         },
-        "brightness": 254,
-        "color_mode": "color_temp",
-        "color_temp": 285,
-        "color": {
-            "x": 0.4053,
-            "y": 0.3907
+        "level_config": {
+            "on_level": "previous"
         }
     },
     "0xb0ce181400214c18": {
         "power": 0.2,
-        "energy": 0.52,
+        "energy": 0.12,
+        "state": "OFF",
+        "linkquality": 144,
+        "brightness": 100,
+        "color_mode": "color_temp",
+        "color_temp": 154,
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
+        },
         "update": {
             "state": "idle",
             "installed_version": 10,
-            "latest_version": 10
+            "latest_version": 10,
+            "latest_source": null,
+            "latest_release_notes": null
         },
-        "state": "ON",
-        "linkquality": 192,
-        "brightness": 254,
-        "color_mode": "color_temp",
-        "color_temp": 285,
-        "color": {
-            "x": 0.4053,
-            "y": 0.3907
+        "level_config": {
+            "on_level": "previous"
         }
     },
     "0xb40e060fffe07255": {
         "occupancy": false,
         "tamper": false,
         "battery_low": false,
-        "battery": 99.5,
-        "linkquality": 104,
+        "battery": 94.5,
+        "linkquality": 120,
         "voltage": 3000,
         "update": {
             "state": "idle",
             "installed_version": 79,
-            "latest_version": 79
+            "latest_version": 79,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/Motion_Sensor_PROD_OTA_V79_v1.00.79.ota",
+            "latest_release_notes": null
         }
     },
     "0xe406bffffe2ba7e8": {
         "motor_fault": false,
-        "linkquality": 136,
-        "state": "STOP",
+        "linkquality": 120,
+        "state": "OPEN",
         "position": 100,
-        "battery": 95,
+        "battery": 55,
         "click_control": "up"
     },
     "0xb0ce181400189493": {
         "power": 0.2,
-        "energy": 0.14,
+        "energy": 0.31,
         "state": "OFF",
+        "linkquality": 128,
+        "brightness": 3,
+        "color_mode": "color_temp",
+        "color_temp": 154,
         "update": {
             "state": "idle",
             "installed_version": 38,
-            "latest_version": 38
-        },
-        "linkquality": 188,
-        "brightness": 211,
-        "color_mode": "color_temp",
-        "color_temp": 154
+            "latest_version": 38,
+            "latest_source": null,
+            "latest_release_notes": null
+        }
     },
     "0xb0ce181400214c05": {
         "power": 0.2,
-        "energy": 0.06,
+        "energy": 0.04,
+        "state": "OFF",
+        "linkquality": 160,
+        "brightness": 254,
+        "color_mode": "color_temp",
+        "color_temp": 154,
         "update": {
             "state": "idle",
             "installed_version": 10,
-            "latest_version": 10
-        },
-        "state": "OFF",
-        "linkquality": 188,
-        "brightness": 211,
-        "color_mode": "color_temp",
-        "color_temp": 154
+            "latest_version": 10,
+            "latest_source": null,
+            "latest_release_notes": null
+        }
     },
     "0x583bc2fffe034cc0": {
         "motor_fault": false,
-        "linkquality": 120,
-        "state": "OPEN",
-        "position": 100,
-        "battery": 95,
+        "linkquality": 124,
+        "state": "CLOSE",
+        "position": 0,
+        "battery": 15,
         "click_control": "down"
     },
     "0xb40e060fffe07222": {
         "battery": 100,
-        "linkquality": 104,
+        "linkquality": 120,
         "occupancy": false,
         "tamper": false,
         "battery_low": false,
-        "voltage": 3100
+        "voltage": 3000
     },
     "0xb0ce1814001afa2d": {
         "power": 0.2,
-        "energy": 0.08,
-        "update": {
-            "state": "idle",
-            "installed_version": 38,
-            "latest_version": 38
-        },
-        "linkquality": 188,
-        "color_mode": "color_temp",
+        "energy": 0.09,
+        "linkquality": 116,
+        "color_mode": "xy",
         "color": {
-            "x": 0.3137,
-            "y": 0.3238
+            "x": 0.312,
+            "y": 0.211
         },
         "state": "OFF",
         "color_temp": 154,
-        "brightness": 223
-    },
-    "0xb0ce1814001afd37": {
-        "power": 0.2,
-        "energy": 0.43,
+        "brightness": 199,
         "update": {
             "state": "idle",
             "installed_version": 38,
-            "latest_version": 38
+            "latest_version": 38,
+            "latest_source": null,
+            "latest_release_notes": null
         },
-        "linkquality": 84,
-        "state": "OFF",
-        "color_mode": "color_temp",
-        "color_temp": 285,
-        "color": {
-            "x": 0.4053,
-            "y": 0.3907
-        },
-        "brightness": 254,
         "level_config": {
             "on_level": "previous"
         }
     },
+    "0xb0ce1814001afd37": {
+        "power": 0.2,
+        "energy": 0.07,
+        "linkquality": 220,
+        "state": "OFF",
+        "color_mode": "xy",
+        "color_temp": 154,
+        "color": {
+            "x": 0.312,
+            "y": 0.211
+        },
+        "brightness": 254,
+        "level_config": {
+            "on_level": "previous"
+        },
+        "update": {
+            "state": "idle",
+            "installed_version": 38,
+            "latest_version": 38,
+            "latest_source": null,
+            "latest_release_notes": null
+        }
+    },
     "0x00124b0031dd14d2": {
-        "linkquality": 196
+        "linkquality": 132
     },
     "0x54ef441000d7a808": {
         "power_on_behaviour": "on",
-        "device_temperature": 36,
-        "power_outage_count": 164,
+        "device_temperature": 52,
+        "power_outage_count": 539,
         "state": "ON",
-        "linkquality": 116,
+        "linkquality": 120,
         "state_white": "ON",
-        "state_rgb": "ON",
+        "state_rgb": "OFF",
         "brightness_white": 115
     },
     "0xa4c138e2b39568ba": {
-        "illuminance": 50,
-        "linkquality": 192,
+        "illuminance": 97,
+        "linkquality": 144,
         "battery": 100,
         "voltage": 3000
     },
     "0x54ef441000ca7f4b": {
-        "device_temperature": 35,
-        "power_outage_count": 72,
-        "state": "OFF",
+        "device_temperature": 77,
+        "power_outage_count": 99,
+        "state": "ON",
         "brightness_white": 254,
-        "state_white": "OFF",
-        "linkquality": 188,
+        "state_white": "ON",
+        "linkquality": 128,
         "state_rgb": "OFF",
         "color_mode_rgb": "xy",
         "color_rgb": {
@@ -460,104 +519,134 @@
         "level_config_rgb": {
             "off_transition_time": 15,
             "on_transition_time": 15
-        }
+        },
+        "color_mode_white": "color_temp",
+        "color_temp_white": 242,
+        "color_temp_rgb": 370,
+        "effect_white": "breathing"
     },
     "0x54ef441000d7b0d1": {
         "power_on_behaviour": "on",
         "color_rgb": {
-            "x": 0.371,
-            "y": 0.239
+            "x": 0.214,
+            "y": 0.274
         },
         "color_mode_rgb": "xy",
-        "device_temperature": 32,
-        "power_outage_count": 75,
-        "state": "OFF",
+        "device_temperature": 83,
+        "power_outage_count": 83,
+        "state": "ON",
         "brightness_white": 254,
         "state_white": "OFF",
         "color_mode_white": "color_temp",
         "color_temp_white": 250,
-        "linkquality": 188,
+        "linkquality": 124,
         "state_rgb": "OFF",
-        "brightness_rgb": 23
+        "brightness_rgb": 179,
+        "effect_rgb": "breathing"
     },
     "0xb0ce181400033e9f": {
-        "power": 2.5,
-        "energy": 0.2,
-        "update": {
-            "state": "available",
-            "installed_version": 48,
-            "latest_version": 71
-        },
-        "linkquality": 128,
+        "power": 2.3,
+        "energy": 5.41,
+        "linkquality": 216,
         "state": "OFF",
         "color_mode": "color_temp",
         "color_temp": 200,
-        "brightness": 28
+        "brightness": 254,
+        "update": {
+            "state": "idle",
+            "installed_version": 71,
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
+        }
     },
     "0xb0ce18140003b3d8": {
-        "power": 0.2,
-        "energy": 0.09,
-        "update": {
-            "state": "available",
-            "installed_version": 48,
-            "latest_version": 71
-        },
-        "linkquality": 144,
+        "power": 0,
+        "energy": 0.11,
+        "linkquality": 124,
         "state": "OFF",
         "brightness": 3,
         "color_mode": "xy",
         "color": {
             "x": 0.208,
             "y": 0.217
+        },
+        "update": {
+            "state": "idle",
+            "installed_version": 71,
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
         }
     },
     "0xb0ce18140003332b": {
         "power": 0.2,
-        "energy": 0.12,
+        "energy": 0.19,
+        "linkquality": 124,
         "update": {
-            "state": "available",
-            "installed_version": 48,
-            "latest_version": 71
+            "state": "idle",
+            "installed_version": 71,
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
         },
-        "linkquality": 60
+        "color_mode": "color_temp",
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
+        },
+        "state": "OFF",
+        "brightness": 236,
+        "color_temp": 154
     },
     "0xb0ce18140003a080": {
         "power": 0.2,
-        "energy": 109951162.78,
+        "energy": 0.06,
+        "linkquality": 168,
         "update": {
-            "state": "available",
+            "state": "updating",
             "installed_version": 48,
-            "latest_version": 71
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null,
+            "progress": 0,
+            "remaining": 710
         },
-        "linkquality": 236
+        "color_mode": "xy",
+        "color": {
+            "x": 0.6451514832627232,
+            "y": 0.2804788491537897
+        },
+        "state": "OFF",
+        "brightness": 254
     },
     "0xe406bffffe4c871e": {
         "linkquality": 140,
-        "state": "STOP",
+        "state": "OPEN",
         "position": 100,
-        "battery": 85,
+        "battery": 50,
         "motor_fault": false
     },
     "0xe406bffffe2bc96e": {
         "motor_fault": false,
-        "linkquality": 144,
-        "state": "STOP",
+        "linkquality": 132,
+        "state": "OPEN",
         "position": 100,
-        "battery": 85
+        "battery": 40
     },
     "0x403059fffe6349c4": {
-        "linkquality": 188,
+        "linkquality": 120,
         "state": "CLOSE",
         "position": 0,
-        "battery": 90,
-        "border": "down",
+        "battery": 100,
+        "border": "up",
         "motor_fault": false
     },
     "0x6cfd22fffe5a7905": {
-        "linkquality": 188,
+        "linkquality": 124,
         "state": "OPEN",
         "position": 100,
-        "battery": 100,
+        "battery": 15,
         "motor_fault": false,
         "border": "down"
     },
@@ -565,141 +654,349 @@
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
         "state": "OFF",
-        "voltage": 119.8,
+        "voltage": 118.7,
         "ac_frequency": 60,
         "energy": 0,
+        "linkquality": 128,
+        "power_factor": 0,
+        "current": 0,
+        "power": 0,
         "update": {
             "state": "idle",
             "installed_version": 268513381,
-            "latest_version": 268513381
-        },
-        "linkquality": 80,
-        "power_factor": 0,
-        "current": 0,
-        "power": 0
+            "latest_version": 268513381,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/SmartPlug_Zigbee_PROD_OTA_V101_1.01.01.ota",
+            "latest_release_notes": null
+        }
     },
     "0xffffb40e060562b5": {
-        "state": "OFF",
+        "state": "ON",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.5,
+        "voltage": 119.1,
         "ac_frequency": 60,
-        "energy": 0,
-        "update": {
-            "state": "available",
-            "installed_version": 268513372,
-            "latest_version": 268513381
-        },
-        "linkquality": 188,
+        "energy": 0.49,
+        "linkquality": 120,
         "power_factor": 0,
         "current": 0,
-        "power": 0
+        "power": 0,
+        "update": {
+            "state": "idle",
+            "installed_version": 268513381,
+            "latest_version": 268513381,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/SmartPlug_Zigbee_PROD_OTA_V101_1.01.01.ota",
+            "latest_release_notes": null
+        }
     },
     "0xffffb40e06054417": {
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.1,
+        "voltage": 119.5,
         "ac_frequency": 60,
         "energy": 0,
-        "update": {
-            "state": "available",
-            "installed_version": 268513372,
-            "latest_version": 268513381
-        },
-        "linkquality": 132,
+        "linkquality": 124,
         "power_factor": 0,
         "current": 0,
-        "power": 0
+        "power": 0,
+        "update": {
+            "state": "idle",
+            "installed_version": 268513381,
+            "latest_version": 268513381,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/SmartPlug_Zigbee_PROD_OTA_V101_1.01.01.ota",
+            "latest_release_notes": null
+        }
     },
     "0xffffb40e0603ed79": {
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.2,
+        "voltage": 119.1,
         "ac_frequency": 60,
-        "update": {
-            "state": "available",
-            "installed_version": 268513372,
-            "latest_version": 268513381
-        },
-        "linkquality": 152,
+        "linkquality": 120,
         "power": 0,
         "current": 0,
         "power_factor": 0,
-        "energy": 0
+        "energy": 0,
+        "update": {
+            "state": "idle",
+            "installed_version": 268513381,
+            "latest_version": 268513381,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/SmartPlug_Zigbee_PROD_OTA_V101_1.01.01.ota",
+            "latest_release_notes": null
+        }
     },
     "0xffffb40e0604c089": {
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.4,
+        "voltage": 119.2,
         "ac_frequency": 60,
         "energy": 0,
-        "linkquality": 176,
-        "update": {
-            "state": "available",
-            "installed_version": 268513372,
-            "latest_version": 268513381
-        },
+        "linkquality": 116,
         "power_factor": 0,
         "current": 0,
-        "power": 0
+        "power": 0,
+        "update": {
+            "state": "idle",
+            "installed_version": 268513381,
+            "latest_version": 268513381,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/SmartPlug_Zigbee_PROD_OTA_V101_1.01.01.ota",
+            "latest_release_notes": null
+        }
     },
     "0xffffb40e0605716a": {
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
         "state": "ON",
-        "voltage": 120.7,
+        "voltage": 120,
         "ac_frequency": 60,
         "energy": 0,
-        "linkquality": 172,
-        "update": {
-            "state": "available",
-            "installed_version": 268513372,
-            "latest_version": 268513381
-        },
+        "linkquality": 216,
         "power_factor": 0,
         "current": 0,
-        "power": 0
+        "power": 0,
+        "update": {
+            "state": "idle",
+            "installed_version": 268513381,
+            "latest_version": 268513381,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/SmartPlug_Zigbee_PROD_OTA_V101_1.01.01.ota",
+            "latest_release_notes": null
+        }
     },
     "0xffffb40e06053233": {
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.2,
+        "voltage": 119,
         "ac_frequency": 60,
         "energy": 0,
-        "linkquality": 188,
-        "update": {
-            "state": "available",
-            "installed_version": 268513372,
-            "latest_version": 268513381
-        },
+        "linkquality": 124,
         "power_factor": 0,
         "current": 0,
-        "power": 0
+        "power": 0,
+        "update": {
+            "state": "idle",
+            "installed_version": 268513381,
+            "latest_version": 268513381,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/SmartPlug_Zigbee_PROD_OTA_V101_1.01.01.ota",
+            "latest_release_notes": null
+        }
     },
     "0xffffb40e06058079": {
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119.4,
+        "voltage": 119,
         "ac_frequency": 60,
         "energy": 0,
-        "linkquality": 188,
-        "update": {
-            "state": "available",
-            "installed_version": 268513372,
-            "latest_version": 268513381
-        },
+        "linkquality": 116,
         "power_factor": 0,
         "current": 0,
-        "power": 0
+        "power": 0,
+        "update": {
+            "state": "idle",
+            "installed_version": 268513381,
+            "latest_version": 268513381,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/SmartPlug_Zigbee_PROD_OTA_V101_1.01.01.ota",
+            "latest_release_notes": null
+        }
     },
     "0xcc86ecfffec3c653": {
+        "battery": 98,
+        "voltage": 2900,
+        "linkquality": 124
+    },
+    "0xb0ce18140005d14f": {
+        "power": 0.2,
+        "energy": 0.18,
+        "update": {
+            "state": "idle",
+            "installed_version": 71,
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
+        },
+        "linkquality": 132
+    },
+    "0xa4c1380d5a3cd3c1": {
+        "color_mode": "xy",
+        "color": {
+            "x": 0.659,
+            "y": 0.306,
+            "hue": 1,
+            "saturation": 97,
+            "h": 1,
+            "s": 97
+        },
+        "brightness": 102,
+        "state": "ON",
+        "color_temp": 213,
+        "update": {
+            "state": "idle",
+            "installed_version": 604057601,
+            "latest_version": 604057601,
+            "latest_source": null,
+            "latest_release_notes": null
+        },
+        "linkquality": 124,
+        "color_temp_startup": 500
+    },
+    "0xa4c138d8c12b1f53": {
+        "state": "ON",
+        "brightness": 102,
+        "color_mode": "xy",
+        "color": {
+            "x": 0.659,
+            "y": 0.306,
+            "hue": 1,
+            "saturation": 97,
+            "h": 1,
+            "s": 97
+        },
+        "color_temp_startup": 500,
+        "color_temp": 213,
+        "update": {
+            "state": "idle",
+            "installed_version": 604057601,
+            "latest_version": 604057601,
+            "latest_source": null,
+            "latest_release_notes": null
+        },
+        "linkquality": 116
+    },
+    "0xa4c138cda4d24a98": {
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 604057601,
+            "latest_version": 604057601,
+            "latest_source": null,
+            "latest_release_notes": null
+        },
+        "linkquality": 156,
+        "brightness": 102,
+        "color_mode": "xy",
+        "color_temp": 213,
+        "color": {
+            "x": 0.659,
+            "y": 0.306
+        }
+    },
+    "0xb40e060fffe23b52": {
         "battery": 100,
-        "voltage": 3000,
-        "linkquality": 192
+        "occupancy": false,
+        "tamper": false,
+        "battery_low": false,
+        "voltage": 3100,
+        "update": {
+            "state": "idle",
+            "installed_version": 79,
+            "latest_version": 79,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/Motion_Sensor_PROD_OTA_V79_v1.00.79.ota",
+            "latest_release_notes": null
+        },
+        "linkquality": 172
+    },
+    "0xa4c1380c83af2d32": {
+        "color_mode": "color_temp",
+        "color": {
+            "x": 0.3451,
+            "y": 0.3516,
+            "hue": 46,
+            "saturation": 24,
+            "h": 46,
+            "s": 24
+        },
+        "brightness": 51,
+        "state": "ON",
+        "color_temp_startup": 500,
+        "color_temp": 200,
+        "update": {
+            "state": "idle",
+            "installed_version": 604057601,
+            "latest_version": 604057601,
+            "latest_source": null,
+            "latest_release_notes": null
+        },
+        "linkquality": 160
+    },
+    "0xa4c1381f17fb1e4d": {
+        "color_mode": "xy",
+        "color": {
+            "hue": 1,
+            "saturation": 97,
+            "h": 1,
+            "s": 97,
+            "x": 0.659,
+            "y": 0.306
+        },
+        "color_temp": 213,
+        "color_temp_startup": 500,
+        "brightness": 102,
+        "state": "ON",
+        "update": {
+            "state": "idle",
+            "installed_version": 604057601,
+            "latest_version": 604057601,
+            "latest_source": null,
+            "latest_release_notes": null
+        },
+        "linkquality": 172
+    },
+    "0xb0ce18140003dab0": {
+        "power": 1.9,
+        "energy": 0.18,
+        "update": {
+            "state": "idle",
+            "installed_version": 71,
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
+        },
+        "color_mode": "xy",
+        "color": {
+            "x": 0.589,
+            "y": 0.329
+        },
+        "state": "ON",
+        "color_temp": 439,
+        "brightness": 251,
+        "linkquality": 120
+    },
+    "0xb0ce1814000394e7": {
+        "power": 0.2,
+        "energy": 0.03,
+        "update": {
+            "state": "idle",
+            "installed_version": 71,
+            "latest_version": 71,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
+            "latest_release_notes": null
+        },
+        "state": "ON",
+        "color_mode": "color_temp",
+        "color": {
+            "x": 0.3137,
+            "y": 0.3238
+        },
+        "color_temp": 154,
+        "brightness": 254,
+        "linkquality": 216
+    },
+    "0xb40e060fffe23a9d": {
+        "battery": 100,
+        "occupancy": false,
+        "tamper": false,
+        "battery_low": false,
+        "voltage": 3200,
+        "update": {
+            "state": "idle",
+            "installed_version": 79,
+            "latest_version": 79,
+            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/Motion_Sensor_PROD_OTA_V79_v1.00.79.ota",
+            "latest_release_notes": null
+        },
+        "linkquality": 120
     }
 }

@@ -14,7 +14,7 @@ from homeassistant.helpers.entity import async_generate_entity_id
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import SENSI_DOMAIN
-from .coordinator import SensiConfigEntry, SensiDevice, SensiUpdateCoordinator
+from .coordinator import SensiConfigEntry, SensiDevice
 from .entity import SensiDescriptionEntity
 
 
@@ -31,11 +31,10 @@ async def async_setup_entry(
         name="Online",
         device_class=BinarySensorDeviceClass.CONNECTIVITY,
         entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=False,
     )
 
     entities = [
-        OnlineBinarySensorEntity(hass, device, onlineDescription, coordinator)
+        OnlineBinarySensorEntity(hass, device, onlineDescription, entry)
         for device in coordinator.get_devices()
     ]
 
@@ -52,10 +51,10 @@ class OnlineBinarySensorEntity(SensiDescriptionEntity, BinarySensorEntity):
         hass: HomeAssistant,
         device: SensiDevice,
         description: BinarySensorEntityDescription,
-        coordinator: SensiUpdateCoordinator,
+        entry: SensiConfigEntry,
     ) -> None:
         """Initialize the sensor."""
-        super().__init__(device, description, coordinator)
+        super().__init__(device, description, entry)
 
         # Note: self.hass is not set at this point
         self.entity_id = async_generate_entity_id(
@@ -67,4 +66,11 @@ class OnlineBinarySensorEntity(SensiDescriptionEntity, BinarySensorEntity):
     @property
     def is_on(self) -> bool | None:
         """Return true if the binary sensor is on."""
-        return self._device and self._device.state.status == "online"
+        return self._state.is_online
+
+    @property
+    def available(self) -> bool:
+        """Return if the data is available."""
+
+        # The super class checks device online status so we directly return coordinator status
+        return self.coordinator.last_update_success
