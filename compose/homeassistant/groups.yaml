@@ -6,3 +6,8 @@ kitchen_under_cabinet:
     - light.kitchen_uc_3
     - light.kitchen_uc_4
     - light.kitchen_uc_5
+entryway:
+  name: Entryway Lights
+  entities:
+    - light.entryway_flood
+    - light.entryway_small
