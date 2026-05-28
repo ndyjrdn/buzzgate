@@ -1,0 +1,48 @@
+- id: kia_room_motion
+  alias: Kia Room – Motion Lighting
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kia_motion
+      to: "on"
+
+  action:
+    - choose:
+
+        # Daytime
+        - conditions:
+            - condition: time
+              after: "08:30:00"
+              before: "20:00:00"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.kia_ceiling_white
+              data:
+                brightness_pct: 100
+
+        # Nighttime
+        - conditions:
+            - condition: time
+              after: "20:00:00"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.kia_ceiling_rgb
+              data:
+                brightness_pct: 50
+                rgb_color: [128, 0, 255]
+
+    # Auto-off logic
+    - wait_for_trigger:
+        - platform: state
+          entity_id: binary_sensor.kia_motion
+          to: "off"
+      timeout: "00:03:00"
+
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.kia_ceiling_white
+          - light.kia_ceiling_rgb
