@@ -1,0 +1,31 @@
+- id: kitchen_motion_night
+  alias: Kitchen – Night Motion Soft Blue
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_motion
+      to: "on"
+
+  condition:
+    - condition: time
+      after: "22:00:00"
+      before: "06:00:00"
+
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.kitchen_under_cabinet
+      data:
+        brightness_pct: 20
+        rgb_color: [100, 150, 255]
+
+    - wait_for_trigger:
+        - platform: state
+          entity_id: binary_sensor.kitchen_motion
+          to: "off"
+          for: "00:05:00"
+
+    - service: light.turn_off
+      target:
+        entity_id: light.kitchen_under_cabinet
