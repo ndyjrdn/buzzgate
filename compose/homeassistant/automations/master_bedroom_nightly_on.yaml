@@ -1,5 +1,5 @@
 - id: master_bedroom_night_on
-  alias: Master Bedroom Night On
+  alias: Master Bedroom – Night On
   trigger:
     - platform: time
       at: "19:30:00"
@@ -16,10 +16,9 @@
     - service: scene.turn_on
       target:
         entity_id: scene.master_bedroom_night_blue
-  mode: single
-
+        
 - id: master_bedroom_night_on_friday
-  alias: Master Bedroom Night On (Friday)
+  alias: Master Bedroom – Night On (Friday)
   trigger:
     - platform: time
       at: "19:30:00"
@@ -31,4 +30,4 @@
     - service: scene.turn_on
       target:
         entity_id: scene.master_bedroom_night_red
-  mode: single
+

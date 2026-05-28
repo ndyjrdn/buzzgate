@@ -1,142 +1,52 @@
 [
   {
-    "name": "Entryway: Clean out and reorganize closet shelf",
-    "id": "3c83c881eb51452e8585d1297a21e092",
-    "complete": true
-  },
-  {
-    "name": "Entryway: Clear off and clean out freezer",
-    "id": "4790c9e8ec754655aed05fec4e479267",
-    "complete": true
-  },
-  {
     "name": "Entryway: sweep floor",
     "id": "18eb01df59a24a1cb5c4ce750908365d",
-    "complete": true
-  },
-  {
-    "name": "Living Room: Clean off Table tops and Crates",
-    "id": "ae95271389534c8c9498f0ff1be0f9dc",
-    "complete": true
-  },
-  {
-    "name": "Living Room: Wash Rug",
-    "id": "560271e677844f84af63179000d815e3",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Living Room: Sweep floor",
     "id": "042bdaecdad743ff82f63d1f70325048",
-    "complete": true
-  },
-  {
-    "name": "Dining Room: Organize my Desk",
-    "id": "ec7b5f9836ff499fb6bf2e2ae7eba791",
-    "complete": true
-  },
-  {
-    "name": "Dining Room: Clear out Cabinets and Drawers/Reorganize",
-    "id": "6b5b7fcefd7b4055968e5d4c48aceb35",
-    "complete": true
-  },
-  {
-    "name": "Dining Room: Wash Rugs",
-    "id": "01f2daa4dd394e95b1252836384e2d1d",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Dining Room: Sweep floor",
     "id": "fcc835233ad24049a4e98192f97f2fe1",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Kitchen: Clear off and Wipe down countertops",
     "id": "a7657cac02a541ad8f6c3faa1bc93f06",
-    "complete": true
-  },
-  {
-    "name": "Kitchen: Reorganize Pantry",
-    "id": "07f7bc433d414e82be55023c89269a80",
-    "complete": true
-  },
-  {
-    "name": "Kitchen: Clean Microwave",
-    "id": "11b7e0b21fe64529a5f5514b814fbd4d",
-    "complete": true
-  },
-  {
-    "name": "Kitchen: Clean out Freezer",
-    "id": "a61627b71cb34cf98b0c7a644fe40153",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Kitchen: Sweep floor",
     "id": "4754dbcd49a3488d956827a21f4f3e89",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Kia's Room: Make Bed and fold it up",
     "id": "b6e2e27249004e3d804dddecc3e46ab3",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Kia's room: Sweep floor",
     "id": "ad4eab3b74234d9eb264f4b782e24b01",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Master Bedroom: Make bed",
     "id": "b614d595dea842e18c03d442bd9c488c",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Master: Sweep floor",
     "id": "27c9465d60504e3e9d4016d202eda705",
-    "complete": true
-  },
-  {
-    "name": "Master: Wash rugs",
-    "id": "0749da4b971642eda627f9eb73be23b8",
-    "complete": true
-  },
-  {
-    "name": "Bathroom: Clean out linen closet/reorganize",
-    "id": "615dab1cb0ed46da8d240bc8d3081ad0",
-    "complete": true
-  },
-  {
-    "name": "Bathroom: Clear and Clean Sink",
-    "id": "b02c8cfb70414509bc139e8784213a14",
-    "complete": true
-  },
-  {
-    "name": "Bathroom: Declutter drawers",
-    "id": "e8d5e8c9390a46a49f7fd22d9cb454b3",
-    "complete": true
-  },
-  {
-    "name": "Bathroom: Clean Shower",
-    "id": "f403a3f0d1b04dc386e9e1a44bc3015e",
-    "complete": true
-  },
-  {
-    "name": "Bathroom: wash rugs",
-    "id": "63ab91352a854411a155e3d95fef9ccb",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Bathroom: Sweep floor",
     "id": "a8ce8923a32b46548968ba66141afb7c",
-    "complete": true
-  },
-  {
-    "name": "Closet: Clear out clutter",
-    "id": "0a4f092d64be4d6b96c46ff8ea5c40b3",
-    "complete": true
-  },
-  {
-    "name": "Misc: go through clothes",
-    "id": "089988a5bcbf4e1595408a2a11fd2f4f",
     "complete": false
   },
   {
@@ -150,98 +60,23 @@
     "complete": false
   },
   {
-    "name": "Misc: Sort through stack of stuff on desk chair",
-    "id": "12d372d03b8240609d4e7bb74b86621b",
-    "complete": true
-  },
-  {
-    "name": "Kitchen: Reorganize cupboards",
-    "id": "260d5e326f814093a7c62b381af8672e",
-    "complete": true
-  },
-  {
-    "name": "Kitchen: Clean Refrigerator",
-    "id": "120ca9d5ef8d4136a816e2e482549e20",
-    "complete": true
-  },
-  {
-    "name": "Misc: Take the stuff off of the tops of the cupboards",
-    "id": "7003aefe754f4e849280c5ab3114338a",
-    "complete": true
-  },
-  {
-    "name": "Entryway: Mop floor",
-    "id": "36a4d5cd5a87430aa1abf13cc8ea7d8b",
-    "complete": true
-  },
-  {
-    "name": "Living Room: Mop floor",
-    "id": "86b06f5bb74d4a37b800525849469563",
-    "complete": true
-  },
-  {
-    "name": "Dining Room: Mop floor",
-    "id": "4e6d8139f5564568b4056fd0a330fa55",
-    "complete": true
-  },
-  {
-    "name": "Kitchen: Mop floor",
-    "id": "3fc21a61c89d4b039fa9d24689eb35f9",
-    "complete": true
-  },
-  {
-    "name": "Kia's room: Mop floor",
-    "id": "736c0ae42877438fa99bf40a31b8e3e1",
-    "complete": true
-  },
-  {
-    "name": "Bathroom: Mop floor",
-    "id": "cd6e133087b94da29b11a67c3a918a99",
-    "complete": false
-  },
-  {
-    "name": "Pack Kia for respite wknd",
-    "id": "2a1d1f21e24e4286863900e061999cbb",
-    "complete": true
-  },
-  {
-    "name": "Sweep Closet",
+    "name": "Mstr Bdrm: Sweep Closet",
     "id": "81223e9d3e7c4e709180ad5fc08b038c",
-    "complete": true
-  },
-  {
-    "name": "Organize Mirror shelves",
-    "id": "162b57564c514012b85a16704cb752d6",
-    "complete": true
-  },
-  {
-    "name": "Bathroom: Clean toilet",
-    "id": "42661d5a410d40fdbc0fb4b4ba90a420",
-    "complete": true
+    "complete": false
   },
   {
     "name": "Hallway: Sweep floor",
     "id": "70fac24b613e425f909479886c96923e",
-    "complete": true
-  },
-  {
-    "name": "Meal Prep for the week",
-    "id": "1582bec576be4d3f98ce3c2a368db9ce",
     "complete": false
   },
   {
-    "name": "Bathroom: Clean Mirror",
-    "id": "4e292562e7834d339b64eac9c222b71d",
-    "complete": true
-  },
-  {
-    "name": "Kitchen: Wipe down countertops/sink",
-    "id": "7f721f53f0c14ce3860f86f1bdca3850",
+    "name": "Brush Kia's Teeth AM",
+    "id": "9d664d9dda51411196a89dc2cced0f80",
     "complete": false
   },
   {
-    "name": "5 minute pick up of each room",
-    "id": "ac07ff01da154309867c88daa53b8c52",
+    "name": "Brush Kia's Teeth PM",
+    "id": "7457c7e1e5b54ac6a702c8ab98da2909",
     "complete": false
   }
 ]

@@ -1,0 +1,127 @@
+- id: '1769817903728'
+  alias: notification_dad_todo
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - todo.dad
+    from:
+    - '[]'
+  conditions: []
+  actions:
+  - action: notify.mobile_app_sm_f766u
+    data:
+      message: '{% set new = trigger.to_state.attributes.items | difference(trigger.from_state.attributes.items)
+        %} New task added: {{ new[0].summary if new else ''Unknown item'' }}'
+  mode: single
+- id: '1777330998668'
+  alias: Kitchen Chase Test
+  description: ''
+  triggers:
+  - at: '20:00:00'
+    trigger: time
+  actions:
+  - target:
+      entity_id: light.under_cabinet_south
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  - delay: '00:00:0.3'
+  - target:
+      entity_id: light.under_cabinet_3fer
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  - delay: '00:00:0.3'
+  - target:
+      entity_id: light.under_cabinet_by_the_fridge
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  mode: single
+- id: '1777331081129'
+  alias: KitchenChaseTest
+  description: ''
+  triggers:
+  - at: '20:00:00'
+    trigger: time
+  actions:
+  - target:
+      entity_id: light.under_cabinet_south
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  - delay: '00:00:0.3'
+  - target:
+      entity_id: light.under_cabinet_3fer
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  - delay: '00:00:0.3'
+  - target:
+      entity_id: light.under_cabinet_by_the_fridge
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  mode: single
+- id: '1777331144747'
+  alias: KitchenChaseTest
+  description: ''
+  triggers:
+  - at: '20:00:00'
+    trigger: time
+  actions:
+  - target:
+      entity_id: light.under_cabinet_south
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  - delay: '00:00:0.3'
+  - target:
+      entity_id: light.under_cabinet_3fer
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  - delay: '00:00:0.3'
+  - target:
+      entity_id: light.under_cabinet_by_the_fridge
+    data:
+      brightness_pct: 60
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    action: light.turn_on
+  mode: single

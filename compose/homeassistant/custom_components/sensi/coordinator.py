@@ -11,7 +11,7 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 from .auth import SensiConnectionError
 from .client import SensiClient
 from .const import COORDINATOR_UPDATE_INTERVAL, LOGGER
-from .data import AuthenticationConfig, SensiDevice
+from .data import SensiDevice
 
 type SensiConfigEntry = ConfigEntry[SensiUpdateCoordinator]
 
@@ -22,12 +22,11 @@ class SensiUpdateCoordinator(DataUpdateCoordinator):
     def __init__(
         self,
         hass: HomeAssistant,
-        config: AuthenticationConfig,
         client: SensiClient,
+        config_entry: SensiConfigEntry,
     ) -> None:
         """Initialize Sensi coordinator."""
 
-        self._config = config
         self._last_update_failed = False  # Used for debugging
 
         async def async_update_devices() -> None:
@@ -41,16 +40,13 @@ class SensiUpdateCoordinator(DataUpdateCoordinator):
         super().__init__(
             hass,
             LOGGER,
+            config_entry=config_entry,
             name="SensiUpdateCoordinator",
             update_method=async_update_devices,
             update_interval=timedelta(seconds=COORDINATOR_UPDATE_INTERVAL),
         )
 
-        self._setup_headers(config)
         self.client = client
-
-    def _setup_headers(self, config: AuthenticationConfig):
-        self._headers = {"Authorization": "bearer " + config.access_token}
 
     def get_devices(self) -> list[SensiDevice]:
         """Sensi devices."""

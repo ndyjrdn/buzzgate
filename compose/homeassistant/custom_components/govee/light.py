@@ -1,113 +1,82 @@
-"""Govee light platform."""
-import asyncio
+"""Govee platform."""
+
+from datetime import timedelta, datetime
 import logging
-from datetime import timedelta
 
-from homeassistant.util import color  # type: ignore
-from homeassistant.const import CONF_DELAY  # type: ignore
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed  # type: ignore
+from propcache import cached_property
 
+from govee_api_laggat import Govee, GoveeDevice, GoveeError
+from govee_api_laggat.govee_dtos import GoveeSource
 
-from homeassistant.components.light import (  # type: ignore
+from homeassistant.components.light import (
     ATTR_BRIGHTNESS,
     ATTR_COLOR_TEMP_KELVIN,
     ATTR_HS_COLOR,
     ColorMode,
     LightEntity,
 )
+from homeassistant.const import CONF_DELAY
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
+from homeassistant.util import color
 
 from .const import (
     DOMAIN,
     CONF_OFFLINE_IS_OFF,
     CONF_USE_ASSUMED_STATE,
-    CONF_POLLING_MODE, 
-    CONF_IOT_PUSH_ENABLED,
-    CONF_IOT_CONTROL_ENABLED,
     COLOR_TEMP_KELVIN_MIN,
     COLOR_TEMP_KELVIN_MAX,
 )
-from .api import GoveeClient
-from .models import GoveeDevice, GoveeSource
+
 
 _LOGGER = logging.getLogger(__name__)
 
-
-DEFAULT_SCAN_INTERVAL = 60  # safe fallback
 
 async def async_setup_entry(hass, entry, async_add_entities):
     """Set up the Govee Light platform."""
     _LOGGER.debug("Setting up Govee lights")
     config = entry.data
     options = entry.options
-    entry_data = hass.data[DOMAIN].get(entry.entry_id) or hass.data[DOMAIN]
-    hub = entry_data["hub"]
+    hub = hass.data[DOMAIN]["hub"]
 
-    # Work out polling mode and delay
-    mode = options.get(CONF_POLLING_MODE, "auto")
-    delay = options.get(CONF_DELAY, config.get(CONF_DELAY, 0))
-
-    if delay == 0:
-        # Auto calculation: use count of devices to pick safe interval
-        tmp_devices, _ = await hub.get_devices()
-        num_devices = max(1, len(tmp_devices))
-        delay = max(30, int(86400 / (10000 / num_devices)))  # safe under 10k/day
-
-    if mode == "auto":
-        # If IoT push + control are enabled, we can drastically reduce REST polling
-        iot_opts_enabled = options.get(CONF_IOT_PUSH_ENABLED, False) and options.get(CONF_IOT_CONTROL_ENABLED, True)
-        if iot_opts_enabled:
-            safe_delay = 6 * 60 * 60  # 6 hours
-            update_interval = timedelta(seconds=safe_delay)
-            _LOGGER.warning(
-                "Polling minimized due to IoT control: interval set to %ss.",
-                safe_delay,
-            )
-        else:
-            tmp_devices, _ = await hub.get_devices()
-            device_count = max(1, len(tmp_devices))
-            safe_delay = max(30, int(86400 * device_count / 10000))  # 10k/day quota
-            update_interval = timedelta(seconds=safe_delay)
-            _LOGGER.debug(
-                "Polling mode AUTO: %s devices → interval set to %ss (safe under 10k/day quota).",
-                device_count,
-                safe_delay,
-            )
-    else:  # manual mode
-        update_interval = timedelta(seconds=delay)
-        _LOGGER.warning(
-            "Polling mode MANUAL: interval set to %ss. Ensure this does not exceed 10k/day quota.",
-            delay,
-        )
-
-    # Coordinator drives updates
-    coordinator = GoveeDataUpdateCoordinator(
-        hass, _LOGGER, hub, update_interval=update_interval, config_entry=entry
+    # refresh
+    update_interval = timedelta(
+        seconds=options.get(CONF_DELAY, config.get(CONF_DELAY, 10))
     )
+    coordinator = GoveeDataUpdateCoordinator(
+        hass, _LOGGER, update_interval=update_interval, config_entry=entry
+    )
+    # Fetch initial data so we have data when entities subscribe
+    hub.events.new_device += lambda device: add_entity(
+        async_add_entities, hub, entry, coordinator, device
+    )
+    await coordinator.async_refresh()
 
-    # Fetch initial devices with full state (calls /devices/state once each)
-    devices, _ = await hub.init_devices()
-
-    # Prime the coordinator with that data
-    coordinator.data = devices
-    # Expose coordinator for IoT push updates to call async_set_updated_data
-    entry_data = hass.data[DOMAIN].get(entry.entry_id) or hass.data[DOMAIN]
-    entry_data["coordinator"] = coordinator
-
-
-    # Register light entities with fresh data
-    entities = [GoveeLightEntity(hub, entry.title, coordinator, dev) for dev in devices]
-    _LOGGER.debug("Registering %s Govee light entities", len(entities))
-    async_add_entities(entities, update_before_add=True)
+    # Add devices
+    for device in hub.devices:
+        add_entity(async_add_entities, hub, entry, coordinator, device)
+    # async_add_entities(
+    #     [
+    #         GoveeLightEntity(hub, entry.title, coordinator, device)
+    #         for device in hub.devices
+    #     ],
+    #     update_before_add=False,
+    # )
 
 
+def add_entity(async_add_entities, hub, entry, coordinator, device):
+    async_add_entities(
+        [GoveeLightEntity(hub, entry.title, coordinator, device)],
+        update_before_add=False,
+    )
 
 
 class GoveeDataUpdateCoordinator(DataUpdateCoordinator):
     """Device state update handler."""
 
-    def __init__(self, hass, logger, hub: GoveeClient, update_interval=None, *, config_entry):
+    def __init__(self, hass, logger, update_interval=None, *, config_entry):
+        """Initialize global data updater."""
         self._config_entry = config_entry
-        self._hub = hub
+
         super().__init__(
             hass,
             logger,
@@ -118,323 +87,239 @@ class GoveeDataUpdateCoordinator(DataUpdateCoordinator):
 
     @property
     def use_assumed_state(self):
+        """Use assumed states."""
         return self._config_entry.options.get(CONF_USE_ASSUMED_STATE, True)
 
     @property
     def config_offline_is_off(self):
+        """Interpret offline led's as off (global config)."""
         return self._config_entry.options.get(CONF_OFFLINE_IS_OFF, False)
 
     async def _async_update(self):
-        """Refresh state: avoid re-listing devices every cycle."""
+        """Fetch data."""
+        self.logger.debug("_async_update")
+        if "govee" not in self.hass.data:
+            raise UpdateFailed("Govee instance not available")
         try:
-            if not self._hub._devices:
-                devices, err = await self._hub.get_devices()
-                if err:
-                    raise UpdateFailed(err)
-            # Poll state for each known device, within per-device budget
-            for dev_id in list(self._hub._devices.keys()):
-                await self._hub.get_device_state(dev_id)
-            return list(self._hub._devices.values())
-        except Exception as ex:
+            hub = self.hass.data[DOMAIN]["hub"]
+
+            if not hub.online:
+                # when offline, check connection, this will set hub.online
+                await hub.check_connection()
+
+            if hub.online:
+                # set global options to library
+                if self.config_offline_is_off:
+                    hub.config_offline_is_off = True
+                else:
+                    hub.config_offline_is_off = None  # allow override in learning info
+
+                # govee will change this to a single request in 2021
+                device_states = await hub.get_states()
+                for device in device_states:
+                    if device.error:
+                        self.logger.warning(
+                            "update failed for %s: %s", device.device, device.error
+                        )
+                return device_states
+        except GoveeError as ex:
             raise UpdateFailed(f"Exception on getting states: {ex}") from ex
 
 
 class GoveeLightEntity(LightEntity):
-    """Representation of a Govee light."""
+    """Representation of a stateful light entity."""
 
-    def __init__(self, hub: GoveeClient, title: str, coordinator: GoveeDataUpdateCoordinator, device: GoveeDevice):
+    def __init__(
+        self,
+        hub: Govee,
+        title: str,
+        coordinator: GoveeDataUpdateCoordinator,
+        device: GoveeDevice,
+    ):
+        """Init a Govee light strip."""
         self._hub = hub
         self._title = title
         self._coordinator = coordinator
-        self._device_id = device.device  # store only ID
-        # Local color debounce to avoid flooding while dragging the color wheel
-        self._color_task: asyncio.Task | None = None
-        self._color_debounce_s: float = 1.0
+        self._device = device
 
     @property
-    def _device(self) -> GoveeDevice | None:
-        """Always return the current device object from coordinator.data."""
-        if not self._coordinator.data:
-            return None
-        return next((d for d in self._coordinator.data if d.device == self._device_id), None)
+    def entity_registry_enabled_default(self):
+        """Return if the entity should be enabled when first added to the entity registry."""
+        return True
 
     async def async_added_to_hass(self):
+        """Connect to dispatcher listening for entity data notifications."""
         self._coordinator.async_add_listener(self.async_write_ha_state)
 
     @property
-    def is_on(self):
-        dev = self._device
-        return dev.power_state if dev else False
+    def _state(self):
+        """Lights internal state."""
+        return self._device  # self._hub.state(self._device)
 
-    @property
-    def brightness(self):
-        dev = self._device
-        return dev.brightness if dev and dev.support_brightness else None
-
-    @property
-    def hs_color(self):
-        dev = self._device
-        return color.color_RGB_to_hs(*dev.color) if dev and dev.support_color else None
-
-    @property
-    def rgb_color(self):
-        dev = self._device
-        return list(dev.color) if dev and dev.support_color else None
-
-    @property
-    def color_temp_kelvin(self):
-        dev = self._device
-        return dev.color_temp if dev and dev.support_color_temp else None
-
-    @property
-    def min_color_temp_kelvin(self) -> int | None:
-        """Warmest color temperature supported in Kelvin.
-
-        Home Assistant is deprecating mired-based min/max; expose Kelvin instead.
-        """
-        dev = self._device
-        if not dev or not dev.support_color_temp:
-            return None
-        # Prefer per-device limits if known, but guard against invalid ranges
-        min_k = dev.color_temp_min or COLOR_TEMP_KELVIN_MIN
-        max_k = dev.color_temp_max or COLOR_TEMP_KELVIN_MAX
-        if isinstance(min_k, int) and isinstance(max_k, int) and min_k < max_k:
-            return min_k
-        # Fallback to defaults when range is invalid or collapsed
-        return COLOR_TEMP_KELVIN_MIN
-
-    @property
-    def max_color_temp_kelvin(self) -> int | None:
-        """Coldest color temperature supported in Kelvin."""
-        dev = self._device
-        if not dev or not dev.support_color_temp:
-            return None
-        min_k = dev.color_temp_min or COLOR_TEMP_KELVIN_MIN
-        max_k = dev.color_temp_max or COLOR_TEMP_KELVIN_MAX
-        if isinstance(min_k, int) and isinstance(max_k, int) and min_k < max_k:
-            return max_k
-        return COLOR_TEMP_KELVIN_MAX
-
-    @property
+    @cached_property
     def supported_color_modes(self) -> set[ColorMode]:
-        dev = self._device
-        if not dev:
-            return {ColorMode.ONOFF}
-
-        modes = set()
-        if dev.support_color:
-            modes.add(ColorMode.HS)
-        if dev.support_color_temp:
-            modes.add(ColorMode.COLOR_TEMP)
-        if dev.support_brightness and not (dev.support_color or dev.support_color_temp):
-            # brightness-only (like dimmers without color)
-            modes.add(ColorMode.BRIGHTNESS)
-        if not modes:
-            modes.add(ColorMode.ONOFF)
-        return modes
-
-
-    @property
-    def color_mode(self) -> ColorMode:
-        dev = self._device
-        if not dev:
-            return ColorMode.ONOFF
-
-        # Prioritize based on what’s actually supported and active
-        if dev.support_color and dev.color and any(dev.color):
-            return ColorMode.HS
-        if dev.support_color_temp and dev.color_temp > 0:
-            return ColorMode.COLOR_TEMP
-        # No explicit color/CT active; choose a supported mode that is allowed
-        if dev.support_color:
-            return ColorMode.HS
-        if dev.support_color_temp:
-            return ColorMode.COLOR_TEMP
-        if dev.support_brightness:
-            return ColorMode.BRIGHTNESS
-        return ColorMode.ONOFF
-
+        """Get supported color modes."""
+        color_mode = set()
+        if self._device.support_color:
+            color_mode.add(ColorMode.HS)
+        if self._device.support_color_tem:
+            color_mode.add(ColorMode.COLOR_TEMP)
+        if not color_mode:
+            # brightness or on/off must be the only supported mode
+            if self._device.support_brightness:
+                color_mode.add(ColorMode.BRIGHTNESS)
+            else:
+                color_mode.add(ColorMode.ONOFF)
+        return color_mode
 
     async def async_turn_on(self, **kwargs):
-        dev = self._device
-        if not dev:
-            return
+        """Turn device on."""
+        _LOGGER.debug(
+            "async_turn_on for Govee light %s, kwargs: %s", self._device.device, kwargs
+        )
+        err = None
 
-        # Decide which operations to perform from kwargs
-        want_color = ATTR_HS_COLOR in kwargs and dev.support_color
-        want_ct = (ATTR_COLOR_TEMP_KELVIN in kwargs or "color_temp" in kwargs) and dev.support_color_temp
-        want_brightness = ATTR_BRIGHTNESS in kwargs and dev.support_brightness
-
-        # Ensure power on if any command other than plain turn on
-        if (want_color or want_ct or want_brightness) and not dev.power_state and getattr(dev, "support_turn", True):
-            ok_on, err_on = await self._hub.turn_on(dev)
-            if ok_on:
-                dev.power_state = True
-            else:
-                _LOGGER.debug("turn_on before command failed for %s: %s", dev.device, err_on)
-
-        last_ok = False
-        last_err = None
-
-        # If both color and color temp are present, prefer color and ignore CT
-        if want_color:
-            hs_color = kwargs[ATTR_HS_COLOR]
+        just_turn_on = True
+        if ATTR_HS_COLOR in kwargs:
+            hs_color = kwargs.pop(ATTR_HS_COLOR)
+            just_turn_on = False
             col = color.color_hs_to_RGB(hs_color[0], hs_color[1])
-            # Skip if same color to preserve rate budget
-            if tuple(col) == tuple(dev.color):
-                last_ok = True
-            else:
-                # Optimistically mark pending to avoid UI flicker on stale reads
-                try:
-                    import time as _t
-                    dev.pending_until = _t.monotonic() + 5.0
-                    dev.pending_color = (int(col[0]), int(col[1]), int(col[2]))
-                    dev.pending_ct = 0
-                except Exception:
-                    pass
-                # Cancel prior scheduled color send, if any, and schedule a new one
-                if self._color_task and not self._color_task.done():
-                    try:
-                        self._color_task.cancel()
-                    except Exception:
-                        pass
-                async def _send_after_delay(rgb):
-                    try:
-                        await asyncio.sleep(self._color_debounce_s)
-                    except asyncio.CancelledError:
-                        return
-                    try:
-                        ok2, err2 = await self._hub.set_color(dev, rgb)
-                        if not ok2 and err2:
-                            _LOGGER.debug("Delayed color send failed for %s: %s", dev.device, err2)
-                    except Exception as ex:
-                        _LOGGER.debug("Delayed color send exception for %s: %s", dev.device, ex)
-                self._color_task = asyncio.create_task(_send_after_delay(col))
-                # Optimistically update
-                dev.color = col
-                dev.color_temp = 0
-                dev.power_state = True
-                dev.active_scene = None  # clear any prior effect/scene
-                last_ok = True
-        elif want_ct:
-            # Accept both Kelvin (preferred) and mireds (deprecated) from HA
-            if ATTR_COLOR_TEMP_KELVIN in kwargs:
-                color_temp = int(kwargs[ATTR_COLOR_TEMP_KELVIN])
-            else:
-                mireds = max(1, int(kwargs["color_temp"]))
-                color_temp = int(round(1_000_000 / mireds))
+            _, err = await self._hub.set_color(self._device, col)
+        if ATTR_BRIGHTNESS in kwargs:
+            brightness = kwargs.pop(ATTR_BRIGHTNESS)
+            just_turn_on = False
+            bright_set = brightness - 1
+            _, err = await self._hub.set_brightness(self._device, bright_set)
+        if ATTR_COLOR_TEMP_KELVIN in kwargs:
+            color_temp = kwargs.pop(ATTR_COLOR_TEMP_KELVIN)
+            just_turn_on = False
+            if color_temp > COLOR_TEMP_KELVIN_MAX:
+                color_temp = COLOR_TEMP_KELVIN_MAX
+            elif color_temp < COLOR_TEMP_KELVIN_MIN:
+                color_temp = COLOR_TEMP_KELVIN_MIN
+            _, err = await self._hub.set_color_temp(self._device, color_temp)
 
-            # Clamp and round to device capabilities if known
-            vmin = dev.color_temp_min or COLOR_TEMP_KELVIN_MIN
-            vmax = dev.color_temp_max or COLOR_TEMP_KELVIN_MAX
-            step = dev.color_temp_step or 1
-            color_temp = max(vmin, min(vmax, color_temp))
-            if step and step > 1:
-                off = color_temp - vmin
-                color_temp = vmin + int(round(off / step)) * step
-                color_temp = max(vmin, min(vmax, color_temp))
+        # if there is no known specific command - turn on
+        if just_turn_on:
+            _, err = await self._hub.turn_on(self._device)
+        # debug log unknown commands
+        if kwargs:
             _LOGGER.debug(
-                "Turn_on CT → %s request=%sK clamped=%sK (range %s-%s step %s)",
-                dev.device, kwargs.get(ATTR_COLOR_TEMP_KELVIN) or kwargs.get("color_temp"), color_temp, vmin, vmax, step,
+                "async_turn_on doesnt know how to handle kwargs: %s", repr(kwargs)
             )
-            # Skip if same CT
-            if dev.color_temp == color_temp:
-                last_ok = True
-            else:
-                # Optimistically mark pending CT
-                try:
-                    import time as _t
-                    dev.pending_until = _t.monotonic() + 5.0
-                    dev.pending_ct = int(color_temp)
-                    dev.pending_color = (0,0,0)
-                except Exception:
-                    pass
-                ok, err = await self._hub.set_color_temp(dev, color_temp)
-                last_ok, last_err = ok, err
-                if ok or (err and isinstance(err, str) and err.startswith("Rate limit")):
-                    dev.color_temp = color_temp
-                    dev.color = (0, 0, 0)
-                    dev.power_state = True
-                    dev.active_scene = None
-
-        # Apply brightness after mode selection if requested
-        if want_brightness:
-            ha_bright = kwargs[ATTR_BRIGHTNESS]  # 0-255 from HA
-            if dev.brightness == ha_bright:
-                ok, err = True, None
-            else:
-                # Optimistically mark pending brightness
-                try:
-                    import time as _t
-                    dev.pending_until = _t.monotonic() + 5.0
-                    dev.pending_brightness = int(ha_bright)
-                except Exception:
-                    pass
-                ok, err = await self._hub.set_brightness(dev, ha_bright)
-            if ok or (err and isinstance(err, str) and err.startswith("Rate limit")):
-                dev.brightness = ha_bright
-                dev.power_state = True
-            # Track the result but don't override an earlier failure if this succeeds
-            last_ok = last_ok or ok
-            if err:
-                last_err = err
-
-        # If no specific attribute was requested, this is a plain turn on
-        if not (want_color or want_ct or want_brightness):
-            ok, err = await self._hub.turn_on(dev)
-            last_ok, last_err = ok, err
-            if ok:
-                dev.power_state = True
-
-        if last_ok:
-            self.async_write_ha_state()
-        elif last_err:
-            _LOGGER.warning("async_turn_on failed for %s: %s", dev.device, last_err)
-
-
+        # warn on any error
+        if err:
+            _LOGGER.warning(
+                "async_turn_on failed with '%s' for %s, kwargs: %s",
+                err,
+                self._device.device,
+                kwargs,
+            )
 
     async def async_turn_off(self, **kwargs):
-        dev = self._device
-        if not dev:
-            return
-        ok, err = await self._hub.turn_off(dev)
-        if ok:
-            dev.power_state = False
-            self.async_write_ha_state()
-        else:
-            _LOGGER.warning("async_turn_off failed for %s: %s", dev.device, err)
-
-
-
-    @property
-    def name(self):
-        dev = self._device
-        return dev.device_name if dev else "Unknown"
+        """Turn device off."""
+        _LOGGER.debug("async_turn_off for Govee light %s", self._device.device)
+        await self._hub.turn_off(self._device)
 
     @property
     def unique_id(self):
-        return f"govee_{self._title}_{self._device_id}"
+        """Return the unique ID."""
+        return f"govee_{self._title}_{self._device.device}"
+
+    @property
+    def device_id(self):
+        """Return the ID."""
+        return self.unique_id
+
+    @property
+    def name(self):
+        """Return the name."""
+        return self._device.device_name
 
     @property
     def device_info(self):
-        dev = self._device
+        """Return the device info."""
         return {
-            "identifiers": {(DOMAIN, self.unique_id)},
-            "name": dev.device_name if dev else "Unknown",
+            "identifiers": {(DOMAIN, self.device_id)},
+            "name": self.name,
             "manufacturer": "Govee",
-            "model": dev.model if dev else "Unknown",
+            "model": self._device.model,
         }
 
     @property
-    def available(self):
-        dev = self._device
-        return dev.online if dev else False
+    def is_on(self):
+        """Return true if device is on."""
+        return self._device.power_state
 
     @property
     def assumed_state(self):
-        dev = self._device
+        """
+        Return true if the state is assumed.
+
+        This can be disabled in options.
+        """
         return (
             self._coordinator.use_assumed_state
-            and dev
-            and dev.source == GoveeSource.HISTORY
+            and self._device.source == GoveeSource.HISTORY
         )
+
+    @property
+    def available(self):
+        """Return if light is available."""
+        return self._device.online
+
+    @property
+    def hs_color(self):
+        """Return the hs color value."""
+        return color.color_RGB_to_hs(
+            self._device.color[0],
+            self._device.color[1],
+            self._device.color[2],
+        )
+
+    @property
+    def rgb_color(self):
+        """Return the rgb color value."""
+        return [
+            self._device.color[0],
+            self._device.color[1],
+            self._device.color[2],
+        ]
+
+    @property
+    def brightness(self):
+        """Return the brightness value."""
+        # govee is reporting 0 to 254 - home assistant uses 1 to 255
+        return self._device.brightness + 1
+
+    @property
+    def color_temp(self):
+        """Return the color_temp of the light."""
+        return self._device.color_temp
+
+    @property
+    def min_color_temp_kelvin(self):
+        """Return the coldest color_temp that this light supports."""
+        return COLOR_TEMP_KELVIN_MAX
+
+    @property
+    def max_color_temp_kelvin(self):
+        """Return the warmest color_temp that this light supports."""
+        return COLOR_TEMP_KELVIN_MIN
+
+    @property
+    def extra_state_attributes(self):
+        """Return the device state attributes."""
+        return {
+            # rate limiting information on Govee API
+            "rate_limit_total": self._hub.rate_limit_total,
+            "rate_limit_remaining": self._hub.rate_limit_remaining,
+            "rate_limit_reset_seconds": round(self._hub.rate_limit_reset_seconds, 2),
+            "rate_limit_reset": datetime.fromtimestamp(
+                self._hub.rate_limit_reset
+            ).isoformat(),
+            "rate_limit_on": self._hub.rate_limit_on,
+            # general information
+            "manufacturer": "Govee",
+            "model": self._device.model,
+        }
