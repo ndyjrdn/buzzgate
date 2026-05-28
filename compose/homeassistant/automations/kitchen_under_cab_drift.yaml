@@ -1,17 +1,15 @@
-- id: under_cabinet_drift
-  alias: Under Cabinet – 360 Hue Drift
+- id: kitchen_under_cabinet_drift
+  alias: Kitchen – Under Cabinet Drift
   mode: restart
-  
+
   trigger:
     - platform: time
       at: "09:00:00"
-  
-  condition: []
-  
+
   action:
     - variables:
         hue: 0
-  
+
     - repeat:
         while:
           - condition: time
@@ -19,18 +17,13 @@
         sequence:
           - service: light.turn_on
             target:
-              entity_id:
-                - light.0xa4c1380d5a3cd3c1
-                - light.0xa4c138cda4d24a98
-                - light.0xa4c138d8c12b1f53
-                - light.0xa4c1381f17fb1e4d
-  
+              entity_id: light.kitchen_under_cabinet
             data:
               hs_color: ["{{ hue }}", 80]
               brightness_pct: 40
-              transition: 1800   # 30 minutes
-  
+              transition: 1800
+
           - delay: "00:30:00"
-  
+
           - variables:
               hue: "{{ (hue + 1) % 360 }}"
