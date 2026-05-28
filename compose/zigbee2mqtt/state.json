@@ -80,8 +80,8 @@
         "color_temp": 285
     },
     "0xb0ce18140005f7e5": {
-        "power": 3.7,
-        "energy": 15.69,
+        "power": 0.2,
+        "energy": 15.71,
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
@@ -105,7 +105,7 @@
     },
     "0xb0ce18140005faaf": {
         "power": 0.2,
-        "energy": 11.06,
+        "energy": 11.07,
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
@@ -125,7 +125,7 @@
     },
     "0xb0ce18140005e9d8": {
         "power": 0.2,
-        "energy": 11.05,
+        "energy": 11.07,
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
@@ -252,12 +252,12 @@
         }
     },
     "0xb40e060fffe07254": {
-        "occupancy": false,
+        "occupancy": true,
         "tamper": false,
         "battery_low": false,
-        "battery": 96,
+        "battery": 94,
         "linkquality": 120,
-        "voltage": 3000,
+        "voltage": 2900,
         "update": {
             "state": "idle",
             "installed_version": 79,
@@ -359,7 +359,7 @@
         }
     },
     "0xb40e060fffe07255": {
-        "occupancy": false,
+        "occupancy": true,
         "tamper": false,
         "battery_low": false,
         "battery": 94.5,
@@ -476,7 +476,7 @@
         }
     },
     "0x00124b0031dd14d2": {
-        "linkquality": 132
+        "linkquality": 128
     },
     "0x54ef441000d7a808": {
         "power_on_behaviour": "on",
@@ -489,13 +489,13 @@
         "brightness_white": 115
     },
     "0xa4c138e2b39568ba": {
-        "illuminance": 97,
+        "illuminance": 121,
         "linkquality": 144,
         "battery": 100,
         "voltage": 3000
     },
     "0x54ef441000ca7f4b": {
-        "device_temperature": 77,
+        "device_temperature": 78,
         "power_outage_count": 99,
         "state": "ON",
         "brightness_white": 254,
@@ -654,7 +654,7 @@
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
         "state": "OFF",
-        "voltage": 118.7,
+        "voltage": 118.4,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 128,
@@ -673,7 +673,7 @@
         "state": "ON",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119.1,
+        "voltage": 118.9,
         "ac_frequency": 60,
         "energy": 0.49,
         "linkquality": 120,
@@ -692,7 +692,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119.5,
+        "voltage": 119.1,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 124,
@@ -711,7 +711,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119.1,
+        "voltage": 118.8,
         "ac_frequency": 60,
         "linkquality": 120,
         "power": 0,
@@ -730,7 +730,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119.2,
+        "voltage": 119.1,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 116,
@@ -749,7 +749,7 @@
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
         "state": "ON",
-        "voltage": 120,
+        "voltage": 119.5,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 216,
@@ -787,7 +787,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119,
+        "voltage": 118.6,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 116,
