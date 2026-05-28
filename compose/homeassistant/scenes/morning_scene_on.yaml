@@ -1,10 +1,5 @@
 - name: Buzzgate Morning
   entities:
-    light.dining_room:
-      state: "on"
-      brightness: 100
-      color_temp: 150
-
     light.kitchen:
       state: "on"
       brightness: 100
