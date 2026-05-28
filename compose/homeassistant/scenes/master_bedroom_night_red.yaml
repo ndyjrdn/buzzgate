@@ -1,6 +1,6 @@
 - name: Master Bedroom Night Red
   entities:
-    light.master_light_rgb:
+    light.master_ceiling_rgb:
       state: "on"
       brightness: 120
       rgb_color: [139, 0, 0]  # Dark red
