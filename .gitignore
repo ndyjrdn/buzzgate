@@ -435,3 +435,7 @@ compose/pihole/etc-pihole/pihole-FTL.db
 # ignore simtower for now
 simtower/saves/
 
+#ignore Govee
+govee_learning.yaml
+
+
