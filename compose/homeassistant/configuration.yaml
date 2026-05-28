@@ -9,6 +9,7 @@ scene: !include_dir_merge_list scenes
 sensor: !include_dir_merge_list sensors
 cover: !include_dir_merge_list covers
 template: !include_dir_merge_list templates
+group: !include groups.yaml
 
 
 
