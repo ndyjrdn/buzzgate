@@ -6,8 +6,55 @@ kitchen_under_cabinet:
     - light.kitchen_uc_3
     - light.kitchen_uc_4
     - light.kitchen_uc_5
+
 entryway:
   name: Entryway Lights
   entities:
     - light.entryway_flood
     - light.entryway_small
+
+kitchen:
+  name: Kitchen Ceiling Lights
+  entities:
+    - light.kitchen_center
+    - light.kitchen_ne
+    - light.kitchen_nw
+    - light.kitchen_se
+    - light.kitchen_sw
+
+hallway_lights:
+  name: Hallway Lights
+  entities:
+    - light.hall_north
+    - light.hall_south
+
+basement_hallway:
+  name: Basement Hallway Lights
+  entities:
+    - light.basement_hall1
+    - light.basement_hall2
+
+living_room_ceiling:
+  name: Living Room Ceiling
+  entities:
+    - light.lr_ceiling_1
+    - light.lr_ceiling_2
+    - light.lr_ceiling_3
+    - light.lr_ceiling_4
+    - light.lr_ceiling_5
+
+living_room_curtains:
+  name: Living Room Curtains
+  entities:
+    - cover.lr_curtain_north
+    - cover.lr_curtain_south
+
+all_curtains:
+  name: All Curtains
+  entities:
+    - cover.lr_curtain_north
+    - cover.lr_curtain_south
+    - cover.master_curtain
+    - cover.tyler_curtain
+    - cover.kia_curtain
+
