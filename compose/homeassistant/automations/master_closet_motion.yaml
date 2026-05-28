@@ -1,22 +1,23 @@
-- id: moms_closet_motion_control
-  alias: Mom's Closet – Motion Lighting
+- id: master_closet_motion
+  alias: Master Closet – Motion Lighting
   mode: restart
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.0xb40e060fffe23a9d_occupancy
+      entity_id: binary_sensor.master_closet_motion
       to: "on"
     - platform: state
-      entity_id: binary_sensor.0xb40e060fffe23a9d_occupancy
+      entity_id: binary_sensor.master_closet_motion
       to: "off"
       for: "00:00:10"
 
   action:
     - choose:
+
         # Motion ON
         - conditions:
             - condition: state
-              entity_id: binary_sensor.0xb40e060fffe23a9d_occupancy
+              entity_id: binary_sensor.master_closet_motion
               state: "on"
           sequence:
             - choose:
@@ -28,24 +29,24 @@
                   sequence:
                     - service: light.turn_on
                       target:
-                        entity_id: light.moms_closet
+                        entity_id: light.master_closet_light
                       data:
                         brightness_pct: 25
               default:
                 # Daytime full brightness
                 - service: light.turn_on
                   target:
-                    entity_id: light.0xb0ce1814000394e7
+                    entity_id: light.master_closet_light
                   data:
                     brightness_pct: 100
 
-        # Motion OFF for 10 seconds → turn light off
+        # Motion OFF for 10 seconds → turn off
         - conditions:
             - condition: state
-              entity_id: binary_sensor.0xb40e060fffe23a9d_occupancy
+              entity_id: binary_sensor.master_closet_motion
               state: "off"
               for: "00:00:10"
           sequence:
             - service: light.turn_off
               target:
-                entity_id: light.0xb0ce1814000394e7
+                entity_id: light.master_closet_light
