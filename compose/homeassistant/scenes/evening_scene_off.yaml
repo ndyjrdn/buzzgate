@@ -2,11 +2,19 @@
   entities:
     light.hallway_lights:
       state: "off"
-    light.entryway_2:
+
+    light.entryway:
       state: "off"
+
     light.kitchen:
       state: "off"
+
+    light.kitchen_under_cabinet:
+      state: "off"
+
     light.dining_room:
       state: "off"
+
     light.living_room_ceiling:
       state: "off"
+
