@@ -1,0 +1,45 @@
+- id: entryway_motion
+  alias: Entryway Motion Lighting
+  mode: restart
+
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.entryway_motion
+      to: "on"
+
+  action:
+    - choose:
+        # Nighttime dim lighting
+        - conditions:
+            - condition: time
+              after: "22:00:00"
+              before: "06:00:00"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.entryway
+              data:
+                brightness_pct: 20
+
+        # Daytime normal lighting
+        - conditions:
+            - condition: time
+              after: "06:00:00"
+              before: "22:00:00"
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.entryway
+              data:
+                brightness_pct: 100
+
+    # Auto-off after 2 minutes of no motion
+    - wait_for_trigger:
+        - platform: state
+          entity_id: binary_sensor.entryway_motion
+          to: "off"
+          for: "00:02:00"
+
+    - service: light.turn_off
+      target:
+        entity_id: light.entryway
