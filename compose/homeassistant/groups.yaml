@@ -1,0 +1,8 @@
+kitchen_under_cabinet:
+  name: Kitchen Under Cabinet
+  entities:
+    - light.kitchen_uc_1
+    - light.kitchen_uc_2
+    - light.kitchen_uc_3
+    - light.kitchen_uc_4
+    - light.kitchen_uc_5
