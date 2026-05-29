@@ -1,6 +1,282 @@
-2026-05-28 15:13:11.664 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-28 15:13:11.664 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration sensi which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-28 15:49:13.505 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration govee which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-28 15:49:13.505 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-28 15:49:13.506 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration sensi which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-28 15:49:52.852 WARNING (MainThread) [homeassistant.runner] Task could not be canceled and was still running after shutdown: <Task cancelling name='Task-252' coro=<FcmPushClient._listen() running at /usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py:728> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-05-29 03:43:35.514 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration govee which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2026-05-29 03:43:35.515 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2026-05-29 03:43:35.515 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration sensi which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2026-05-29 03:43:36.527 WARNING (MainThread) [homeassistant.util.loop] Detected blocking call to load_verify_locations with args (<ssl.SSLContext object at 0x75b5d8d10b90>, '/usr/local/lib/python3.13/site-packages/certifi/cacert.pem', None, None) inside the event loop by custom integration 'govee' at custom_components/govee/__init__.py, line 53: hub = await Govee.create( (offender: /usr/local/lib/python3.13/ssl.py, line 717: context.load_verify_locations(cafile, capath, cadata)), please create a bug report at https://github.com/LaggAt/hacs-govee/issues
+For developers, please see https://developers.home-assistant.io/docs/asyncio_blocking_operations/#load_verify_locations
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 229, in <module>
+    sys.exit(main())
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 215, in main
+    exit_code = runner.run(runtime_conf)
+  File "/usr/src/homeassistant/homeassistant/runner.py", line 289, in run
+    return loop.run_until_complete(setup_and_run_hass(runtime_config))
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 2050, in _run_once
+    handle._run()
+  File "/usr/local/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/src/homeassistant/homeassistant/setup.py", line 170, in async_setup_component
+    result = await _async_setup_component(hass, domain, config)
+  File "/usr/src/homeassistant/homeassistant/setup.py", line 470, in _async_setup_component
+    await asyncio.gather(
+  File "/usr/src/homeassistant/homeassistant/setup.py", line 472, in <genexpr>
+    create_eager_task(
+  File "/usr/src/homeassistant/homeassistant/util/async_.py", line 44, in create_eager_task
+    return Task(coro, loop=loop, name=name, eager_start=True)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 928, in async_setup_locked
+    await self.async_setup(hass, integration=integration)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 672, in async_setup
+    await self.__async_setup_with_context(hass, integration)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 762, in __async_setup_with_context
+    result = await component.async_setup_entry(hass, self)
+  File "/config/custom_components/govee/__init__.py", line 53, in async_setup_entry
+    hub = await Govee.create(
+
+2026-05-29 03:43:36.729 WARNING (MainThread) [custom_components.govee] API is back online.
+2026-05-29 03:43:36.729 WARNING (MainThread) [govee_api_laggat.api] Rate limit exceeded, check if other devices also utilize the govee API
+2026-05-29 03:43:36.729 WARNING (MainThread) [custom_components.govee] Could not connect to Govee API: API: API-Error 429: {"message":"rate limited! the limit is 10000 requests every 24 hours. X-RateLimit-Reset in Http Response Header shows the reset time."}
+2026-05-29 03:43:36.729 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry govee for govee
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 762, in __async_setup_with_context
+    result = await component.async_setup_entry(hass, self)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/config/custom_components/govee/__init__.py", line 67, in async_setup_entry
+    await hub.rate_limit_delay()
+          ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Govee' object has no attribute 'rate_limit_delay'. Did you mean: 'rate_limit_reset'?
+2026-05-29 03:43:37.283 ERROR (MainThread) [homeassistant.components.automation] Platform automation does not generate unique IDs. ID master_bedroom_motion_timeout already exists - ignoring automation.master_bedroom_motion_timeout
+2026-05-29 03:43:37.336 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry http://192.168.1.177:11434 for ollama
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 762, in __async_setup_with_context
+    result = await component.async_setup_entry(hass, self)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/components/ollama/__init__.py", line 68, in async_setup_entry
+    await client.list()
+  File "/usr/local/lib/python3.13/site-packages/ollama/_client.py", line 1097, in list
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/usr/local/lib/python3.13/site-packages/ollama/_client.py", line 692, in _request
+    return cls(**(await self._request_raw(*args, **kwargs)).json())
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/ollama/_client.py", line 638, in _request_raw
+    raise ConnectionError(CONNECTION_ERROR_MESSAGE) from None
+ConnectionError: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download
+2026-05-29 03:43:41.014 WARNING (MainThread) [homeassistant.components.sensor] Platform rest not ready yet: Cannot connect to host cy.local:8055 ssl:default [MDNS lookup failed, Domain name not found]; Retrying in background in 30 seconds
+2026-05-29 03:43:41.014 WARNING (MainThread) [homeassistant.components.sensor] Platform rest not ready yet: Cannot connect to host cy.local:8055 ssl:default [MDNS lookup failed, Domain name not found]; Retrying in background in 30 seconds
+2026-05-29 03:43:41.014 WARNING (MainThread) [homeassistant.components.sensor] Platform rest not ready yet: Cannot connect to host cy.local:8055 ssl:default [MDNS lookup failed, Domain name not found]; Retrying in background in 30 seconds
+2026-05-29 03:43:41.014 WARNING (MainThread) [homeassistant.components.sensor] Platform rest not ready yet: Cannot connect to host cy.local:8055 ssl:default [MDNS lookup failed, Domain name not found]; Retrying in background in 30 seconds
+2026-05-29 03:44:10.741 ERROR (MainThread) [homeassistant.helpers.event] Error while processing template: Template<template=({% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level >= 90 %} mdi:battery {% elif level >= 60 %} mdi:battery-70 {% elif level >= 30 %} mdi:battery-40 {% else %} mdi:battery-alert {% endif %}) renders=2>
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 461, in async_render
+    render_result = render_with_context(self.template, compiled, **kwargs)
+  File "/usr/src/homeassistant/homeassistant/helpers/template/context.py", line 45, in render_with_context
+    return template.render(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 1, in top-level template code
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 1577, in forgiving_int_filter
+    raise_no_default("int", value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/helpers/template/helpers.py", line 24, in raise_no_default
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Template error: int got invalid input 'unknown' when rendering template '{% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level >= 90 %} mdi:battery {% elif level >= 60 %} mdi:battery-70 {% elif level >= 30 %} mdi:battery-40 {% else %} mdi:battery-alert {% endif %}' but no default was specified
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 579, in async_render_to_info
+    render_info._result = self.async_render(  # noqa: SLF001
+                          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        variables, strict=strict, log_fn=log_fn, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 463, in async_render
+    raise TemplateError(err) from err
+homeassistant.exceptions.TemplateError: ValueError: Template error: int got invalid input 'unknown' when rendering template '{% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level >= 90 %} mdi:battery {% elif level >= 60 %} mdi:battery-70 {% elif level >= 30 %} mdi:battery-40 {% else %} mdi:battery-alert {% endif %}' but no default was specified
+2026-05-29 03:44:10.743 ERROR (MainThread) [homeassistant.helpers.event] Error while processing template: Template<template=({% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level > 50 %} green {% elif level > 20 %} amber {% else %} red {% endif %}) renders=2>
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 461, in async_render
+    render_result = render_with_context(self.template, compiled, **kwargs)
+  File "/usr/src/homeassistant/homeassistant/helpers/template/context.py", line 45, in render_with_context
+    return template.render(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 1, in top-level template code
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 1577, in forgiving_int_filter
+    raise_no_default("int", value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/helpers/template/helpers.py", line 24, in raise_no_default
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Template error: int got invalid input 'unknown' when rendering template '{% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level > 50 %} green {% elif level > 20 %} amber {% else %} red {% endif %}' but no default was specified
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 579, in async_render_to_info
+    render_info._result = self.async_render(  # noqa: SLF001
+                          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        variables, strict=strict, log_fn=log_fn, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 463, in async_render
+    raise TemplateError(err) from err
+homeassistant.exceptions.TemplateError: ValueError: Template error: int got invalid input 'unknown' when rendering template '{% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level > 50 %} green {% elif level > 20 %} amber {% else %} red {% endif %}' but no default was specified
+2026-05-29 03:44:11.128 ERROR (MainThread) [homeassistant.helpers.event] Error while processing template: Template<template=({% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level >= 90 %} mdi:battery {% elif level >= 60 %} mdi:battery-70 {% elif level >= 30 %} mdi:battery-40 {% else %} mdi:battery-alert {% endif %}) renders=6>
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 461, in async_render
+    render_result = render_with_context(self.template, compiled, **kwargs)
+  File "/usr/src/homeassistant/homeassistant/helpers/template/context.py", line 45, in render_with_context
+    return template.render(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 1, in top-level template code
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 1577, in forgiving_int_filter
+    raise_no_default("int", value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/helpers/template/helpers.py", line 24, in raise_no_default
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Template error: int got invalid input 'unknown' when rendering template '{% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level >= 90 %} mdi:battery {% elif level >= 60 %} mdi:battery-70 {% elif level >= 30 %} mdi:battery-40 {% else %} mdi:battery-alert {% endif %}' but no default was specified
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 579, in async_render_to_info
+    render_info._result = self.async_render(  # noqa: SLF001
+                          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        variables, strict=strict, log_fn=log_fn, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 463, in async_render
+    raise TemplateError(err) from err
+homeassistant.exceptions.TemplateError: ValueError: Template error: int got invalid input 'unknown' when rendering template '{% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level >= 90 %} mdi:battery {% elif level >= 60 %} mdi:battery-70 {% elif level >= 30 %} mdi:battery-40 {% else %} mdi:battery-alert {% endif %}' but no default was specified
+2026-05-29 03:44:11.129 ERROR (MainThread) [homeassistant.helpers.event] Error while processing template: Template<template=({% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level > 50 %} green {% elif level > 20 %} amber {% else %} red {% endif %}) renders=6>
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 461, in async_render
+    render_result = render_with_context(self.template, compiled, **kwargs)
+  File "/usr/src/homeassistant/homeassistant/helpers/template/context.py", line 45, in render_with_context
+    return template.render(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "<template>", line 1, in top-level template code
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 1577, in forgiving_int_filter
+    raise_no_default("int", value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/src/homeassistant/homeassistant/helpers/template/helpers.py", line 24, in raise_no_default
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Template error: int got invalid input 'unknown' when rendering template '{% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level > 50 %} green {% elif level > 20 %} amber {% else %} red {% endif %}' but no default was specified
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 579, in async_render_to_info
+    render_info._result = self.async_render(  # noqa: SLF001
+                          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+        variables, strict=strict, log_fn=log_fn, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/src/homeassistant/homeassistant/helpers/template/__init__.py", line 463, in async_render
+    raise TemplateError(err) from err
+homeassistant.exceptions.TemplateError: ValueError: Template error: int got invalid input 'unknown' when rendering template '{% set level = states('sensor.kia_s_curtain_battery') | int %} {% if level > 50 %} green {% elif level > 20 %} amber {% else %} red {% endif %}' but no default was specified
+2026-05-29 03:56:27.487 WARNING (MainThread) [homeassistant.components.mqtt.client] Error returned from MQTT server: The connection was lost.
+2026-05-29 04:11:30.178 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 04:11:50.012 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 04:14:27.887 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 04:14:30.197 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 04:14:48.724 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 04:15:53.292 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 04:17:03.518 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 04:17:15.888 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 04:17:30.210 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-29 04:19:57.723 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.moms_light_white are missing or not currently available
+2026-05-29 04:20:01.519 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.moms_light_white are missing or not currently available
+2026-05-29 04:20:17.719 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-29 04:22:56.484 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 04:25:04.147 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-29 04:26:46.474 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-29 06:08:08.432 ERROR (MainThread) [firebase_messaging.fcmpushclient] Unexpected exception during read
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py", line 687, in _listen
+    elif msg := await self._receive_msg():
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py", line 300, in _receive_msg
+    r = await self.reader.readexactly(1)  # type: ignore[union-attr]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/asyncio/streams.py", line 769, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/usr/local/lib/python3.13/asyncio/streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "/usr/local/lib/python3.13/asyncio/selector_events.py", line 980, in _read_ready__get_buffer
+    nbytes = self._sock.recv_into(buf)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2026-05-29 08:16:41.358 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:17:59.314 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:19:14.677 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:24:03.282 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:27:53.696 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:29:39.081 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:30:21.260 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:33:36.810 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:35:03.005 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:36:14.831 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:37:14.300 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:41:41.352 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:43:33.605 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:44:11.366 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:50:12.612 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:52:47.307 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:53:23.516 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 08:58:57.372 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 09:12:04.497 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 09:17:36.486 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen_under_cabinet are missing or not currently available
+2026-05-29 10:00:00.447 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.kitchen
+2026-05-29 10:00:00.447 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.kitchen_under_cabinet
+2026-05-29 10:00:00.447 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.moms_light_rgb
+2026-05-29 10:00:00.447 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.moms_light_white
+2026-05-29 10:00:00.447 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.hallway_lights
+2026-05-29 10:00:00.447 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.entryway
+2026-05-29 13:00:00.485 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities cover.deck_door_curtain, cover.living_room_curtains are missing or not currently available
+2026-05-29 13:12:23.543 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 13:14:55.957 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 13:30:00.501 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities cover.kia_s_curtain, cover.moms_curtain, cover.tylers_curtain are missing or not currently available
+2026-05-29 13:30:03.666 ERROR (MainThread) [homeassistant.components.automation] Platform automation does not generate unique IDs. ID master_bedroom_motion_timeout already exists - ignoring automation.master_bedroom_motion_timeout
+2026-05-29 13:34:34.403 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 13:37:06.938 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 13:40:28.824 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 13:43:01.222 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-29 13:58:00.057 WARNING (MainThread) [homeassistant.runner] Task could not be canceled and was still running after shutdown: <Task cancelling name='Task-233' coro=<FcmPushClient._listen() running at /usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py:728> wait_for=<Future pending cb=[Task.task_wakeup()]>>
