@@ -81,13 +81,13 @@
     },
     "0xb0ce18140005f7e5": {
         "power": 0.2,
-        "energy": 15.71,
+        "energy": 15.73,
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
             "y": 0.3238
         },
-        "linkquality": 136,
+        "linkquality": 148,
         "state": "OFF",
         "color_temp": 154,
         "brightness": 100,
@@ -101,7 +101,7 @@
     },
     "0x00124b0029191965": {
         "state": "ON",
-        "linkquality": 124
+        "linkquality": 132
     },
     "0xb0ce18140005faaf": {
         "power": 0.2,
@@ -111,8 +111,8 @@
             "x": 0.3137,
             "y": 0.3238
         },
-        "linkquality": 124,
-        "state": "OFF",
+        "linkquality": 180,
+        "state": "ON",
         "brightness": 224,
         "color_temp": 154,
         "update": {
@@ -131,8 +131,8 @@
             "x": 0.3137,
             "y": 0.3238
         },
-        "state": "OFF",
-        "linkquality": 148,
+        "state": "ON",
+        "linkquality": 176,
         "brightness": 224,
         "color_temp": 154,
         "update": {
@@ -151,8 +151,8 @@
             "x": 0.3137,
             "y": 0.3238
         },
-        "linkquality": 128,
-        "state": "OFF",
+        "linkquality": 176,
+        "state": "ON",
         "brightness": 224,
         "color_temp": 154,
         "level_config": {
@@ -174,8 +174,8 @@
             "x": 0.3137,
             "y": 0.3238
         },
-        "state": "OFF",
-        "linkquality": 144,
+        "state": "ON",
+        "linkquality": 136,
         "brightness": 224,
         "color_temp": 154,
         "level_config": {
@@ -198,8 +198,8 @@
             "y": 0.3238
         },
         "color_temp_startup": 250,
-        "linkquality": 128,
-        "state": "OFF",
+        "linkquality": 176,
+        "state": "ON",
         "brightness": 224,
         "color_temp": 154,
         "level_config": {
@@ -230,15 +230,15 @@
     },
     "0xb0ce1814002148f6": {
         "power": 0.2,
-        "energy": 4.27,
+        "energy": 4.32,
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
             "y": 0.3238
         },
-        "linkquality": 124,
+        "linkquality": 172,
         "brightness": 100,
-        "state": "OFF",
+        "state": "ON",
         "color_temp": 154,
         "update": {
             "state": "idle",
@@ -252,12 +252,12 @@
         }
     },
     "0xb40e060fffe07254": {
-        "occupancy": true,
+        "occupancy": false,
         "tamper": false,
         "battery_low": false,
-        "battery": 94,
+        "battery": 96,
         "linkquality": 120,
-        "voltage": 2900,
+        "voltage": 3000,
         "update": {
             "state": "idle",
             "installed_version": 79,
@@ -269,8 +269,8 @@
     "0xb0ce181400214913": {
         "power": 0.2,
         "energy": 0.12,
-        "linkquality": 148,
-        "state": "OFF",
+        "linkquality": 128,
+        "state": "ON",
         "brightness": 100,
         "color_mode": "color_temp",
         "color_temp": 154,
@@ -291,9 +291,9 @@
     },
     "0xb0ce181400214aaa": {
         "power": 0.2,
-        "energy": 0.12,
-        "linkquality": 144,
-        "state": "OFF",
+        "energy": 0.13,
+        "linkquality": 136,
+        "state": "ON",
         "brightness": 100,
         "color_mode": "color_temp",
         "color_temp": 154,
@@ -314,9 +314,9 @@
     },
     "0xb0ce181400214ac5": {
         "power": 0.2,
-        "energy": 0.12,
-        "state": "OFF",
-        "linkquality": 144,
+        "energy": 0.13,
+        "state": "ON",
+        "linkquality": 136,
         "brightness": 100,
         "color_mode": "color_temp",
         "color_temp": 154,
@@ -337,9 +337,9 @@
     },
     "0xb0ce181400214c18": {
         "power": 0.2,
-        "energy": 0.12,
-        "state": "OFF",
-        "linkquality": 144,
+        "energy": 0.13,
+        "state": "ON",
+        "linkquality": 132,
         "brightness": 100,
         "color_mode": "color_temp",
         "color_temp": 154,
@@ -359,11 +359,11 @@
         }
     },
     "0xb40e060fffe07255": {
-        "occupancy": true,
+        "occupancy": false,
         "tamper": false,
         "battery_low": false,
         "battery": 94.5,
-        "linkquality": 120,
+        "linkquality": 124,
         "voltage": 3000,
         "update": {
             "state": "idle",
@@ -376,16 +376,16 @@
     "0xe406bffffe2ba7e8": {
         "motor_fault": false,
         "linkquality": 120,
-        "state": "OPEN",
+        "state": "STOP",
         "position": 100,
         "battery": 55,
         "click_control": "up"
     },
     "0xb0ce181400189493": {
         "power": 0.2,
-        "energy": 0.31,
+        "energy": 0.32,
         "state": "OFF",
-        "linkquality": 128,
+        "linkquality": 172,
         "brightness": 3,
         "color_mode": "color_temp",
         "color_temp": 154,
@@ -415,7 +415,7 @@
     },
     "0x583bc2fffe034cc0": {
         "motor_fault": false,
-        "linkquality": 124,
+        "linkquality": 128,
         "state": "CLOSE",
         "position": 0,
         "battery": 15,
@@ -423,7 +423,7 @@
     },
     "0xb40e060fffe07222": {
         "battery": 100,
-        "linkquality": 120,
+        "linkquality": 128,
         "occupancy": false,
         "tamper": false,
         "battery_low": false,
@@ -431,8 +431,8 @@
     },
     "0xb0ce1814001afa2d": {
         "power": 0.2,
-        "energy": 0.09,
-        "linkquality": 116,
+        "energy": 0.1,
+        "linkquality": 128,
         "color_mode": "xy",
         "color": {
             "x": 0.312,
@@ -476,30 +476,30 @@
         }
     },
     "0x00124b0031dd14d2": {
-        "linkquality": 128
+        "linkquality": 120
     },
     "0x54ef441000d7a808": {
         "power_on_behaviour": "on",
-        "device_temperature": 52,
-        "power_outage_count": 539,
+        "device_temperature": 29,
+        "power_outage_count": 541,
         "state": "ON",
-        "linkquality": 120,
+        "linkquality": 116,
         "state_white": "ON",
         "state_rgb": "OFF",
         "brightness_white": 115
     },
     "0xa4c138e2b39568ba": {
-        "illuminance": 121,
-        "linkquality": 144,
+        "illuminance": 48,
+        "linkquality": 128,
         "battery": 100,
         "voltage": 3000
     },
     "0x54ef441000ca7f4b": {
-        "device_temperature": 78,
+        "device_temperature": 37,
         "power_outage_count": 99,
-        "state": "ON",
+        "state": "OFF",
         "brightness_white": 254,
-        "state_white": "ON",
+        "state_white": "OFF",
         "linkquality": 128,
         "state_rgb": "OFF",
         "color_mode_rgb": "xy",
@@ -528,26 +528,26 @@
     "0x54ef441000d7b0d1": {
         "power_on_behaviour": "on",
         "color_rgb": {
-            "x": 0.214,
-            "y": 0.274
+            "x": 0.218,
+            "y": 0.078
         },
         "color_mode_rgb": "xy",
-        "device_temperature": 83,
-        "power_outage_count": 83,
+        "device_temperature": 67,
+        "power_outage_count": 84,
         "state": "ON",
         "brightness_white": 254,
-        "state_white": "OFF",
+        "state_white": "ON",
         "color_mode_white": "color_temp",
         "color_temp_white": 250,
-        "linkquality": 124,
-        "state_rgb": "OFF",
-        "brightness_rgb": 179,
+        "linkquality": 128,
+        "state_rgb": "ON",
+        "brightness_rgb": 127,
         "effect_rgb": "breathing"
     },
     "0xb0ce181400033e9f": {
         "power": 2.3,
-        "energy": 5.41,
-        "linkquality": 216,
+        "energy": 5.45,
+        "linkquality": 188,
         "state": "OFF",
         "color_mode": "color_temp",
         "color_temp": 200,
@@ -563,7 +563,7 @@
     "0xb0ce18140003b3d8": {
         "power": 0,
         "energy": 0.11,
-        "linkquality": 124,
+        "linkquality": 132,
         "state": "OFF",
         "brightness": 3,
         "color_mode": "xy",
@@ -581,8 +581,8 @@
     },
     "0xb0ce18140003332b": {
         "power": 0.2,
-        "energy": 0.19,
-        "linkquality": 124,
+        "energy": 0.2,
+        "linkquality": 184,
         "update": {
             "state": "idle",
             "installed_version": 71,
@@ -600,17 +600,15 @@
         "color_temp": 154
     },
     "0xb0ce18140003a080": {
-        "power": 0.2,
-        "energy": 0.06,
+        "power": 0,
+        "energy": 0.07,
         "linkquality": 168,
         "update": {
-            "state": "updating",
-            "installed_version": 48,
+            "state": "idle",
+            "installed_version": 71,
             "latest_version": 71,
-            "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
-            "latest_release_notes": null,
-            "progress": 0,
-            "remaining": 710
+            "latest_source": null,
+            "latest_release_notes": null
         },
         "color_mode": "xy",
         "color": {
@@ -629,24 +627,16 @@
     },
     "0xe406bffffe2bc96e": {
         "motor_fault": false,
-        "linkquality": 132,
-        "state": "OPEN",
+        "linkquality": 160,
+        "state": "STOP",
         "position": 100,
         "battery": 40
     },
-    "0x403059fffe6349c4": {
-        "linkquality": 120,
-        "state": "CLOSE",
-        "position": 0,
-        "battery": 100,
-        "border": "up",
-        "motor_fault": false
-    },
     "0x6cfd22fffe5a7905": {
-        "linkquality": 124,
+        "linkquality": 120,
         "state": "OPEN",
         "position": 100,
-        "battery": 15,
+        "battery": 5,
         "motor_fault": false,
         "border": "down"
     },
@@ -654,7 +644,7 @@
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
         "state": "OFF",
-        "voltage": 118.4,
+        "voltage": 119.8,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 128,
@@ -673,10 +663,10 @@
         "state": "ON",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 118.9,
+        "voltage": 120.5,
         "ac_frequency": 60,
         "energy": 0.49,
-        "linkquality": 120,
+        "linkquality": 128,
         "power_factor": 0,
         "current": 0,
         "power": 0,
@@ -692,7 +682,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119.1,
+        "voltage": 121.1,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 124,
@@ -711,7 +701,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 118.8,
+        "voltage": 121,
         "ac_frequency": 60,
         "linkquality": 120,
         "power": 0,
@@ -730,10 +720,10 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119.1,
+        "voltage": 120.9,
         "ac_frequency": 60,
         "energy": 0,
-        "linkquality": 116,
+        "linkquality": 124,
         "power_factor": 0,
         "current": 0,
         "power": 0,
@@ -749,10 +739,10 @@
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
         "state": "ON",
-        "voltage": 119.5,
+        "voltage": 121.3,
         "ac_frequency": 60,
         "energy": 0,
-        "linkquality": 216,
+        "linkquality": 184,
         "power_factor": 0,
         "current": 0,
         "power": 0,
@@ -768,10 +758,10 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 119,
+        "voltage": 120.9,
         "ac_frequency": 60,
         "energy": 0,
-        "linkquality": 124,
+        "linkquality": 176,
         "power_factor": 0,
         "current": 0,
         "power": 0,
@@ -787,10 +777,10 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 118.6,
+        "voltage": 120.7,
         "ac_frequency": 60,
         "energy": 0,
-        "linkquality": 116,
+        "linkquality": 120,
         "power_factor": 0,
         "current": 0,
         "power": 0,
@@ -805,7 +795,7 @@
     "0xcc86ecfffec3c653": {
         "battery": 98,
         "voltage": 2900,
-        "linkquality": 124
+        "linkquality": 128
     },
     "0xb0ce18140005d14f": {
         "power": 0.2,
@@ -839,7 +829,7 @@
             "latest_source": null,
             "latest_release_notes": null
         },
-        "linkquality": 124,
+        "linkquality": 152,
         "color_temp_startup": 500
     },
     "0xa4c138d8c12b1f53": {
@@ -874,7 +864,7 @@
             "latest_source": null,
             "latest_release_notes": null
         },
-        "linkquality": 156,
+        "linkquality": 140,
         "brightness": 102,
         "color_mode": "xy",
         "color_temp": 213,
@@ -919,7 +909,7 @@
             "latest_source": null,
             "latest_release_notes": null
         },
-        "linkquality": 160
+        "linkquality": 148
     },
     "0xa4c1381f17fb1e4d": {
         "color_mode": "xy",
@@ -956,13 +946,13 @@
         },
         "color_mode": "xy",
         "color": {
-            "x": 0.589,
-            "y": 0.329
+            "x": 0.313,
+            "y": 0.21
         },
         "state": "ON",
-        "color_temp": 439,
-        "brightness": 251,
-        "linkquality": 120
+        "color_temp": 154,
+        "brightness": 254,
+        "linkquality": 116
     },
     "0xb0ce1814000394e7": {
         "power": 0.2,
@@ -974,15 +964,15 @@
             "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/Sengled/1586412538195_RDS2017007_E11-N1EA_V0.0.71_20200311_release.ota",
             "latest_release_notes": null
         },
-        "state": "ON",
+        "state": "OFF",
         "color_mode": "color_temp",
         "color": {
             "x": 0.3137,
             "y": 0.3238
         },
         "color_temp": 154,
-        "brightness": 254,
-        "linkquality": 216
+        "brightness": 64,
+        "linkquality": 180
     },
     "0xb40e060fffe23a9d": {
         "battery": 100,
@@ -997,6 +987,6 @@
             "latest_source": "https://raw.githubusercontent.com/Koenkk/zigbee-OTA/master/images/ThirdReality/Motion_Sensor_PROD_OTA_V79_v1.00.79.ota",
             "latest_release_notes": null
         },
-        "linkquality": 120
+        "linkquality": 124
     }
 }
