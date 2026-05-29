@@ -15,6 +15,10 @@ services:
       - /mnt/phixero/Movies:/media/ssd_movies
       # PHIXERO SSD TV library
       - /mnt/phixero/TV:/media/ssd_tv
+      # PHIXERO SSD book library
+      - /mnt/phixero/Books:/media/ssd_books
+      # PHIXERO SSD Documentaries library
+      - /mnt/phixero/Documentaries and Instructional Videos:/media/ssd_documentaries
 
       # Jellyfin config + cache (Synology)
       - /volume1/JellyfinConfig:/config
