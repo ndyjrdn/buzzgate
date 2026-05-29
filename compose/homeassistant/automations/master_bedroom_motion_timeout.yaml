@@ -1,4 +1,4 @@
-- id: master_bedroom_motion_timeout
+- id: master_bedroom_motion_timeout_2
   alias: Master Bedroom – Motion Timeout
   trigger:
     - platform: event
