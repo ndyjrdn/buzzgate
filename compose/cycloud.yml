@@ -2,7 +2,7 @@ version: "3"
 
 services:
   nextcloud:
-    image: nextcloud:33
+    image: nextcloud:34
     container_name: cycloud
     ports:
       - "8081:80"
