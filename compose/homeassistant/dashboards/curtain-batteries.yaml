@@ -15,7 +15,7 @@ views:
           - sensor.dining_curtain_battery
           - sensor.kia_curtain_battery
           - sensor.lr_curtain_north_battery
-          - sensor.lr_curtain_south_battery
+          - sensor.lr_curtain_s_battery
           - sensor.master_curtain_battery
           - sensor.tyler_curtain_battery
 
@@ -27,7 +27,7 @@ views:
           - sensor.dining_curtain_battery
           - sensor.kia_curtain_battery
           - sensor.lr_curtain_north_battery
-          - sensor.lr_curtain_south_battery
+          - sensor.lr_curtain_s_battery
           - sensor.master_curtain_battery
           - sensor.tyler_curtain_battery
         state_filter:
@@ -74,7 +74,7 @@ views:
 
           - type: gauge
             name: LR South
-            entity: sensor.lr_curtain_south_battery
+            entity: sensor.lr_curtain_s_battery
             min: 0
             max: 100
             severity:
