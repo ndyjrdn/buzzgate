@@ -1,4 +1,4 @@
-kitchen_under_cabinet:
+- platform: group
   name: Kitchen Under Cabinet
   entities:
     - light.kitchen_uc_1
@@ -7,13 +7,13 @@ kitchen_under_cabinet:
     - light.kitchen_uc_4
     - light.kitchen_uc_5
 
-entryway:
+- platform: group
   name: Entryway Lights
   entities:
     - light.entryway_flood
     - light.entryway_small
 
-kitchen:
+- platform: group
   name: Kitchen Ceiling Lights
   entities:
     - light.kitchen_center
@@ -22,19 +22,19 @@ kitchen:
     - light.kitchen_se
     - light.kitchen_sw
 
-hallway_lights:
+- platform: group
   name: Hallway Lights
   entities:
     - light.hall_north
     - light.hall_south
 
-basement_hallway:
+- platform: group
   name: Basement Hallway Lights
   entities:
     - light.basement_hall1
     - light.basement_hall2
 
-living_room_ceiling:
+- platform: group
   name: Living Room Ceiling
   entities:
     - light.lr_ceiling_1
@@ -42,4 +42,3 @@ living_room_ceiling:
     - light.lr_ceiling_3
     - light.lr_ceiling_4
     - light.lr_ceiling_5
-
