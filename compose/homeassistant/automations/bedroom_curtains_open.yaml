@@ -7,7 +7,7 @@
     - service: cover.open_cover
       target:
         entity_id: 
-          - cover.kia_s_curtain
-          - cover.tylers_curtain # Tyler's curtain
-          - cover.moms_curtain #mom's curtain
+          - cover.kia_curtain
+          - cover.tyler_curtain
+          - cover.master_curtain
   mode: single
