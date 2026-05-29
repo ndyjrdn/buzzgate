@@ -11,4 +11,4 @@ all_curtains:
     - cover.lr_curtain_south
     - cover.master_curtain
     - cover.tyler_curtain
-    #- cover.kia_curtain
+    - cover.kia_curtain
