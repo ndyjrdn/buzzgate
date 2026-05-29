@@ -489,13 +489,13 @@
         "brightness_white": 115
     },
     "0xa4c138e2b39568ba": {
-        "illuminance": 48,
+        "illuminance": 95,
         "linkquality": 128,
         "battery": 100,
         "voltage": 3000
     },
     "0x54ef441000ca7f4b": {
-        "device_temperature": 37,
+        "device_temperature": 46,
         "power_outage_count": 99,
         "state": "OFF",
         "brightness_white": 254,
@@ -532,7 +532,7 @@
             "y": 0.078
         },
         "color_mode_rgb": "xy",
-        "device_temperature": 67,
+        "device_temperature": 80,
         "power_outage_count": 84,
         "state": "ON",
         "brightness_white": 254,
@@ -644,7 +644,7 @@
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
         "state": "OFF",
-        "voltage": 119.8,
+        "voltage": 119.2,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 128,
@@ -663,7 +663,7 @@
         "state": "ON",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.5,
+        "voltage": 119.8,
         "ac_frequency": 60,
         "energy": 0.49,
         "linkquality": 128,
@@ -682,7 +682,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 121.1,
+        "voltage": 120.3,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 124,
@@ -701,7 +701,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 121,
+        "voltage": 119.7,
         "ac_frequency": 60,
         "linkquality": 120,
         "power": 0,
@@ -720,7 +720,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.9,
+        "voltage": 119.6,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 124,
@@ -739,7 +739,7 @@
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
         "state": "ON",
-        "voltage": 121.3,
+        "voltage": 120.3,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 184,
@@ -758,7 +758,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.9,
+        "voltage": 119.6,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 176,
@@ -777,7 +777,7 @@
         "state": "OFF",
         "countdown_to_turn_off": 0,
         "countdown_to_turn_on": 0,
-        "voltage": 120.7,
+        "voltage": 119.5,
         "ac_frequency": 60,
         "energy": 0,
         "linkquality": 120,
@@ -812,8 +812,8 @@
     "0xa4c1380d5a3cd3c1": {
         "color_mode": "xy",
         "color": {
-            "x": 0.659,
-            "y": 0.306,
+            "x": 0.655,
+            "y": 0.31,
             "hue": 1,
             "saturation": 97,
             "h": 1,
@@ -821,7 +821,7 @@
         },
         "brightness": 102,
         "state": "ON",
-        "color_temp": 213,
+        "color_temp": 230,
         "update": {
             "state": "idle",
             "installed_version": 604057601,
@@ -837,15 +837,15 @@
         "brightness": 102,
         "color_mode": "xy",
         "color": {
-            "x": 0.659,
-            "y": 0.306,
+            "x": 0.655,
+            "y": 0.31,
             "hue": 1,
             "saturation": 97,
             "h": 1,
             "s": 97
         },
         "color_temp_startup": 500,
-        "color_temp": 213,
+        "color_temp": 230,
         "update": {
             "state": "idle",
             "installed_version": 604057601,
@@ -867,10 +867,10 @@
         "linkquality": 140,
         "brightness": 102,
         "color_mode": "xy",
-        "color_temp": 213,
+        "color_temp": 230,
         "color": {
-            "x": 0.659,
-            "y": 0.306
+            "x": 0.655,
+            "y": 0.31
         }
     },
     "0xb40e060fffe23b52": {
@@ -889,19 +889,19 @@
         "linkquality": 172
     },
     "0xa4c1380c83af2d32": {
-        "color_mode": "color_temp",
+        "color_mode": "xy",
         "color": {
-            "x": 0.3451,
-            "y": 0.3516,
-            "hue": 46,
-            "saturation": 24,
-            "h": 46,
-            "s": 24
+            "x": 0.655,
+            "y": 0.31,
+            "hue": 1,
+            "saturation": 97,
+            "h": 1,
+            "s": 97
         },
-        "brightness": 51,
+        "brightness": 102,
         "state": "ON",
         "color_temp_startup": 500,
-        "color_temp": 200,
+        "color_temp": 230,
         "update": {
             "state": "idle",
             "installed_version": 604057601,
@@ -918,10 +918,10 @@
             "saturation": 97,
             "h": 1,
             "s": 97,
-            "x": 0.659,
-            "y": 0.306
+            "x": 0.655,
+            "y": 0.31
         },
-        "color_temp": 213,
+        "color_temp": 230,
         "color_temp_startup": 500,
         "brightness": 102,
         "state": "ON",
@@ -988,5 +988,12 @@
             "latest_release_notes": null
         },
         "linkquality": 124
+    },
+    "0x403059fffe6349c4": {
+        "state": "OPEN",
+        "position": 100,
+        "battery": 95,
+        "motor_fault": false,
+        "border": "down"
     }
 }
