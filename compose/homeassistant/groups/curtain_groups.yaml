@@ -1,10 +1,10 @@
-living_room_curtains:
+- platform: group
   name: Living Room Curtains
   entities:
     - cover.lr_curtain_north
     - cover.lr_curtain_south
 
-all_curtains:
+- platform: group
   name: All Curtains
   entities:
     - cover.lr_curtain_north
@@ -12,3 +12,4 @@ all_curtains:
     - cover.master_curtain
     - cover.tyler_curtain
     - cover.kia_curtain
+
