@@ -1,0 +1,14 @@
+living_room_curtains:
+  name: Living Room Curtains
+  entities:
+    - cover.lr_curtain_north
+    - cover.lr_curtain_south
+
+all_curtains:
+  name: All Curtains
+  entities:
+    - cover.lr_curtain_north
+    - cover.lr_curtain_south
+    - cover.master_curtain
+    - cover.tyler_curtain
+    #- cover.kia_curtain
