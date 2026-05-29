@@ -2,22 +2,22 @@ version: "3"
 
 services:
   nextcloud:
-  image: nextcloud:stable
-  container_name: cycloud
-  ports:
-    - "8081:80"
-  volumes:
-    - /mnt/cycloud-share/nextcloud/config:/var/www/html/config
-    - /mnt/cycloud-share/nextcloud/data:/var/www/html/data
-    - /mnt/photos:/mnt/photos:ro
-  environment:
-    - MYSQL_PASSWORD=ldj81771
-    - MYSQL_DATABASE=nextcloud
-    - MYSQL_USER=andy
-    - MYSQL_HOST=mariadb
-  networks:
-    - compose_cynet
-  restart: unless-stopped
+    image: nextcloud:stable
+    container_name: cycloud
+    ports:
+      - "8081:80"
+    volumes:
+      - /mnt/cycloud-share/nextcloud/config:/var/www/html/config
+      - /mnt/cycloud-share/nextcloud/data:/var/www/html/data
+      - /mnt/photos:/mnt/photos:ro
+    environment:
+      - MYSQL_PASSWORD=ldj81771
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=andy
+      - MYSQL_HOST=mariadb
+    networks:
+      - compose_cynet
+    restart: unless-stopped
 
   mariadb:
     image: mariadb:latest
