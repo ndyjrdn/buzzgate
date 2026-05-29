@@ -1,7 +1,7 @@
 - name: Buzzgate Sundown
   entities:
-    cover.all_curtains:
-      state: "closed"
+    # cover.all_curtains:
+    #   state: "closed"
 
     light.hallway_lights:
       state: "on"
