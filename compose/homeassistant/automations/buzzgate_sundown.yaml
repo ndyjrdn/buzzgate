@@ -1,0 +1,16 @@
+alias: Buzzgate Sundown
+id: buzzgate_sundown
+description: "Transition house to evening baseline"
+trigger:
+  - platform: sun
+    event: sunset
+    offset: "-00:20:00"
+
+action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.buzzgate_sundown
+    data:
+      transition: 5
+
+mode: single
