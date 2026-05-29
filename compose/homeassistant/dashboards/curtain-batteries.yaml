@@ -12,24 +12,24 @@ views:
         title: All Curtain Batteries
         show_header_toggle: false
         entities:
-          - sensor.deck_door_curtain_battery
-          - sensor.kia_s_curtain_battery
+          - sensor.dining_curtain_battery
+          - sensor.kia_curtain_battery
           - sensor.lr_curtain_north_battery
           - sensor.lr_curtain_s_battery
-          - sensor.moms_curtain_battery
-          - sensor.tylers_curtain_battery
+          - sensor.master_curtain_battery
+          - sensor.tyler_curtain_battery
 
       # --- LOW BATTERY FILTER ---
       - type: entity-filter
         title: Low Curtain Batteries (<30%)
         show_empty: false
         entities:
-          - sensor.deck_door_curtain_battery
-          - sensor.kia_s_curtain_battery
+          - sensor.dining_curtain_battery
+          - sensor.kia_curtain_battery
           - sensor.lr_curtain_north_battery
           - sensor.lr_curtain_s_battery
-          - sensor.moms_curtain_battery
-          - sensor.tylers_curtain_battery
+          - sensor.master_curtain_battery
+          - sensor.tyler_curtain_battery
         state_filter:
           - operator: '<'
             value: 30
@@ -41,7 +41,7 @@ views:
         cards:
           - type: gauge
             name: Deck Door
-            entity: sensor.deck_door_curtain_battery
+            entity: sensor.dining_curtain_battery
             min: 0
             max: 100
             severity:
@@ -51,7 +51,7 @@ views:
 
           - type: gauge
             name: Kia's Curtain
-            entity: sensor.kia_s_curtain_battery
+            entity: sensor.kia_curtain_battery
             min: 0
             max: 100
             severity:
@@ -87,7 +87,7 @@ views:
         cards:
           - type: gauge
             name: Mom's Curtain
-            entity: sensor.moms_curtain_battery
+            entity: sensor.master_curtain_battery
             min: 0
             max: 100
             severity:
@@ -97,7 +97,7 @@ views:
 
           - type: gauge
             name: Tyler's Curtain
-            entity: sensor.tylers_curtain_battery
+            entity: sensor.tyler_curtain_battery
             min: 0
             max: 100
             severity:
