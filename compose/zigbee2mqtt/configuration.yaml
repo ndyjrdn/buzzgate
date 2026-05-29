@@ -34,7 +34,7 @@ groups:
     friendly_name: alert_lights
 devices:
   '0xb0ce1814001afa2d':
-    friendly_name: hall-n
+    friendly_name: hall_north
   '0xb0ce1814001d44a0':
     friendly_name: '0xb0ce1814001d44a0'
   '0xb0ce1814001d4cb7':
@@ -44,9 +44,9 @@ devices:
   '0xb0ce1814001d58ee':
     friendly_name: '0xb0ce1814001d58ee'
   '0xb0ce181400189493':
-    friendly_name: entryway-small
+    friendly_name: entryway_small
   '0xb0ce18140005faaf':
-    friendly_name: lr-cieling-1
+    friendly_name: lr_ceiling_1
   '0xb0ce1814001879ef':
     friendly_name: '0xb0ce1814001879ef'
   '0x385cfbfffed0bc28':
@@ -56,73 +56,71 @@ devices:
   '0xcc86ecfffec3c653':
     friendly_name: '0xcc86ecfffec3c653'
   '0x54ef441000ca7f4b':
-    friendly_name: kias_light
-  '0x403059fffe6349c4':
-    friendly_name: kia_s_curtain
+    friendly_name: kias_ceiling
   '0x00124b0031dd14d2':
-    friendly_name: mesh_router_tubez
+    friendly_name: msater_router
   '0xb0ce181400214c05':
-    friendly_name: Entryway-flood
+    friendly_name: entryway_flood
   '0xb0ce18140005f7e5':
-    friendly_name: dining-room
+    friendly_name: dining_room
   '0x00124b0029191965':
     friendly_name: plug1
   '0xb0ce18140005e9d8':
-    friendly_name: lr-cieling-2
+    friendly_name: lr_cieling_2
   '0xb0ce1814001b04ee':
-    friendly_name: lr-cieling-3
+    friendly_name: lr_cieling_3
   '0xb0ce1814001af4d4':
-    friendly_name: lr-cieling-4
+    friendly_name: lr_cieling_4
   '0xb0ce1814001af7a6':
-    friendly_name: lr-cieling-5
+    friendly_name: lr_ceiling_5
   '0xb40e060fffe071e3':
     friendly_name: tyler_motion
   '0xe406bffffe2ba7e8':
     friendly_name: lr_curtain_north
   '0xb0ce1814002148f6':
-    friendly_name: kitchen-center
+    friendly_name: kitchen_center
   '0xb40e060fffe07254':
-    friendly_name: Kias_motion
+    friendly_name: kia_motion
   '0xb0ce181400214913':
-    friendly_name: kitchen-sw
+    friendly_name: kitchen_sw
   '0xb0ce181400214aaa':
-    friendly_name: kitchen-nw
+    friendly_name: kitchen_nw
   '0xb0ce181400214ac5':
-    friendly_name: kitchen-ne
+    friendly_name: kitchen_ne
   '0xb40e060fffe07255':
-    friendly_name: bedroom_motion
+    friendly_name: master_motion
   '0xb0ce181400214c18':
-    friendly_name: kitchen-se
+    friendly_name: kitchen_se
   '0x583bc2fffe034cc0':
-    friendly_name: tylers_curtain
+    friendly_name: tyler_curtain
   '0xb40e060fffe07222':
     friendly_name: entryway_closet
   '0xb0ce1814001afd37':
-    friendly_name: hall-s
+    friendly_name: hall_south
   '0xa4c138e2b39568ba':
     friendly_name: kitchen_lumos
   '0x54ef441000d7a808':
-    friendly_name: tylers_light
+    friendly_name: tyler_ceiling
   '0x54ef441000d7b0d1':
-    friendly_name: moms_light
+    friendly_name: master_ceiling
   '0xb0ce181400033e9f':
-    friendly_name: hall_bath_fan
+    friendly_name: hall_bath_light
   '0xb0ce18140003b3d8':
-    friendly_name: moms_bath-fan
+    friendly_name: master_bath_light
   '0xb0ce18140003332b':
     friendly_name: basement_hall2
   '0xb0ce18140003a080':
     friendly_name: basement_hall1
   '0xe406bffffe4c871e':
-    friendly_name: deck_door_curtain
+    friendly_name: dining_curtain
   '0xe406bffffe2bc96e':
-    friendly_name: lr_curtain_s
+    friendly_name: lr_curtain_south
   '0x6cfd22fffe5a7905':
-    friendly_name: moms_curtain
+    friendly_name: master_curtain
   '0xffffb40e0605808e':
-    friendly_name: T-plug
+    friendly_name: tyler_plug
   '0xffffb40e060562b5':
-    friendly_name: K-plug
+    friendly_name: kia_plug
   '0xffffb40e06054417':
     friendly_name: entry_plug
   '0xffffb40e0603ed79':
@@ -138,20 +136,22 @@ devices:
   '0xb0ce18140005d14f':
     friendly_name: '0xb0ce18140005d14f'
   '0xa4c1380d5a3cd3c1':
-    friendly_name: Under Cabinet South
+    friendly_name: kitchen_uc_1
   '0xa4c138d8c12b1f53':
-    friendly_name: Under Cabinet By the Fridge
+    friendly_name: kitchen_uc_4
   '0xa4c138cda4d24a98':
-    friendly_name: Under Cabinet 3fer
+    friendly_name: kitchen_uc_3
   '0xb40e060fffe23b52':
-    friendly_name: kitchen sensor 1
+    friendly_name: kitchen_motion
   '0xa4c1380c83af2d32':
-    friendly_name: over_the__sink
+    friendly_name: kitchen_uc_2
   '0xa4c1381f17fb1e4d':
-    friendly_name: around_the_island
+    friendly_name: kitchen_uc_5
   '0xb0ce18140003dab0':
-    friendly_name: Kias_floor_lamp
+    friendly_name: Kias_lamp
   '0xb0ce1814000394e7':
     friendly_name: moms_closet
   '0xb40e060fffe23a9d':
     friendly_name: moms_closet_motion
+  '0x403059fffe6349c4':
+    friendly_name: kia_curtain
