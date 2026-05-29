@@ -8,5 +8,5 @@
       target:
         entity_id: 
           - cover.living_room_curtains 
-          - cover.deck_door_curtain
+          - cover.dining_curtain
   mode: single
