@@ -5,11 +5,6 @@
       brightness: 100
       color_temp: 150
 
-    light.kitchen_under_cabinet:
-      state: "on"
-      brightness_pct: 20
-      color_temp: 325
-
     light.moms_light_rgb:
       state: "off"
 
