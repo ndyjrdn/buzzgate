@@ -13,10 +13,6 @@
       brightness: 200
       color_temp: 250
 
-    light.kitchen_under_cabinet:
-      state: "on"
-      brightness_pct: 30
-      color_temp: 325
 
     light.living_room_ceiling:
       state: "on"
