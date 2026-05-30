@@ -12,5 +12,3 @@
     light.entryway:
       state: "off"
 
-    light.kitchen_under_cabinet:
-      state: "off"
