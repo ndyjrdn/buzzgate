@@ -31,8 +31,8 @@
 - platform: group
   name: Basement Hallway Lights
   entities:
-    - light.basement_hall1
-    - light.basement_hall2
+    - light.basement_hall_1
+    - light.basement_hall_2
 
 - platform: group
   name: Living Room Ceiling
