@@ -132,7 +132,7 @@ timer:
     name:  Tyler Motion Hold
     duration: "00:02:00"
   master_bedroom_motion_hold:
-    name: Bedroom Motion Hold
+    name: Master Bedroom Motion Hold
     duration: "00:02:00"
 
 
