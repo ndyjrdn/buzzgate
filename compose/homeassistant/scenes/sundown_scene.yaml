@@ -8,7 +8,7 @@
       brightness: 150
       color_temp: 300
 
-    light.kitchen:
+    light.kitchen_ceiling_lights:
       state: "on"
       brightness: 200
       color_temp: 250
