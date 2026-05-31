@@ -5,7 +5,7 @@
       brightness: 200
       rgb_color: [215, 151, 255]   # purple accent
 
-    light.kitchen:
+    light.kitchen_ceiling_lights:
       state: "on"
       brightness: 225
       color_temp: 75               # warm white
