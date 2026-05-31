@@ -1,15 +1,15 @@
 - id: kitchen_under_cabinet_drift
   alias: Kitchen – Under Cabinet Drift
-  mode: restart
-
+  mode: single
   trigger:
     - platform: time
       at: "09:00:00"
-
   action:
-    - variables:
-        hue: 0
-
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.kitchen_hue
+      data:
+        value: 0
     - repeat:
         while:
           - condition: time
@@ -19,11 +19,12 @@
             target:
               entity_id: light.kitchen_under_cabinet
             data:
-              hs_color: ["{{ hue }}", 80]
+              hs_color: "{{ [states('input_number.kitchen_hue') | int, 80] }}"
               brightness_pct: 40
               transition: 1800
-
           - delay: "00:30:00"
-
-          - variables:
-              hue: "{{ (hue + 1) % 360 }}"
+          - service: input_number.set_value
+            target:
+              entity_id: input_number.kitchen_hue
+            data:
+              value: "{{ (states('input_number.kitchen_hue') | int + 1) % 360 }}"
