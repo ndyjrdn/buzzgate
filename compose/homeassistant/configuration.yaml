@@ -131,6 +131,9 @@ timer:
   tyler_motion_hold:
     name:  Tyler Motion Hold
     duration: "00:02:00"
+  master_bedroom_motion_hold:
+    name: Bedroom Motion Hold
+    duration: "00:02:00"
 
 
 shell_command:
