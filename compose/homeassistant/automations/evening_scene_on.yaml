@@ -33,11 +33,6 @@
     # Curtains close as before
     - service: cover.close_cover
       target:
-        entity_id:
-          - cover.living_room_curtains
-          - cover.dining_curtain
-          - cover.kia_curtain
-          - cover.tyler_curtain
-          - cover.master_curtain
+        entity_id: cover.all_curtains
 
   mode: single
