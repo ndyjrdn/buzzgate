@@ -1,11 +1,9 @@
-2026-05-29 15:21:25.543 WARNING (SyncWorker_0) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
-2026-05-29 15:21:25.571 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration govee which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-29 15:21:25.571 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-29 15:21:25.571 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration sensi which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
-2026-05-29 15:21:25.962 ERROR (MainThread) [homeassistant.config] Invalid config for 'cover' at configuration.yaml, line 14: required key 'platform' not provided, please check the docs at https://www.home-assistant.io/integrations/cover
-2026-05-29 15:21:25.963 ERROR (MainThread) [homeassistant.config] Invalid config for 'light' at configuration.yaml, line 13: required key 'platform' not provided, please check the docs at https://www.home-assistant.io/integrations/light
-2026-05-29 15:21:26.553 WARNING (SyncWorker_6) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
-2026-05-29 15:21:26.560 WARNING (MainThread) [homeassistant.util.loop] Detected blocking call to load_verify_locations with args (<ssl.SSLContext object at 0x76920c13fa70>, '/usr/local/lib/python3.13/site-packages/certifi/cacert.pem', None, None) inside the event loop by custom integration 'govee' at custom_components/govee/__init__.py, line 53: hub = await Govee.create( (offender: /usr/local/lib/python3.13/ssl.py, line 717: context.load_verify_locations(cafile, capath, cadata)), please create a bug report at https://github.com/LaggAt/hacs-govee/issues
+2026-05-30 22:58:38.528 WARNING (SyncWorker_0) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-30 22:58:38.557 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration govee which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2026-05-30 22:58:38.558 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2026-05-30 22:58:38.558 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration sensi which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2026-05-30 22:58:39.396 WARNING (SyncWorker_2) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-30 22:58:39.420 WARNING (MainThread) [homeassistant.util.loop] Detected blocking call to load_verify_locations with args (<ssl.SSLContext object at 0x7b1455f6e030>, '/usr/local/lib/python3.13/site-packages/certifi/cacert.pem', None, None) inside the event loop by custom integration 'govee' at custom_components/govee/__init__.py, line 53: hub = await Govee.create( (offender: /usr/local/lib/python3.13/ssl.py, line 717: context.load_verify_locations(cafile, capath, cadata)), please create a bug report at https://github.com/LaggAt/hacs-govee/issues
 For developers, please see https://developers.home-assistant.io/docs/asyncio_blocking_operations/#load_verify_locations
 Traceback (most recent call last):
   File "<frozen runpy>", line 198, in _run_module_as_main
@@ -41,10 +39,10 @@ Traceback (most recent call last):
   File "/config/custom_components/govee/__init__.py", line 53, in async_setup_entry
     hub = await Govee.create(
 
-2026-05-29 15:21:26.727 WARNING (MainThread) [custom_components.govee] API is back online.
-2026-05-29 15:21:26.727 WARNING (MainThread) [govee_api_laggat.api] Rate limit exceeded, check if other devices also utilize the govee API
-2026-05-29 15:21:26.727 WARNING (MainThread) [custom_components.govee] Could not connect to Govee API: API: API-Error 429: {"message":"rate limited! the limit is 10000 requests every 24 hours. X-RateLimit-Reset in Http Response Header shows the reset time."}
-2026-05-29 15:21:26.727 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry govee for govee
+2026-05-30 22:58:39.582 WARNING (MainThread) [custom_components.govee] API is back online.
+2026-05-30 22:58:39.582 WARNING (MainThread) [govee_api_laggat.api] Rate limit exceeded, check if other devices also utilize the govee API
+2026-05-30 22:58:39.582 WARNING (MainThread) [custom_components.govee] Could not connect to Govee API: API: API-Error 429: {"message":"rate limited! the limit is 10000 requests every 24 hours. X-RateLimit-Reset in Http Response Header shows the reset time."}
+2026-05-30 22:58:39.582 ERROR (MainThread) [homeassistant.config_entries] Error setting up entry govee for govee
 Traceback (most recent call last):
   File "/usr/src/homeassistant/homeassistant/config_entries.py", line 762, in __async_setup_with_context
     result = await component.async_setup_entry(hass, self)
@@ -53,7 +51,317 @@ Traceback (most recent call last):
     await hub.rate_limit_delay()
           ^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'Govee' object has no attribute 'rate_limit_delay'. Did you mean: 'rate_limit_reset'?
-2026-05-29 15:24:16.402 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
-2026-05-29 15:27:12.484 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
-2026-05-29 15:28:11.191 WARNING (SyncWorker_9) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
-2026-05-29 15:28:18.261 WARNING (MainThread) [homeassistant.runner] Task could not be canceled and was still running after shutdown: <Task cancelling name='Task-244' coro=<FcmPushClient._listen() running at /usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py:728> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-05-30 23:02:05.607 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-30 23:02:05.608 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-30 23:50:57.391 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-30 23:50:57.392 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 00:06:06.463 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 00:06:06.464 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 00:09:57.042 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 00:09:57.043 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 00:22:21.664 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 00:24:55.342 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 00:27:35.242 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 00:30:08.520 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 00:44:06.518 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 00:45:16.443 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 00:46:39.253 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 00:48:09.596 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 01:16:37.204 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 01:19:10.695 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 01:42:48.645 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 01:42:48.645 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen are missing or not currently available
+2026-05-31 01:42:49.647 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 01:42:49.649 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.kitchen
+2026-05-31 01:42:49.649 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 01:42:49.650 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 02:06:36.199 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:09:33.394 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.tyler_ceiling_white are missing or not currently available
+2026-05-31 02:11:08.592 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.tyler_ceiling_white are missing or not currently available
+2026-05-31 02:12:57.233 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:13:08.003 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.tyler_ceiling_white are missing or not currently available
+2026-05-31 02:15:27.665 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:21:29.404 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:23:20.682 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:28:44.661 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.banister_light, light.se_le_corner, light.tv_lights are missing or not currently available
+2026-05-31 02:28:48.282 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.banister_light, light.se_le_corner, light.tv_lights are missing or not currently available
+2026-05-31 02:28:49.353 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:29:46.603 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:30:02.268 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.kitchen are missing or not currently available
+2026-05-31 02:30:02.269 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.entryway
+2026-05-31 02:30:02.269 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.kitchen
+2026-05-31 02:38:04.362 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:47:47.368 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 02:53:35.012 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 03:14:37.160 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 04:00:58.918 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 04:02:41.768 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 05:04:49.669 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 05:07:21.587 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 05:13:40.861 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 05:15:05.050 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 06:07:34.706 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 06:22:29.127 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 06:27:23.772 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 06:28:51.960 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 06:31:29.974 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 06:39:13.947 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 06:47:32.834 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 06:48:29.576 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 08:15:08.436 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 10:00:00.270 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.kitchen
+2026-05-31 10:00:00.270 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.moms_light_rgb
+2026-05-31 10:00:00.270 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.moms_light_white
+2026-05-31 10:00:00.270 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.entryway
+2026-05-31 11:23:42.834 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:24:52.683 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:27:46.072 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:29:08.532 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:30:06.755 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:36:20.446 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:40:57.078 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:47:17.411 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:51:28.713 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 11:53:31.503 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 12:56:36.172 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:01:29.148 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:04:40.004 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:17:39.141 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:27:10.456 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:28:32.336 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:36:02.881 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:45:59.718 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:46:44.546 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:47:39.410 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:48:32.547 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:50:43.194 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 13:54:51.589 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 13:57:25.144 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 14:00:00.259 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.moms_light_rgb
+2026-05-31 14:00:00.259 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.moms_light_white
+2026-05-31 14:00:00.259 WARNING (MainThread) [homeassistant.components.light.reproduce_state] Unable to find entity light.entryway
+2026-05-31 14:31:25.115 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 14:31:25.118 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 14:40:04.445 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 14:40:04.446 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 14:48:41.961 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 14:48:41.962 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 14:52:06.043 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 14:52:06.043 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 15:22:23.848 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 15:22:23.850 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 15:24:05.410 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 15:24:05.411 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 15:36:04.535 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.tyler_ceiling_white are missing or not currently available
+2026-05-31 15:45:58.022 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 15:45:58.023 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 15:46:44.370 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 15:46:44.371 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 15:50:00.699 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 15:50:00.700 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 15:51:37.140 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 15:54:37.627 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 15:58:14.042 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 15:58:14.043 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 15:59:54.005 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 16:01:17.785 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 16:01:17.786 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 16:02:33.521 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 16:02:44.878 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 16:02:44.878 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 16:05:12.444 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 16:05:12.445 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 16:11:59.187 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 16:11:59.188 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 16:16:06.959 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 16:16:06.960 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 16:23:13.025 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 16:24:23.664 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 16:26:56.071 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:00:39.663 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:00:39.664 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:01:42.348 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:01:42.348 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:05:56.984 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:05:56.985 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:07:05.132 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:07:05.133 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:08:24.621 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:08:24.622 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:09:13.624 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:09:13.625 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:09:57.282 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:10:48.153 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:10:48.154 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:12:18.534 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:12:18.535 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:12:30.596 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:22:32.821 ERROR (MainThread) [firebase_messaging.fcmpushclient] Unexpected exception during read
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py", line 687, in _listen
+    elif msg := await self._receive_msg():
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py", line 300, in _receive_msg
+    r = await self.reader.readexactly(1)  # type: ignore[union-attr]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/asyncio/streams.py", line 767, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 1 expected bytes
+2026-05-31 17:24:04.858 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:26:11.984 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:26:11.985 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:26:43.414 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:27:52.053 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:28:27.989 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:28:27.990 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:28:48.476 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:30:03.813 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:30:37.439 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:32:58.156 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:36:00.712 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:38:13.487 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:39:17.081 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:39:17.082 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:39:41.149 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:40:00.103 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:40:00.103 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:41:12.947 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:41:12.949 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:42:26.740 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:43:51.096 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:43:51.097 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:44:30.173 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:44:30.174 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:45:11.493 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:45:11.494 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:47:36.488 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 17:47:36.489 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 17:47:54.957 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:50:46.429 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:53:13.119 ERROR (MainThread) [firebase_messaging.fcmpushclient] Unexpected exception during read
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py", line 687, in _listen
+    elif msg := await self._receive_msg():
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py", line 300, in _receive_msg
+    r = await self.reader.readexactly(1)  # type: ignore[union-attr]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/asyncio/streams.py", line 769, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/usr/local/lib/python3.13/asyncio/streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "/usr/local/lib/python3.13/asyncio/selector_events.py", line 980, in _read_ready__get_buffer
+    nbytes = self._sock.recv_into(buf)
+ConnectionResetError: [Errno 104] Connection reset by peer
+2026-05-31 17:55:01.991 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 17:57:35.844 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:08:34.432 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:08:34.433 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:09:26.326 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:10:02.982 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:10:02.983 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:11:07.640 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:11:07.640 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:12:06.561 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:14:31.185 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:14:39.403 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:14:39.404 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:17:12.381 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:17:12.382 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:17:21.341 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:22:20.741 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:22:20.741 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:22:39.315 ERROR (MainThread) [firebase_messaging.fcmpushclient] Unexpected exception during read
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py", line 687, in _listen
+    elif msg := await self._receive_msg():
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py", line 300, in _receive_msg
+    r = await self.reader.readexactly(1)  # type: ignore[union-attr]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/asyncio/streams.py", line 767, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 1 expected bytes
+2026-05-31 18:29:36.686 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:29:36.687 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:29:54.484 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:32:27.229 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:32:29.594 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:34:53.719 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:34:53.720 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:35:06.626 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 18:38:02.763 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:38:02.763 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:40:38.785 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:40:38.786 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:44:55.457 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:44:55.457 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:46:15.171 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:46:15.172 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:51:11.190 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:51:11.192 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 18:52:19.673 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 18:52:19.673 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 19:00:12.818 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 19:00:17.935 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 19:00:17.936 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 19:01:16.165 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 19:03:48.586 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 19:03:51.765 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 19:06:25.141 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities light.entryway are missing or not currently available
+2026-05-31 19:25:00.449 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 19:25:00.450 WARNING (MainThread) [homeassistant.helpers.service] Referenced entities timer.master_bedroom_motion_hold are missing or not currently available
+2026-05-31 19:29:13.862 WARNING (SyncWorker_9) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.058 WARNING (SyncWorker_0) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.068 WARNING (SyncWorker_7) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.073 WARNING (SyncWorker_11) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.075 WARNING (SyncWorker_9) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.083 WARNING (SyncWorker_19) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.085 WARNING (SyncWorker_15) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.087 WARNING (SyncWorker_10) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.089 WARNING (SyncWorker_17) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.091 WARNING (SyncWorker_18) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.093 WARNING (SyncWorker_3) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.095 WARNING (SyncWorker_8) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.096 WARNING (SyncWorker_20) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.106 WARNING (SyncWorker_13) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.108 WARNING (SyncWorker_1) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.111 WARNING (SyncWorker_14) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.113 WARNING (SyncWorker_5) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.114 WARNING (SyncWorker_16) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.115 WARNING (SyncWorker_12) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.118 WARNING (SyncWorker_2) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.119 WARNING (SyncWorker_6) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.124 WARNING (SyncWorker_4) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.143 WARNING (SyncWorker_11) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.147 WARNING (SyncWorker_19) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:29:14.151 WARNING (SyncWorker_9) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.132 WARNING (SyncWorker_10) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.338 WARNING (SyncWorker_9) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.341 WARNING (SyncWorker_8) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.345 WARNING (SyncWorker_17) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.353 WARNING (SyncWorker_21) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.354 WARNING (SyncWorker_3) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.359 WARNING (SyncWorker_7) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.360 WARNING (SyncWorker_0) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.361 WARNING (SyncWorker_4) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.372 WARNING (SyncWorker_11) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.374 WARNING (SyncWorker_16) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.375 WARNING (SyncWorker_12) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.378 WARNING (SyncWorker_19) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.378 WARNING (SyncWorker_5) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.381 WARNING (SyncWorker_15) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.383 WARNING (SyncWorker_18) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.384 WARNING (SyncWorker_13) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.394 WARNING (SyncWorker_2) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.395 WARNING (SyncWorker_6) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.395 WARNING (SyncWorker_1) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.399 WARNING (SyncWorker_14) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.404 WARNING (SyncWorker_20) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.417 WARNING (SyncWorker_17) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.424 WARNING (SyncWorker_21) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:41:06.424 WARNING (SyncWorker_3) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:44:02.536 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 19:58:19.147 WARNING (MainThread) [homeassistant.components.light] Got `color_temp` argument in `turn_on` service, which is deprecated and will break in Home Assistant 2026.1, please use `color_temp_kelvin` argument
+2026-05-31 19:59:00.127 WARNING (SyncWorker_18) [annotatedyaml.constructors] YAML file /config/configuration.yaml contains duplicate key "cover". Check lines 9 and 13
+2026-05-31 19:59:07.204 WARNING (MainThread) [homeassistant.runner] Task could not be canceled and was still running after shutdown: <Task cancelling name='Task-271' coro=<FcmPushClient._listen() running at /usr/local/lib/python3.13/site-packages/firebase_messaging/fcmpushclient.py:728> wait_for=<Future pending cb=[Task.task_wakeup()]>>
