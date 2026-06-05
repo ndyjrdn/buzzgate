@@ -36,7 +36,7 @@
                 entity_id: light.master_ceiling_rgb
               data:
                 brightness_pct: 50
-                rgb_color: [128, 0, 255]
+                rgb_color: [217, 225, 242]
             - service: timer.start
               target:
                 entity_id: timer.master_bedroom_motion_hold
@@ -49,8 +49,8 @@
           target:
             entity_id: light.master_ceiling_rgb
           data:
-            brightness_pct: 10             # very dim, won't destroy night vision
-            rgb_color: [255, 60, 0]        # warm amber — adjust to taste
+            brightness_pct: 5             # very dim, won't destroy night vision
+            rgb_color: [217, 225, 242]        # warm amber — adjust to taste
         - service: timer.start
           target:
             entity_id: timer.master_bedroom_motion_hold
