@@ -7,98 +7,11 @@ automation: !include_dir_merge_list automations
 script: !include_dir_merge_list scripts
 scene: !include_dir_merge_list scenes
 sensor: !include_dir_merge_list sensors
-cover: !include_dir_merge_list covers
 template: !include_dir_merge_list templates
 group: !include_dir_merge_named groups
 light: !include groups/light_groups.yaml
 cover: !include groups/curtain_groups.yaml
 
-
-
-
-
-input_text:
-  mealie_recipe_id:
-    name: Mealie Recipe ID
-
-
-
-rest_command:
-  mealie_get_recipe:
-    url: "http://cy:9000/api/recipes/{{ recipe_id }}"
-    method: GET
-    headers:
-      Authorization: "Bearer YOURTOKEN"
-    verify_ssl: false
-
-  directus_update_task:
-    url: "http://cy.local:8055/items/tasks/{{ id }}"
-    method: PATCH
-    headers:
-      Authorization: !secret directus_token
-      Content-Type: "application/json"
-    payload: >
-      {
-        "done": {{ done | lower }}
-      }
-
-  directus_create_task:
-    url: "http://cy.local:8055/items/tasks"
-    method: POST
-    headers:
-      Authorization: !secret directus_token
-      Content-Type: "application/json"
-    payload: >
-      {
-        "title": "{{ title }}",
-        "description": "{{ description }}",
-        "assigned_to": "{{ assigned_to }}",
-        "Frequency": "{{ frequency }}",
-        "done": false
-      }
-
-input_select:
-  task_frequency_filter_andy:
-    name: Andy Task Frequency Filter
-    options:
-      - All
-      - Daily
-      - Weekly
-      - Monthly
-      - Quarterly
-    initial: All
-
-  task_frequency_filter_lisa:
-    name: Lisa Task Frequency Filter
-    options:
-      - All
-      - Daily
-      - Weekly
-      - Monthly
-      - Quarterly
-    initial: All
-
-  task_frequency_filter_tyler:
-    name: Tyler Task Frequency Filter
-    options:
-      - All
-      - Daily
-      - Weekly
-      - Monthly
-      - Quarterly
-    initial: All
-
-  task_frequency_filter_kia:
-    name: Kia Task Frequency Filter
-    options:
-      - All
-      - Daily
-      - Weekly
-      - Monthly
-      - Quarterly
-    initial: All
- 
-    
 lovelace:
   dashboards:
     buzzgate-monitor:
@@ -107,38 +20,29 @@ lovelace:
       icon: mdi:server
       filename: dashboards/buzzgate-monitor.yaml
       show_in_sidebar: true
-    household-tasks:
-      mode: yaml
-      title: Household Tasks
-      icon: mdi:clipboard-text
-      filename: dashboards/household-tasks.yaml
-      show_in_sidebar: true
     curtain-batteries:
       mode: yaml
       title: Curtain Robot Batteries
       icon: mdi:battery
       show_in_sidebar: true
       filename: dashboards/curtain-batteries.yaml
+
 input_datetime:
   evening_scene_time:
     name: Evening Scene Time
     has_time: true
     has_date: false
+
 timer:
   bedroom_motion_hold:
     name: Bedroom Motion Hold
     duration: "00:02:00"
   tyler_motion_hold:
-    name:  Tyler Motion Hold
+    name: Tyler Motion Hold
     duration: "00:02:00"
   master_bedroom_motion_hold:
     name: Master Bedroom Motion Hold
     duration: "00:02:00"
 
-
 shell_command:
-  play_alert: 'aplay /home/pi/alert.wav'  
-
-
-
-
+  play_alert: 'aplay /home/pi/alert.wav'
