@@ -11,7 +11,7 @@ services:
       - /mnt/cycloud-share/nextcloud/data:/var/www/html/data
       - /mnt/photos:/mnt/photos:ro
     environment:
-      - MYSQL_PASSWORD=REDACTED_NEXTCLOUD_DB_PW
+      - MYSQL_PASSWORD=8f6a4efd49a9d15daafc343dca671f79
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=andy
       - MYSQL_HOST=mariadb
@@ -23,10 +23,10 @@ services:
     image: mariadb:latest
     container_name: cycloud-db
     environment:
-      - MYSQL_ROOT_PASSWORD=REDACTED_NEXTCLOUD_DB_PW
+      - MYSQL_ROOT_PASSWORD=8f6a4efd49a9d15daafc343dca671f79
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=andy
-      - MYSQL_PASSWORD=REDACTED_NEXTCLOUD_DB_PW
+      - MYSQL_PASSWORD=8f6a4efd49a9d15daafc343dca671f79
     volumes:
       - /home/andy/buzzgate/compose/nextcloud/db:/var/lib/mysql
     networks:

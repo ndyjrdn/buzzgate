@@ -12,7 +12,7 @@ services:
       - "6996:8080"
     environment:
       - OLLAMA_BASE_URL=http://192.168.1.177:11434
-      - WEBUI_SECRET_KEY=REDACTED_WEBUI_KEY
+      - WEBUI_SECRET_KEY=c1461c7cc943283c3488adcd5d4118c90bc5c423d8cabb81202e6abef838e7c9
     volumes:
       - /mnt/llm-memory:/app/memory
       - /mnt/skippy-webui-data:/app/backend/data
