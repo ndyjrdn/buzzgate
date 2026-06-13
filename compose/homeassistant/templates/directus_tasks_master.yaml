@@ -1,9 +1,0 @@
-- sensor:
-    - name: directus_tasks_master
-      unique_id: directus_tasks_master
-      state: "{{ now() }}"
-      attributes:
-        andy: "{{ state_attr('sensor.directus_tasks_andy', 'data') or [] }}"
-        lisa: "{{ state_attr('sensor.directus_tasks_lisa', 'data') or [] }}"
-        tyler: "{{ state_attr('sensor.directus_tasks_tyler', 'data') or [] }}"
-        kia: "{{ state_attr('sensor.directus_tasks_kia', 'data') or [] }}"
