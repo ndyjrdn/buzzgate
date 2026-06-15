@@ -25,11 +25,11 @@
               data:
                 duration: "00:02:00"
 
-        # Nighttime (19:30–midnight)
+        # Evening (19:30–21:30)
         - conditions:
             - condition: time
               after: "19:30:00"
-              before: "23:59:59"
+              before: "21:30:00"
           sequence:
             - service: light.turn_on
               target:
@@ -42,20 +42,6 @@
                 entity_id: timer.master_bedroom_motion_hold
               data:
                 duration: "00:02:00"
-
-      # Default: late night / early morning (midnight–09:00)
-      default:
-        - service: light.turn_on
-          target:
-            entity_id: light.master_ceiling_rgb
-          data:
-            brightness_pct: 5             # very dim, won't destroy night vision
-            rgb_color: [217, 225, 242]        # warm amber — adjust to taste
-        - service: timer.start
-          target:
-            entity_id: timer.master_bedroom_motion_hold
-          data:
-            duration: "00:02:00"
 
 - id: master_bedroom_motion_timeout
   alias: Master Bedroom – Motion Timeout

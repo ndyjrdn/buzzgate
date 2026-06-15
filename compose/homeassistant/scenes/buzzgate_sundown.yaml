@@ -3,11 +3,6 @@
     cover.all_curtains:
       state: "closed"
 
-    light.hallway_lights:
-      state: "on"
-      brightness: 150
-      color_temp: 300
-
     light.kitchen_ceiling_lights:
       state: "on"
       brightness: 200
