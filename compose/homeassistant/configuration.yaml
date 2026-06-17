@@ -26,6 +26,12 @@ lovelace:
       icon: mdi:battery
       show_in_sidebar: true
       filename: dashboards/curtain-batteries.yaml
+    home-control:
+      mode: yaml
+      title: Home Control
+      icon: mdi:home-automation
+      show_in_sidebar: true
+      filename: dashboards/control.yaml
 
 input_datetime:
   evening_scene_time:
@@ -46,3 +52,10 @@ timer:
 
 shell_command:
   play_alert: 'aplay /home/pi/alert.wav'
+
+recorder:
+  purge_keep_days: 30
+
+history:
+
+logbook:

@@ -1,0 +1,224 @@
+title: Home Control
+path: home-control
+icon: mdi:home-automation
+
+views:
+  - title: Home
+    path: main
+    icon: mdi:home-floor-1
+    cards:
+
+      # ── Quick Actions ──────────────────────────────────────────────────────
+      - type: entities
+        title: Quick Actions
+        show_header_toggle: false
+        entities:
+          - type: button
+            name: Evening Scene
+            icon: mdi:weather-sunset
+            action_name: Activate
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.buzzgate_evening_on
+
+          - type: button
+            name: Sundown (Curtains + Dim)
+            icon: mdi:curtains-closed
+            action_name: Activate
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.buzzgate_sundown
+
+          - type: button
+            name: Morning Scene
+            icon: mdi:weather-sunny-alert
+            action_name: Activate
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.buzzgate_morning
+
+          - type: button
+            name: Evening Off
+            icon: mdi:moon-waning-crescent
+            action_name: Activate
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.buzzgate_evening_off
+
+      # ── Curtains ───────────────────────────────────────────────────────────
+      - type: horizontal-stack
+        cards:
+          - type: button
+            name: Open All Curtains
+            icon: mdi:curtains
+            show_name: true
+            tap_action:
+              action: call-service
+              service: cover.open_cover
+              service_data:
+                entity_id: cover.all_curtains
+
+          - type: button
+            name: Close All Curtains
+            icon: mdi:curtains-closed
+            show_name: true
+            tap_action:
+              action: call-service
+              service: cover.close_cover
+              service_data:
+                entity_id: cover.all_curtains
+
+      # ── Main Floor ─────────────────────────────────────────────────────────
+      - type: heading
+        heading: Main Floor
+
+      - type: area
+        area: dining_room
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      - type: area
+        area: kitchen
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      - type: area
+        area: living_room
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      - type: area
+        area: entryway
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      - type: area
+        area: hallway
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      - type: area
+        area: hall_bath
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      # ── Bedrooms ───────────────────────────────────────────────────────────
+      - type: heading
+        heading: Bedrooms
+
+      - type: area
+        area: bedroom
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      - type: area
+        area: mom_s_bathroom
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      - type: area
+        area: tyler_s_bedroom
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      - type: area
+        area: kia_s_bedroom
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      # ── Basement ───────────────────────────────────────────────────────────
+      - type: heading
+        heading: Basement
+
+      - type: area
+        area: basement_hall
+        display_type: picture
+        features_position: bottom
+        features:
+          - type: area-controls
+        alert_classes: [motion, moisture]
+        sensor_classes: [temperature, humidity]
+
+      # ── Climate ────────────────────────────────────────────────────────────
+      - type: heading
+        heading: Climate
+
+      - type: thermostat
+        entity: climate.sensi_hotness
+        name: Thermostat
+
+      # ── Security ───────────────────────────────────────────────────────────
+      - type: heading
+        heading: Security
+
+      - type: picture-glance
+        title: Front Door
+        entity: camera.front_door_live_view
+        camera_view: live
+        entities:
+          - entity: camera.front_door_live_view
+
+      # ── Status ─────────────────────────────────────────────────────────────
+      - type: heading
+        heading: Status
+
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.kitchen_lumos_illuminance
+            name: Kitchen Lux
+            icon: mdi:brightness-6
+          - entity: light.kitchen_ceiling_lights
+            name: Kitchen Ceiling
+          - entity: light.living_room_ceiling
+            name: Living Room
+          - entity: cover.all_curtains
+            name: Curtains

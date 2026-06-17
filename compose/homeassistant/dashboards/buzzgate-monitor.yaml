@@ -1,0 +1,98 @@
+title: Buzzgate Monitor
+path: buzzgate-monitor
+icon: mdi:server
+
+views:
+
+  # ── Kitchen Lux ───────────────────────────────────────────────────────────
+  - title: Kitchen Lux
+    path: kitchen-lux
+    icon: mdi:brightness-6
+    cards:
+
+      - type: horizontal-stack
+        cards:
+          - type: entity
+            name: Current Lux
+            entity: sensor.kitchen_lumos_illuminance
+            icon: mdi:weather-sunny
+          - type: entity
+            name: 30-min Avg
+            entity: sensor.kitchen_lux_30min_mean
+            icon: mdi:chart-line
+          - type: entity
+            name: Hourly Avg
+            entity: sensor.kitchen_lux_hourly_mean
+            icon: mdi:chart-bell-curve
+
+      - type: history-graph
+        title: Kitchen Lux — Last 24 Hours
+        hours_to_show: 24
+        refresh_interval: 300
+        entities:
+          - entity: sensor.kitchen_lumos_illuminance
+            name: Raw Lux
+          - entity: sensor.kitchen_lux_30min_mean
+            name: 30-min Mean
+          - entity: sensor.kitchen_lux_hourly_mean
+            name: Hourly Mean
+
+      - type: history-graph
+        title: Kitchen Lights — Last 24 Hours
+        hours_to_show: 24
+        refresh_interval: 300
+        entities:
+          - entity: light.kitchen_ceiling_lights
+            name: Ceiling
+          - entity: light.kitchen_under_cabinet
+            name: Under Cabinet
+
+  # ── Server Health ──────────────────────────────────────────────────────────
+  - title: Server
+    path: server
+    icon: mdi:server-network
+    cards:
+
+      # Live stat row via Grafana panel iframes
+      - type: horizontal-stack
+        cards:
+          - type: iframe
+            title: CPU
+            url: "http://192.168.1.177:3000/d-solo/buzzgate-server/buzzgate-server?orgId=1&panelId=1&refresh=30s&theme=dark"
+            aspect_ratio: "3:2"
+          - type: iframe
+            title: Memory
+            url: "http://192.168.1.177:3000/d-solo/buzzgate-server/buzzgate-server?orgId=1&panelId=2&refresh=30s&theme=dark"
+            aspect_ratio: "3:2"
+          - type: iframe
+            title: Disk
+            url: "http://192.168.1.177:3000/d-solo/buzzgate-server/buzzgate-server?orgId=1&panelId=3&refresh=30s&theme=dark"
+            aspect_ratio: "3:2"
+          - type: iframe
+            title: Load
+            url: "http://192.168.1.177:3000/d-solo/buzzgate-server/buzzgate-server?orgId=1&panelId=4&refresh=30s&theme=dark"
+            aspect_ratio: "3:2"
+
+      # CPU + Memory trends
+      - type: horizontal-stack
+        cards:
+          - type: iframe
+            title: CPU Trend
+            url: "http://192.168.1.177:3000/d-solo/buzzgate-server/buzzgate-server?orgId=1&panelId=5&refresh=30s&theme=dark&from=now-3h&to=now"
+            aspect_ratio: "4:3"
+          - type: iframe
+            title: Memory Trend
+            url: "http://192.168.1.177:3000/d-solo/buzzgate-server/buzzgate-server?orgId=1&panelId=6&refresh=30s&theme=dark&from=now-3h&to=now"
+            aspect_ratio: "4:3"
+
+      # Network + Container CPU
+      - type: horizontal-stack
+        cards:
+          - type: iframe
+            title: Network I/O
+            url: "http://192.168.1.177:3000/d-solo/buzzgate-server/buzzgate-server?orgId=1&panelId=7&refresh=30s&theme=dark&from=now-3h&to=now"
+            aspect_ratio: "4:3"
+          - type: iframe
+            title: Container CPU
+            url: "http://192.168.1.177:3000/d-solo/buzzgate-server/buzzgate-server?orgId=1&panelId=8&refresh=30s&theme=dark&from=now-3h&to=now"
+            aspect_ratio: "4:3"

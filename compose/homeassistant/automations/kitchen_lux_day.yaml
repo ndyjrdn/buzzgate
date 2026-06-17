@@ -1,51 +1,45 @@
 - id: kitchen_lux_control
-  alias: Kitchen Lux Control (Daytime)
-  mode: restart
+  alias: Kitchen Lux Control
+  description: "On when natural light drops below 200 lx, off when above 350 lx. Runs from sunrise to 20 min before sunset (sundown automation takes over)."
+  mode: single
+  max_exceeded: silent
 
   trigger:
     - platform: state
-      entity_id: sensor.luminance_kitchen
+      entity_id: sensor.kitchen_lumos_illuminance
 
   condition:
-    - condition: time
-      after: "09:00:00"
-      before: "16:45:00"
+    - condition: sun
+      after: sunrise
+      before: sunset
+      before_offset: "-00:20:00"
 
   action:
     - variables:
-        lux: "{{ states('sensor.luminance_kitchen') | float }}"
-        low: 150
-        medium: 180
-        high: 210
+        lux: "{{ states('sensor.kitchen_lumos_illuminance') | float(0) }}"
 
     - choose:
-        # Too dark → turn ON and set brightness lower
-        - conditions: "{{ lux < low }}"
+        # Too dark — turn both kitchen lights on
+        - conditions: "{{ lux < 200 }}"
           sequence:
             - service: light.turn_on
               target:
-                entity_id: light.kitchen
+                entity_id: light.kitchen_ceiling_lights
               data:
-                brightness_pct: >
-                  {{ [((low - lux) * 0.6) | int, 100] | min }}
-
-        # Between low and medium → adjust brightness proportionally
-        - conditions: "{{ lux >= low and lux <= medium }}"
-          sequence:
+                brightness_pct: 80
+                color_temp: 250
             - service: light.turn_on
               target:
-                entity_id: light.kitchen
+                entity_id: light.kitchen_under_cabinet
               data:
-                brightness_pct: >
-                  {{ [((lux - low) / (medium - low)) * 100, 100] | min }}
+                brightness_pct: 40
+                color_temp: 300
 
-        # Between medium and high → maintain current state
-        - conditions: "{{ lux >= medium and lux < high }}"
-          sequence: []
-
-        # Too bright → turn OFF
-        - conditions: "{{ lux > high }}"
+        # Bright enough — turn both off
+        - conditions: "{{ lux > 350 }}"
           sequence:
             - service: light.turn_off
               target:
-                entity_id: light.kitchen
+                entity_id:
+                  - light.kitchen_ceiling_lights
+                  - light.kitchen_under_cabinet

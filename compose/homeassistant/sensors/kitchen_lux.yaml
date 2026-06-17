@@ -1,0 +1,15 @@
+- platform: statistics
+  name: "Kitchen Lux 30min Mean"
+  entity_id: sensor.kitchen_lumos_illuminance
+  state_characteristic: mean
+  sampling_size: 50
+  max_age:
+    minutes: 30
+
+- platform: statistics
+  name: "Kitchen Lux Hourly Mean"
+  entity_id: sensor.kitchen_lumos_illuminance
+  state_characteristic: mean
+  sampling_size: 200
+  max_age:
+    hours: 1
