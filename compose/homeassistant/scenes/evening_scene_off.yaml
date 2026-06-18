@@ -6,7 +6,7 @@
     light.entryway:
       state: "off"
 
-    light.kitchen:
+    light.kitchen_ceiling_lights:
       state: "off"
 
     light.kitchen_under_cabinet:
