@@ -1,0 +1,32 @@
+esphome:
+  name: masterbathroomesp
+  friendly_name: MasterBathroomESP
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "IQ7O3riNCcdr/jWrR6NHBQB1VP4xY9Jqee7Z23YVHBY="
+
+ota:
+  - platform: esphome
+    password: "3cc68fa5d2030a96a46775b575ed4380"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Masterbathroomesp"
+    password: "gBwAo0y3v8nq"
+
+captive_portal:
+    
