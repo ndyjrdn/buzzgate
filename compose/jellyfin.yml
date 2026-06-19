@@ -23,6 +23,9 @@ services:
       # Jellyfin config + cache (Synology)
       - /volume1/JellyfinConfig:/config
       - /volume1/JellyfinCache:/cache
+      
+      #jellyfin music
+      - /mnt/music:/music 
 
     environment:
       - TZ=America/Chicago
