@@ -3,7 +3,7 @@
     light.hallway_lights:
       state: "off"
 
-    light.entryway:
+    light.entryway_lights:
       state: "off"
 
     light.kitchen_ceiling_lights:
