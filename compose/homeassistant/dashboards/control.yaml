@@ -18,9 +18,9 @@ views:
             icon: mdi:weather-sunset
             action_name: Activate
             tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
                 entity_id: scene.buzzgate_evening_on
 
           - type: button
@@ -28,9 +28,9 @@ views:
             icon: mdi:curtains-closed
             action_name: Activate
             tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
                 entity_id: scene.buzzgate_sundown
 
           - type: button
@@ -38,9 +38,9 @@ views:
             icon: mdi:weather-sunny-alert
             action_name: Activate
             tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
                 entity_id: scene.buzzgate_morning
 
           - type: button
@@ -48,9 +48,9 @@ views:
             icon: mdi:moon-waning-crescent
             action_name: Activate
             tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
+              action: perform-action
+              perform_action: scene.turn_on
+              target:
                 entity_id: scene.buzzgate_evening_off
 
       # ── Curtains ───────────────────────────────────────────────────────────
@@ -61,9 +61,9 @@ views:
             icon: mdi:curtains
             show_name: true
             tap_action:
-              action: call-service
-              service: cover.open_cover
-              service_data:
+              action: perform-action
+              perform_action: cover.open_cover
+              target:
                 entity_id: cover.all_curtains
 
           - type: button
@@ -71,9 +71,9 @@ views:
             icon: mdi:curtains-closed
             show_name: true
             tap_action:
-              action: call-service
-              service: cover.close_cover
-              service_data:
+              action: perform-action
+              perform_action: cover.close_cover
+              target:
                 entity_id: cover.all_curtains
 
       # ── Main Floor ─────────────────────────────────────────────────────────
