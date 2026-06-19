@@ -24,8 +24,7 @@ services:
       - /volume1/JellyfinConfig:/config
       - /volume1/JellyfinCache:/cache
       
-      #jellyfin music
-      - /mnt/music:/music 
+      - /mnt/music:/media/music
 
     environment:
       - TZ=America/Chicago
