@@ -25,6 +25,8 @@ services:
       - /volume1/JellyfinCache:/cache
       
       - /mnt/music:/media/music
+      - /mnt/nas_media/music:/media/nas_music
+
 
     environment:
       - TZ=America/Chicago
