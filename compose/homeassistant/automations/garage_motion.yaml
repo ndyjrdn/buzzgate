@@ -4,7 +4,7 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.garage_motion
+      entity_id: binary_sensor.garage_motion_occupancy
       to: "on"
 
   action:
@@ -16,7 +16,7 @@
 
     - wait_for_trigger:
         - platform: state
-          entity_id: binary_sensor.garage_motion
+          entity_id: binary_sensor.garage_motion_occupancy
           to: "off"
       timeout: "00:30:00"
 
