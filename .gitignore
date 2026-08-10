@@ -438,4 +438,22 @@ simtower/saves/
 #ignore Govee
 govee_learning.yaml
 
+# HA log check job runtime state (not secret, just noisy churn)
+monitor/.ha_log_check_offset
+
+# Runtime state that churns constantly and isn't config (not secret, just noise)
+compose/homeassistant/.ha_run.lock
+compose/homeassistant/.shopping_list.json
+compose/homeassistant/home-assistant.log.*
+compose/pihole/etc-pihole/gravity.db
+compose/pihole/etc-pihole/gravity_old.db
+compose/pihole/etc-pihole/list.*.domains
+compose/pihole/etc-pihole/list.*.domains.sha1
+compose/pihole/etc-pihole/versions
+compose/zigbee2mqtt/database.db
+compose/zigbee2mqtt/coordinator_backup.json
+compose/zigbee2mqtt/state.json
+compose/mosquitto/data/
+monitor/speedtest/speedtest.json
+
 
