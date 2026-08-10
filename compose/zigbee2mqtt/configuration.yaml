@@ -134,7 +134,7 @@ devices:
   '0xffffb40e06058079':
     friendly_name: b4-plug
   '0xb0ce18140005d14f':
-    friendly_name: '0xb0ce18140005d14f'
+    friendly_name: unknown
   '0xa4c1380d5a3cd3c1':
     friendly_name: kitchen_uc_1
   '0xa4c138d8c12b1f53':
@@ -143,10 +143,6 @@ devices:
     friendly_name: kitchen_uc_3
   '0xb40e060fffe23b52':
     friendly_name: kitchen_motion
-  '0xa4c1380c83af2d32':
-    friendly_name: kitchen_uc_2
-  '0xa4c1381f17fb1e4d':
-    friendly_name: kitchen_uc_5
   '0xb0ce18140003dab0':
     friendly_name: Kias_lamp
   '0xb0ce1814000394e7':
@@ -155,3 +151,13 @@ devices:
     friendly_name: moms_closet_motion
   '0x403059fffe6349c4':
     friendly_name: kia_curtain
+  '0x00158d008b1f6e6f':
+    friendly_name: garage_light2
+  '0x00158d008b1f84a2':
+    friendly_name: garage_light1
+  '0xb40e060fffe23825':
+    friendly_name: garage_motion
+  '0xa4c1380c83af2d32':
+    friendly_name: kitchen_uc_2
+  '0xa4c1381f17fb1e4d':
+    friendly_name: kitchen_uc_5
