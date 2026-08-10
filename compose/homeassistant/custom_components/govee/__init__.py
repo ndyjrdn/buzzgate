@@ -8,7 +8,7 @@ import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_API_KEY
 from homeassistant.core import HomeAssistant
-from homeassistant.exceptions import PlatformNotReady
+from homeassistant.exceptions import ConfigEntryNotReady
 
 from .const import DOMAIN
 from .learning_storage import GoveeLearningStorage
@@ -64,9 +64,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     _, err = await hub.get_devices()
     if err:
         _LOGGER.warning("Could not connect to Govee API: %s", err)
-        await hub.rate_limit_delay()
         await async_unload_entry(hass, entry)
-        raise PlatformNotReady()
+        raise ConfigEntryNotReady(err)
 
     for component in PLATFORMS:
         await hass.config_entries.async_forward_entry_setups(entry, [component])
@@ -93,13 +92,13 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
     return unload_ok
 
 
-def _unload_component_entry(
+async def _unload_component_entry(
     hass: HomeAssistant, entry: ConfigEntry, component: str
 ) -> bool:
     """Unload an entry for a specific component."""
     success = False
     try:
-        success = hass.config_entries.async_forward_entry_unload(entry, component)
+        success = await hass.config_entries.async_forward_entry_unload(entry, component)
     except ValueError:
         # probably ValueError: Config entry was never loaded!
         return success
