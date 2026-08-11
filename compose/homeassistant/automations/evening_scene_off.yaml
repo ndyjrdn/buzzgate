@@ -29,4 +29,17 @@
       target:
         entity_id: scene.buzzgate_evening_off
 
+    # Step 5: Safety net - the 900s fade should be done by now. Re-assert off
+    # in case a device (e.g. a Zigbee end device) missed its command earlier.
+    - delay: "00:16:00"
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.hallway_lights
+          - light.entryway_lights
+          - light.kitchen_ceiling_lights
+          - light.kitchen_under_cabinet
+          - light.dining_room
+          - light.living_room_ceiling
+
   mode: single
