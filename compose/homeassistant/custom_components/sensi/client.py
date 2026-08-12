@@ -272,7 +272,7 @@ class SensiClient:
                 parsed_response = SetOperatingModeEventSuccess(**response)
                 device.state.operating_mode = parsed_response.mode
                 return ActionResponse(None, None)
-            except ValueError, TypeError:
+            except (ValueError, TypeError):
                 return ActionResponse(f"Failed to parse `{response}`", None)
 
         return ActionResponse("No response received", None)
