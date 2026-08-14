@@ -456,4 +456,7 @@ compose/zigbee2mqtt/state.json
 compose/mosquitto/data/
 monitor/speedtest/speedtest.json
 
+# Prometheus's HA scrape credential
+compose/prometheus/.ha_token
+
 

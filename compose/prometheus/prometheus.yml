@@ -4,6 +4,11 @@ rule_files:
   - "alert.rules.yml"
   - "buzzgate.rules.yml"
 
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['alertmanager:9093']
+
 scrape_configs:
   - job_name: 'node-exporter'
     static_configs:
@@ -14,3 +19,9 @@ scrape_configs:
   - job_name: 'alertmanager'
     static_configs:
       - targets: ['alertmanager:9093']
+  - job_name: 'home-assistant'
+    metrics_path: /api/prometheus
+    authorization:
+      credentials_file: /etc/prometheus/ha_token
+    static_configs:
+      - targets: ['cy-ha:8123']

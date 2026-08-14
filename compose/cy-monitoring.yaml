@@ -23,6 +23,7 @@ services:
       - /home/andy/buzzgate/compose/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - /home/andy/buzzgate/compose/prometheus/buzzgate.rules.yml:/etc/prometheus/buzzgate.rules.yml
       - /home/andy/buzzgate/compose/prometheus/alert.rules.yml:/etc/prometheus/alert.rules.yml
+      - /home/andy/buzzgate/compose/prometheus/.ha_token:/etc/prometheus/ha_token:ro
       - prometheus_data:/prometheus
     networks:
       - compose_cynet

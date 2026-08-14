@@ -53,6 +53,9 @@ timer:
 shell_command:
   play_alert: 'aplay /home/pi/alert.wav'
 
+prometheus:
+  namespace: hass
+
 recorder:
   purge_keep_days: 30
 

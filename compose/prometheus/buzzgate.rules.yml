@@ -50,31 +50,24 @@ groups:
           summary: "Home Assistant is offline"
           description: "Prometheus cannot reach the Home Assistant container."
 
-      - alert: MosquittoDown
-        expr: up{job="mosquitto"} == 0
-        for: 30s
+      # Zigbee2MQTT and Pi-hole don't expose their own Prometheus metrics, and
+      # Mosquitto has no scrape job either - standing up dedicated exporters
+      # for all three was more than today's hardening pass covered. Instead:
+      # - Zigbee2MQTT's bridge connectivity is already surfaced as an HA
+      #   entity (binary_sensor.zigbee2mqtt_bridge_connection_state), which
+      #   the home-assistant scrape job above picks up for free.
+      # - Mosquitto and Pi-hole fall back to the generic ContainerDown rule
+      #   below (container name cy-mosquitto-z2m / cyhole). It only catches
+      #   the container being down, not the service inside hanging while the
+      #   container stays up - a real gap if that ever becomes the failure
+      #   mode, but it's what's in place today.
+      - alert: Zigbee2MQTTBridgeDown
+        expr: hass_binary_sensor_state{entity="binary_sensor.zigbee2mqtt_bridge_connection_state"} == 0
+        for: 1m
         labels:
           severity: critical
         annotations:
-          summary: "Mosquitto broker is offline"
-          description: "MQTT broker is not responding to Prometheus."
-
-      - alert: Zigbee2MQTTDown
-        expr: up{job="zigbee2mqtt"} == 0
-        for: 30s
-        labels:
-          severity: critical
-        annotations:
-          summary: "Zigbee2MQTT is offline"
-          description: "Zigbee2MQTT container is unreachable."
-
-      - alert: PiHoleDown
-        expr: up{job="pihole"} == 0
-        for: 30s
-        labels:
-          severity: warning
-        annotations:
-          summary: "Pi-hole is offline"
-          description: "DNS filtering service is not responding."
+          summary: "Zigbee2MQTT bridge is offline"
+          description: "Home Assistant reports the Zigbee2MQTT bridge as disconnected."
 
 
