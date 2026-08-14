@@ -16,9 +16,17 @@
     - delay: "00:00:02"
 
     # Step 3: Kitchen ceiling begins dimming
+    # Targets the 5 zone lights directly instead of the kitchen_ceiling_lights
+    # group helper: a group's turn_off silently no-ops for ALL members if even
+    # one member is briefly unavailable (e.g. mid Zigbee-mesh disruption).
     - service: light.turn_off
       target:
-        entity_id: light.kitchen_ceiling_lights
+        entity_id:
+          - light.kitchen_center
+          - light.kitchen_ne
+          - light.kitchen_nw
+          - light.kitchen_se
+          - light.kitchen_sw
       data:
         transition: 3
 
@@ -37,8 +45,15 @@
         entity_id:
           - light.hallway_lights
           - light.entryway_lights
-          - light.kitchen_ceiling_lights
-          - light.kitchen_under_cabinet
+          - light.kitchen_center
+          - light.kitchen_ne
+          - light.kitchen_nw
+          - light.kitchen_se
+          - light.kitchen_sw
+          - light.kitchen_uc_1
+          - light.kitchen_uc_3
+          - light.kitchen_uc_4
+          - light.kitchen_uc_5
           - light.dining_room
           - light.living_room_ceiling
 

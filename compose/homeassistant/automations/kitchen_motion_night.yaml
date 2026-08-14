@@ -13,9 +13,16 @@
       before: "06:00:00"
 
   action:
+    # Targets the 4 under-cabinet lights directly instead of the
+    # kitchen_under_cabinet group helper: a group's turn_on/turn_off silently
+    # no-ops for ALL members if even one member is briefly unavailable.
     - service: light.turn_on
       target:
-        entity_id: light.kitchen_under_cabinet
+        entity_id:
+          - light.kitchen_uc_1
+          - light.kitchen_uc_3
+          - light.kitchen_uc_4
+          - light.kitchen_uc_5
       data:
         brightness_pct: 20
         rgb_color: [100, 150, 255]
@@ -28,4 +35,8 @@
 
     - service: light.turn_off
       target:
-        entity_id: light.kitchen_under_cabinet
+        entity_id:
+          - light.kitchen_uc_1
+          - light.kitchen_uc_3
+          - light.kitchen_uc_4
+          - light.kitchen_uc_5
