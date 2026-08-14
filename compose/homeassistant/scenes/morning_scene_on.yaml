@@ -1,6 +1,24 @@
+# Kitchen ceiling zone lights listed individually instead of the
+# kitchen_ceiling_lights group helper - see evening_scene_on.yaml for why.
 - name: Buzzgate Morning
   entities:
-    light.kitchen_ceiling_lights:
+    light.kitchen_center:
+      state: "on"
+      brightness: 100
+      color_temp: 150
+    light.kitchen_ne:
+      state: "on"
+      brightness: 100
+      color_temp: 150
+    light.kitchen_nw:
+      state: "on"
+      brightness: 100
+      color_temp: 150
+    light.kitchen_se:
+      state: "on"
+      brightness: 100
+      color_temp: 150
+    light.kitchen_sw:
       state: "on"
       brightness: 100
       color_temp: 150

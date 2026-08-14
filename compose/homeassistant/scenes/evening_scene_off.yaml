@@ -1,3 +1,5 @@
+# Kitchen lights listed individually instead of the kitchen_ceiling_lights /
+# kitchen_under_cabinet group helpers - see evening_scene_on.yaml for why.
 - name: Buzzgate Evening Off
   entities:
     light.hallway_lights:
@@ -6,10 +8,26 @@
     light.entryway_lights:
       state: "off"
 
-    light.kitchen_ceiling_lights:
+    light.kitchen_center:
+      state: "off"
+    light.kitchen_ne:
+      state: "off"
+    light.kitchen_nw:
+      state: "off"
+    light.kitchen_se:
+      state: "off"
+    light.kitchen_sw:
       state: "off"
 
-    light.kitchen_under_cabinet:
+    light.kitchen_uc_1:
+      state: "off"
+    light.kitchen_uc_2:
+      state: "off"
+    light.kitchen_uc_3:
+      state: "off"
+    light.kitchen_uc_4:
+      state: "off"
+    light.kitchen_uc_5:
       state: "off"
 
     light.dining_room:
@@ -17,4 +35,3 @@
 
     light.living_room_ceiling:
       state: "off"
-

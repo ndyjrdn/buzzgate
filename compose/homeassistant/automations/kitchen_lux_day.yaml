@@ -4,9 +4,19 @@
   mode: single
   max_exceeded: silent
 
+  # numeric_state triggers only fire when CROSSING the threshold, not on every
+  # sensor update - the old bare `state` trigger fired on every lux
+  # fluctuation (this sensor updates every few seconds), spamming light
+  # commands and Zigbee traffic dozens of times a minute.
   trigger:
-    - platform: state
+    - platform: numeric_state
       entity_id: sensor.kitchen_lumos_illuminance
+      below: 200
+      id: dark
+    - platform: numeric_state
+      entity_id: sensor.kitchen_lumos_illuminance
+      above: 350
+      id: bright
 
   condition:
     - condition: sun
@@ -15,31 +25,48 @@
       before_offset: "-00:20:00"
 
   action:
-    - variables:
-        lux: "{{ states('sensor.kitchen_lumos_illuminance') | float(0) }}"
-
     - choose:
-        # Too dark — turn both kitchen lights on
-        - conditions: "{{ lux < 200 }}"
+        # Too dark — turn kitchen lights on. Targets zone/under-cabinet
+        # lights directly instead of the group helpers: a group's turn_on
+        # silently no-ops for ALL members if even one member is unavailable.
+        - conditions: "{{ trigger.id == 'dark' }}"
           sequence:
             - service: light.turn_on
               target:
-                entity_id: light.kitchen_ceiling_lights
+                entity_id:
+                  - light.kitchen_center
+                  - light.kitchen_ne
+                  - light.kitchen_nw
+                  - light.kitchen_se
+                  - light.kitchen_sw
               data:
                 brightness_pct: 80
                 color_temp: 250
             - service: light.turn_on
               target:
-                entity_id: light.kitchen_under_cabinet
+                entity_id:
+                  - light.kitchen_uc_1
+                  - light.kitchen_uc_2
+                  - light.kitchen_uc_3
+                  - light.kitchen_uc_4
+                  - light.kitchen_uc_5
               data:
                 brightness_pct: 40
                 color_temp: 300
 
         # Bright enough — turn both off
-        - conditions: "{{ lux > 350 }}"
+        - conditions: "{{ trigger.id == 'bright' }}"
           sequence:
             - service: light.turn_off
               target:
                 entity_id:
-                  - light.kitchen_ceiling_lights
-                  - light.kitchen_under_cabinet
+                  - light.kitchen_center
+                  - light.kitchen_ne
+                  - light.kitchen_nw
+                  - light.kitchen_se
+                  - light.kitchen_sw
+                  - light.kitchen_uc_1
+                  - light.kitchen_uc_2
+                  - light.kitchen_uc_3
+                  - light.kitchen_uc_4
+                  - light.kitchen_uc_5

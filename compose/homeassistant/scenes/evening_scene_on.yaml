@@ -5,17 +5,54 @@
       brightness: 200
       rgb_color: [215, 151, 255]   # purple accent
 
-    light.kitchen_ceiling_lights:
+    # Kitchen ceiling zone lights (listed individually instead of the
+    # kitchen_ceiling_lights group helper - a scene applies attributes via
+    # light.turn_on under the hood, which silently no-ops for ALL group
+    # members if even one is briefly unavailable).
+    light.kitchen_center:
       state: "on"
       brightness: 225
       color_temp: 75               # warm white
+    light.kitchen_ne:
+      state: "on"
+      brightness: 225
+      color_temp: 75
+    light.kitchen_nw:
+      state: "on"
+      brightness: 225
+      color_temp: 75
+    light.kitchen_se:
+      state: "on"
+      brightness: 225
+      color_temp: 75
+    light.kitchen_sw:
+      state: "on"
+      brightness: 225
+      color_temp: 75
 
     light.living_room_ceiling:
       state: "on"
       brightness: 225
       color_temp: 75               # warm white
 
-    light.kitchen_under_cabinet:
+    # Kitchen under-cabinet lights (individually, same reasoning as above)
+    light.kitchen_uc_1:
       state: "on"
       brightness_pct: 50
       color_temp: 325              # soft warm white
+    light.kitchen_uc_2:
+      state: "on"
+      brightness_pct: 50
+      color_temp: 325
+    light.kitchen_uc_3:
+      state: "on"
+      brightness_pct: 50
+      color_temp: 325
+    light.kitchen_uc_4:
+      state: "on"
+      brightness_pct: 50
+      color_temp: 325
+    light.kitchen_uc_5:
+      state: "on"
+      brightness_pct: 50
+      color_temp: 325

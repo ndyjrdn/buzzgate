@@ -1,17 +1,32 @@
+# Kitchen ceiling zone lights listed individually instead of the
+# kitchen_ceiling_lights group helper - see evening_scene_on.yaml for why.
 - name: Buzzgate Sundown
   entities:
     cover.all_curtains:
       state: "closed"
 
-    light.kitchen_ceiling_lights:
+    light.kitchen_center:
       state: "on"
       brightness: 200
       color_temp: 250
-
+    light.kitchen_ne:
+      state: "on"
+      brightness: 200
+      color_temp: 250
+    light.kitchen_nw:
+      state: "on"
+      brightness: 200
+      color_temp: 250
+    light.kitchen_se:
+      state: "on"
+      brightness: 200
+      color_temp: 250
+    light.kitchen_sw:
+      state: "on"
+      brightness: 200
+      color_temp: 250
 
     light.living_room_ceiling:
       state: "on"
       brightness: 200
       color_temp: 250
-
-

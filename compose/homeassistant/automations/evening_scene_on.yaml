@@ -7,9 +7,17 @@
 
   action:
     # Step 1: Kitchen ceiling on
+    # Targets the 5 zone lights directly instead of the kitchen_ceiling_lights
+    # group helper: a group's turn_on silently no-ops for ALL members if even
+    # one member is briefly unavailable.
     - service: light.turn_on
       target:
-        entity_id: light.kitchen_ceiling_lights
+        entity_id:
+          - light.kitchen_center
+          - light.kitchen_ne
+          - light.kitchen_nw
+          - light.kitchen_se
+          - light.kitchen_sw
       data:
         brightness: 225
         color_temp: 75

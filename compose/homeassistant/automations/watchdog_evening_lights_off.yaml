@@ -1,0 +1,35 @@
+- id: buzzgate_watchdog_evening_lights_off
+  alias: Buzzgate Watchdog - Evening Lights Still On
+  # Runs ~14 min after evening_scene_off's own safety-net retry finishes
+  # (21:30 trigger + ~16 min retry delay = done by ~21:46). If anything on
+  # this list is still on, evening_scene_off silently failed for it and
+  # nobody would otherwise notice until someone spots a light the next day.
+  # Keep this entity list in sync with the final step of evening_scene_off.yaml.
+  trigger:
+    - platform: time
+      at: "22:00:00"
+
+  condition:
+    - condition: template
+      value_template: >
+        {{ expand(
+             'light.hallway_lights','light.entryway_lights',
+             'light.kitchen_center','light.kitchen_ne','light.kitchen_nw','light.kitchen_se','light.kitchen_sw',
+             'light.kitchen_uc_1','light.kitchen_uc_2','light.kitchen_uc_3','light.kitchen_uc_4','light.kitchen_uc_5',
+             'light.dining_room','light.living_room_ceiling'
+           ) | selectattr('state','eq','on') | list | count > 0 }}
+
+  action:
+    - service: notify.mobile_app_dad
+      data:
+        title: "Buzzgate: evening lights still on"
+        message: >
+          {{ expand(
+               'light.hallway_lights','light.entryway_lights',
+               'light.kitchen_center','light.kitchen_ne','light.kitchen_nw','light.kitchen_se','light.kitchen_sw',
+               'light.kitchen_uc_1','light.kitchen_uc_2','light.kitchen_uc_3','light.kitchen_uc_4','light.kitchen_uc_5',
+               'light.dining_room','light.living_room_ceiling'
+             ) | selectattr('state','eq','on') | map(attribute='entity_id') | list | join(', ') }}
+          still on after evening_scene_off ran. A device likely didn't respond to its off command.
+
+  mode: single
