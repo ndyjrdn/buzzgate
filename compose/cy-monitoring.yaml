@@ -78,6 +78,8 @@ services:
       - "9093:9093"
     volumes:
       - /home/andy/buzzgate/compose/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+      - /home/andy/buzzgate/compose/alertmanager/.pushover_user_key:/etc/alertmanager/pushover_user_key:ro
+      - /home/andy/buzzgate/compose/alertmanager/.pushover_token:/etc/alertmanager/pushover_token:ro
     restart: unless-stopped
     networks:
       - compose_cynet

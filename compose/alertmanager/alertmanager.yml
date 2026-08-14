@@ -20,7 +20,7 @@ receivers:
   #       require_tls: true
   - name: 'pushover-notifications'
     pushover_configs:
-      - user_key: 'REDACTED_PUSHOVER_USERKEY'
-        token: 'REDACTED_PUSHOVER_TOKEN'
+      - user_key_file: /etc/alertmanager/pushover_user_key
+        token_file: /etc/alertmanager/pushover_token
         title: '{{ .CommonLabels.alertname }}'
         message: '{{ .CommonAnnotations.summary }}'

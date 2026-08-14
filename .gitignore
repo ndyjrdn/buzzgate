@@ -459,4 +459,8 @@ monitor/speedtest/speedtest.json
 # Prometheus's HA scrape credential
 compose/prometheus/.ha_token
 
+# Alertmanager's Pushover credentials
+compose/alertmanager/.pushover_user_key
+compose/alertmanager/.pushover_token
+
 
