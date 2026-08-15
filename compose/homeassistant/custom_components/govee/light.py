@@ -141,6 +141,7 @@ class GoveeLightEntity(LightEntity):
         self._title = title
         self._coordinator = coordinator
         self._device = device
+        self._active_color_mode = None
 
     @property
     def entity_registry_enabled_default(self):
@@ -172,6 +173,18 @@ class GoveeLightEntity(LightEntity):
                 color_mode.add(ColorMode.ONOFF)
         return color_mode
 
+    @property
+    def color_mode(self) -> ColorMode:
+        """Return the currently active color mode.
+
+        The Govee API reports color and color_temp independently, so we
+        track whichever the light was last commanded into.
+        """
+        modes = self.supported_color_modes
+        if self._active_color_mode in modes:
+            return self._active_color_mode
+        return next(iter(modes))
+
     async def async_turn_on(self, **kwargs):
         """Turn device on."""
         _LOGGER.debug(
@@ -185,6 +198,7 @@ class GoveeLightEntity(LightEntity):
             just_turn_on = False
             col = color.color_hs_to_RGB(hs_color[0], hs_color[1])
             _, err = await self._hub.set_color(self._device, col)
+            self._active_color_mode = ColorMode.HS
         if ATTR_BRIGHTNESS in kwargs:
             brightness = kwargs.pop(ATTR_BRIGHTNESS)
             just_turn_on = False
@@ -198,6 +212,7 @@ class GoveeLightEntity(LightEntity):
             elif color_temp < COLOR_TEMP_KELVIN_MIN:
                 color_temp = COLOR_TEMP_KELVIN_MIN
             _, err = await self._hub.set_color_temp(self._device, color_temp)
+            self._active_color_mode = ColorMode.COLOR_TEMP
 
         # if there is no known specific command - turn on
         if just_turn_on:
