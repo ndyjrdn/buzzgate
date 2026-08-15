@@ -71,6 +71,30 @@ services:
     networks:
       - compose_cynet
       
+  snmp-exporter:
+    image: prom/snmp-exporter:latest
+    container_name: snmp-exporter
+    restart: unless-stopped
+    ports:
+      - "9116:9116"
+    volumes:
+      - /home/andy/buzzgate/compose/snmp_exporter/snmp.yml:/etc/snmp_exporter/snmp.yml:ro
+    networks:
+      - compose_cynet
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter:latest
+    container_name: blackbox-exporter
+    restart: unless-stopped
+    cap_add:
+      - NET_RAW
+    ports:
+      - "9115:9115"
+    volumes:
+      - /home/andy/buzzgate/compose/blackbox_exporter/blackbox.yml:/etc/blackbox_exporter/config.yml:ro
+    networks:
+      - compose_cynet
+
   alertmanager:
     image: prom/alertmanager:latest
     container_name: alertmanager

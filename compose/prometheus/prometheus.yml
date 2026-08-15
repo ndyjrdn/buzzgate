@@ -25,3 +25,44 @@ scrape_configs:
       credentials_file: /etc/prometheus/ha_token
     static_configs:
       - targets: ['cy-ha:8123']
+  - job_name: 'blackbox-router-icmp'
+    metrics_path: /probe
+    params:
+      module: [icmp]
+    static_configs:
+      - targets: ['192.168.1.1']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox-exporter:9115
+  - job_name: 'snmp-router'
+    metrics_path: /snmp
+    params:
+      module: [if_mib]
+      auth: [buzzgate_v2]
+    static_configs:
+      - targets: ['192.168.1.1']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: snmp-exporter:9116
+  - job_name: 'snmp-router-switch'
+    metrics_path: /snmp
+    params:
+      module: [synology_switch]
+      auth: [buzzgate_v2]
+    static_configs:
+      - targets: ['192.168.1.1']
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: snmp-exporter:9116

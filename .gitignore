@@ -463,4 +463,7 @@ compose/prometheus/.ha_token
 compose/alertmanager/.pushover_user_key
 compose/alertmanager/.pushover_token
 
+# Contains the SNMP community string used to poll the router
+compose/snmp_exporter/snmp.yml
+
 

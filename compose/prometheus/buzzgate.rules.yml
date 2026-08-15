@@ -76,4 +76,31 @@ groups:
           summary: "Zigbee2MQTT bridge is offline"
           description: "Home Assistant reports the Zigbee2MQTT bridge as disconnected."
 
+  - name: router-health
+    rules:
+      - alert: RouterUnreachable
+        expr: probe_success{job="blackbox-router-icmp"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Router is unreachable"
+          description: "Blackbox ICMP probe to the router (192.168.1.1) has failed for over 1 minute."
+
+      # Standard IF-MIB (job snmp-router) only sees the SoC's internal
+      # uplinks to the switch chip, which always report 1Gb/s regardless of
+      # what's plugged into the physical ports - it can't see this. The
+      # synology_switch module (job snmp-router-switch) walks Synology's
+      # private per-port MIB instead, which is what actually caught port 3
+      # running at 100Mb/s. ">0" excludes unplugged ports (they report 0,
+      # not a real degraded link).
+      - alert: RouterPortSpeedDegraded
+        expr: synoPortSpeedMbps{job="snmp-router-switch"} > 0 and synoPortSpeedMbps{job="snmp-router-switch"} < 1000
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Router port {{ $labels.port }} is running below gigabit"
+          description: "Physical switch port index {{ $labels.port }} on the router is linked at less than 1000Mb/s."
+
 
