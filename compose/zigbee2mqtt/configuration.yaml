@@ -77,12 +77,8 @@ devices:
     friendly_name: tyler_motion
   '0xe406bffffe2ba7e8':
     friendly_name: lr_curtain_north
-  '0xb0ce1814002148f6':
-    friendly_name: kitchen_center
   '0xb40e060fffe07254':
     friendly_name: kia_motion
-  '0xb0ce181400214913':
-    friendly_name: kitchen_sw
   '0xb0ce181400214aaa':
     friendly_name: kitchen_nw
   '0xb0ce181400214ac5':
@@ -151,13 +147,17 @@ devices:
     friendly_name: moms_closet_motion
   '0x403059fffe6349c4':
     friendly_name: kia_curtain
-  '0x00158d008b1f6e6f':
-    friendly_name: garage_light2
-  '0x00158d008b1f84a2':
-    friendly_name: garage_light1
   '0xb40e060fffe23825':
     friendly_name: garage_motion
   '0xa4c1380c83af2d32':
     friendly_name: kitchen_uc_2
   '0xa4c1381f17fb1e4d':
     friendly_name: kitchen_uc_5
+  '0x00158d008b1f6e6f':
+    friendly_name: garage_light1
+  '0x00158d008b1f84a2':
+    friendly_name: garage_light2
+  '0xb0ce1814002148f6':
+    friendly_name: kitchen_center
+  '0xb0ce181400214913':
+    friendly_name: kitchen_sw
