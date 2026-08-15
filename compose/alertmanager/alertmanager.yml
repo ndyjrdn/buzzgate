@@ -24,3 +24,9 @@ receivers:
         token_file: /etc/alertmanager/pushover_token
         title: '{{ .CommonLabels.alertname }}'
         message: '{{ .CommonAnnotations.summary }}'
+        # Alertmanager's own default (unset priority) is 2 = Emergency, which
+        # re-rings every 1m for up to 1h until acknowledged - too aggressive
+        # for anything short of "the whole house is dark". critical -> 1
+        # (High: gets attention, bypasses quiet hours, sends once). Anything
+        # else (e.g. warning) -> 0 (Normal, quiet). Resolved notices -> 0.
+        priority: '{{ if eq .Status "resolved" }}0{{ else if eq .CommonLabels.severity "critical" }}1{{ else }}0{{ end }}'
