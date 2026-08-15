@@ -51,7 +51,10 @@ services:
     networks:
       - compose_cynet
     privileged: true
-  
+    dns:
+      - 192.168.1.177
+      - 1.1.1.1
+
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8123"]
       interval: 30s
