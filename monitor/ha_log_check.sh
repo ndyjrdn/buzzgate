@@ -53,8 +53,11 @@ fi
 FILTERED_TRUNC=$(echo "$FILTERED" | tail -c 20000)
 
 # --- 3. Ask HA which config entries are currently failed ---
+# Entries with source "ignore" were deliberately dismissed by the user (e.g. a
+# discovered device intentionally not set up because another integration owns
+# the hardware) — HA never attempts to load them, so they're not a failure.
 FAILED_ENTRIES=$(curl -s -H "$AUTH_HEADER" "$HA_URL/api/config/config_entries/entry" \
-  | jq -c '[.[] | select(.state != "loaded") | {entry_id, title, domain, state}]' 2>/dev/null || echo "[]")
+  | jq -c '[.[] | select(.state != "loaded" and .source != "ignore") | {entry_id, title, domain, state}]' 2>/dev/null || echo "[]")
 
 # --- 4. Analysis only — no tool access, so the token is never exposed to the model ---
 SCHEMA='{"type":"object","properties":{"has_issues":{"type":"boolean"},"summary":{"type":"string"},"entries_to_reload":{"type":"array","items":{"type":"string"}},"notification_message":{"type":"string"}},"required":["has_issues","summary","entries_to_reload","notification_message"]}'
