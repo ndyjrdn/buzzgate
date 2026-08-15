@@ -2,8 +2,14 @@ groups:
   - name: container-alerts
     rules:
       - alert: ContainerDown
+        # for: 5m is deliberate, not just "longer is safer": recreating a
+        # container (stop+rm+new container, as opposed to a plain restart)
+        # leaves its old cgroup metric series permanently frozen in cAdvisor,
+        # not just briefly stale. Prometheus's own staleness detection
+        # retires that dead series after ~5m; for needs to outlast that so a
+        # routine recreate never fires this, while a real outage still does.
         expr: time() - container_last_seen > 60
-        for: 1m
+        for: 5m
         labels:
           severity: critical
         annotations:
