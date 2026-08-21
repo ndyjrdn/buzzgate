@@ -8,8 +8,10 @@ services:
     pid: host
     command:
       - '--path.rootfs=/host'
+      - '--collector.textfile.directory=/textfile_collector'
     volumes:
       - /:/host:ro,rslave
+      - /home/andy/buzzgate/monitor/textfile_collector:/textfile_collector:ro
     networks:
       - compose_cynet
 

@@ -11,6 +11,8 @@ serial:
 frontend:
   enabled: true
   port: 4242
+availability:
+  enabled: true
 advanced:
   log_level: info
   pan_id: 6754
