@@ -11,6 +11,7 @@
     # group helper: a group's turn_on silently no-ops for ALL members if even
     # one member is briefly unavailable.
     - service: light.turn_on
+      continue_on_error: true
       target:
         entity_id:
           - light.kitchen_center
@@ -20,21 +21,23 @@
           - light.kitchen_sw
       data:
         brightness: 225
-        color_temp: 75
+        color_temp_kelvin: 2700   # was color_temp: 75 mireds (removed in HA 2026.8); "warm white" per intent
 
     # Step 2: Small delay for the effect
     - delay: "00:00:01"
 
     # Step 3: Living room ceiling on
     - service: light.turn_on
+      continue_on_error: true
       target:
         entity_id: light.living_room_ceiling
       data:
         brightness: 225
-        color_temp: 75
+        color_temp_kelvin: 2700   # was color_temp: 75 mireds (removed in HA 2026.8)
 
     # Step 4: Apply the scene to finalize all lights + hallway + colors
     - service: scene.turn_on
+      continue_on_error: true
       target:
         entity_id: scene.buzzgate_evening_on
 

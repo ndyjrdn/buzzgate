@@ -18,7 +18,7 @@
                 entity_id: light.master_ceiling_white
               data:
                 brightness_pct: 100        # standardized from brightness: 255
-                color_temp: 250
+                color_temp_kelvin: 4000     # was color_temp: 250 mireds (removed in HA 2026.8)
             - service: timer.start
               target:
                 entity_id: timer.master_bedroom_motion_hold
