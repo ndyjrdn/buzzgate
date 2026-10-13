@@ -1,0 +1,14 @@
+- id: craftroom_motion
+  alias: CraftRroom – Motion Lighting
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.craftroom_motion_occupancy
+      to: "on"
+  action:
+    - service: switch.turn_on
+      target:
+        entity_id:
+          - switch.plug_b1
+          
+    
