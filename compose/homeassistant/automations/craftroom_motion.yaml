@@ -1,14 +1,58 @@
 - id: craftroom_motion
-  alias: CraftRroom – Motion Lighting
+  alias: Craftroom – Motion Lighting
   mode: restart
   trigger:
     - platform: state
-      entity_id: binary_sensor.craftroom_motion_occupancy
+      entity_id: binary_sensor.0xb40e060fffe23838_occupancy
       to: "on"
+  condition:
+    - condition: state
+      entity_id: input_boolean.craftroom_motion_suppress
+      state: "off"
   action:
     - service: switch.turn_on
       target:
         entity_id:
-          - switch.plug_b1
-          
-    
+          - switch.b1_plug
+
+# NFC tag toggles the lights. Turning off via tag suppresses motion so the
+# lights don't snap back on while someone is still in the room.
+- id: craftroom_nfc_toggle
+  alias: Craftroom – NFC Tag Toggle
+  mode: single
+  trigger:
+    - platform: tag
+      tag_id: craftroom_lights
+  action:
+    - if:
+        - condition: state
+          entity_id: switch.b1_plug
+          state: "on"
+      then:
+        - service: switch.turn_off
+          target:
+            entity_id: switch.b1_plug
+        - service: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.craftroom_motion_suppress
+      else:
+        - service: switch.turn_on
+          target:
+            entity_id: switch.b1_plug
+        - service: input_boolean.turn_off
+          target:
+            entity_id: input_boolean.craftroom_motion_suppress
+
+# Re-arm motion once the room has been empty for 5 minutes.
+- id: craftroom_motion_rearm
+  alias: Craftroom – Re-arm Motion
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.0xb40e060fffe23838_occupancy
+      to: "off"
+      for: "00:05:00"
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.craftroom_motion_suppress

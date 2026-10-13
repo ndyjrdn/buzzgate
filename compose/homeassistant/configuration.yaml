@@ -39,6 +39,11 @@ input_datetime:
     has_time: true
     has_date: false
 
+input_boolean:
+  craftroom_motion_suppress:
+    name: Craftroom Motion Suppress
+    icon: mdi:motion-sensor-off
+
 timer:
   bedroom_motion_hold:
     name: Bedroom Motion Hold
