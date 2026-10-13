@@ -34,12 +34,17 @@
                 brightness_pct: 50
                 rgb_color: [128, 0, 255]
 
-    # Auto-off logic
+    # Auto-off logic: lights stay on until the room has been
+    # clear of motion for 20 minutes. Any new motion restarts
+    # this automation (mode: restart), resetting the 20 minutes.
+    # The outer timeout is just a safety net in case the sensor
+    # gets stuck reporting "on".
     - wait_for_trigger:
         - platform: state
           entity_id: binary_sensor.kia_motion
           to: "off"
-      timeout: "00:03:00"
+          for: "00:20:00"
+      timeout: "01:00:00"
 
     - service: light.turn_off
       target:
