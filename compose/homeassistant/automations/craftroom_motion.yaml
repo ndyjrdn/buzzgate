@@ -3,12 +3,12 @@
   mode: restart
   trigger:
     - platform: state
-      entity_id: binary_sensor.craftroom_motion_occupancy
+      entity_id: binary_sensor.0xb40e060fffe23838_occupancy
       to: "on"
   action:
     - service: switch.turn_on
       target:
         entity_id:
-          - switch.plug_b1
+          - switch.b1_plug
           
     
